@@ -3,7 +3,17 @@
     <textarea matInput type="text" [(ngModel)]="fetchedCompanie.quoteSettings.legalNotice"
       matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="10"
 
-      placeholder="{{'Legal Notice' | translate}}">
+      placeholder="{{'Quote Legal Notice' | translate}}">
+    </textarea>
+  </mat-form-field>
+</mat-card>
+<br>
+<mat-card>
+  <mat-form-field>
+    <textarea matInput type="text" [(ngModel)]="fetchedCompanie.quoteSettings.legalNotice"
+      matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="10"
+
+      placeholder="{{'Invoice Legal Notice' | translate}}">
     </textarea>
   </mat-form-field>
 </mat-card>
@@ -31,3 +41,6 @@
   </mat-button-toggle-group>
   <app-loginInApp *ngIf="showLoginInApp" (loginInAppDone)="loginInAppDone()"></app-loginInApp>
 </mat-card>
+
+
+
