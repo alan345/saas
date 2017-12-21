@@ -307,7 +307,7 @@ export const LANG_FR_TRANS = {
     'Quote Legal Notice': 'Informations légales du devis',
     'Invoice Legal Notice': 'Informations légales de la Facture',
     'Your logo': 'Logo de votre entreprise',
-    'Documents Settings': 'Paramétrage des documents'
+    'Documents Settings': 'Paramétrage des documents',
   
     'Cost Price': 'Prix d´achat',
 
