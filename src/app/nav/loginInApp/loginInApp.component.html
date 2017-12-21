@@ -1,5 +1,5 @@
 <mat-form-field>
-  <input matInput type="password" placeholder="Password" #password>
+  <input matInput type="password" placeholder="{{'Password' | translate}}" #password>
   <button matSuffix mat-icon-button color="warn" class="mediumIcon" (click)="loginInApp(password.value)">
     <mat-icon *ngIf="password.value">forward</mat-icon>
   </button>

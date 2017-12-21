@@ -169,7 +169,9 @@ export class CategProductComponent implements OnInit {
   //
   // }
 
-
+  onBlurMethod() {
+    this.save.emit()
+  }
   addCateg(typeCateg, level, index1, index2, index3) {
       this.showLoginInApp = true
       const newCategorie = new Categorie0()

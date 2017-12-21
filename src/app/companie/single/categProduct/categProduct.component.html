@@ -4,7 +4,7 @@
 <div class="productcatbord" *ngFor="let categorie0 of fetchedCompanie.categories.categProduct; let i = index;">
 
   <mat-form-field class="categprod">
-    <input matInput placeholder="{{'Category' | translate}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedCompanie.categories.categProduct[i].categ">
+    <input (blur)="onBlurMethod()" matInput placeholder="{{'Category' | translate}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedCompanie.categories.categProduct[i].categ">
     <mat-icon color="warn" class="pointer" matSuffix (click)="removeCateg('categProduct', 1,i,0,0)">backspace</mat-icon>
     <mat-icon color="accent" class="pointer" matSuffix (click)="addCateg('categProduct', 1,i,0,0)">queue</mat-icon>
   </mat-form-field>
@@ -14,7 +14,7 @@
 
   <div *ngFor="let categorie1 of categorie0.subCateg; let j = index;">
     <mat-form-field class="subcategprod">
-      <input matInput placeholder="{{'SubCategory' | translate}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedCompanie.categories.categProduct[i].subCateg[j].categ">
+      <input (blur)="onBlurMethod()" matInput placeholder="{{'SubCategory' | translate}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedCompanie.categories.categProduct[i].subCateg[j].categ">
       <mat-icon color="warn" class="pointer" matSuffix (click)="removeCateg('categProduct', 2,i,j,0)">backspace</mat-icon>
       <mat-icon color="accent" class="pointer" matSuffix (click)="addCateg('categProduct', 2,i,j,0)">queue</mat-icon>
     </mat-form-field>
@@ -24,7 +24,7 @@
 
     <div *ngFor="let categorie2 of categorie1.subCateg; let k = index;">
       <mat-form-field class="typecategprod">
-        <input matInput placeholder="{{'Product Type' | translate}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedCompanie.categories.categProduct[i].subCateg[j].subCateg[k].categ">
+        <input (blur)="onBlurMethod()" matInput placeholder="{{'Product Type' | translate}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedCompanie.categories.categProduct[i].subCateg[j].subCateg[k].categ">
         <mat-icon color="warn" class="pointer" matSuffix (click)="removeCateg('categProduct', 3,i,j,k)">backspace</mat-icon>
       </mat-form-field>
     </div>
