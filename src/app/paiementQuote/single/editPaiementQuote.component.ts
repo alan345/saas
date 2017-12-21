@@ -216,7 +216,7 @@ export class EditPaiementQuoteComponent implements OnInit {
     }
 
   save() {
-    let this2=this
+    let this2 = this
     return new Promise(function(resolve, reject) {
       // this2.fetchedPaiementQuote
       // .datePaiement = this2.authService
@@ -282,7 +282,9 @@ export class EditPaiementQuoteComponent implements OnInit {
     dialogRefDelete.afterClosed().subscribe(result => {
       if (result) {
         this.onDelete(this.fetchedPaiementQuote._id).then(function(){
-          this2.router.navigate(['paiementQuote/list']);
+          this2.close.emit()
+          // this2.save()
+          // this2.router.navigate(['paiementQuote/list']);
         })
       }
     })

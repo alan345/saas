@@ -93,20 +93,20 @@ export class PaiementQuotesComponent implements OnInit {
     this.getPaiementQuotes(this.paginationData.currentPage, this.search)
   }
 
-  onDelete(id: string) {
-    this.paiementQuoteService.deletePaiementQuote(id)
-      .subscribe(
-        res => {
-          this.getPaiementQuotesInit()
-          this.toastr.success('Great!', res.message);
-          this.getPaiementQuotesCross.emit(this.fetchedPaiementQuotes)
-          // console.log(res);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
+  // onDelete(id: string) {
+  //   this.paiementQuoteService.deletePaiementQuote(id)
+  //     .subscribe(
+  //       res => {
+  //         this.getPaiementQuotesInit()
+  //         this.toastr.success('Great!', res.message);
+  //         this.getPaiementQuotesCross.emit(this.fetchedPaiementQuotes)
+  //         // console.log(res);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
 
   getPage(page: number) {
