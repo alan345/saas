@@ -146,11 +146,14 @@ export class PaiementQuotesComponent implements OnInit {
       }
     })
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
+      // console.log('ab')
+      // if (result) {
+      //   console.log('a')
+        this.getPaiementQuotes(1, this.search)
         // this.onDelete(this.fetchedPaiementQuote._id).then(function(){
         //   this2.router.navigate(['paiementQuote/list']);
         // })
-      }
+      // }
     })
   }
 
