@@ -110,8 +110,9 @@
           <app-paiement-card [newCard]="newCard"></app-paiement-card>
         </div>
 
-      <div class="col-sm-12 col-md-6 col-lg-6">
+      
         <div *ngFor="let card of stripeCust.sources.data; let i=index;">
+          <div class="col-sm-12 col-md-6 col-lg-6">
           <mat-form-field>
             <input matInput readonly value="{{card.id}}" placeholder="cardId">
           </mat-form-field>
