@@ -1,7 +1,7 @@
 <button mat-raised-button color="accent" (click)="addCateg('categProduct', 0, 0, 0, 0)">{{'Add Categ Products' | translate}}</button>
 
 
-<div *ngFor="let categorie0 of fetchedCompanie.categories.categProduct; let i = index;">
+<div class="productcatbord" *ngFor="let categorie0 of fetchedCompanie.categories.categProduct; let i = index;">
 
   <mat-form-field class="categprod productcatbord">
     <input matInput placeholder="Category" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedCompanie.categories.categProduct[i].categ">
