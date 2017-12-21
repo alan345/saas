@@ -1,25 +1,38 @@
 <mat-card>
+  {{'Your logo' | translate}}
+  <app-picture [showPagination]=false [forms]="fetchedCompanie.forms"></app-picture>
+</mat-card>
+<br>
+<mat-card>
   <mat-form-field>
     <textarea matInput type="text" [(ngModel)]="fetchedCompanie.quoteSettings.legalNotice"
       matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="10"
 
-      placeholder="{{'Legal Notice' | translate}}">
+      placeholder="{{'Quote Legal Notice' | translate}}">
     </textarea>
   </mat-form-field>
 </mat-card>
 <br>
 <mat-card>
-  <app-picture [showPagination]=false [forms]="fetchedCompanie.forms"></app-picture>
-</mat-card>
-<br>
-<mat-card>
-  <app-quote-vat (save)="save()" [fetchedCompanie]="fetchedCompanie"></app-quote-vat>
+  <mat-form-field>
+    <textarea matInput type="text" [(ngModel)]="fetchedCompanie.quoteSettings.legalNotice"
+      matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="10"
+
+      placeholder="{{'Invoice Legal Notice' | translate}}">
+    </textarea>
+  </mat-form-field>
 </mat-card>
 <br>
 <mat-card>
   <app-quote-legal-approval (save)="save()" [fetchedCompanie]="fetchedCompanie"></app-quote-legal-approval>
 </mat-card>
 <br>
+
+<mat-card>
+  <app-quote-vat (save)="save()" [fetchedCompanie]="fetchedCompanie"></app-quote-vat>
+</mat-card>
+<br>
+
 <mat-card class="ac">
   <mat-button-toggle-group (change)="changeCurrency()" [(ngModel)]="fetchedCompanie.option.currency">
     <mat-button-toggle value="€">
@@ -31,3 +44,6 @@
   </mat-button-toggle-group>
   <app-loginInApp *ngIf="showLoginInApp" (loginInAppDone)="loginInAppDone()"></app-loginInApp>
 </mat-card>
+
+
+
