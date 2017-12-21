@@ -282,6 +282,7 @@ export const LANG_FR_TRANS = {
 
     'Connect with Stripe': 'Connecter avec Stripe',
 
+    'Add Categ Products': 'Ajouter Catégorie',
     'Product Categories': 'Catégories Produits',
     'SubCategory': 'Sous-Catégorie',
     'Product Type': 'Type de Produit',
