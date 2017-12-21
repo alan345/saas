@@ -12,10 +12,14 @@ var express = require('express'),
   Companie = require('../models/companie.model'),
   User = require('../models/user.model'),
   shared = require('./shared.js'),
+  initData = require('./initData.js'),
   paiement = require('./paiement.js');
 // user register
-router.post('/register', function(req, res, next) {
 
+
+
+
+router.post('/register', function(req, res, next) {
 
   var companie = new Companie()
   // companie.nameCompanie = 'My Companie'
@@ -33,7 +37,7 @@ router.post('/register', function(req, res, next) {
       // companies: result._id,
       // isAdminOfHisCompanie: true,
     });
-    user.save(function(err, result) {
+    user.save(function(err, userResult) {
       if (err) {
         return res.status(403).json({
           title: 'There was an issue',
@@ -42,7 +46,8 @@ router.post('/register', function(req, res, next) {
           }
         });
       }
-      res.status(200).json({message: 'Registration Successfull', obj: result})
+      initData.initCompanie(result)
+      res.status(200).json({message: 'Registration Successfull', obj: userResult})
     })
   })
 

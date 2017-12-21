@@ -52,6 +52,7 @@ export const LANG_FR_TRANS = {
     'Create a new': 'Créer un nouveau',
     'product': 'produit',
     'Products': 'Produits',
+    'Paiement: Stripe Connection': 'Paiement: Connexion avec Stripe',
     'Create an new product': 'Créer un nouveau produit',
     'List': 'Liste',
     'Price': 'Prix',
