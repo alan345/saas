@@ -14,7 +14,6 @@ module.exports = {
     return new Promise(function(resolve, reject) {
       console.log(companie)
 
-      
     })
   }
 
