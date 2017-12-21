@@ -9,6 +9,7 @@ export class Search {
   quoteType: string = '';
   quoteId: string = '';
   userId: string = '';
+  paiementQuoteId: string = '';
   // assignedToId: string = '';
   projectId: string = '';
   parentQuoteId: string = '';

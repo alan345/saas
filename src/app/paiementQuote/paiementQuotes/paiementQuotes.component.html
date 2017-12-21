@@ -48,7 +48,8 @@
         </thead>
 
         <tbody class="clienttbl">
-          <tr *ngFor="let paiementQuote of fetchedPaiementQuotes" [routerLink]="['/paiementQuote/edit/' + paiementQuote._id]" routerLinkActive="active">
+          <!-- <tr *ngFor="let paiementQuote of fetchedPaiementQuotes" [routerLink]="['/paiementQuote/edit/' + paiementQuote._id]" routerLinkActive="active"> -->
+          <tr *ngFor="let paiementQuote of fetchedPaiementQuotes" (click)="openDialogPaiement(paiementQuote._id)" routerLinkActive="active">
             <td class="centre tdunder hideMobile">{{paiementQuote.type}}</td>
 
             <td class="centre tdunder hideMobile">
@@ -64,7 +65,7 @@
                   {{client.profile.name}} {{client.profile.lastName}}
                 <!-- </div> -->
               </div>
-            </td>            
+            </td>
 
             <td class="centre tdunder hideMobile">{{paiementQuote.datePaiement | date:'yyyy-MM-dd' }}</td>
             <td class="centre tdunder">{{paiementQuote.amount | round | currency}}</td>
@@ -72,7 +73,7 @@
         </tbody>
       </table>
       <div>
-        <mat-paginator *ngIf="paginationData.totalItems>paginationData.itemsPerPage"  [length]="paginationData.totalItems" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
+        <mat-paginator *ngIf="paginationData.totalItems>paginationData.itemsPerPage" [length]="paginationData.totalItems" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
         </mat-paginator>
 
       </div>

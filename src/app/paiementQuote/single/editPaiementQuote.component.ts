@@ -103,6 +103,7 @@ export class EditPaiementQuoteComponent implements OnInit {
    this.close.emit()
  }
   ngOnInit() {
+
     setTimeout(() => { this.step = 0});
     this.myForm = this._fb.group({
       amount: [''],
@@ -117,16 +118,24 @@ export class EditPaiementQuoteComponent implements OnInit {
     // this.authService
     // .isoDateToHtmlDate(this.fetchedPaiementQuote.datePaiement)
 
-    this.fetchedPaiementQuote.isExpense = this.search.isExpense
-    this.activatedRoute.params.subscribe((params: Params) => {
-    //   if(params['isExpense']) {this.fetchedPaiementQuote.isExpense = true}
-    //   if(params['isGooplusPaiement']) {this.fetchedPaiementQuote.isGooplusPaiement = true}
-      if(params['idPaiementQuote']) {
-        this.getPaiementQuote(params['idPaiementQuote'])
-      }
-    //   if(params['idQuote']) {this.getQuote(params['idQuote'])}
-    })
+    // this.fetchedPaiementQuote.isExpense = this.search.isExpense
+    // this.activatedRoute.params.subscribe((params: Params) => {
+    // //   if(params['isExpense']) {this.fetchedPaiementQuote.isExpense = true}
+    // //   if(params['isGooplusPaiement']) {this.fetchedPaiementQuote.isGooplusPaiement = true}
+    //   if(params['idPaiementQuote']) {
+    //     this.getPaiementQuote(params['idPaiementQuote'])
+    //   }
+    // //   if(params['idQuote']) {this.getQuote(params['idQuote'])}
+    // })
+
+
+    if (this.search.paiementQuoteId) {
+      this.getPaiementQuote(this.search.paiementQuoteId)
+    }
   }
+  // ngOnChanges() {
+  //   console.log(this.search)
+  // }
 
   // autocompleteAfterNgChanges(result) {
   //   this.fetchedPaiementQuote.quotes.forEach((quote: Quote) => {

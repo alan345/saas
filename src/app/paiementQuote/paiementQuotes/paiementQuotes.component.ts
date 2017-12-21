@@ -3,12 +3,12 @@ import { AuthService} from '../../auth/auth.service';
 import { PaiementQuoteService} from '../../paiementQuote/paiementQuote.service';
 import { PaiementQuote} from '../../paiementQuote/paiementQuote.model';
 import { ToastsManager} from 'ng2-toastr';
-// import { MatDialog} from '@angular/material';
+import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params} from '@angular/router';
 // import { Location} from '@angular/common';
 import { Search} from '../../shared/shared.model'
 import { GlobalEventsManager } from '../../globalEventsManager';
-
+import { PaiementQuoteDialogComponent } from '../single/dialog/paiementQuoteDialog.component'
 
 
 
@@ -50,7 +50,7 @@ export class PaiementQuotesComponent implements OnInit {
     private authService: AuthService,
     private activatedRoute: ActivatedRoute,
     private toastr: ToastsManager,
-    // public dialog: MatDialog,
+    public dialog: MatDialog,
     private router: Router,
     // private location: Location,
     private globalEventsManager: GlobalEventsManager,
@@ -136,9 +136,27 @@ export class PaiementQuotesComponent implements OnInit {
     this.getPaiementQuotes(1, this.search)
   }
 
-  isAdmin() {
-    return this.authService.isAdmin();
+  openDialogPaiement(paiementQuoteId: string) {
+    const this2 = this
+    const dialogRef = this.dialog.open(PaiementQuoteDialogComponent, {
+      data : {
+        search: {
+          paiementQuoteId: paiementQuoteId
+        }
+      }
+    })
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // this.onDelete(this.fetchedPaiementQuote._id).then(function(){
+        //   this2.router.navigate(['paiementQuote/list']);
+        // })
+      }
+    })
   }
+
+  // isAdmin() {
+  //   return this.authService.isAdmin();
+  // }
 
 
 }
