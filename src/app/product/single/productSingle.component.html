@@ -12,7 +12,7 @@
       </mat-expansion-panel-header>
 
       <div class="row">
-        <button (click)="changeCascade(i, -1, -1)" *ngFor="let itemStep of itemSteps;let i=index;" type="button" class="prodbtn" [ngClass]="{'btn-success': i==selectedIndex0, '': i!=selectedIndex0}">
+        <button (click)="changeCascade(i, -1, -1)" *ngFor="let itemStep of itemSteps;let i=index;" type="button" class="prodbtn" [ngClass]="{'prodbtnsel': i==selectedIndex0, '': i!=selectedIndex0}">
           {{itemStep.categ}}
         </button>
       </div>
