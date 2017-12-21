@@ -308,6 +308,8 @@ export const LANG_FR_TRANS = {
     'Invoice Legal Notice': 'Informations légales de la Facture',
     'Your logo': 'Logo de votre entreprise',
     'Documents Settings': 'Paramétrage des documents'
+  
+    'Cost Price': 'Prix d´achat',
 
 
 
