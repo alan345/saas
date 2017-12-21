@@ -251,6 +251,60 @@ export const LANG_FR_TRANS = {
     'week': 'semaine',
     'day': 'jour',
     'list': 'liste',
+  
+	
+	
+    'Companie': 'Entreprise',
+    'Companie Email': 'Email Entreprise',
+    'Plan': 'Abonnement',
+    'Terms': 'Inscription',
+    'Card': 'Carte bancaire',
+    'address_city': 'Ville de la carte',
+    'address_country': 'Pays de la carte',
+    'address_line1': 'Adresse',
+    'address_line2': 'Complément d`adresse',
+    'address_state': 'Etat',
+    'address_zip': 'Code Postal',
+    'brand': 'Type de carte',
+    'country': 'Pays',
+    'exp_mont': 'Mois d´expiration',
+    'exp_year': 'Année expiration',
+    'funding': 'financement',
+    'last4': 'derniers chiffres de la carte',
+    'delete Card': 'Supprimer Carte',
+
+      'Next': 'Suivant',
+      'Subscritpion': 'Souscription',
+      'Amount': 'Montant',
+      'interval_count': 'Interval',
+      'current_period_start': 'Début dernier abonnement',
+      'current_period_end': 'Fin de l´abonnement',
+      'deleteSubInStripe': 'Supprimer inscription Stipe',
+
+      'Connect with Stripe': 'Connecter avec Stripe',
+
+      'Product Categories': 'Catégories Produits',
+      'Category': 'Catégorie',
+      'SubCategory': 'Sous-Catégorie',
+      'Product Type': 'Type de Produit',
+
+      'Monday': 'Lundi', 
+      'Tuesday': 'Mardi',
+      'Wednesday': 'Mercredi',
+      'Thursday': 'Jeudi',
+      'Friday': 'Vendredi',
+      'Saturday': 'Samedi',
+      'Sunday': 'Dimanche',
+
+      'First hour of your day. (06:00:00)': 'Heure de début du calendrier (06:00:00)',
+      'Last hour of your day. (19:00:00)': 'Heure de fin du calendrier (19:00:00)',
+      'Slot Duraation. (01:00:00)': 'Intervalle (01:00:00)',
+      'First hour of your daywork. (10:30:00)': 'Heure de début d´activité (10:30:00)',
+      'Last hour of your daywork. (17:00:00)': 'Heure de fin d´activité (17:00:00)',
+
+      'Notes legales': 'Notes de devis',
+
+      'legal Approval': 'Conditions à cocher',
 
 
 
