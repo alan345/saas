@@ -562,7 +562,12 @@ module.exports = {
 
 
                       item.ownerCompanies.forEach(companie => {
+                        if(type === 'quote') {
                           html +=  companie.quoteSettings.legalNotice
+                        }
+                        if(type === 'invoice') {
+                          html +=  companie.quoteSettings.legalNoticeInvoice
+                        }
                       })
 
 

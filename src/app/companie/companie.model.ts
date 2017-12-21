@@ -30,6 +30,7 @@ export class Companie {
 
 export class QuoteSettings {
   legalNotice: string = '';
+  legalNoticeInvoice: string = '';
 }
 export class ContactsPerson {
   contactType: string = '';
