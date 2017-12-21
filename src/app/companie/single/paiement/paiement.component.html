@@ -20,69 +20,89 @@
           {{'Plan' | translate}}
         </mat-panel-title>
       </mat-expansion-panel-header>
-      
-      <div class="row ac"> 
+
+      <div class="row ac">
         <mat-card class="col-sm-12 col-md-6 col-lg-6">
 
-    <div>
-    <h1 class="green">Offre Artisan</h1>
-    </div>
-    <div>
-    <h5>Utilisateur unique</h5>
-    </div>
+          <div>
+            <h1 class="green">Offre Artisan</h1>
+          </div>
+          <div>
+            <h5>Utilisateur unique</h5>
+          </div>
 
-  
-  <mat-card-content>
-    <h1 class="green">9 €</h1><h5> par mois</h5>
-   
-    
-      <div>Gestion des contacts</div>
-      <div>Devis</div>
-      <div>Catalogue produit</div>
-      <div>Signature électronique</div>
-      <div>Prise de photos</div>
-      <div>Factures</div>
-      <div>Paiement en ligne</div>
-      <div>Planning</div>
-   
-  </mat-card-content>
-  <mat-card-actions>
-   
-    <button mat-raised-button color="primary">Souscrire</button>
-  </mat-card-actions>
-</mat-card>
-      
-            <mat-card class="col-sm-12 col-md-6 col-lg-6">
-  <div>
-    <h1 class="green">Offre Équipe</h1>
-    </div>
-    <div>
-    <h5>Juqu'à 5 Utilisateurs</h5>
-    </div>
 
-  
-  <mat-card-content>
-    <h1 class="green">15 €</h1><h5> par mois</h5>
-   
-    
-      <div>Gestion des contacts</div>
-      <div>Devis</div>
-      <div>Catalogue produit</div>
-      <div>Signature électronique</div>
-      <div>Prise de photos</div>
-      <div>Factures</div>
-      <div>Paiement en ligne</div>
-      <div>Planning</div>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary">Souscrire</button>
-    
-  </mat-card-actions>
-</mat-card>
+          <mat-card-content>
+            <h1 class="green">9 € <span class="withoutVAT">HT</span></h1>
+            <h5> par mois</h5>
+
+
+            <div>Gestion des contacts</div>
+            <div>Devis</div>
+            <div>Catalogue produit</div>
+            <div>Signature électronique</div>
+            <div>Prise de photos</div>
+            <div>Factures</div>
+            <div>Paiement en ligne</div>
+            <div>Planning</div>
+
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button (click)="changePlan('artisan')" disabled="{{stripeCust.subscriptions.data.length !== 0}}" mat-raised-button color="primary">{{'Suscribe' | translate}}</button> -->
+            <button
+              (click)="changePlan('artisan')"
+              *ngIf="plan === 'artisan'"
+              disabled="{{stripeCust.subscriptions.data.length !== 0}}"
+              mat-raised-button color="primary">{{'Suscribe' | translate}}</button>
+            <button
+              (click)="changePlan('artisan')"
+              *ngIf="plan !== 'artisan'"
+              disabled="{{stripeCust.subscriptions.data.length !== 0}}"
+              mat-raised-button>{{'Suscribe' | translate}}</button>
+          </mat-card-actions>
+        </mat-card>
+
+        <mat-card class="col-sm-12 col-md-6 col-lg-6">
+          <div>
+            <h1 class="green">Offre Équipe</h1>
+          </div>
+          <div>
+            <h5>Juqu'à 5 Utilisateurs</h5>
+          </div>
+
+
+          <mat-card-content>
+            <h1 class="green">15 € <span class="withoutVAT">HT</span></h1>
+            <h5> par mois</h5>
+
+
+            <div>Gestion des contacts</div>
+            <div>Devis</div>
+            <div>Catalogue produit</div>
+            <div>Signature électronique</div>
+            <div>Prise de photos</div>
+            <div>Factures</div>
+            <div>Paiement en ligne</div>
+            <div>Planning</div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button
+              (click)="changePlan('equipe')"
+              *ngIf="plan === 'equipe'"
+              disabled="{{stripeCust.subscriptions.data.length !== 0}}"
+              mat-raised-button color="primary">{{'Suscribe' | translate}}</button>
+            <button
+              (click)="changePlan('equipe')"
+              *ngIf="plan !== 'equipe'"
+              disabled="{{stripeCust.subscriptions.data.length !== 0}}"
+              mat-raised-button>{{'Suscribe' | translate}}</button>
+
+          </mat-card-actions>
+        </mat-card>
 
       </div>
-      
-      <mat-button-toggle-group disabled="{{stripeCust.subscriptions.data.length !== 0}}" [(ngModel)]="plan" (change)="changePlan()">
+
+      <!-- <mat-button-toggle-group disabled="{{stripeCust.subscriptions.data.length !== 0}}" [(ngModel)]="plan" (change)="changePlan()">
         <mat-button-toggle value="silver">
           Silver
           <mat-icon>format_align_left</mat-icon>
@@ -95,7 +115,12 @@
           Platinium
           <mat-icon>format_align_right</mat-icon>
         </mat-button-toggle>
-      </mat-button-toggle-group>
+      </mat-button-toggle-group> -->
+      <mat-action-row>
+        <button [disabled]="!plan" mat-mini-fab color="primary" (click)="nextStep()">
+          <mat-icon>forward</mat-icon>
+        </button>
+      </mat-action-row>
     </mat-expansion-panel>
 
 
@@ -110,55 +135,55 @@
           <app-paiement-card [newCard]="newCard"></app-paiement-card>
         </div>
 
-      
+
         <div *ngFor="let card of stripeCust.sources.data; let i=index;">
           <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-6">
-          <mat-form-field>
-            <input matInput readonly value="{{card.id}}" placeholder="cardId">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput readonly value="{{card.address_city}}" placeholder="address_city">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput readonly value="{{card.address_country}}" placeholder="address_country">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput readonly value="{{card.address_line1}}" placeholder="address_line1">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput readonly value="{{card.address_line2}}" placeholder="address_line2">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput readonly value="{{card.address_state}}" placeholder="address_state">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput readonly value="{{card.address_zip}}" placeholder="address_zip">
-          </mat-form-field>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <mat-form-field>
+                <input matInput readonly value="{{card.id}}" placeholder="cardId">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput readonly value="{{card.address_city}}" placeholder="address_city">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput readonly value="{{card.address_country}}" placeholder="address_country">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput readonly value="{{card.address_line1}}" placeholder="address_line1">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput readonly value="{{card.address_line2}}" placeholder="address_line2">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput readonly value="{{card.address_state}}" placeholder="address_state">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput readonly value="{{card.address_zip}}" placeholder="address_zip">
+              </mat-form-field>
 
-          
-        </div>  
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <mat-form-field>
-            <input matInput readonly value="{{card.brand}}" placeholder="brand">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput readonly value="{{card.country}}" placeholder="country">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput readonly value="{{card.exp_month}}" placeholder="exp_month">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput readonly value="{{card.exp_year}}" placeholder="exp_year">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput readonly value="{{card.funding}}" placeholder="funding">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput readonly value="{{card.last4}}" placeholder="last4">
-          </mat-form-field>
-         </div>   
-        </div>  
+
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <mat-form-field>
+                <input matInput readonly value="{{card.brand}}" placeholder="brand">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput readonly value="{{card.country}}" placeholder="country">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput readonly value="{{card.exp_month}}" placeholder="exp_month">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput readonly value="{{card.exp_year}}" placeholder="exp_year">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput readonly value="{{card.funding}}" placeholder="funding">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput readonly value="{{card.last4}}" placeholder="last4">
+              </mat-form-field>
+            </div>
+          </div>
           <button mat-button color="warn" (click)="deleteCardInStripe(card.id)">delete Card</button>
         </div>
       </div>
@@ -178,8 +203,8 @@
       </mat-expansion-panel-header>
       <div>
         <div *ngIf="!stripeCust.subscriptions.data.length">
-          I confirm to suscribe to the:
-          <button mat-raised-button color="primary" (click)="saveSubscriptionInStripe()">{{plan}} {{' Plan!' | translate}}</button>
+          {{'I confirm to suscribe to the plan:' | translate}}
+          <button mat-raised-button color="primary" (click)="saveSubscriptionInStripe()">{{plan | translate}}</button>
         </div>
         <div *ngFor="let sub of stripeCust.subscriptions.data">
           <!-- <mat-icon color="primary">accessibility</mat-icon> -->

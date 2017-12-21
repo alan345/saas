@@ -54,8 +54,9 @@ export class PaiementComponent implements OnInit {
 
   step = 0;
 
-  changePlan() {
-    this.nextStep()
+  changePlan(plan: string) {
+    this.plan = plan
+    // this.nextStep()
   }
   setStep(index: number) {
     this.step = index;

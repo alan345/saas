@@ -55,12 +55,15 @@ export const LANG_FR_TRANS = {
     'Paiement: Stripe Connection': 'Paiement: Connexion avec Stripe',
     'Create an new product': 'Créer un nouveau produit',
     'List': 'Liste',
+    'Subscription': 'Abonnement',
     'Price': 'Prix',
     'Name': 'Nom',
+    'Suscribe': 'Souscrire',
     'Price without taxes': 'Prix HT',
     'Product Name': 'Nom du Produit',
     'companie': 'Entreprise',
     'Height': 'Hauteur',
+    'I confirm to suscribe to the plan:': 'Je confirme choisir le plan : ',
     'Width': 'Largeur',
     'Depth': 'Profondeur',
     'CostPrice': 'Coût',
@@ -252,9 +255,9 @@ export const LANG_FR_TRANS = {
     'week': 'semaine',
     'day': 'jour',
     'list': 'liste',
-  
-	
-	
+
+
+
     'Companie': 'Entreprise',
     'Companie Email': 'Email Entreprise',
     'Plan': 'Abonnement',
@@ -288,7 +291,7 @@ export const LANG_FR_TRANS = {
     'SubCategory': 'Sous-Catégorie',
     'Product Type': 'Type de Produit',
 
-    'Monday': 'Lundi', 
+    'Monday': 'Lundi',
     'Tuesday': 'Mardi',
     'Wednesday': 'Mercredi',
     'Thursday': 'Jeudi',
@@ -309,7 +312,7 @@ export const LANG_FR_TRANS = {
     'Invoice Legal Notice': 'Informations légales de la Facture',
     'Your logo': 'Logo de votre entreprise',
     'Documents Settings': 'Paramétrage des documents',
-  
+
     'Cost Price': 'Prix d´achat',
 
 
