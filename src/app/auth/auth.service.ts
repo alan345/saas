@@ -47,7 +47,7 @@ export class AuthService {
   ) {
 
       this.user = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')).user : null;
-  
+
       var currentUser = JSON.parse(localStorage.getItem('currentUser'));
       this.token = currentUser && currentUser.token;
       this.currentUser = currentUser;
@@ -89,6 +89,7 @@ export class AuthService {
           this.user = this.jwtHelper.decodeToken(token).user
           // this.globalEventsManager.showNavBar(true);
         //  console.log(this.currentUser)
+         console.log(this.user)
           localStorage.setItem('currentUser', JSON.stringify(currentUser))
         }
 

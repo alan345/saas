@@ -349,7 +349,7 @@ function savePlanDetailsInDB (companieId, subscription) {
       current_period_end: subscription.current_period_end * 1000,
       plan: subscription.plan.id
     }
-
+    console.log(planDetail)
     // req.user.ownerCompanies.forEach(companieSingle => {
       Companie.update({
         _id: companieId

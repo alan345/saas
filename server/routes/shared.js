@@ -15,7 +15,9 @@ module.exports = {
         }
         user.ownerCompanies.forEach(companie => {
           if(companie.planDetail.plan === 'gold') typesRightToUse = TypeRights.gold
+          if(companie.planDetail.plan === 'equipe') typesRightToUse = TypeRights.gold
           if(companie.planDetail.plan === 'silver') typesRightToUse = TypeRights.silver
+          if(companie.planDetail.plan === 'artisan') typesRightToUse = TypeRights.silver
           if(companie.planDetail.plan === '') typesRightToUse = TypeRights.default
         })
 
@@ -35,7 +37,7 @@ module.exports = {
         })
         let rightToReturn = {
           detailRight: {
-            nameRight: 'gold',
+            nameRight: '',
             permissions: permissionGooplus
           }
         }
