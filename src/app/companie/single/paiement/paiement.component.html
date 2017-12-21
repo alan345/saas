@@ -21,8 +21,8 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       
-      <div class="row ac">
-        <mat-card class="plancss">
+      <div class="row ac"> 
+        <mat-card class="col-sm-12 col-md-6 col-lg-6">
 
     <div>
     <h1 class="green">Offre Artisan</h1>
@@ -52,7 +52,7 @@
   </mat-card-actions>
 </mat-card>
       
-            <mat-card class="plancss">
+            <mat-card class="col-sm-12 col-md-6 col-lg-6">
   <div>
     <h1 class="green">Offre Équipe</h1>
     </div>
@@ -112,6 +112,7 @@
 
       
         <div *ngFor="let card of stripeCust.sources.data; let i=index;">
+          <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-6">
           <mat-form-field>
             <input matInput readonly value="{{card.id}}" placeholder="cardId">
@@ -156,7 +157,7 @@
             <input matInput readonly value="{{card.last4}}" placeholder="last4">
           </mat-form-field>
          </div>   
-
+        </div>  
           <button mat-button color="warn" (click)="deleteCardInStripe(card.id)">delete Card</button>
         </div>
       </div>
