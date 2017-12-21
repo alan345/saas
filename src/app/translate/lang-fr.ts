@@ -304,6 +304,9 @@ export const LANG_FR_TRANS = {
     'Notes legales': 'Notes de devis',
 
     'legal Approval': 'Conditions à cocher',
+    'Quote Legal Notice': 'Informations légales du devis',
+    'Invoice Legal Notice': 'Informations légales de la Facture',
+    'Your logo': 'Logo de votre entreprise',
 
 
 
