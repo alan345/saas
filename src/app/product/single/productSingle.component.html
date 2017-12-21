@@ -27,7 +27,7 @@
       </div>
       <br>
       <div class="row" *ngIf="selectedIndex1>=0">
-        <div>{{'Product Type | translate}}</div>
+        <div>{{'Product Type' | translate}}</div>
         <button (click)="changeCascade(selectedIndex0, selectedIndex1, i)" *ngFor="let itemStep of itemSteps[selectedIndex0].subCateg[selectedIndex1].subCateg;let i=index;" type="button" class="prodbtn" [ngClass]="{'prodbtnsel': i==selectedIndex2, '': i!=selectedIndex2}">
           {{itemStep.categ}}
         </button>
