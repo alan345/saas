@@ -1,4 +1,9 @@
 <mat-card>
+  {{'Your logo' | translate}}
+  <app-picture [showPagination]=false [forms]="fetchedCompanie.forms"></app-picture>
+</mat-card>
+<br>
+<mat-card>
   <mat-form-field>
     <textarea matInput type="text" [(ngModel)]="fetchedCompanie.quoteSettings.legalNotice"
       matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="10"
@@ -19,18 +24,15 @@
 </mat-card>
 <br>
 <mat-card>
-  {{'Your logo' | translate}}
-  <app-picture [showPagination]=false [forms]="fetchedCompanie.forms"></app-picture>
+  <app-quote-legal-approval (save)="save()" [fetchedCompanie]="fetchedCompanie"></app-quote-legal-approval>
 </mat-card>
 <br>
+
 <mat-card>
   <app-quote-vat (save)="save()" [fetchedCompanie]="fetchedCompanie"></app-quote-vat>
 </mat-card>
 <br>
-<mat-card>
-  <app-quote-legal-approval (save)="save()" [fetchedCompanie]="fetchedCompanie"></app-quote-legal-approval>
-</mat-card>
-<br>
+
 <mat-card class="ac">
   <mat-button-toggle-group (change)="changeCurrency()" [(ngModel)]="fetchedCompanie.option.currency">
     <mat-button-toggle value="€">
