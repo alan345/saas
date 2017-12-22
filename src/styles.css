@@ -4,6 +4,15 @@
 
 
 .logomira {
+  width: 200px;
+  height: 200px;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+
+.logomira {
   padding-left: 15px;
   padding-top: 5px;
   padding-bottom: 15px;
