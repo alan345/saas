@@ -216,6 +216,10 @@ export class EditPaiementQuoteComponent implements OnInit {
     }
 
   save() {
+    if(!this.fetchedPaiementQuote.userDebiteds.length) {
+      this.toastr.error('Error!', 'User is mandatory')
+      return;
+    }
     let this2 = this
     return new Promise(function(resolve, reject) {
       // this2.fetchedPaiementQuote
