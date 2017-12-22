@@ -35,6 +35,7 @@ var companie = new Schema({
     VAT : {type: String, default: ['']},
     modelVATs: [{type: Number, default: ['']}],
     legalApprovals: [{type: String, default: ['']}],
+    typeInterventions: [{type: String, default: ['']}],
     // number[] = [0, 5.5, 10]
 
     email : {type: String, default: ['']},

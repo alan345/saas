@@ -30,6 +30,11 @@
 <br>
 
 <mat-card>
+  <app-quote-type-intervention (save)="save()" [fetchedCompanie]="fetchedCompanie"></app-quote-type-intervention>
+</mat-card>
+<br>
+
+<mat-card>
   <app-quote-vat (save)="save()" [fetchedCompanie]="fetchedCompanie"></app-quote-vat>
 </mat-card>
 <br>

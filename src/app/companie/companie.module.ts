@@ -26,6 +26,7 @@ import { ConnectStripeComponent } from './single/connectStripe/connectStripe.com
 import { DebugComponent } from './single/debug/debug.component';
 import { VATComponent } from './single/quoteSettings/elem/vat.component';
 import { LegalApprovalComponent } from './single/quoteSettings/elem/legalApproval.component';
+import { TypeInterventionComponent } from './single/quoteSettings/elem/typeIntervention.component';
 import { PaiementPipe } from './single/paiement/paiement.pipe';
 import {MatCardModule} from '@angular/material';
 import {MatExpansionModule} from '@angular/material';
@@ -76,6 +77,7 @@ import {MatCheckboxModule} from '@angular/material';
     DebugComponent,
     VATComponent,
     LegalApprovalComponent,
+    TypeInterventionComponent,
     CategProductComponent,
     // AddUserByCompanieComponent,
   ],

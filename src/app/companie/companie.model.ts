@@ -14,6 +14,7 @@ export class Companie {
   VAT: string= '';
   modelVATs: number[] = [];
   legalApprovals: string[] = [];
+  typeInterventions: string[] = [];
   address: Address[] = [];
   option: Option = new Option();
   users: User[] = [];
