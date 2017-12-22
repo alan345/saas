@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter} from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
 import { PaiementQuoteService} from '../../paiementQuote/paiementQuote.service';
 import { PaiementQuote} from '../../paiementQuote/paiementQuote.model';
@@ -6,7 +6,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params} from '@angular/router';
 // import { Location} from '@angular/common';
-import { Search} from '../../shared/shared.model'
+import { Search, PaginationData} from '../../shared/shared.model'
 import { GlobalEventsManager } from '../../globalEventsManager';
 import { PaiementQuoteDialogComponent } from '../single/dialog/paiementQuoteDialog.component'
 
@@ -17,7 +17,7 @@ import { PaiementQuoteDialogComponent } from '../single/dialog/paiementQuoteDial
   templateUrl: './paiementQuotes.component.html',
   styleUrls: ['../paiementQuote.component.css'],
 })
-export class PaiementQuotesComponent implements OnInit {
+export class PaiementQuotesComponent implements OnInit, OnChanges {
   // @Input() userId = '';
   // @Input() idQuote = '';
   // @Input() showHeader: boolean = true;
@@ -27,16 +27,9 @@ export class PaiementQuotesComponent implements OnInit {
   @Input() search: Search = new Search()
   @Input() showBack: number = -1
 
-
-
-
   fetchedPaiementQuotes: PaiementQuote[] = [];
 
-  paginationData = {
-    currentPage: 1,
-    itemsPerPage: 0,
-    totalItems: 0
-  };
+  paginationData = new PaginationData()
 
   // search = {
   //   orderBy : '',
@@ -58,14 +51,16 @@ export class PaiementQuotesComponent implements OnInit {
 
 
 
+  ngOnChanges() {
+    console.log(this.search)
+    this.getPaiementQuotes(this.paginationData.currentPage, this.search);
+  }
+
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['isExpense']=='true') {this.search.isExpense = true} else {this.search.isExpense = false}
         this.getPaiementQuotesInit()
     })
-
-
-
   }
 
 

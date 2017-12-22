@@ -48,9 +48,9 @@ export class QuotesComponent implements OnInit, OnChanges {
 
 
   ngOnChanges() {
-
     this.getQuotes(this.paginationData.currentPage, this.search);
   }
+
   ngOnInit() {
     this.search.orderBy = '-createdAt'
     this.activatedRoute.params.subscribe((params: Params) => {

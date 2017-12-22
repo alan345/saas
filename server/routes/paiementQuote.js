@@ -164,6 +164,9 @@ router.get('/page/:page', function (req, res, next) {
   if(req.query.quoteId)
     searchQuery['quotes'] = mongoose.Types.ObjectId(req.query.quoteId)
 
+  if(req.query.userId)
+    searchQuery['userDebiteds'] = mongoose.Types.ObjectId(req.query.userId)
+
 
 // console.log(req.query.orderBy)
   searchQuery['isExpense'] = false

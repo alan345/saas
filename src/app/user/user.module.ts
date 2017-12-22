@@ -15,6 +15,7 @@ import { UserRouting } from './userRouting.module';
 
 
 import { QuoteModule} from '../quote/quote.module';
+import { PaiementQuoteModule} from '../paiementQuote/paiementQuote.module';
 import { CompanieModule} from '../companie/companie.module';
 // import { ProjectModule} from '../project/project.module';
 
@@ -74,6 +75,7 @@ import {MatRadioModule} from '@angular/material';
     // MaterialModule,
     ReactiveFormsModule,
     QuoteModule,
+    PaiementQuoteModule,
     // ProjectModule,
     // RightModule,
     CompanieModule,
