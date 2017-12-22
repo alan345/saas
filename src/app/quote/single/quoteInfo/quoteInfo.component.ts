@@ -1,11 +1,12 @@
-import {Component, OnInit, ViewChild, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, OnChanges, ViewChild, Input, Output, EventEmitter} from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
 import {Quote } from '../../quote.model';
 import {ToastsManager} from 'ng2-toastr';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Search} from '../../../shared/shared.model'
-import { AuthService} from '../../../auth/auth.service';
+// import { AuthService} from '../../../auth/auth.service';
+import { Companie} from '../../../companie/companie.model';
 // import {Router, ActivatedRoute, Params } from '@angular/router';
 // import {QuoteService} from '../../quote.service';
 // import { PaiementQuote } from '../../../paiementQuote/paiementQuote.model';
@@ -37,12 +38,13 @@ import { AuthService} from '../../../auth/auth.service';
   templateUrl: './quoteInfo.component.html',
   styleUrls: ['../../quote.component.css'],
 })
-export class QuoteInfoComponent implements OnInit {
+export class QuoteInfoComponent implements OnInit, OnChanges {
   loading: boolean = false;
   @Output() quoteStatusChangedEmit: EventEmitter<any> = new EventEmitter();
   @Output() save: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search()
   @Input() fetchedQuote: Quote = new Quote()
+  @Input() myCompanie: Companie = new Companie()
   myForm: FormGroup;
   typeInterventions: string[] = []
   // typeInterventionTempBool: boolean[]= []
@@ -56,7 +58,7 @@ export class QuoteInfoComponent implements OnInit {
   constructor(
     private toastr: ToastsManager,
     private _fb: FormBuilder,
-    public authService: AuthService,
+    // public authService: AuthService,
     // private activatedRoute: ActivatedRoute,
     // private router: Router,
     // private quoteService: QuoteService,
@@ -83,17 +85,22 @@ export class QuoteInfoComponent implements OnInit {
       quoteRef: ['', [Validators.required, Validators.minLength(1)]],
     })
 
-    this.authService.getCurrentUser().ownerCompanies.forEach(companie => {
-      this.typeInterventions = companie.typeInterventions
-    })
+    // this.authService.getCurrentUser().ownerCompanies.forEach(companie => {
+    //   this.typeInterventions = companie.typeInterventions
+    // })
   }
+  // ngOnChanges() {
+  //   this.myCompanie.forEach(companie => {
+  //     this.typeInterventions = myCompanie.typeInterventions
+  //   })
+  // }
 
 
 
 
   changetypeIntervention() {
     this.fetchedQuote.name = this.fetchedQuote.typeIntervention
-    
+
     this.fetchedQuote.clients.forEach(client => {
       this.fetchedQuote.name += ' - ' + client.profile.name
     })

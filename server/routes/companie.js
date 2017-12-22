@@ -338,6 +338,7 @@ function getCompanie(req, res, next, id) {
 }
 
 
+
 router.get('', function (req, res, next) {
     User
     .findOne({_id: req.user._id})

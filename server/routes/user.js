@@ -13,7 +13,8 @@ var express = require('express'),
   User = require('../models/user.model'),
   shared = require('./shared.js'),
   initData = require('./initData.js'),
-  paiement = require('./paiement.js');
+  paiement = require('./paiement.js'),
+  emailGenerator = require('./emailGenerator.js');
 // user register
 
 
@@ -46,7 +47,9 @@ router.post('/register', function(req, res, next) {
           }
         });
       }
+      emailGenerator.sendWelcomeEmail(user)
       initData.initCompanie(result)
+
       res.status(200).json({message: 'Registration Successfull', obj: userResult})
     })
   })

@@ -100,7 +100,7 @@
           (change)="changetypeIntervention()">
           <mat-radio-button
             class="example-radio-button"
-            *ngFor="let typeIntervention of typeInterventions;" [value]="typeIntervention">
+            *ngFor="let typeIntervention of  myCompanie.typeInterventions;" [value]="typeIntervention">
             {{typeIntervention}}
           </mat-radio-button>
         </mat-radio-group>

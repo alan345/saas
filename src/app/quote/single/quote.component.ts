@@ -7,6 +7,8 @@ import { Search } from '../../shared/shared.model';
 import { PaiementQuote } from '../../paiementQuote/paiementQuote.model';
 import { DrawingSignatureComponent } from './drawingSignature/drawingSignature.component';
 import { ToastsManager} from 'ng2-toastr';
+import { CompanieService} from '../../companie/companie.service';
+import { Companie} from '../../companie/companie.model';
 // import { FormBuilder, Validators } from '@angular/forms';
 // import { ActionButtonsComponent } from './actionButtons/actionButtons.component';
 // import { TranslateService } from '../../translate/translate.service';
@@ -33,6 +35,7 @@ export class QuoteComponent implements OnInit {
   totalPaiementAmount: number = 0
   signatureBase64Temp: string = ''
   step = -1;
+  myCompanie: Companie = new Companie()
 
 
   VATs = ModelVATs
@@ -47,6 +50,7 @@ export class QuoteComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     public authService: AuthService,
     private toastr: ToastsManager,
+    private companieService: CompanieService,
     // private router: Router,
     // private location: Location,
     // private _fb: FormBuilder,
@@ -111,8 +115,21 @@ export class QuoteComponent implements OnInit {
   }
 
 
+  getMyCompanie() {
+    this.companieService.getCompanie('', {})
+      .subscribe(
+        res => {
+          this.myCompanie = res
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
+
   ngOnInit() {
     setTimeout(() => { this.step = 0});
+    this.getMyCompanie()
     this.activatedRoute.params.subscribe((params: Params) => {
       if (params['idQuote']) {
         this.search.quoteId = params['idQuote']

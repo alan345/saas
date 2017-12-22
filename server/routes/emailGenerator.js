@@ -20,6 +20,29 @@ var transportOptions = {
 }
 
 module.exports = {
+  sendWelcomeEmail (user) {
+    var html = `
+    Bonjour ${user.profile.name}! Bienvenue sur Mirabelle.io
+    Votre email est ${user.email}
+
+    `
+    var mailer = nodemailer.createTransport(transportOptions);
+
+    var mailOptions = {
+      to: user.email,
+      from: 'contact@mirabelle.io',
+      subject: 'Bienvenue sur Mirabelle!',
+      html: html
+    };
+    mailer.sendMail(mailOptions, function(err) {
+      console.log('info', 'Un message a été envoyé à ' + user.email + ' avec de plus amples informations.');
+      return res.status(200).json({
+        message: 'Succès'
+      })
+    });
+
+
+  },
   sendQuoteByEmailToClient(req, res, next, type) {
 
     return new Promise(function(resolve, reject) {
