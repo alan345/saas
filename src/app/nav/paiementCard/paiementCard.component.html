@@ -1,32 +1,44 @@
-<h6>{{'Create a new card' | translate}}</h6>
+<!-- <h6>{{'Create a new card' | translate}}</h6> -->
 <mat-form-field>
-  <input matInput type="text" [(ngModel)]="newCard.address_city" placeholder="address_city">
+  <input matInput type="text" [(ngModel)]="newCard.address_city" placeholder="{{'City' | translate}}">
 </mat-form-field>
 <mat-form-field>
-  <input matInput type="text" [(ngModel)]="newCard.address_country" placeholder="address_country">
+  <input matInput type="text" [(ngModel)]="newCard.address_country" placeholder="{{'Country' | translate}}">
 </mat-form-field>
 <mat-form-field>
-  <input matInput type="text" [(ngModel)]="newCard.address_line1" placeholder="address_line1">
+  <input matInput type="text" [(ngModel)]="newCard.address_line1" placeholder="{{'Addresse' | translate}}">
 </mat-form-field>
 <mat-form-field>
-  <input matInput type="text" [(ngModel)]="newCard.address_line2" placeholder="address_line2">
+  <input matInput type="text" [(ngModel)]="newCard.address_line2" placeholder="{{'Addresse line 2' | translate}}">
 </mat-form-field>
 <mat-form-field>
-  <input matInput type="text" [(ngModel)]="newCard.address_state" placeholder="address_state">
+  <input matInput type="text" [(ngModel)]="newCard.address_state" placeholder="{{'State' | translate}}">
 </mat-form-field>
 <mat-form-field>
-  <input matInput type="text" [(ngModel)]="newCard.address_zip" placeholder="address_zip">
+  <input matInput type="text" [(ngModel)]="newCard.address_zip" placeholder="{{'Zip' | translate}}">
 </mat-form-field>
-<mat-form-field>
-  <input matInput type="number" [(ngModel)]="newCard.exp_month" placeholder="exp_month">
-</mat-form-field>
-<mat-form-field>
-  <input matInput type="number" [(ngModel)]="newCard.exp_year" placeholder="exp_year">
-</mat-form-field>
-<mat-form-field>
-  <input matInput type="number" [(ngModel)]="newCard.number" placeholder="number">
-</mat-form-field>
-<mat-form-field>
-  <input matInput type="number" [(ngModel)]="newCard.cvc" placeholder="cvc">
-</mat-form-field>
+
+<div class="row">
+  <mat-form-field class="col-12">
+    <input matInput type="number" [(ngModel)]="newCard.number" placeholder="{{'Card number' | translate}}">
+  </mat-form-field>
+
+  <mat-select class="col-4" placeholder="{{'Card Exp month' | translate}}" [(ngModel)]="newCard.exp_month">
+    <mat-option *ngFor="let month of months" [value]="month">
+      {{ month }}
+    </mat-option>
+  </mat-select>
+
+  <mat-select class="col-4" placeholder="{{'Card Exp Year' | translate}}" [(ngModel)]="newCard.exp_year">
+    <mat-option *ngFor="let year of years" [value]="year">
+      {{ year }}
+    </mat-option>
+  </mat-select>
+
+
+
+  <mat-form-field class="col-4">
+    <input matInput type="number" [(ngModel)]="newCard.cvc" placeholder="{{'Security code' | translate}}">
+  </mat-form-field>
+</div>
 <br> eg: 8<br> eg: 2018<br> eg: 4242424242424242<br> eg 123<br>

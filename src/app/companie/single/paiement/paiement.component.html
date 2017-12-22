@@ -9,10 +9,11 @@
       <div *ngIf="!stripeCust.id">
         <mat-checkbox [(ngModel)]="approveTnC">{{'I approve the' | translate}} <a target="_blank" href="http://mirabelle.io/conditions-generales-dutilisation">{{'T&C' | translate}}</a></mat-checkbox>
 
-        {{approveTnC.value|json}}
         <button *ngIf="approveTnC" mat-raised-button color="primary" color="primary" (click)="saveCustInStripe()">{{'Welcome!' | translate}}</button>
       </div>
-      <button *ngIf="stripeCust.id" mat-raised-button color="warn" (click)="deleteCustInStripe()">{{'I want to unscribe' | translate}}</button>
+      <div *ngIf="stripeCust.id">
+        <mat-icon color="accent">done</mat-icon> {{'T&C approved' | translate}}
+      </div>
     </mat-expansion-panel>
     <mat-expansion-panel *ngIf="stripeCust.id" [expanded]="step === 1" (opened)="setStep(1)">
       <mat-expansion-panel-header>
@@ -209,6 +210,7 @@
         <div *ngFor="let sub of stripeCust.subscriptions.data">
           <!-- <mat-icon color="primary">accessibility</mat-icon> -->
           <mat-form-field>
+            <mat-icon matPrefix color="accent">done</mat-icon>
             <input matInput readonly value="{{sub.plan.id}}" placeholder="Plan">
           </mat-form-field>
           <mat-form-field>
@@ -217,9 +219,9 @@
           <!-- <mat-form-field>
               <input matInput readonly value="{{sub.plan.created | timestampToDate | date: 'dd/MM/yyyy HH:mm'}}" placeholder="Created">
             </mat-form-field> -->
-          <mat-form-field>
+          <!-- <mat-form-field>
             <input matInput readonly value="{{sub.plan.interval_count}}" placeholder="interval_count">
-          </mat-form-field>
+          </mat-form-field> -->
 
           <!-- <mat-form-field>
               <input matInput readonly value="{{sub.id}}" placeholder="id">
@@ -227,13 +229,14 @@
             <mat-form-field>
               <input matInput readonly value="{{sub.created | timestampToDate | date: 'dd/MM/yyyy HH:mm'}}" placeholder="created">
             </mat-form-field> -->
-          <mat-form-field>
+          <!-- <mat-form-field>
             <input matInput readonly value="{{sub.current_period_start | timestampToDate | date: 'dd/MM/yyyy HH:mm'}}" placeholder="current_period_start">
-          </mat-form-field>
-          <mat-form-field>
+          </mat-form-field> -->
+          <!-- <mat-form-field>
             <input matInput readonly value="{{sub.current_period_end | timestampToDate | date: 'dd/MM/yyyy HH:mm'}}" placeholder="current_period_end">
-          </mat-form-field>
-          <button mat-button color="warn" (click)="deleteSubInStripe(sub.id)">deleteSubInStripe</button>
+          </mat-form-field> -->
+          <!-- <button mat-button color="warn" (click)="deleteSubInStripe(sub.id)">deleteSubInStripe</button> -->
+          <button mat-raised-button color="warn" (click)="deleteSubInStripe(sub.id)">{{'I want to unscribe' | translate}}</button>
         </div>
       </div>
       <!-- <mat-action-row>

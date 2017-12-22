@@ -33,7 +33,7 @@
       </mat-expansion-panel-header>
       <app-debug *ngIf="debugMode" [fetchedCompanie]="fetchedCompanie"></app-debug>
 
-      <app-paiement *ngIf="step === 1"></app-paiement>
+      <app-paiement [fetchedCompanie]="fetchedCompanie" *ngIf="step === 1"></app-paiement>
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="authService.isCurrentUserIsInSubPeriod()" [expanded]="step === 2" (opened)="setStep(2)">

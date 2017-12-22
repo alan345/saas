@@ -19,7 +19,6 @@
           <input matInput type="text" formControlName="title" [(ngModel)]="fetchedPaiementQuote.title" placeholder="{{'Title' | translate}}">
         </mat-form-field> -->
         <div class="row">
-
           <div class="col-12 col-md-6">
             <app-autocomplete class="mb8 bn" [canDelete]=false [typeAutocomplete]="'quote'" [search]="search" [canDelete]="true" [title]="'Intervention'" [singleChoice]="true" [arrayContent]="fetchedPaiementQuote.quotes" (getResultAutocomplete)="selectQuote($event[0])"
               (autocompleteAfterNgChanges)="autocompleteAfterNgChanges($event)">
@@ -72,7 +71,7 @@
 
         <mat-radio-group [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedPaiementQuote.type">
           <mat-radio-button *ngFor="let n of paiementsTypes" [value]="n.value">{{n.label}}</mat-radio-button>
-          <mat-radio-button *ngIf="accountConnectStripe.id" [value]="'stripe'">Stripe</mat-radio-button>
+          <mat-radio-button *ngIf="accountConnectStripe.id" [value]="'stripe'">{{'Card' | translate}}</mat-radio-button>
         </mat-radio-group>
 
         <div *ngIf="fetchedPaiementQuote.type=='stripe' && fetchedPaiementQuote._id">
@@ -82,14 +81,14 @@
           </mat-card>
 
           <mat-card *ngIf="fetchedPaiementQuote.stripe.charge.status ==='succeeded'">
-            <h4>Stripe</h4>
-            <p>{{'created'| translate}}: {{fetchedPaiementQuote.stripe.charge.created * 1000 | date}}</p>
-            <p>{{'balance_transaction'| translate}}: {{fetchedPaiementQuote.stripe.charge.balance_transaction}}</p>
-            <p>{{'currency'| translate}}: {{fetchedPaiementQuote.stripe.charge.currency}}</p>
-            <p>{{'amount'| translate}}: {{fetchedPaiementQuote.stripe.charge.amount / 100}}</p>
-            <p>{{'exp_month'| translate}}: {{fetchedPaiementQuote.stripe.charge.source.exp_month}}</p>
-            <p>{{'funding'| translate}}: {{fetchedPaiementQuote.stripe.charge.source.funding}}</p>
-            <p>{{'last4'| translate}}: {{fetchedPaiementQuote.stripe.charge.source.last4}}</p>
+            <mat-icon color="accent">done</mat-icon>
+            {{fetchedPaiementQuote.stripe.charge.amount / 100}}
+            {{fetchedPaiementQuote.stripe.charge.currency}}
+            ({{fetchedPaiementQuote.stripe.charge.created * 1000 | date: 'dd/MM/yyyy'}})
+            <!-- <p>{{'balance_transaction'| translate}}: {{fetchedPaiementQuote.stripe.charge.balance_transaction}}</p> -->
+            <!-- <p>{{'exp_month'| translate}}: {{fetchedPaiementQuote.stripe.charge.source.exp_month}}</p> -->
+            <p>{{'Funding'| translate}}: {{fetchedPaiementQuote.stripe.charge.source.funding}}</p>
+            <!-- <p>{{'last4'| translate}}: {{fetchedPaiementQuote.stripe.charge.source.last4}}</p> -->
           </mat-card>
         </div>
       </div>

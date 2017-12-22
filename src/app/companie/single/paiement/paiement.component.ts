@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { AuthService} from '../../../auth/auth.service';
 import { UserService} from '../../../user/user.service';
 import { PaiementService} from './paiement.service';
@@ -23,6 +23,7 @@ import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 
 
 export class PaiementComponent implements OnInit {
+  @Input() fetchedCompanie: Companie = new Companie()
   //fetchedUser = new User()
   //fetchedUser : User;
   // isUserBelongToHQ=false
@@ -60,7 +61,25 @@ export class PaiementComponent implements OnInit {
   }
   setStep(index: number) {
     this.step = index;
+    if(index === 2) {
+      this.populateCardFromCompanie()
+    }
   }
+
+  populateCardFromCompanie() {
+    this.fetchedCompanie.address.forEach(address => {
+      this.newCard.address_city = address.city
+      this.newCard.address_country = address.country
+      this.newCard.address_line1 = address.address
+      this.newCard.address_line2 = address. address2
+      this.newCard.address_state = address.state
+      this.newCard.address_zip = address.zip
+    })
+  }
+
+
+
+
 
   nextStep() {
     this.step++;

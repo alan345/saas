@@ -162,15 +162,18 @@ router.post('/payByCardConnect/:paiementQuoteId', function(req, res, next) {
         }
         stripe.charges.create({
           amount: paiementQuote.amount * 100,
-          currency: "eur",
+          application_fee: paiementQuote.amount * 100 * 2 / 100,
+          currency: 'eur',
           source: token.id,
-          destination: {
-            account: paiementQuote.ownerCompanies[0].banck.stripe.stripe_user_id
-          }
-        }, function(err, charge) {
-          if (err) {
-            return res.status(404).json({title: 'Error', error: err});
-          }
+          // destination: {
+          //   account: paiementQuote.ownerCompanies[0].banck.stripe.stripe_user_id
+          // }
+        }, {
+          stripe_account: paiementQuote.ownerCompanies[0].banck.stripe.stripe_user_id,
+        }).then(function(charge) {
+          // if (err) {
+          //   return res.status(404).json({title: 'Error', error: err});
+          // }
           PaiementQuote.update({
             _id: req.params.paiementQuoteId
           }, {
@@ -184,6 +187,8 @@ router.post('/payByCardConnect/:paiementQuoteId', function(req, res, next) {
               return res.status(404).json({title: 'Error Not Updtaed price', error: err});
             }
           });
+        }).catch(err=> {
+            return res.status(404).json({title: 'Error', error: err});
         });
       });
 

@@ -41,6 +41,8 @@ import {MatFormFieldModule} from '@angular/material';
 import {MatExpansionModule} from '@angular/material';
 import {MatIconModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material';
+
 @NgModule({
   imports:      [
     CommonModule,
@@ -60,6 +62,7 @@ import {MatButtonModule} from '@angular/material';
     MatExpansionModule,
     MatIconModule,
     MatButtonModule,
+    MatSelectModule,
 
 
   ],
@@ -99,6 +102,7 @@ import {MatButtonModule} from '@angular/material';
     LoginInAppComponent,
     // HeaderTitleComponent,
     LoadingInAppModule,
+    MatSelectModule,
     // PictureModule,
     // MaterialModule,
     MatPaginatorModule,

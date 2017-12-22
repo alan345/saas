@@ -24,6 +24,12 @@ export class AddressComponent implements OnInit {
 
   newAddress() {
     const newAddress = new Address()
+    this.authService.getCurrentUser().ownerCompanies.forEach(companie => {
+      companie.address.forEach(singleAddress => {
+          newAddress.country = singleAddress.country
+        })
+    })
+
     this.addresses.push(newAddress)
   }
 
