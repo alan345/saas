@@ -565,9 +565,12 @@ router.get('/page/:page', function(req, res, next) {
     arrObj.push({
       'name': new RegExp(req.query.search, 'i')
     })
-    // arrObj.push({
-    //   'email': new RegExp(req.query.search, 'i')
-    // })
+    arrObj.push({
+      'historyClients.profile.name': new RegExp(req.query.search, 'i')
+    })
+    arrObj.push({
+      'historyClients.profile.lastName': new RegExp(req.query.search, 'i')
+    })
     // arrObj.push({
     //   'address.address': new RegExp(req.query.search, 'i')
     // })
@@ -581,7 +584,12 @@ router.get('/page/:page', function(req, res, next) {
   // if (req.query.projectId)
   //   searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
   // console.log(searchQuery)
-  Quote.find(searchQuery).populate({path: 'clients', model: 'User'})
+  Quote.find(searchQuery)
+  .populate({
+    path: 'clients',
+    model: 'User'
+    // match: { 'profile.name': new RegExp(req.query.search, 'i') }
+  })
 
   // .populate({path: 'devisDetails.bucketProducts.productInit', model: 'Product'})
     .limit(itemsPerPage).skip(skip).sort(req.query.orderBy).exec(function(err, item) {
