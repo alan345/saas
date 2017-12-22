@@ -77,7 +77,7 @@ export class PaiementQuotesComponent implements OnInit {
       this2.getPaiementQuotes(1, this2.search)
     }, 200);
   }
-  searchPaiementQuotes(){}
+  // searchPaiementQuotes() {}
 
 
   // goBack() {
