@@ -43,7 +43,7 @@ module.exports = {
               <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <title>Email depuis Belmard Gestion</title>
+                <title>Email de Mirabelle.io</title>
                 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></link>
               </head>
               <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
@@ -230,7 +230,7 @@ html += `
                 <tr>
                   <td align="center" bgcolor="#ff4351" height="150">
                     <img
-                      src="http://${req.headers.host}/assets/images/logo-mirabelle-400.png"
+                      src="http://${req.headers.host}/assets/images/Logo-Mirabelle.png"
                       alt="Email de la part de Mirabelle" width="305" height="100" style="display: block; color: #ffffff;"
                     />
                   </td>
