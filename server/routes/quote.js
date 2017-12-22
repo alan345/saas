@@ -294,6 +294,7 @@ router.put('/:id', function(req, res, next) {
     quote.companieClients = req.body.companieClients
     quote.quoteNumber = req.body.quoteNumber
     quote.legalApprovals = req.body.legalApprovals
+    quote.typeIntervention = req.body.typeIntervention
     // quote.drawing = req.body.drawing
 
     // console.log(quote)

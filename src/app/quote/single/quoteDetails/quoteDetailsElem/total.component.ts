@@ -34,8 +34,9 @@ export class TotalComponent implements OnInit {
 
   VATs: number[] = []
   legalApprovals: string[] = []
-
   approvalTempBool: boolean[]= []
+
+
   constructor(
     // private quoteService: QuoteService,
     // private templateQuoteService: TemplateQuoteService,
@@ -86,8 +87,6 @@ export class TotalComponent implements OnInit {
         }
       })
     })
-
-    // this.changeLegalApproval()
 
   }
   changeLegalApproval() {

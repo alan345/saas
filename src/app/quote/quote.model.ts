@@ -19,7 +19,7 @@ export class Quote {
   quoteNumber: number;
   isSigned:boolean = false;
   legalApprovals: string[] = []
-  // _users: User[] = [];
+  typeIntervention: string = ''  // _users: User[] = [];
   // ownerQuotes: User[] = [];
   // companieClients: Companie[] = []
   forms: Form[] = [];

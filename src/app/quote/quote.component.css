@@ -14,6 +14,15 @@
    margin-bottom: 3px;
 }
 
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
 .btn-outline-primary {
     margin-top: 0px!important;
 }

@@ -63,7 +63,7 @@ import {MatTooltipModule} from '@angular/material';
 import {MatTabsModule} from '@angular/material';
 import {MatButtonToggleModule} from '@angular/material';
 import {MatCheckboxModule} from '@angular/material';
-
+import {MatRadioModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -99,6 +99,7 @@ import {MatCheckboxModule} from '@angular/material';
     MatButtonToggleModule,
     MatTooltipModule,
     MatCheckboxModule,
+    MatRadioModule,
 
     // AutocompleteComponent,
   ],

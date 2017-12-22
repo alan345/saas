@@ -5,6 +5,7 @@ import {ToastsManager} from 'ng2-toastr';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Search} from '../../../shared/shared.model'
+import { AuthService} from '../../../auth/auth.service';
 // import {Router, ActivatedRoute, Params } from '@angular/router';
 // import {QuoteService} from '../../quote.service';
 // import { PaiementQuote } from '../../../paiementQuote/paiementQuote.model';
@@ -43,6 +44,8 @@ export class QuoteInfoComponent implements OnInit {
   @Input() search: Search = new Search()
   @Input() fetchedQuote: Quote = new Quote()
   myForm: FormGroup;
+  typeInterventions: string[] = []
+  // typeInterventionTempBool: boolean[]= []
   // statusQuotes = StatusQuotes
   // fetchedProducts: Product[] = []
   // fetchedPaiementQuotes: PaiementQuote[] = []
@@ -53,6 +56,7 @@ export class QuoteInfoComponent implements OnInit {
   constructor(
     private toastr: ToastsManager,
     private _fb: FormBuilder,
+    public authService: AuthService,
     // private activatedRoute: ActivatedRoute,
     // private router: Router,
     // private quoteService: QuoteService,
@@ -77,11 +81,24 @@ export class QuoteInfoComponent implements OnInit {
       issueDate: [''],
       currency: ['', [Validators.required, Validators.minLength(1)]],
       quoteRef: ['', [Validators.required, Validators.minLength(1)]],
-
     })
 
-
+    this.authService.getCurrentUser().ownerCompanies.forEach(companie => {
+      this.typeInterventions = companie.typeInterventions
+    })
   }
+
+
+
+
+  changetypeIntervention() {
+    this.fetchedQuote.name = this.fetchedQuote.typeIntervention
+    
+    this.fetchedQuote.clients.forEach(client => {
+      this.fetchedQuote.name += ' - ' + client.profile.name
+    })
+  }
+
   quoteStatusChanged() {
     this.quoteStatusChangedEmit.emit()
   }
