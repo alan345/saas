@@ -10,6 +10,8 @@ export class Search {
   quoteId: string = '';
   userId: string = '';
   paiementQuoteId: string = '';
+  endDate: Date = new Date();
+  startDate: Date = new Date();
   // assignedToId: string = '';
   projectId: string = '';
   parentQuoteId: string = '';
