@@ -48,6 +48,7 @@ export class UserCalendarsComponent implements OnInit {
   fetchedUserCalendar: UserCalendar = new UserCalendar()
 
   currentUser: User = new User()
+  readyCalendar: boolean = false
 
   searchData: SearchData = new SearchData()
   // search: Search = new Search()
@@ -185,6 +186,7 @@ export class UserCalendarsComponent implements OnInit {
       eventResize: this.eventResize.bind(this),
       viewRender: this.viewRender.bind(this),
     };
+    this.readyCalendar = true
   }
 
   getMyCompanie() {
@@ -225,6 +227,7 @@ export class UserCalendarsComponent implements OnInit {
 
   getUserCalendars(page: number, search: any) {
     // this.globalEventsManager.isLoadding(true);
+    console.log(search)
     this.userCalendarService.getUserCalendars(page, search)
       .subscribe(
       res => {
@@ -357,7 +360,7 @@ export class UserCalendarsComponent implements OnInit {
 
   }
   viewRender(view, element) {
-    // console.log(view.activeRange.start)
+    console.log(view.activeRange.start)
     this.search.startDate = view.activeRange.start
     this.search.endDate = view.activeRange.end
     if (this.isSearchInitReady)
