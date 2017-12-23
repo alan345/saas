@@ -54,6 +54,7 @@ export class UserCalendarsComponent implements OnInit {
   search = {
     typeUser: '',
     userSearch: '',
+    userId: '',
     projectSearch: '',
     endDate: new Date(),
     startDate: new Date(),
