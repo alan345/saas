@@ -54,8 +54,8 @@ export class newObjDialogComponent implements OnInit {
       this.router.navigate(['/right/new']);
     } else if (typeObj === 'quote') {
       this.saved.emit()
-      this.router.navigate(['/quote/new', this.search])
-
+      this.router.navigate(['/quote/new', {quoteId: this.search.quoteId, userId: this.search.userId}])
+// http://localhost/#/quote/new;orderBy=-createdAt;search=;quoteType=;quoteId=;userId=;paiementQuoteId=;endDate=Fri%20Dec%2022%202017%2019:02:01%20GMT-0800%20(PST);startDate=Fri%20Dec%2022%202017%2019:02:01%20GMT-0800%20(PST);projectId=;parentQuoteId=;isExternalUser=true;isExpense=false;typeQuote=quote;year=0;isFromAutocomplete=false;statusQuote=
     } else {
 
       let dialogComp: any

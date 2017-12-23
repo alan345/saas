@@ -203,13 +203,14 @@ export class UserCalendarsComponent implements OnInit {
   }
 
   getUserCalendarBySearch(searchData: SearchData) {
+    console.log(searchData)
     this.searchData = searchData
     this.isSearchInitReady = true
     this.resetSearchGetUserCalendars()
   }
   resetSearchGetUserCalendars() {
     // this.search.typeUser = this.searchData.typeUser
-    // this.search.userSearch = ''
+    this.search.userId = ''
     // this.search.projectSearch = ''
     this.searchData.fetchedUserSearchs.forEach(fetchedUserSearch => {
       this.search.userId = fetchedUserSearch._id
@@ -360,9 +361,9 @@ export class UserCalendarsComponent implements OnInit {
 
   }
   viewRender(view, element) {
-    console.log(view.activeRange.start)
-    this.search.startDate = view.activeRange.start
-    this.search.endDate = view.activeRange.end
+    console.log(new Date(view.activeRange.start))
+    this.search.startDate = new Date(view.activeRange.start)
+    this.search.endDate = new Date(view.activeRange.end)
     if (this.isSearchInitReady)
       this.resetSearchGetUserCalendars()
     // this.getUserCalendars(1, this.search)

@@ -155,12 +155,17 @@ router.get('/page/:page', function(req, res, next) {
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
 
+  var startDate = new Date(JSON.parse(req.query.startDate))
+  var endDate = new Date(JSON.parse(req.query.endDate))
+  startDate = startDate.setDate(startDate.getDate() - 2 )
+  endDate = endDate.setDate(endDate.getDate() + 2 )
+
   let searchQuery = {
     start: {
-      "$gt": req.query.startDate
+      "$gt": startDate
     },
     end: {
-      "$lt": req.query.endDate
+      "$lt": endDate
     }
   }
   searchQuery['ownerCompanies'] = req.user.ownerCompanies

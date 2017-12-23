@@ -233,12 +233,18 @@ export class QuoteComponent implements OnInit {
   }
 
   save() {
+    if(!this.fetchedQuote.clients.length) {
+      this.toastr.error('Error!', 'Select a client!')
+      return;
+    }
     if (this.fetchedQuote._id) {
       this.quoteService.updateQuote(this.fetchedQuote)
         .subscribe(
         res => {
           this.toastr.success('Great!', res.message)
           this.fetchedQuote = res.obj
+          this.fetchedQuote.clients.forEach(user => { this.search.userId = user._id })
+          this.search.quoteId = this.fetchedQuote._id
           // this.getQuote(res.obj._id)
           // this.saved.emit(res)
         },
@@ -252,6 +258,8 @@ export class QuoteComponent implements OnInit {
         res => {
           this.toastr.success('Great!', res.message)
           this.fetchedQuote = res.obj
+          this.fetchedQuote.clients.forEach(user => { this.search.userId = user._id })
+          this.search.quoteId = this.fetchedQuote._id
           // this.getQuote(res.obj._id)
           // this.router.navigate(['quote/' + res.obj._id])
           // this.saved.emit(res)

@@ -136,7 +136,10 @@
           {{'Paiements' | translate}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <app-paiementQuotes [showBack]=0 *ngIf="step === 4" (getPaiementQuotesCross)="getPaiementQuotes($event)" [search]="{userId: search.userId, isExpense:search.isExpense, quoteId:fetchedQuote._id}">
+      <app-paiementQuotes
+        [showBack]=0 *ngIf="step === 4"
+        (getPaiementQuotesCross)="getPaiementQuotes($event)"
+        [search]="{userId: search.userId, isExpense:search.isExpense, quoteId:fetchedQuote._id}">
       </app-paiementQuotes>
       <mat-card>
         {{'Paiements' | translate}}: {{totalPaiementAmount | round | currency}}
