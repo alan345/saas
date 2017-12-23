@@ -10,7 +10,7 @@ import {Companie, Categorie0, ContactsPerson} from '../../companie.model';
 import {ToastsManager} from 'ng2-toastr';
 
 // import {MatDialog } from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
+import { Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
@@ -39,8 +39,8 @@ export class CategProductComponent implements OnInit {
   // userStylists : User[] = []
   // myForm: FormGroup;
   // seeRights = false;
-  seeCategProject = false;
-  seeCategProduct = false;
+  // seeCategProject = false;
+  // seeCategProduct = false;
   // isMyCompanyRoute: Boolean = false
   // servicesBancks = ['stripe', 'paypal']
   // typesRights = [
@@ -53,8 +53,8 @@ export class CategProductComponent implements OnInit {
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
     // public dialog: MatDialog,
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
+    // private activatedRoute: ActivatedRoute,
+    // private router: Router,
     private location: Location,
     private _fb: FormBuilder,
     // private authService:AuthService,

@@ -23,7 +23,7 @@ export class DetailsCalendarComponent implements OnInit, OnChanges {
 
   daysToHideTemp: any = [true, true, true, true, true, true, true]
 
-  showLoginInApp: boolean = false
+  // showLoginInApp: boolean = false
   // userAdmins : User[] = []
   // userManagers : User[] = []
   // userClients : User[] = []
@@ -140,7 +140,7 @@ export class DetailsCalendarComponent implements OnInit, OnChanges {
 
   dataChanged() {
     this.save()
-    this.showLoginInApp = true
+    // this.showLoginInApp = true
   }
 
 

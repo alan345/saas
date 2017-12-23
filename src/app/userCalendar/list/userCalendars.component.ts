@@ -1,16 +1,16 @@
 import { Component, OnInit, Input, ViewChild} from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { UserCalendarService } from '../userCalendar.service';
-
 import { UserCalendar, SearchData } from '../userCalendar.model';
 import { ToastsManager } from 'ng2-toastr';
-
+import { Search } from '../../shared/shared.model';
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../../user/user.service';
-
+import { Companie } from '../../companie/companie.model';
+import { CompanieService} from '../../companie/companie.service';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
 import { Quote } from '../../quote/quote.model';
@@ -43,20 +43,21 @@ export class UserCalendarsComponent implements OnInit {
   @ViewChild(CalendarComponent) myCalendar: CalendarComponent;
   @ViewChild(SearchCalendarComponent) private searchCalendarComponent: SearchCalendarComponent;
 
-
+  myCompanie: Companie = new Companie()
   isSearchInitReady: boolean = false
   fetchedUserCalendar: UserCalendar = new UserCalendar()
 
   currentUser: User = new User()
 
   searchData: SearchData = new SearchData()
-  search = {
-    typeUser: '',
-    userSearch: '',
-    projectSearch: '',
-    endDate: new Date(),
-    startDate: new Date(),
-  }
+  search: Search = new Search()
+  // search = {
+  //   typeUser: '',
+  //   userSearch: '',
+  //   projectSearch: '',
+  //   endDate: new Date(),
+  //   startDate: new Date(),
+  // }
 
   events: UserCalendar[] = []
   myForm: FormGroup;
@@ -66,6 +67,7 @@ export class UserCalendarsComponent implements OnInit {
 
 
   constructor(
+    private companieService: CompanieService,
     private userService: UserService,
     private userCalendarService: UserCalendarService,
     private toastr: ToastsManager,
@@ -89,6 +91,29 @@ export class UserCalendarsComponent implements OnInit {
     // this.getUserCalendars(1, this.search)
   }
   ngOnInit() {
+    this.getMyCompanie()
+
+    //   this.activatedRoute.params.subscribe((params: Params) => {
+    //     // if(params['idUserSearch']) {this.getUserSearch(params['idUserSearch'])}
+    //   // if(params['idProjectSearch']) {this.getProjectSearch(params['idProjectSearch'])}
+    //   // if(params['idClientSearch']) {this.getClientSearch(params['idClientSearch'])}
+    //   // if(params['typeUserSearch']) {this.selectTypeUser(params['typeUserSearch'])}
+    // })
+  }
+
+  //   getUserSearch(id: string) {
+  //   this.userService.getUser(id)
+  //     .subscribe(
+  //       res => {
+  //         this.fetchedUserSearchs = [res]
+  //       },
+  //       error => { console.log(error) }
+  //     )
+  // }
+
+  initCalendar() {
+
+
     let slotDuration = ''
     let timeBegin = ''
     let timeEnd = ''
@@ -97,19 +122,18 @@ export class UserCalendarsComponent implements OnInit {
     let hiddenDays = []
 
 
-    this.currentUser = this.authService.getCurrentUser()
-    this.currentUser.ownerCompanies.forEach(companie => {
-      hiddenDays = companie.option.calendar.daysToHide
-      timeBegin = companie.option.calendar.timeBegin
-      timeEnd = companie.option.calendar.timeEnd
-      timeBeginbusinessHours = companie.option.calendar.timeBeginbusinessHours
-      timeEndbusinessHours = companie.option.calendar.timeEndbusinessHours
+    // this.currentUser.ownerCompanies.forEach(companie => {
+      hiddenDays = this.myCompanie.option.calendar.daysToHide
+      timeBegin = this.myCompanie.option.calendar.timeBegin
+      timeEnd = this.myCompanie.option.calendar.timeEnd
+      timeBeginbusinessHours = this.myCompanie.option.calendar.timeBeginbusinessHours
+      timeEndbusinessHours = this.myCompanie.option.calendar.timeEndbusinessHours
 
-      slotDuration = companie.option.calendar.slotDuration
-    })
-    if(!slotDuration) slotDuration = '00:30:00'
-    if(!timeBegin) timeBegin = '06:00:00'
-    if(!timeEnd) timeEnd = '19:00:00'
+      slotDuration = this.myCompanie.option.calendar.slotDuration
+    // })
+    if(!slotDuration) {slotDuration = '00:30:00'}
+    if(!timeBegin) {timeBegin = '06:00:00'}
+    if(!timeEnd) {timeEnd = '19:00:00'}
     // console.log(hiddenDays)
 
     this.calendarOptions = {
@@ -160,23 +184,20 @@ export class UserCalendarsComponent implements OnInit {
       eventResize: this.eventResize.bind(this),
       viewRender: this.viewRender.bind(this),
     };
-    //   this.activatedRoute.params.subscribe((params: Params) => {
-    //     // if(params['idUserSearch']) {this.getUserSearch(params['idUserSearch'])}
-    //   // if(params['idProjectSearch']) {this.getProjectSearch(params['idProjectSearch'])}
-    //   // if(params['idClientSearch']) {this.getClientSearch(params['idClientSearch'])}
-    //   // if(params['typeUserSearch']) {this.selectTypeUser(params['typeUserSearch'])}
-    // })
   }
 
-  //   getUserSearch(id: string) {
-  //   this.userService.getUser(id)
-  //     .subscribe(
-  //       res => {
-  //         this.fetchedUserSearchs = [res]
-  //       },
-  //       error => { console.log(error) }
-  //     )
-  // }
+  getMyCompanie() {
+    this.companieService.getCompanie('', {})
+      .subscribe(
+        res => {
+          this.myCompanie = res
+          this.initCalendar()
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
 
   getUserCalendarBySearch(searchData: SearchData) {
     this.searchData = searchData
@@ -184,11 +205,11 @@ export class UserCalendarsComponent implements OnInit {
     this.resetSearchGetUserCalendars()
   }
   resetSearchGetUserCalendars() {
-    this.search.typeUser = this.searchData.typeUser
-    this.search.userSearch = ''
-    this.search.projectSearch = ''
+    // this.search.typeUser = this.searchData.typeUser
+    // this.search.userSearch = ''
+    // this.search.projectSearch = ''
     this.searchData.fetchedUserSearchs.forEach(fetchedUserSearch => {
-      this.search.userSearch = fetchedUserSearch._id
+      this.search.userId = fetchedUserSearch._id
     });
     // this.searchData.fetchedProjectSearchs.forEach(fetchedProjectSearch => {
     //   this.search.projectSearch = fetchedProjectSearch._id
