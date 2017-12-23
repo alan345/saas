@@ -169,19 +169,20 @@ router.get('/page/:page', function(req, res, next) {
   //   searchQuery['users.type'] = req.query.typeUser
 
 
-  if (req.query.userSearch)
-    searchQuery['clients'] = mongoose.Types.ObjectId(req.query.userSearch)
+  if (req.query.userId)
+    searchQuery['clients'] = mongoose.Types.ObjectId(req.query.userId)
 
   // if (req.query.projectSearch)
   //   searchQuery['projects'] = mongoose.Types.ObjectId(JSON.parse(req.query.projectSearch)._id)
 
-  if (req.query.projectSearch)
-    searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectSearch)
+  // if (req.query.projectSearch)
+  //   searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectSearch)
+  //
 
 
+  // if (req.query.search)
+  //   searchQuery['name'] = new RegExp(req.query.search, 'i')
 
-  if (req.query.search)
-    searchQuery['name'] = new RegExp(req.query.search, 'i')
 
   UserCalendar
   .find(searchQuery)
