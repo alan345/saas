@@ -11,26 +11,26 @@ export class TypeInterventionComponent {
   @Output() save: EventEmitter<any> = new EventEmitter();
   @Input() fetchedCompanie: Companie = new Companie()
   valueToAdd: string = '';
-  showLoginInApp: boolean = false;
+  // showLoginInApp: boolean = false;
 
   constructor(
   ) {}
 
-  loginInAppDone() {
-    this.showLoginInApp = false
-  }
+  // loginInAppDone() {
+  //   this.showLoginInApp = false
+  // }
 
   add() {
     if (this.valueToAdd) {
       this.fetchedCompanie.typeInterventions.push(this.valueToAdd)
       this.valueToAdd = ''
-      this.showLoginInApp = true
+      // this.showLoginInApp = true
       this.save.emit()
     }
   }
   remove(i: number) {
     this.fetchedCompanie.typeInterventions.splice(i, 1)
-    this.showLoginInApp = true
+    // this.showLoginInApp = true
     this.save.emit()
   }
 

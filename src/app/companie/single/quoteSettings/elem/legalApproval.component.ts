@@ -11,26 +11,26 @@ export class LegalApprovalComponent {
   @Output() save: EventEmitter<any> = new EventEmitter();
   @Input() fetchedCompanie: Companie = new Companie()
   legalApprovalValueToAdd: string = '';
-  showLoginInApp: boolean = false;
+  // showLoginInApp: boolean = false;
 
   constructor(
   ) {}
 
   loginInAppDone(){
-    this.showLoginInApp = false
+    // this.showLoginInApp = false
   }
 
   add() {
     if (this.legalApprovalValueToAdd) {
       this.fetchedCompanie.legalApprovals.push(this.legalApprovalValueToAdd)
       this.legalApprovalValueToAdd = ''
-      this.showLoginInApp = true
+      // this.showLoginInApp = true
       this.save.emit()
     }
   }
   remove(i: number) {
     this.fetchedCompanie.legalApprovals.splice(i, 1)
-    this.showLoginInApp = true
+    // this.showLoginInApp = true
     this.save.emit()
   }
 

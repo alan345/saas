@@ -9,7 +9,8 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DeleteDialogComponent } from '../../nav/deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
 import { ModelVATs } from '../../quote/quote.model';
-import { AuthService} from '../../auth/auth.service';
+// import { AuthService} from '../../auth/auth.service';
+import { CompanieService} from '../../companie/companie.service';
 // import { CompanieService} from '../../companie/companie.service';
 // import { Location } from '@angular/common';
 // import { DomSanitizer } from '@angular/platform-browser';
@@ -40,6 +41,7 @@ export class ProductSingleComponent implements OnInit {
   step = -1;
 
   VATs = ModelVATs;
+  myCompanie: Companie = new Companie()
 
   // autocompleteCompanie: string = '';
 
@@ -54,11 +56,11 @@ export class ProductSingleComponent implements OnInit {
     private toastr: ToastsManager,
     public dialog: MatDialog,
     private router: Router,
-    // private location: Location,
+    private companieService: CompanieService,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     // private companieService: CompanieService,
-    private authService: AuthService,
+    // private authService: AuthService,
   ) {
   }
 
@@ -67,6 +69,7 @@ export class ProductSingleComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => { this.step = 0});
+    this.getMyCompanie()
     this.myForm = this._fb.group({
         referenceName: ['', [Validators.required, Validators.minLength(2)]],
         reference: [''],
@@ -82,7 +85,7 @@ export class ProductSingleComponent implements OnInit {
 
     })
 
-    this.getItemSteps();
+
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id']) {
@@ -90,6 +93,20 @@ export class ProductSingleComponent implements OnInit {
       }
     })
 
+  }
+
+
+  getMyCompanie() {
+    this.companieService.getCompanie('', {})
+      .subscribe(
+        res => {
+          this.myCompanie = res
+          this.getItemSteps();
+        },
+        error => {
+          console.log(error);
+        }
+      )
   }
 
   setStep(index: number) {
@@ -111,13 +128,13 @@ export class ProductSingleComponent implements OnInit {
   }
 
   getItemSteps() {
-    const currentUser = this.authService.getCurrentUser()
+    // const currentUser = this.authService.getCurrentUser()
 
-    for (let i in currentUser.ownerCompanies) {
-      if(currentUser.ownerCompanies[i].categories.categProduct) {
-        this.itemSteps = currentUser.ownerCompanies[i].categories.categProduct
+    // for (let i in currentUser.ownerCompanies) {
+      if(this.myCompanie.categories.categProduct) {
+        this.itemSteps = this.myCompanie.categories.categProduct
       }
-    }
+    // }
 
   }
 

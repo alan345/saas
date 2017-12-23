@@ -1,4 +1,4 @@
-<div class="hideMobile" *ngIf="authService.showObjHTML('quote', 'template')">
+<div class="hideMobile">
   <app-template-quote [fetchedQuote]="fetchedQuote"></app-template-quote>
 </div>
 <div *ngFor="let devisDetail of fetchedQuote.devisDetails; let i=index">
@@ -16,4 +16,4 @@
 
 <app-add-elem [fetchedQuote]="fetchedQuote" (calculateQuoteEmit)="calculateQuote()"></app-add-elem>
 
-<app-total [fetchedQuote]="fetchedQuote" (calculateQuoteEmit)="calculateQuote()"></app-total>
+<app-total [myCompanie]="myCompanie" [fetchedQuote]="fetchedQuote" (calculateQuoteEmit)="calculateQuote()"></app-total>

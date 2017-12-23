@@ -1,4 +1,4 @@
-import {Component, OnInit, OnChanges, ViewChild, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, ViewChild, Input, Output, EventEmitter} from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
 import {Quote } from '../../quote.model';
 import {ToastsManager} from 'ng2-toastr';
@@ -38,7 +38,7 @@ import { Companie} from '../../../companie/companie.model';
   templateUrl: './quoteInfo.component.html',
   styleUrls: ['../../quote.component.css'],
 })
-export class QuoteInfoComponent implements OnInit, OnChanges {
+export class QuoteInfoComponent implements OnInit {
   loading: boolean = false;
   @Output() quoteStatusChangedEmit: EventEmitter<any> = new EventEmitter();
   @Output() save: EventEmitter<any> = new EventEmitter();

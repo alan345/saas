@@ -22,7 +22,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
-  selector: 'app-categProduct',
+  selector: 'app-categ-product',
   templateUrl: './categProduct.component.html',
   styleUrls: ['../../companie.component.css'],
 })
@@ -31,7 +31,7 @@ export class CategProductComponent implements OnInit {
   // @Input() showBackButton: Boolean = true;
   @Input() fetchedCompanie: Companie = new Companie();
   // fetchedCompanie: Companie = new Companie()
-  showLoginInApp: boolean = false;
+  // showLoginInApp: boolean = false;
   // userAdmins : User[] = []
   // userManagers : User[] = []
   // userClients : User[] = []
@@ -173,30 +173,37 @@ export class CategProductComponent implements OnInit {
     this.save.emit()
   }
   addCateg(typeCateg, level, index1, index2, index3) {
-      this.showLoginInApp = true
-      const newCategorie = new Categorie0()
-      if(level === 0)
-        this.fetchedCompanie.categories[typeCateg].unshift(newCategorie)
-      if(level === 1)
-        this.fetchedCompanie.categories[typeCateg][index1].subCateg.unshift(newCategorie)
-      if(level === 2)
-        this.fetchedCompanie.categories[typeCateg][index1].subCateg[index2].subCateg.unshift(newCategorie)
-      this.save.emit()
+    // this.showLoginInApp = true
+    const newCategorie = new Categorie0()
+    if (level === 0) {
+      this.fetchedCompanie.categories[typeCateg].unshift(newCategorie);
+    }
+    if (level === 1) {
+      this.fetchedCompanie.categories[typeCateg][index1].subCateg.unshift(newCategorie);
+    }
+    if (level === 2) {
+      this.fetchedCompanie.categories[typeCateg][index1].subCateg[index2].subCateg.unshift(newCategorie);
+    }
+    this.save.emit()
   }
   // removeTypeUser(i) {
   //   this.fetchedCompanie.typeUsers.splice(i, 1)
   // }
 
   removeCateg(typeCateg, level, index1, index2, index3) {
-      this.showLoginInApp = true
-      if(level === 0)
+      // this.showLoginInApp = true
+      if(level === 0) {
         this.fetchedCompanie.categories[typeCateg].splice(level, 1)
-      if(level === 1)
+      }
+      if(level === 1) {
         this.fetchedCompanie.categories[typeCateg].splice(index1, 1)
-      if(level === 2)
+      }
+      if(level === 2) {
         this.fetchedCompanie.categories[typeCateg][index1].subCateg.splice(index2, 1)
-      if(level === 3)
+      }
+      if(level === 3) {
         this.fetchedCompanie.categories[typeCateg][index1].subCateg[index2].subCateg.splice(index3, 1)
+      }
       this.save.emit()
   }
 

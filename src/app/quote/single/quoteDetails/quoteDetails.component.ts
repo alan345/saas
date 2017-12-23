@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
-import { AuthService } from '../../../auth/auth.service';
+// import { AuthService } from '../../../auth/auth.service';
 import {Quote, DevisDetail, BucketProduct, StatusQuotes} from '../../quote.model';
 import { ToastsManager } from 'ng2-toastr';
 import { Product } from '../../../product/product.model';
+import { Companie} from '../../../companie/companie.model';
 // import { QuoteService } from '../../quote.service';
 // import { TemplateQuoteService } from '../../templateQuote.service';
 // import { TemplateQuote } from '../../templateQuote.model';
@@ -47,6 +48,7 @@ export class QuoteDetailsComponent implements OnInit {
   @Output() calculateQuoteEmit: EventEmitter<any> = new EventEmitter();
 
   @Input() fetchedQuote: Quote = new Quote()
+  @Input() myCompanie: Companie = new Companie()
   // @Input() search: Search = new Search()
 
   // showPaiements: boolean = false
@@ -84,7 +86,7 @@ export class QuoteDetailsComponent implements OnInit {
     // private router: Router,
     // private location: Location,
     // private _fb: FormBuilder,
-    public authService: AuthService,
+    // public authService: AuthService,
     // private dragulaService: DragulaService,
     // private translateService: TranslateService,
   ) {

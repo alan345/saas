@@ -1,15 +1,18 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 
 import { Quote, StatusQuotes } from '../../../quote.model';
 
 import { Search } from '../../../../shared/shared.model'
 import { AuthService} from '../../../../auth/auth.service';
+import { Companie} from '../../../../companie/companie.model';
+
+
 @Component({
   selector: 'app-total',
   templateUrl: './total.component.html',
   styleUrls: ['../quoteDetails.component.css'],
 })
-export class TotalComponent implements OnInit {
+export class TotalComponent implements OnInit, OnChanges {
   // @ViewChild(SignaturePad) signaturePad: SignaturePad;
   // @ViewChild(PaiementQuotesComponent) paiementQuotesComponent: PaiementQuotesComponent;
 
@@ -19,6 +22,7 @@ export class TotalComponent implements OnInit {
   @Output() calculateQuoteEmit: EventEmitter<any> = new EventEmitter();
 
   @Input() fetchedQuote: Quote = new Quote()
+  @Input() myCompanie: Companie = new Companie()
   // @Input() search: Search = new Search()
   //
   // // showPaiements: boolean = false
@@ -60,20 +64,14 @@ export class TotalComponent implements OnInit {
     this.calculateQuoteEmit.emit()
   }
 
-
-  ngOnInit() {
-
-
-    // this.fetchedQuote.legalApprovals.push('')
-    // this.fetchedQuote.legalApprovals.push('')
-    // this.fetchedQuote.legalApprovals.push('')
-    this.authService.getCurrentUser().ownerCompanies.forEach(companie => {
-      this.VATs = companie.modelVATs
+  ngOnChanges() {
+    // this.authService.getCurrentUser().ownerCompanies.forEach(companie => {
+      this.VATs = this.myCompanie.modelVATs
       if (this.fetchedQuote.priceQuote.vatGlobal === 0 && this.VATs.length) {
         this.fetchedQuote.priceQuote.vatGlobal = this.VATs[0]
       }
-      this.legalApprovals = companie.legalApprovals
-    })
+      this.legalApprovals = this.myCompanie.legalApprovals
+    // })
 
 
     for (let i = 0; i < this.legalApprovals.length; i++) {
@@ -87,6 +85,14 @@ export class TotalComponent implements OnInit {
         }
       })
     })
+  }
+  ngOnInit() {
+
+
+    // this.fetchedQuote.legalApprovals.push('')
+    // this.fetchedQuote.legalApprovals.push('')
+    // this.fetchedQuote.legalApprovals.push('')
+
 
   }
   changeLegalApproval() {
