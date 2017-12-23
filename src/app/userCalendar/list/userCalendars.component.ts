@@ -50,14 +50,14 @@ export class UserCalendarsComponent implements OnInit {
   currentUser: User = new User()
 
   searchData: SearchData = new SearchData()
-  search: Search = new Search()
-  // search = {
-  //   typeUser: '',
-  //   userSearch: '',
-  //   projectSearch: '',
-  //   endDate: new Date(),
-  //   startDate: new Date(),
-  // }
+  // search: Search = new Search()
+  search = {
+    typeUser: '',
+    userSearch: '',
+    projectSearch: '',
+    endDate: new Date(),
+    startDate: new Date(),
+  }
 
   events: UserCalendar[] = []
   myForm: FormGroup;
@@ -356,6 +356,7 @@ export class UserCalendarsComponent implements OnInit {
 
   }
   viewRender(view, element) {
+    // console.log(view.activeRange.start)
     this.search.startDate = view.activeRange.start
     this.search.endDate = view.activeRange.end
     if (this.isSearchInitReady)
