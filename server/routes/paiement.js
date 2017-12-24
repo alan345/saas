@@ -296,30 +296,49 @@ function getStripeCust (companieId) {
     Companie.findById((companieId), function (err, companie) {
       if (err) {
         reject(err)
+        return;
       }
+      // console.log(companie.banck.stripe.stripe_user_id_gooplus)
+      console.log('a')
       if (!companie.banck.stripe.stripe_user_id_gooplus) {
         reject(new Error({title: 'No data', error: 'noData'}))
         detetePlanDetailsInDB(companie._id)
+        console.log('b')
+        return;
         // return res.status(404).json({title: 'No data', error: 'noData'});
       }
+      if (companie.banck.stripe.stripe_user_id_gooplus === 'cus_passwordFree30days') {
+        reject(new Error({title: 'cus_passwordFree30days', error: 'cus_passwordFree30days'}))
+        // console.log('bcc')
+        // console.log(companie.planDetail)
+        return;
+      }
+      console.log('p')
       stripe.customers.retrieve(companie.banck.stripe.stripe_user_id_gooplus, function (err, customer) {
         if (err) {
           reject(err)
           detetePlanDetailsInDB(companie._id)
+          console.log('d')
+          return;
           // return res.status(404).json({title: 'No data in stripe', error: 'noData'});
         } else {
           if (customer.deleted) {
             detetePlanDetailsInDB(companie._id)
+            console.log('e')
             reject(new Error({title: 'Deleted', error: customer}))
+            return;
             // return res.status(404).json({title: 'Deleted', error: customer});
           }
           if(!customer.subscriptions.data.length) {
+            console.log('f')
             detetePlanDetailsInDB(companie._id)
           }
           customer.subscriptions.data.forEach(subscription => {
             savePlanDetailsInDB(companieId, subscription)
+            console.log('g')
           })
           resolve(customer)
+          console.log('h')
           // return res.status(200).json({customer: customer})
         }
       })
@@ -344,6 +363,7 @@ function createCustomerInStripe(req) {
 
 
 function savePlanDetailsInDB (companieId, subscription) {
+  console.log('savePlanDetailsInDB')
   return new Promise(function (resolve, reject) {
     let planDetail = {
       current_period_end: subscription.current_period_end * 1000,

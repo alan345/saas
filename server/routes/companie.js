@@ -106,7 +106,7 @@ router.put('/:id', function (req, res, next) {
     item.modelVATs = req.body.modelVATs
     item.legalApprovals = req.body.legalApprovals
     item.typeInterventions = req.body.typeInterventions
-
+    console.log('put_companie')
 
 
 
@@ -154,6 +154,8 @@ router.post('/password', function (req, res, next) {
       var newDate = new Date();
       newDate.setDate(newDate.getDate() + 30);
       item.planDetail.current_period_end = newDate
+      item.planDetail.plan = 'gold'
+      item.banck.stripe.stripe_user_id_gooplus = 'cus_passwordFree30days'
       item.save(function (err, result) {
         if (err) {
           return res.status(404).json({

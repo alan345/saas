@@ -10,6 +10,7 @@ export const LANG_FR_TRANS = {
     'Back': 'Retour',
     'Month': 'Mois',
     'Year': 'Année',
+    'Company Email': 'Email de l\'entreprise',
     'Interventions paid this year': 'Interventions payée cette année',
     'Interventions paid this month': 'Interventions payée ce mois',
     'Company name': 'Nom de l\'entreprise',
@@ -267,7 +268,7 @@ export const LANG_FR_TRANS = {
     'address_city': 'Ville de la carte',
     'address_country': 'Pays de la carte',
     'address_line1': 'Adresse',
-    'address_line2': 'Complément d`adresse',
+    'address_line2': 'Complément d\'adresse',
     'address_state': 'Etat',
     'address_zip': 'Code Postal',
     'brand': 'Type de carte',
@@ -311,10 +312,10 @@ export const LANG_FR_TRANS = {
     'legal Approval': 'Conditions à cocher',
     'Quote Legal Notice': 'Informations légales du devis',
     'Invoice Legal Notice': 'Informations légales de la Facture',
-    'Your logo': 'Logo de votre entreprise',
+    'Your company logo': 'Logo de votre entreprise',
     'Documents Settings': 'Paramétrage des documents',
 
-    'Cost Price': 'Prix d´achat',
+    'Cost Price': 'Prix d\'achat',
 
 
 

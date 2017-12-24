@@ -23,17 +23,19 @@ var express = require('express'),
 router.post('/register', function(req, res, next) {
 
   var companie = new Companie()
+  companie.nameCompanie = req.body.company.nameCompanie
+  companie.typeCompanie = req.body.company.typeCompanie
   // companie.nameCompanie = 'My Companie'
-  companie.save(function(err, result) {
+  companie.save(function(err, CompanieResult) {
     if (err) {
       return res.status(403).json({title: 'There was an issue', error: err});
     }
-
+    // console.log(req.body)
     var user = new User({
       email: req.body.email,
       password: passwordHash.generate(req.body.password),
       profile: req.body.profile,
-      ownerCompanies: result._id,
+      ownerCompanies: CompanieResult._id,
       isExternalUser: false
       // companies: result._id,
       // isAdminOfHisCompanie: true,
@@ -48,7 +50,8 @@ router.post('/register', function(req, res, next) {
         });
       }
       emailGenerator.sendWelcomeEmail(user)
-      initData.initCompanie(result)
+      initData.initCompanie(CompanieResult._id)
+      // initData.initLegal(CompanieResult)
 
       res.status(200).json({message: 'Registration Successfull', obj: userResult})
     })
@@ -86,12 +89,18 @@ router.post('/login', function(req, res, next) {
       })
     }
 
-    paiement.getStripeCust(doc.ownerCompanies[0])
+    paiement.getStripeCust(doc.ownerCompanies[0]).then(data => {
+      console.log(data)
+    }).catch(err => {
+      console.log(err)
+    })
     doc.rightsInApp.push(shared.getRight(doc))
 
     var token = jwt.sign({
       user: doc
     }, config.secret, {expiresIn: config.jwtExpire});
+    // console.log('popopopopop')
+    // console.log(doc)
     return res.status(200).json({
       message: 'Login Successfull', token: token, userId: doc._id,
       // user: doc

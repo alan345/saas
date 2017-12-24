@@ -2,7 +2,7 @@ import {Component, OnInit, Renderer, ViewChild, ElementRef, AfterViewInit} from 
 import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import {ToastsManager} from 'ng2-toastr';
 import {AuthService} from '../../auth/auth.service';
-import {User} from '../user.model';
+import {UserRegister} from '../user.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -15,7 +15,9 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   email: FormControl;
   password: FormControl;
   @ViewChild('userEmail') userEmail: ElementRef;
+  typesCompanie: string[] = ['Plomber', 'Locksmith']
 
+  
   constructor(
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder, private authService: AuthService,
@@ -44,7 +46,12 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       profile: this._fb.group({
         name: ['', [Validators.required, Validators.minLength(2)]],
         lastName: ['', [Validators.required, Validators.minLength(2)]],
+      }),
+      company: this._fb.group({
+        typeCompanie: ['', [Validators.required, Validators.minLength(2)]],
+        nameCompanie: ['', [Validators.required, Validators.minLength(2)]],
       })
+
     });
   }
 
@@ -61,10 +68,11 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   // submit the register form to the backend with the user's desired credentials
   onSubmit() {
     //const user = new User(this.myForm.value.email, this.myForm.value.password);
-    const user = new User();
+    const user = new UserRegister();
     user.email = this.myForm.value.email
     user.password = this.myForm.value.password
     user.profile = this.myForm.value.profile
+    user.company = this.myForm.value.company
 
     this.authService.signup(user)
       .subscribe(

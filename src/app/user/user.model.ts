@@ -24,6 +24,20 @@ export class User {
   salesMan: User[] = [];
   paiement: Paiement= new Paiement()
 }
+export class UserRegister {
+
+  email: string = '';
+
+  profile: Profile = new Profile();
+  password: string = '';
+  company: CompanyRegister = new CompanyRegister()
+
+}
+
+export class CompanyRegister {
+  nameCompanie: string = '';
+  typeCompanie: string = '';  
+}
 
 export class UserCross {
   _id: string = '';

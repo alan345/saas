@@ -40,6 +40,25 @@
               <input matInput #lastName type="text" formControlName="lastName" placeholder="Nom">
             </mat-form-field>
           </div>
+          <div formGroupName="company">
+            <mat-form-field>
+              <input matInput #nameCompanie formControlName="nameCompanie" placeholder="{{'Name of Companie' | translate}}">
+            </mat-form-field>
+
+
+            <mat-form-field>
+              <mat-select formControlName="typeCompanie" placeholder="{{'Type Company' | translate}}">
+                <mat-option *ngFor="let typeCompanie of typesCompanie" [value]="typeCompanie">
+                  {{ typeCompanie | translate }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+
+            <!-- <mat-form-field>
+              <input matInput #typeCompanie type="typeCompanie"  placeholder="typeCompanie">
+            </mat-form-field> -->
+          </div>
 
 
 

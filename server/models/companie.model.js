@@ -65,8 +65,9 @@ var companie = new Schema({
     // faxNumber: {type: String, default: ['']},
     phoneNumber: {type: String, default: ['']},
     nameCompanie: {type: String, default: ['']},
+    typeCompanie: {type: String, default: ['']},
     // typeCompanie: {type: String, default: ['salon']},
-    isSupplier: {type: Boolean, default: [false]},
+    // isSupplier: {type: Boolean, default: [false]},
     //users : [{type: Schema.Types.ObjectId, ref: 'User'}],
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
     // categJson: {
@@ -85,16 +86,16 @@ var companie = new Schema({
           }]
         }]
       }],
-      categProject:[{
-        categ: {type: String, default: ['']},
-        isFlagged: {type: Boolean, default: [false]},
-        subCateg:[{
-          categ: {type: String, default: ['']},
-          subCateg:[{
-            categ: {type: String, default: ['']},
-          }]
-        }]
-      }]
+      // categProject:[{
+      //   categ: {type: String, default: ['']},
+      //   isFlagged: {type: Boolean, default: [false]},
+      //   subCateg:[{
+      //     categ: {type: String, default: ['']},
+      //     subCateg:[{
+      //       categ: {type: String, default: ['']},
+      //     }]
+      //   }]
+      // }]
     }
 
 
