@@ -10,6 +10,7 @@ export class UserCalendar {
     end: Date = new Date();
     color: string = '';
     // description: string = '';
+    // content: string = '';
     // clients: User[] = [];
     clients: User[] = [];
     assignedTos: User[] = [];

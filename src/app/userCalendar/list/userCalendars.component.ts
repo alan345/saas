@@ -185,6 +185,7 @@ export class UserCalendarsComponent implements OnInit {
       eventResizeStop: this.eventResizeStop.bind(this),
       eventResize: this.eventResize.bind(this),
       viewRender: this.viewRender.bind(this),
+      eventRender: this.eventRender.bind(this),
     };
     this.readyCalendar = true
   }
@@ -236,19 +237,19 @@ export class UserCalendarsComponent implements OnInit {
         this.events = []
         this.events = res.data
         this.events.forEach((event, i) => {
-          // this.events[i].title = 'toto'
+          this.events[i].content = 'toto'
 
-
+          // this.events[i].title += '<button type="button">alan</button>';
 
           event.clients.forEach((user, j) => {
             this.events[i].title = '';
             this.events[i].color = user.profile.colorCalendar
             this.events[i].title += user.profile.lastName + ' '+ user.profile.name + '  '
-            user.profile.address.forEach(singleAddress => {
-              this.events[i].title += singleAddress.zip
-              this.events[i].title += ' ';
-              this.events[i].title += singleAddress.city
-            })
+            // user.profile.address.forEach(singleAddress => {
+            //   this.events[i].title += singleAddress.zip
+            //   this.events[i].title += ' ';
+            //   this.events[i].title += singleAddress.city
+            // })
           });
           event.assignedTos.forEach((assignedTo, j) => {
             this.events[i].color = assignedTo.profile.colorCalendar
@@ -337,7 +338,10 @@ export class UserCalendarsComponent implements OnInit {
     this.openDialog(newUserCalendar)
   }
   eventClick(event, jsEvent, view) {
-    this.openDialog(event)
+    console.log(event)
+    console.log(jsEvent)
+    // this.openDialog(event)
+
   }
   unselect(event, jsEvent, view) {
     // console.log('unselect')
@@ -368,6 +372,21 @@ export class UserCalendarsComponent implements OnInit {
       this.resetSearchGetUserCalendars()
     // this.getUserCalendars(1, this.search)
     // console.log(view)
+  }
+  eventRender(event, element, view ) {
+    const this2 = this
+    element.bind('dblclick', function() {
+    // alert('double click!');
+      this2.openDialog(event)
+    });
+
+    // console.log(element)
+    // element = {}
+    // element.find('.fc-title').prepend('<span class="glyphicon">ALAN</span> ');
+    // var title = element.find( '.fc-title' );
+    // title.html( title.text() );
+    // element.innerHTML = 'toto'
+    // element.find('span.fc-event-title').html('toto');
   }
   eventResizeStart(event, jsEvent, view) {
     // console.log('unselect')
