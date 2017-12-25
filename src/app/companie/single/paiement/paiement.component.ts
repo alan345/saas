@@ -76,7 +76,9 @@ export class PaiementComponent implements OnInit {
       this.newCard.address_zip = address.zip
     })
   }
-
+  dblclickDunction() {
+    this.router.navigate(['companie/mine'], { queryParams: { debug: true } });
+  }
 
 
 
