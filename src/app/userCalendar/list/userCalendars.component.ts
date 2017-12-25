@@ -237,7 +237,7 @@ export class UserCalendarsComponent implements OnInit {
         this.events = []
         this.events = res.data
         this.events.forEach((event, i) => {
-          this.events[i].content = 'toto'
+          // this.events[i].content = 'toto'
 
           // this.events[i].title += '<button type="button">alan</button>';
 
