@@ -26,7 +26,7 @@ import {SharedModule } from '../shared/shared.module';
 import {CalendarModule} from 'ap-angular2-fullcalendar';
 // import {DeleteDialog} from '../deleteDialog/deleteDialog.component'
 
-
+import {MatSlideToggleModule} from '@angular/material';
 
 
 @NgModule({
@@ -43,6 +43,7 @@ import {CalendarModule} from 'ap-angular2-fullcalendar';
     SharedModule,
     // SignaturePadModule,
     CalendarModule,
+    MatSlideToggleModule,
     // AutocompleteComponent,
   ],
   declarations: [

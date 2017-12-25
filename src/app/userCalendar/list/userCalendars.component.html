@@ -11,7 +11,15 @@
   </div> -->
   <div class="row pad15">
     <div class="col-12">
+
       <app-userCalendarSearch (getUserCalendarBySearch)="getUserCalendarBySearch($event)"></app-userCalendarSearch>
+    </div>
+    <div class="showMobile">
+      <mat-slide-toggle
+        [(ngModel)]="modeInput">
+        <div *ngIf="modeInput">{{'Edit Event'}}</div>
+        <div *ngIf="!modeInput">{{'Move Event'}}</div>
+      </mat-slide-toggle>
     </div>
     <angular2-fullcalendar *ngIf="readyCalendar" #myCal [options]="calendarOptions" (initialized)="onCalendarInit($event)">
     </angular2-fullcalendar>

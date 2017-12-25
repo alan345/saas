@@ -66,6 +66,7 @@ export class UserCalendarsComponent implements OnInit {
 
   // loading: boolean = false;
   calendarOptions: {}
+  modeInput: boolean = true
 
 
   constructor(
@@ -340,7 +341,9 @@ export class UserCalendarsComponent implements OnInit {
   eventClick(event, jsEvent, view) {
     console.log(event)
     console.log(jsEvent)
-    // this.openDialog(event)
+    if(this.modeInput) {
+      this.openDialog(event)
+    }
 
   }
   unselect(event, jsEvent, view) {
@@ -374,11 +377,11 @@ export class UserCalendarsComponent implements OnInit {
     // console.log(view)
   }
   eventRender(event, element, view ) {
-    const this2 = this
-    element.bind('dblclick', function() {
-    // alert('double click!');
-      this2.openDialog(event)
-    });
+    // const this2 = this
+    // element.bind('dblclick', function() {
+    // // alert('double click!');
+    //   this2.openDialog(event)
+    // });
 
     // console.log(element)
     // element = {}
