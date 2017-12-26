@@ -112,6 +112,7 @@ router.get('/page/:page', function(req, res, next) {
 
 function getUserCross (user, userId) {
   return new Promise(function (resolve, reject) {
+    console.log('p')
     let searchQuery = {}
     searchQuery['ownerCompanies'] = user.ownerCompanies
     searchQuery['users'] = mongoose.Types.ObjectId(userId)
@@ -123,20 +124,25 @@ function getUserCross (user, userId) {
     .populate({path: 'ownerCompanies', model: 'Companie'})
     .populate({path: 'profile.profilePicture', model: 'Form'})
       .exec(function (err, user) {
+        console.log('u')
       if (err) {
+        console.log('o')
         console.log(err)
         reject(err)
       }
       if (!user) {
+        console.log('w')
         // resolve()
-        reject(new Error({
+        reject({
           title: 'No form found',
           error: {
             message: 'Item not found!'
           }
-        }))
+        })
+      } else {
+        console.log('ty')
+        resolve(user)
       }
-      resolve(user)
     })
   })
 }

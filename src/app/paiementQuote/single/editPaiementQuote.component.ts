@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup} from '@angular/forms';
 import { UserService} from '../../user/user.service';
 import { QuoteService } from '../../quote/quote.service';
 import { DeleteDialogComponent } from '../../nav/deleteDialog/deleteDialog.component';
-import { User, UserCross, TypeUser} from '../../user/user.model';
+import { User, TypeUser} from '../../user/user.model';
 import { Address, AddressTypes } from '../../shared/address/address.model';
 import { Quote } from '../../quote/quote.model';
 import { Product } from '../../product/product.model';
@@ -42,7 +42,7 @@ export class EditPaiementQuoteComponent implements OnInit {
   stripeCust: StripeCustomer = new StripeCustomer()
   accountConnectStripe: AccountConnectStripe = new AccountConnectStripe();
   newCard: DataSource = new DataSource()
-  fetchedUserCross: UserCross = new UserCross();
+  // fetchedUserCross: UserCross = new UserCross();
   myForm: FormGroup;
   autocompleteProduct: String = ''
   step = -1;
@@ -160,30 +160,30 @@ export class EditPaiementQuoteComponent implements OnInit {
       this.search.userId = user._id
       // this.getUserCross(user._id)
     }
-
-    getUserCross(id: string) {
-      this.userService.getUserCross(id)
-        .subscribe(
-          res => {
-
-            this.fetchedUserCross = res
-            this.fetchedUserCross.profile.address.forEach(singleAddress => {
-              this.newCard.address_city = singleAddress.city
-              this.newCard.address_line1 = singleAddress.address
-              this.newCard.address_line2 = singleAddress.address2
-              this.newCard.address_country = singleAddress.country
-              this.newCard.address_zip = singleAddress.zip
-              this.newCard.address_state = singleAddress.state
-            })
-          },
-          error => {
-            console.log(error);
-          }
-        )
-    }
+    //
+    // getUserCross(id: string) {
+    //   this.userService.getUserCross(id)
+    //     .subscribe(
+    //       res => {
+    //
+    //         this.fetchedUserCross = res
+    //         this.fetchedUserCross.profile.address.forEach(singleAddress => {
+    //           this.newCard.address_city = singleAddress.city
+    //           this.newCard.address_line1 = singleAddress.address
+    //           this.newCard.address_line2 = singleAddress.address2
+    //           this.newCard.address_country = singleAddress.country
+    //           this.newCard.address_zip = singleAddress.zip
+    //           this.newCard.address_state = singleAddress.state
+    //         })
+    //       },
+    //       error => {
+    //         console.log(error);
+    //       }
+    //     )
+    // }
     autocompleteAfterNgChangesUser(user: User) {
 
-      this.getUserCross(user._id)
+      // this.getUserCross(user._id)
       // this.selectUserDebited(user)
     }
 

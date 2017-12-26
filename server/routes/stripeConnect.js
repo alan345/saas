@@ -146,7 +146,6 @@ router.post('/payByCardConnect/:paiementQuoteId', function(req, res, next) {
       })
     }
 
-
       let card = req.body
       delete card.id
       delete card.brand
@@ -157,6 +156,7 @@ router.post('/payByCardConnect/:paiementQuoteId', function(req, res, next) {
       stripe.tokens.create({
         card: card
       }, function(err, token) {
+        // console.log(token)
         if (err) {
           return res.status(404).json({title: 'Error', error: err});
         }

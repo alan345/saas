@@ -153,6 +153,7 @@ function getQuote (idQuote) {
   return new Promise(function (resolve, reject) {
       Quote.findById((idQuote), function(err, obj) {
         if (err) {
+          console.log(err)
           reject(err)
         }
         if (!obj) {
@@ -320,21 +321,24 @@ router.put('/:id', function(req, res, next) {
        // req.body.historyClientsCross = req.body.historyClientsCross
 
       //  var quote = new Quote(req.body);
+
        if(req.body.clients.length) {
          userCross.getUserCross(req.user, req.body.clients[0]._id).then(userCrossSingle => {
-          //  console.log(userCrossSingle)
            quote.historyClientsCross = userCrossSingle
            saveQuote(quote).then(quote => {
              res.status(200).json({message: 'Registration Successfull', obj: quote})
            }).catch(err => {
+             console.log(err)
              return res.status(403).json(err);
            })
+         }).catch(err => {
+           console.log(err)
+            saveQuote(quote).then(quote => {
+              res.status(200).json({message: 'Registration Successfull', obj: quote})
+            }).catch(err => {
+              return res.status(403).json(err);
+            })
          })
-        //  saveQuote(quote).then(quote => {
-        //    res.status(200).json({message: 'Registration Successfull', obj: quote})
-        //  }).catch(err => {
-        //    return res.status(403).json(err);
-        //  })
        } else {
          saveQuote(quote).then(quote => {
            res.status(200).json({message: 'Registration Successfull', obj: quote})
