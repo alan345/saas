@@ -5,18 +5,18 @@ import { CompanieComponent} from './single/companie.component';
 // import { EditAddUserToCompanieComponent} from './addUser/editAddUserToCompanie.component';
 // import { AdminGuardService} from '../admin/services/adminGuard';
 // import { CompanieDetailUsersComponent} from './companieDetailUsers.component';
-import { CompaniesComponent} from './companies/companies.component';
+// import { CompaniesComponent} from './companies/companies.component';
 // import { AddUserByCompanieComponent} from './addUser/addUserByCompanie.component';
 
 
 
 export const routes: Routes = [
-  {path: '', component: CompaniesComponent},
+  // {path: '', component: CompaniesComponent},
   // {path: 'edit/addUser/:id', component: EditAddUserToCompanieComponent},
   // {path: 'edit/addUser/:id/:email', component: EditAddUserToCompanieComponent},
   // {path: 'addUserByCompanie', component: AddUserByCompanieComponent},
   //{path: 'mine', component: EditCompanieComponent},
-  {path: 'new', component: CompanieComponent},
+  // {path: 'new', component: CompanieComponent},
   // {path: 'edit/:id', component: EditCompanieComponent},
   {path: ':id', component: CompanieComponent},
   // {path: ':id/users', component: CompanieDetailUsersComponent},

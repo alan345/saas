@@ -15,15 +15,15 @@ import { AuthGuardService} from '../auth/authguard.service';
 
 export const routes: Routes = [
 
-  {path: 'new', component: EditPaiementQuoteComponent, canActivate: [AuthGuardService, PaiementGuardService]},
-  {path: 'new/:isGooplusPaiement', component: EditPaiementQuoteComponent, canActivate: [AuthGuardService, PaiementGuardService]},
+  // {path: 'new', component: EditPaiementQuoteComponent, canActivate: [AuthGuardService, PaiementGuardService]},
+  // {path: 'new/:isGooplusPaiement', component: EditPaiementQuoteComponent, canActivate: [AuthGuardService, PaiementGuardService]},
   // {path: 'new/:idQuote', component: EditPaiementQuoteComponent, canActivate: [AuthGuardService, PaiementGuardService]},
   // {path: 'new/:idClient/:idProject', component: EditPaiementQuoteComponent, canActivate: [AuthGuardService, PaiementGuardService]},
-  {path: 'edit/:idPaiementQuote', component: EditPaiementQuoteComponent, canActivate: [AuthGuardService, PaiementGuardService]},
+  // {path: 'edit/:idPaiementQuote', component: EditPaiementQuoteComponent, canActivate: [AuthGuardService, PaiementGuardService]},
   // {path: ':id', component: PaiementQuoteDetailComponent, canActivate: [AuthGuardService, PaiementGuardService]},
-  {path: 'public/:idPaiementQuote', component: EditPaiementQuoteComponent},
+  // {path: 'public/:idPaiementQuote', component: EditPaiementQuoteComponent},
   // {path: ':isExpense/:isGooplusPaiement', component: PaiementQuotesComponent, canActivate: [AuthGuardService, PaiementGuardService]},
-  {path: ':isExpense', component: PaiementQuotesComponent, canActivate: [AuthGuardService, PaiementGuardService]},
+  {path: '', component: PaiementQuotesComponent, canActivate: [AuthGuardService, PaiementGuardService]},
 
 ];
 

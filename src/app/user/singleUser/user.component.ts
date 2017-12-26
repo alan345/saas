@@ -97,6 +97,9 @@ export class UserComponent implements OnInit {
   previousStep() {
     this.step--;
   }
+  savedEmitExternElement(){
+    
+  }
 
   // selectCity(i, city: string) {
   //   this.fetchedUser.profile.address[i].city = city

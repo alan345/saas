@@ -149,9 +149,16 @@ router.get('/maxQuoteNumber', function (req, res, next) {
 
 
 
-function getQuote (idQuote) {
+function getQuote (idQuote, req) {
   return new Promise(function (resolve, reject) {
-      Quote.findById((idQuote), function(err, obj) {
+
+    let searchQuery = {}
+    searchQuery['ownerCompanies'] = req.user.ownerCompanies
+    searchQuery['_id'] = idQuote
+
+
+
+      Quote.findOne((searchQuery), function(err, obj) {
         if (err) {
           console.log(err)
           reject(err)
@@ -165,21 +172,21 @@ function getQuote (idQuote) {
           }))
         }
 
-        Quote.findById({_id: idQuote})
-          .populate({path: 'companieClients', model: 'Companie'})
-          .populate({path: 'signature.users', model: 'User'})
+        Quote.findOne(searchQuery)
+          // .populate({path: 'companieClients', model: 'Companie'})
+          // .populate({path: 'signature.users', model: 'User'})
           .populate({path: 'clients', model: 'User'})
-          .populate({path: 'parentQuotes', model: 'Quote'})
-          .populate({path: 'drawing.backgroundForms', model: 'Form'})
+          // .populate({path: 'parentQuotes', model: 'Quote'})
+          // .populate({path: 'drawing.backgroundForms', model: 'Form'})
           .populate({path: 'forms', model: 'Form'})
         // .populate({path: 'devisDetails.bucketProducts.productInit', model: 'Product'})
           .populate({
           path: 'devisDetails.bucketProducts.productInit',
           model: 'Product',
-          populate: {
-            path: 'forms',
-            model: 'Form'
-          }
+          // populate: {
+          //   path: 'forms',
+          //   model: 'Form'
+          // }
         }).exec(function(err, item) {
           if (err) {
             reject(err)
@@ -201,7 +208,7 @@ function getQuote (idQuote) {
 }
 
 router.get('/:id', function(req, res, next) {
-  getQuote(req.params.id).then(quote => {
+  getQuote(req.params.id, req).then(quote => {
     res.status(200).json({message: 'Success', item: quote})
   }).catch(err => {
     return res.status(500).json(err)
@@ -325,7 +332,7 @@ router.put('/:id', function(req, res, next) {
        if(req.body.clients.length) {
          userCross.getUserCross(req.user, req.body.clients[0]._id).then(userCrossSingle => {
            quote.historyClientsCross = userCrossSingle
-           saveQuote(quote).then(quote => {
+           saveQuote(quote, req).then(quote => {
              res.status(200).json({message: 'Registration Successfull', obj: quote})
            }).catch(err => {
              console.log(err)
@@ -333,14 +340,14 @@ router.put('/:id', function(req, res, next) {
            })
          }).catch(err => {
            console.log(err)
-            saveQuote(quote).then(quote => {
+            saveQuote(quote, req).then(quote => {
               res.status(200).json({message: 'Registration Successfull', obj: quote})
             }).catch(err => {
               return res.status(403).json(err);
             })
          })
        } else {
-         saveQuote(quote).then(quote => {
+         saveQuote(quote, req).then(quote => {
            res.status(200).json({message: 'Registration Successfull', obj: quote})
          }).catch(err => {
            return res.status(403).json(err);
@@ -390,7 +397,7 @@ router.put('/:id/signature', function(req, res, next) {
         drawingSignature.namePicture = namePicture
         item.drawingSignature = drawingSignature
 
-        saveQuote(item).then(quote => {
+        saveQuote(item, req).then(quote => {
           res.status(200).json({message: 'Registration Successfull', obj: quote})
         }).catch(err => {
           return res.status(403).json(err);
@@ -398,7 +405,7 @@ router.put('/:id/signature', function(req, res, next) {
       });
     } else {
       item.statusQuote = 'pending'
-      saveQuote(item).then(quote => {
+      saveQuote(item, req).then(quote => {
         res.status(200).json({message: 'Registration Successfull', obj: quote})
       }).catch(err => {
         return res.status(403).json(err);
@@ -438,14 +445,14 @@ router.post('/', function(req, res, next) {
         req.body.historyClientsCross.push(userCrossSingle)
       }
       var quote = new Quote(req.body);
-      saveQuote(quote).then(quote => {
+      saveQuote(quote, req).then(quote => {
         res.status(200).json({message: 'Registration Successfull', obj: quote})
       }).catch(err => {
         return res.status(403).json(err);
       })
     }).catch(err => {
       var quote = new Quote(req.body);
-      saveQuote(quote).then(quote => {
+      saveQuote(quote, req).then(quote => {
         res.status(200).json({message: 'Registration Successfull', obj: quote})
       }).catch(err => {
         console.log('aa')
@@ -454,7 +461,7 @@ router.post('/', function(req, res, next) {
     })
   } else {
     var quote = new Quote(req.body);
-    saveQuote(quote).then(quote => {
+    saveQuote(quote, req).then(quote => {
       res.status(200).json({message: 'Registration Successfull', obj: quote})
     }).catch(err => {
       return res.status(403).json(err);
@@ -464,7 +471,7 @@ router.post('/', function(req, res, next) {
 })
 
 
-function saveQuote (quote) {
+function saveQuote (quote, req) {
   return new Promise(function (resolve, reject) {
     quote.save(function (err, result) {
       if (err) {
@@ -472,7 +479,7 @@ function saveQuote (quote) {
         // return res.status(403).json(err);
       }
       // console.log(result)
-      getQuote(result._id).then(quote => {
+      getQuote(result._id, req).then(quote => {
         resolve(quote)
         // res.status(200).json({message: 'Registration Successfull', obj: result})
       }).catch(err => {

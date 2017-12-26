@@ -6,8 +6,8 @@ import { ProductSingleComponent} from './single/productSingle.component';
 
 export const routes: Routes = [
   {path: '', component: ProductsComponent},
-  {path: 'productSingle', component: ProductSingleComponent},
-  {path: 'productSingle/:id', component: ProductSingleComponent},
+  // {path: 'productSingle', component: ProductSingleComponent},
+  // {path: 'productSingle/:id', component: ProductSingleComponent},
   {path: ':id', component: ProductSingleComponent},
 ];
 
