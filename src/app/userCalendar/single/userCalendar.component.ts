@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit,OnChanges, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {UserCalendarService} from '../userCalendar.service';
 import {ProductService} from '../../product/product.service';
@@ -13,6 +13,7 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { UserService} from '../../user/user.service';
+import { UserCross} from '../../user/user.model';
 
 import { DeleteDialogComponent } from '../../nav/deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
@@ -30,16 +31,18 @@ import { Search } from '../../shared/shared.model';
   templateUrl: './userCalendar.component.html',
   styleUrls: ['../userCalendar.component.css'],
 })
-export class UserCalendarComponent implements OnInit {
-  @Input() fetchedUserCalendar:UserCalendar = new UserCalendar()
+export class UserCalendarComponent implements OnInit, OnChanges {
+  @Input() fetchedUserCalendar: UserCalendar = new UserCalendar()
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   search = new Search()
+  loading: boolean = false
+  fetchedUserCross: UserCross = new UserCross()
   // fetchedUserCalendar: UserCalendar = new UserCalendar()
   myForm: FormGroup;
   constructor(
     private userCalendarService: UserCalendarService,
-    // private projectService: ProjectService,
+    private userService: UserService,
     private toastr: ToastsManager,
     public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
@@ -50,8 +53,32 @@ export class UserCalendarComponent implements OnInit {
 
   ) {}
   ngOnChanges() {
+    this.fetchedUserCalendar.clients.forEach(client => {
+      this.getUserCross(client._id)
+    })
+    // console.log(this.fetchedUserCalendar)
+
+
     // this.fetchedUserCalendar.users.forEach(client => { this.search.userId = client._id })
     // this.fetchedUserCalendar.assignedTos.forEach(client => { this.search.assignedToId = client._id })
+  }
+  getUserCross(id: string) {
+    this.loading = true
+    this.userService.getUserCross(id)
+      .subscribe(
+        res => {
+          this.loading = false
+          this.fetchedUserCross = res
+          console.log(res)
+        },
+        error => {
+          this.loading = false
+          console.log(error);
+        }
+      )
+  }
+  removeClient() {
+    this.fetchedUserCross = new UserCross()
   }
   ngOnInit() {
     this.myForm = this._fb.group({
@@ -59,10 +86,10 @@ export class UserCalendarComponent implements OnInit {
       description: [''],
     })
 
-    this.activatedRoute.params.subscribe((params: Params) => {
-      if(params['idUserCalendar'])
-        this.getUserCalenddar(params['idUserCalendar'])
-    })
+    // this.activatedRoute.params.subscribe((params: Params) => {
+    //   if(params['idUserCalendar'])
+    //     this.getUserCalenddar(params['idUserCalendar'])
+    // })
   }
   selectUser(user: User) {
     // this.fetchedUserCalendar.users.forEach(client => { this.search.userId = client._id })
@@ -82,19 +109,20 @@ export class UserCalendarComponent implements OnInit {
   removeUser() {
     // this.fetchedUserCalendar.users.splice(i, 1);
   }
-  getUserCalenddar(id: string) {
-    this.userCalendarService.getUserCalendar(id)
-      .subscribe(
-        res => {
-          this.fetchedUserCalendar = res
-          // this.fetchedUserCalendar.users.forEach(client => { this.search.userId = client._id })
-          // this.fetchedUserCalendar.assignedTos.forEach(client => { this.search.assignedToId = client._id })
-        },
-        error => {
-          console.log(error);
-        }
-      )
-  }
+  // getUserCalenddar(id: string) {
+  //   this.userCalendarService.getUserCalendar(id)
+  //     .subscribe(
+  //       res => {
+  //         this.fetchedUserCalendar = res
+  //         console.log(res)
+  //         // this.fetchedUserCalendar.users.forEach(client => { this.search.userId = client._id })
+  //         // this.fetchedUserCalendar.assignedTos.forEach(client => { this.search.assignedToId = client._id })
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     )
+  // }
 
 
   openDialogDelete() {
@@ -132,6 +160,10 @@ export class UserCalendarComponent implements OnInit {
 linkClicked() {
   this.save()
 }
+
+// selectClient(result) {
+//   console.log(result)
+// }
 newInterventionCLicked() {
   this.save()
 }

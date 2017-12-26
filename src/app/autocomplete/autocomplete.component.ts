@@ -72,6 +72,7 @@ export class AutocompleteComponent implements OnChanges{
           if(this.arrayContent.length) {this.arrayContent.splice(0, 1)}
           this.arrayContent.push(res)
           this.autocompleteAfterNgChanges.emit(res)
+          
         }, error => { console.log(error); });
     if(this.typeAutocomplete ==='quote' && this.search.quoteId)
         this.quoteService.getQuote(this.search.quoteId)

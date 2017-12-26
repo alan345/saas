@@ -205,7 +205,7 @@ export class UserCalendarsComponent implements OnInit {
   }
 
   getUserCalendarBySearch(searchData: SearchData) {
-    console.log(searchData)
+    // console.log(searchData)
     this.searchData = searchData
     this.isSearchInitReady = true
     this.resetSearchGetUserCalendars()
@@ -368,7 +368,7 @@ export class UserCalendarsComponent implements OnInit {
 
   }
   viewRender(view, element) {
-    console.log(new Date(view.activeRange.start))
+    // console.log(new Date(view.activeRange.start))
     this.search.startDate = new Date(view.activeRange.start)
     this.search.endDate = new Date(view.activeRange.end)
     if (this.isSearchInitReady)

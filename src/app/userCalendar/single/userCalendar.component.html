@@ -22,9 +22,24 @@
         </div>
 
         <div class="col-md-12">
-          <app-autocomplete [typeAutocomplete]="'user'" (linkClicked)="linkClicked()" [title]="'Client'" [singleChoice]="'true'" [arrayContent]="fetchedUserCalendar.clients">
+          <app-autocomplete [typeAutocomplete]="'user'" (linkClicked)="linkClicked()" [title]="'Client'" [singleChoice]="'true'" [arrayContent]="fetchedUserCalendar.clients" (clearAutocomplete)="removeClient()">
           </app-autocomplete>
         </div>
+
+
+        <div class="col-md-6" *ngFor="let address of fetchedUserCross.profile.address">
+          <a target="_blank" href="https://www.google.com/maps/dir/destination={{address.address}} {{address.address2}} {{address.zip}} {{address.city}} {{address.state}} {{address.country}}">
+            <mat-icon class="bigIcon" color="primary">map</mat-icon>
+          </a>
+        </div>
+        <div class="col-md-6" *ngIf="fetchedUserCross.profile.phoneNumber">
+          <a href="tel:{{fetchedUserCross.profile.phoneNumber}}">
+            <mat-icon class="bigIcon" color="primary">phone</mat-icon>
+          </a>
+        </div>
+
+
+
         <div class="col-md-12">
           <app-autocomplete [typeAutocomplete]="'user'" [search]="{isExternalUser:false}" [title]="'Réparateur'" [singleChoice]="'true'" [arrayContent]="fetchedUserCalendar.assignedTos" (getResultAutocomplete)="selectUser($event[0])" (clearAutocomplete)="removeUser()">
           </app-autocomplete>
@@ -38,6 +53,10 @@
       </div>
     </form>
 
+
+    <!-- <div *ngFor="let address of fetchedUserCross.profile.">
+      <a href="https://www.google.com/maps/dir/destination={{address.address}} {{address.address2}} {{address.zip}} {{address.city}} {{address.state}} {{address.country}}"><mat-icon>map</mat-icon></a>
+    </div> -->
     <div *ngFor="let client of fetchedUserCalendar.clients" class="ac">
       <app-new-obj-dialog (cliked)="newInterventionCLicked()" [icon]="'build'" [title]="'Create new Intervention'" [search]="{userId: client._id}" [typeObj]="'quote'"></app-new-obj-dialog>
     </div>
@@ -51,3 +70,4 @@
     </mat-action-row>
   </mat-expansion-panel>
 </div>
+<app-loadingInApp [loading]="loading"></app-loadingInApp>
