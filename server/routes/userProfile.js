@@ -114,7 +114,18 @@ router.get('/page/:page', function(req, res, next) {
 })
 
 function getUser(req, res, next, id) {
-  User.findById(id).populate({path: 'forms', model: 'Form'}).populate({path: 'rights', model: 'Right'}).populate({path: 'salesMan', model: 'User'}).populate({path: 'ownerCompanies', model: 'Companie'}).populate({path: 'profile.profilePicture', model: 'Form'})
+
+  let searchQuery = {}
+  // searchQuery['ownerCompanies'] = req.user.ownerCompanies
+  searchQuery['_id'] = id
+
+
+  User.findOne(searchQuery)
+  .populate({path: 'forms', model: 'Form'})
+  .populate({path: 'rights', model: 'Right'})
+  .populate({path: 'salesMan', model: 'User'})
+  .populate({path: 'ownerCompanies', model: 'Companie'})
+  .populate({path: 'profile.profilePicture', model: 'Form'})
   // .populate({
   //     path: 'companies',
   //     model: 'Companie',

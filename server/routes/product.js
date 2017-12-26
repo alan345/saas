@@ -188,12 +188,7 @@ router.get('/page/:page', function (req, res, next) {
 router.get('/:id', function (req, res, next) {
   Product.findById((req.params.id), function(err, obj) {
     if (err) {
-      return res.status(500).json({
-        title: 'No form found',
-        error: {
-          message: err
-        }
-      })
+      return res.status(403).json({title: 'There was a problem', error: err});
     }
     if (!obj) {
       return res.status(500).json({

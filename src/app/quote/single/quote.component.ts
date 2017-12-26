@@ -106,7 +106,7 @@ export class QuoteComponent implements OnInit {
           resolve(this2.fetchedQuote)
         },
         error => {
-          this.loading = false
+          this2.loading = false
           // console.log(error)
           reject(error)
         }

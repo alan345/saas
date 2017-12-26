@@ -211,7 +211,7 @@ router.get('/:id', function(req, res, next) {
   getQuote(req.params.id, req).then(quote => {
     res.status(200).json({message: 'Success', item: quote})
   }).catch(err => {
-    return res.status(500).json(err)
+    return res.status(500).json({title: 'not Found', error: err})
   })
 })
 

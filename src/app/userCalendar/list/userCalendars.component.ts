@@ -230,7 +230,7 @@ export class UserCalendarsComponent implements OnInit {
 
   getUserCalendars(page: number, search: any) {
     // this.globalEventsManager.isLoadding(true);
-    console.log(search)
+    // console.log(search)
     this.userCalendarService.getUserCalendars(page, search)
       .subscribe(
       res => {
@@ -333,15 +333,15 @@ export class UserCalendarsComponent implements OnInit {
     // console.log(event, jsEvent, view )
   }
   select(start, end, jsEvent, view) {
-    let newUserCalendar = new UserCalendar()
+    const newUserCalendar = new UserCalendar()
     newUserCalendar.start = start._d
     newUserCalendar.end = end._d
     this.openDialog(newUserCalendar)
   }
   eventClick(event, jsEvent, view) {
-    console.log(event)
-    console.log(jsEvent)
-    if(this.modeInput) {
+    // console.log(event)
+    // console.log(jsEvent)
+    if (this.modeInput) {
       this.openDialog(event)
     }
 

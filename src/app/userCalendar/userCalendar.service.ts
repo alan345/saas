@@ -37,7 +37,7 @@ export class UserCalendarService {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     let options = new RequestOptions({ headers: headers, search: search});
-    console.log(options)
+    // console.log(options)
     return this.http.get(this.url + 'userCalendar/page/' + page , options)
       .timeout(15000)
       .map((response: Response) => {
