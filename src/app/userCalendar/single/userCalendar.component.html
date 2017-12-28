@@ -26,7 +26,6 @@
           </app-autocomplete>
         </div>
 
-
         <div class="col-md-6" *ngFor="let address of fetchedUserCross.profile.address">
           <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{address.address}}+{{address.address2}}+{{address.zip}}+{{address.city}}+{{address.state}}+{{address.country}}">
             <mat-icon class="bigIcon" color="primary">map</mat-icon>
