@@ -316,6 +316,9 @@ export const LANG_FR_TRANS = {
     'Documents Settings': 'Paramétrage des documents',
 
     'Cost Price': 'Prix d\'achat',
+  
+    'Name of Companie': 'Nom de la Société',
+    'Type Companie': 'Activité principale',
 
 
 
