@@ -10,9 +10,11 @@ var http = require('http')
 var https = require('https');
 var fs = require('fs');
 
+
+
 var sslOptions = {
-  key: fs.readFileSync('certs/key.pem'),
-  cert: fs.readFileSync('certs/cert.pem')
+  key: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_private_key.key'),
+  cert: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_ssl_certificate.cer')
 };
 
 //https://www.1and1.com/cloud-community/learn/networking/ssl-certificates/set-up-a-11-ssl-certificate/
