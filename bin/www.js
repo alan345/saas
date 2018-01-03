@@ -6,7 +6,10 @@
 
 var app = require('../server/app')
 var debug = require('debug')('petlocator_ng2:server')
-var http = require('https')
+var http = require('http')
+var https = require('https');
+var fs = require('fs');
+//https://www.1and1.com/cloud-community/learn/networking/ssl-certificates/set-up-a-11-ssl-certificate/
 
 /**
  * Get port from environment and store in Express.
