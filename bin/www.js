@@ -6,7 +6,7 @@
 
 var app = require('../server/app')
 var debug = require('debug')('petlocator_ng2:server')
-var http = require('http')
+var http = require('https')
 
 /**
  * Get port from environment and store in Express.
