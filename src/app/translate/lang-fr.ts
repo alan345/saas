@@ -10,6 +10,7 @@ export const LANG_FR_TRANS = {
     'Back': 'Retour',
     'Month': 'Mois',
     'Year': 'Année',
+    '$ Interventions': '€ Interventions',
     'Company Email': 'Email de l\'entreprise',
     'Interventions paid this year': 'Interventions payée cette année',
     'Interventions paid this month': 'Interventions payée ce mois',
@@ -25,6 +26,7 @@ export const LANG_FR_TRANS = {
     'My Planning': 'Mon Calendrier',
     'Planning': 'Calendrier',
     'My profile': 'Mon profil',
+    'Interventions per year': 'Interventions par année',
     'My company': 'Mon Entreprise',
     'Logout': 'Déconnexion',
     'Items per page': 'Eléments par page',
@@ -316,7 +318,7 @@ export const LANG_FR_TRANS = {
     'Documents Settings': 'Paramétrage des documents',
 
     'Cost Price': 'Prix d\'achat',
-  
+
     'Name of Companie': 'Nom de la Société',
     'Type Companie': 'Activité principale',
 

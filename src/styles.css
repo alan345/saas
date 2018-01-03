@@ -216,7 +216,7 @@ button {
 .login {
   margin-left: auto;
   margin-right: auto;
-  width: 320px;
+  /* width: 320px; */
 }
 
 .displayed {

@@ -185,7 +185,7 @@ export class ReportingsComponent implements OnInit {
     this.emptyRowsignedCount = new EmptyRow();
 
     this.donutChartDataGraph1 = {
-      labels: this.statusQuote,
+      labels: this.statusQuoteTranslate,
       data: []
     }
     this.totalSigned = 0

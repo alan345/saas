@@ -45,20 +45,20 @@
 
     <div *ngIf="ready" class="col-md-6 col-12 marginTop">
       <mat-card class="ac">
-        <h4>{{'Total Interventions' | translate}}</h4>
+        <h4>{{'$ Interventions' | translate}}</h4>
         <canvas baseChart style="height: 100%;" class="h50 bgw" [colors]="lineChartColors" [datasets]="graphData" [labels]="lineChartLabels" [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="'line'"></canvas>
       </mat-card>
     </div>
 
     <div *ngIf="ready" class="col-md-6 col-12 marginTop">
       <mat-card class="ac">
-        <h4>{{'Interventions value per year' | translate}}</h4>
+        <h4>{{'Interventions per year' | translate}}</h4>
         <canvas baseChart style="height: 100%;" class="h50 bgw" [data]="donutChartDataGraph1.data" [colors]="doughnutChartColors" [labels]="donutChartDataGraph1.labels" [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="'doughnut'"></canvas>
       </mat-card>
     </div>
     <div *ngIf="ready" class="col-md-6 col-12 marginTop">
       <mat-card class="ac">
-        <h4>{{'Interventions value' | translate}}</h4>
+        <h4>{{'# Interventions' | translate}}</h4>
         <canvas baseChart style="height: 100%;" class="h50 bgw" [datasets]="graphDataCount" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColorsBar" [legend]="lineChartLegend" [chartType]="'bar'"></canvas>
       </mat-card>
     </div>
