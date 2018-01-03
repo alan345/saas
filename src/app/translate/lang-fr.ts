@@ -49,6 +49,7 @@ export const LANG_FR_TRANS = {
     'Number Id': 'Numéro',
     'Appointment': 'Rendez-vous',
     'Length': 'Longeur',
+    'Please enter your email below and we will send you password reset instructions.': 'Merci de renseigner votre email.',
     'Edit Quote': 'Edition du devis',
     'Total with taxes': 'Total TTC',
 

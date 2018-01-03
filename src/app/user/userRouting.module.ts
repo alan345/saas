@@ -27,20 +27,23 @@ import { AdminUsersComponent } from './users/adminUsers.component';
 
 export const routes: Routes = [
 
+  {path: '', component: LoginComponent},
   {path: 'newuser', component: UserComponent, canActivate: [AuthGuardService]},
-
-  // {path: ':id', component: NewUserComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'reset', component: ForgetPasswordComponent},
   {path: 'reset/:token', component: ResetPasswordComponent},
-  //{path: 'forms', component: UserFormsComponent, canActivate: [AuthGuardService]},
   {path: 'profile/password', component: ChangePasswordComponent, canActivate: [AuthGuardService]},
+  {path: ':id', component: UserComponent, canActivate: [AuthGuardService]},
+  {path: 'list/:isExternalUser', component: AdminUsersComponent, canActivate: [AuthGuardService]},
+
+
+
+  // {path: ':id', component: NewUserComponent, canActivate: [AuthGuardService]},
+  //{path: 'forms', component: UserFormsComponent, canActivate: [AuthGuardService]},
   // {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
   // {path: 'paiement', component: PaiementComponent, canActivate: [AuthGuardService]},
   // {path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuardService]},
-  {path: ':id', component: UserComponent, canActivate: [AuthGuardService]},
-  {path: 'list/:isExternalUser', component: AdminUsersComponent, canActivate: [AuthGuardService]},
 
 //  {path: 'profile/:id/userProfileSettings', component: UserProfileSettingsComponent, canActivate: [AuthGuardService]},
   // {path: 'profile/:id/userProfilePictures', component: UserProfilePicturesComponent, canActivate: [AuthGuardService]},
