@@ -15,9 +15,9 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   email: FormControl;
   password: FormControl;
   @ViewChild('userEmail') userEmail: ElementRef;
-  typesCompanie: string[] = ['Plomber', 'Locksmith']
+  typesCompanie: string[] = ['Plomber', 'Locksmith', 'Other']
 
-  
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder, private authService: AuthService,
