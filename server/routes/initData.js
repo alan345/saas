@@ -7,13 +7,15 @@ var express     = require('express'),
     passwordHash = require('password-hash'),
     sgTransport = require('nodemailer-sendgrid-transport'),
     Companie = require('../models/companie.model'),
+    Product = require('../models/product.model'),
     config      = require('../config/config');
 
 
 module.exports = {
+
   initCompanie (companieId) {
-    console.log('initCompanie')
-    console.log(companieId)
+    // console.log('initCompanie')
+    // console.log(companieId)
     return new Promise(function(resolve, reject) {
       // if(companie.typeCompanie === 'Plomber') {
 
@@ -67,14 +69,50 @@ module.exports = {
                   err: err
                 }));
               }
-              console.log('popoiuytuio')
-              console.log(result)
+              // console.log('popoiuytuio')
+              // console.log(result)
               resolve(result)
               })
             })
       // }
     })
-  }
+  },
+  initProducts (companie, user) {
+    var product = new Product()
+
+    product = new Product()
+    product.ownerCompanies = companie._id
+    product.owner = user._id
+    product.details.referenceName = 'Recherche de fuite'
+    product.details.description = 'Recherche de fuite'
+    product.details.price.sellingPrice = 100
+    product.details.price.costPrice = 0
+    product.details.unit = 'forfait'
+    product.save()
+
+    product = new Product()
+    product.ownerCompanies = companie._id
+    product.owner = user._id
+    product.details.referenceName = 'Changement du joint'
+    product.details.description = 'Joint'
+    product.details.price.sellingPrice = 100
+    product.details.price.costPrice = 0
+    product.details.unit = 'forfait'
+    product.save()
+
+    product = new Product()
+    product.ownerCompanies = companie._id
+    product.owner = user._id
+    product.details.referenceName = 'Fuite d\'eau ballon électrique'
+    product.details.description = 'Recherche de fuite et réparation au taux horaire'
+    product.details.price.sellingPrice = 60
+    product.details.price.costPrice = 0
+    product.details.unit = 'h'
+    product.save()
+
+
+  },
+
 
 
 }

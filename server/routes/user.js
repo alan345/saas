@@ -51,6 +51,7 @@ router.post('/register', function(req, res, next) {
       }
       emailGenerator.sendWelcomeEmail(user)
       initData.initCompanie(CompanieResult._id)
+      initData.initProducts(CompanieResult, userResult)
       // initData.initLegal(CompanieResult)
 
       res.status(200).json({message: 'Registration Successfull', obj: userResult})
