@@ -31,7 +31,7 @@
                 <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'name'"></app-sort>
               </th>
               <th class="centre tdunder hideMobile">{{'Date' | translate}}
-                <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'createdAt'"></app-sort>
+                <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'detail.dateQuote.issueDate'"></app-sort>
               </th>
 
               <th class="centre tdunder">{{'Price' | translate}}

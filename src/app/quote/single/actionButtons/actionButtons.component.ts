@@ -43,7 +43,7 @@ export class ActionButtonsComponent implements OnInit {
   @Input() showSaveButton: boolean = true
   @Input() showSaveSignatureButton: boolean = false
   @Input() isDialog: boolean = false
-  @Input() showDLQuoteButton: boolean = false
+  // @Input() showDLQuoteButton: boolean = false
   @Input() step: number
 
   loading: boolean = false
@@ -126,20 +126,20 @@ export class ActionButtonsComponent implements OnInit {
 
 
 
-  downloadPDF() {
-    this.loading = true
-    this.quoteService.downloadPDF(this.fetchedQuote._id)
-      .subscribe(
-        res => {
-           window.open( '/uploads/pdf/' + res );
-           this.loading = false
-        },
-        error => {
-          this.loading = false
-          console.log(error)
-        }
-      )
-  }
+  // downloadPDF() {
+  //   this.loading = true
+  //   this.quoteService.downloadPDF(this.fetchedQuote._id)
+  //     .subscribe(
+  //       res => {
+  //          window.open( '/uploads/pdf/' + res );
+  //          this.loading = false
+  //       },
+  //       error => {
+  //         this.loading = false
+  //         console.log(error)
+  //       }
+  //     )
+  // }
 
 
   onDelete(id: string) {

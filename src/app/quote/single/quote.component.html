@@ -81,7 +81,7 @@
         (calculateQuoteEmit)="calculateQuote()"
         (quoteDetailsUpdated)="quoteDetailsUpdated($event)"></app-quoteDetails>
       <mat-action-row>
-        <app-actionButtons *ngIf="fetchedQuote.statusQuote === 'pending'" (nextStep)="nextStep()" [isDialog]="isDialog" [fetchedQuote]="fetchedQuote" [showDeleteButton]=false [showDLQuoteButton]=true (closeDialog)="closeDialog()" (saved)="savedQuote($event)">
+        <app-actionButtons *ngIf="fetchedQuote.statusQuote === 'pending'" (nextStep)="nextStep()" [isDialog]="isDialog" [fetchedQuote]="fetchedQuote" [showDeleteButton]=false (closeDialog)="closeDialog()" (saved)="savedQuote($event)">
         </app-actionButtons>
       </mat-action-row>
     </mat-expansion-panel>
