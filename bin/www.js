@@ -9,6 +9,12 @@ var debug = require('debug')('petlocator_ng2:server')
 var http = require('http')
 var https = require('https');
 var fs = require('fs');
+
+var sslOptions = {
+  key: fs.readFileSync('certs/key.pem'),
+  cert: fs.readFileSync('certs/cert.pem')
+};
+
 //https://www.1and1.com/cloud-community/learn/networking/ssl-certificates/set-up-a-11-ssl-certificate/
 
 /**
@@ -28,7 +34,7 @@ app.set('port', port)
  * Create HTTP server.
  */
 
-var server = http.createServer(app)
+var server = https.createServer(sslOptions, app)
 
 /**
  * Listen on provided port, on all network interfaces.

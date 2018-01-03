@@ -10,6 +10,9 @@
 # config
 /server/config/config.js
 
+# bin
+/bin/certs/*
+
 
 # backupJson DB
 /backupJson
