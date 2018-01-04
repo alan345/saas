@@ -4,6 +4,7 @@ var Notification = require('../models/notification.model'),
   User = require('../models/user.model'),
   Quote = require('../models/quote.model'),
   Companie = require('../models/companie.model'),
+  path = require("path"),
   pdf = require('html-pdf');
 
 
@@ -166,8 +167,8 @@ p, a {
      margin: 4px 0 4px 0;  /* to keep the page break from cutting too close to the text in the div */
    }
 
-.data {     
-     margin: 4px 0 4px 0;  
+.data {
+     margin: 4px 0 4px 0;
    }
   #pageBody {
     height: 0px;
@@ -301,13 +302,16 @@ module.exports = {
                   // html += `
 
 
-
+// console.log(path.join(__dirname,  '..'))
                   item.ownerCompanies.forEach(companie => {
                     companie.forms.forEach(form => {
 
                       // html +=  'http://localhost/uploads/forms/' + form.owner + '/' + form.imagePath
                       // html +=  '<img class="imglogo" src="http://belmard-renovation.fr/wp-content/uploads/2017/10/belmard_logo_100.png">'
-                      html +=  '<img class="imglogo" src="' + 'https://app.mirabelle.io/uploads/forms/' + form.owner + '/' + form.imagePath + '">'
+                      // html +=  '<img class="imglogo" src="' + 'https://app.mirabelle.io/uploads/forms/' + form.owner + '/' + form.imagePath + '">'
+                      html +=  '<img class="imglogo" src="file:///' + path.join(__dirname,  '..') + '/uploads/forms/' + form.owner + '/' + form.imagePath + '">'
+                      // html +=  '<img class="imglogo" src="file:///Users/alan/app/saas/server/uploads/forms/5a15d4b688f48195f24e0345/5de6.alan.jpeg">'
+                      // html +=   __dirname + '/uploads/forms/' + form.owner + '/' + form.imagePath
                       // html +=  '<img class="imglogo" src="http://localhost/uploads/forms/5a15d4b688f48195f24e0345/5de6.alan.jpeg">'
                     })
                   })
