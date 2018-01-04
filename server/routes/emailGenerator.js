@@ -45,9 +45,9 @@ module.exports = {
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                       <tr>
                         <td style="padding: 15px 0 30px 0;">
-                             Bonjour ${user.profile.name}!
-\n Bienvenue sur Mirabelle.io. Votre inscription s'est déroulée avec succès. Vous pouvez désormais accéder aux fonctionnalités de Mirabelle.io.
-    \n Votre email de connexion est ${user.email}, vous êtes le seul à connaître votre mot de passe.
+                             Bonjour ${user.profile.name}!\n\n'
+Bienvenue sur Mirabelle.io. Votre inscription s'est déroulée avec succès. Vous pouvez désormais accéder aux fonctionnalités de Mirabelle.io. \n\n'
+Votre email de connexion est ${user.email}, vous êtes le seul à connaître votre mot de passe. 
                         </td>
                       </tr>
                       <tr>
@@ -171,7 +171,7 @@ html += `
                             </a>
                           </td>
                         <tr>
-                          <td>De la part de 
+                          <td> \n\n' De la part de 
                           </td>
                      </tr>
                          
