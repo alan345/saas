@@ -13,10 +13,10 @@ var fs = require('fs');
 
 
 var sslOptions = {
-  key: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_private_key.key'),
-  cert: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_ssl_certificate.cer')
+  key: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_private_key.key', 'utf8'),
+  cert: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_ssl_certificate.cer', 'utf8')
 };
-
+// console.log(sslOptions)
 //https://www.1and1.com/cloud-community/learn/networking/ssl-certificates/set-up-a-11-ssl-certificate/
 
 /**
@@ -42,7 +42,9 @@ var server = https.createServer(sslOptions, app)
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port)
+server.listen(port,  function () {
+   console.log('Started!');
+})
 server.on('error', onError)
 server.on('listening', onListening)
 
