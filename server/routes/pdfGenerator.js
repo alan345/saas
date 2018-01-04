@@ -303,7 +303,7 @@ module.exports = {
 
                       // html +=  'http://localhost/uploads/forms/' + form.owner + '/' + form.imagePath
                       // html +=  '<img class="imglogo" src="http://belmard-renovation.fr/wp-content/uploads/2017/10/belmard_logo_100.png">'
-                      html +=  '<img class="imglogo" src="' + 'http://localhost/uploads/forms/' + form.owner + '/' + form.imagePath + '">'
+                      html +=  '<img class="imglogo" src="' + 'https://app.mirabelle.io/uploads/forms/' + form.owner + '/' + form.imagePath + '">'
                       // html +=  '<img class="imglogo" src="http://localhost/uploads/forms/5a15d4b688f48195f24e0345/5de6.alan.jpeg">'
                     })
                   })
@@ -322,9 +322,9 @@ module.exports = {
                                html += 'Facture : fac-' + item.quoteNumber
                                html += '</p>'
                                if(item.statusQuote === 'paid') {
-                                 html += '<p><br>'
+                                 html += '<p><b>'
                                  html += 'Payé'
-                                 html += '</p>'
+                                 html += '</b></p>'
                               }
                              }
                              item.ownerCompanies.forEach(companie => {
@@ -337,10 +337,7 @@ module.exports = {
                                    html += singleAddress.address + ' ' + singleAddress.address2
                                    html += '</p>'
                                    html += '<p>'
-                                   html += singleAddress.zip
-                                   html += '</p>'
-                                   html += '<p>'
-                                   html += singleAddress.city
+                                   html += singleAddress.zip + ' ' + singleAddress.city
                                    html += '</p>'
                                    html += '<p>'
                                    html += singleAddress.country
