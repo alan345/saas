@@ -36,7 +36,7 @@ module.exports = {
                   <td align="center" bgcolor="#ff4351" height="150">
                     <img
                       src="http://mirabelle.io/wp-content/uploads/2017/12/Logo-Mirabelle-noir-200.png"
-                      alt="Email de la part de Mirabelle" width="200" height="200" style="display: block; color: #ffffff;"
+                      alt="Email de la part de Mirabelle" width="80%" height="80%" style="display: block; color: #ffffff;"
                     />
                   </td>
                 </tr>
@@ -362,7 +362,7 @@ html += `
                   <td align="center" bgcolor="#ff4351" height="150">
                     <img
                       src="http://${req.headers.host}/assets/images/Logo-Mirabelle.png"
-                      alt="Email de la part de Mirabelle" width="200" height="200" style="display: block; color: #ffffff;"
+                      alt="Email de la part de Mirabelle" width="60%" height="60%" style="display: block; color: #ffffff;"
                     />
                   </td>
                 </tr>
