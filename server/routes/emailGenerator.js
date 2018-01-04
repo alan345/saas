@@ -125,6 +125,13 @@ Votre email de connexion est ${user.email}, vous êtes le seul à connaître vot
             }
           }))
         }
+        var nameCompanie = ''
+        obj.ownerCompanies.forEach(companie => {
+          nameCompanie= companie.nameCompanie
+        })
+
+
+
         obj.clients.forEach(client => {
 
           var html = `
@@ -174,14 +181,7 @@ html += `
                             </a>
                           </td>
                         <tr>
-                          <td style="padding: 15px 15px 15px 15px;">De la part de `
-                          // console.log(obj.ownerCompanies)
-                          obj.ownerCompanies.forEach(companie => {
-                            console.log(companie.nameCompanie)
-                            html += companie.nameCompanie
-                          })
-
-html += `
+                          <td style="padding: 15px 15px 15px 15px;">De la part de ${nameCompanie}
                           </td>
                      </tr>
 
@@ -203,12 +203,23 @@ html += `
               pass: config.passGmail
             }
           })
+
+          var typeQuoteNew = ''
+          if(type ==='quote') {
+            typeQuoteNew += 'Nouveau Devis'
+          }
+          if(type ==='invoice') {
+            typeQuoteNew += 'Nouvelle Facture'
+          }
+
+
           var mailOptions = {
             to: client.email,
             from: config.userGmail,
-            subject: 'Gooplus Management | Nouveau document',
+            subject: nameCompanie + ' | ' + typeQuoteNew,
             html: html
           };
+          // console.log(mailOptions)
           mailer.sendMail(mailOptions, function(err) {
             if(err) {
               console.log('ttt')
