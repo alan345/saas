@@ -3,6 +3,8 @@
 export const LANG_FR_NAME = 'fr';
 
 export const LANG_FR_TRANS = {
+    'TandC approved': 'Conditions générales de vente approuvées',
+    'TandC': 'Conditions générales de vente',
     'Welcome!': 'Bienvenue!',
     'Send': 'Envoyer',
     'Please enter a valid email address': 'Merci d\'entrer une adresse mail valide',
