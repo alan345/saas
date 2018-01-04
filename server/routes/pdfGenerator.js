@@ -278,7 +278,7 @@ module.exports = {
                   return res.status(404).json({message: '', err: err})
                 }
                 if (!item) {
-                  console.log('e')
+                  // console.log('e')
                   return res.status(404).json({
                     title: 'No obj found',
                     error: {
@@ -286,6 +286,16 @@ module.exports = {
                     }
                   })
                 } else {
+
+                  var quoteNumber = ''
+                  var historyClientsName = ''
+                  if(type === 'quote') {
+                    quoteNumber = 'dev-' + item.quoteNumber
+                  }
+                  if(type === 'invoice') {
+                    quoteNumber = 'fac-' + item.quoteNumber
+                  }
+
                   var html = ''
                   html += `
                  <head><link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
@@ -315,18 +325,21 @@ module.exports = {
                     })
                   })
 
+
+
+
                   html += `
                     <table class="print-friendly">
                            <thead>
                              <tr>`
                              if(type === 'quote') {
                                html += '<p>'
-                               html += 'Devis : dev-' + item.quoteNumber
+                               html += 'Devis : ' + quoteNumber
                                html += '</p>'
                              }
                              if(type === 'invoice') {
                                html += '<p>'
-                               html += 'Facture : fac-' + item.quoteNumber
+                               html += 'Facture : ' + quoteNumber
                                html += '</p>'
                                if(item.statusQuote === 'paid') {
                                  html += '<p><b>'
@@ -362,7 +375,7 @@ module.exports = {
                                <th class="col-4 desc">`
 
                   item.historyClientsCross.forEach(user => {
-
+                    historyClientsName =  user.profile.name + ' ' + user.profile.lastName
                     html += '<p><b>'
                     html += user.profile.title + ' ' + user.profile.name + ' ' + user.profile.lastName
                     html += '</b></p>'
@@ -585,7 +598,7 @@ module.exports = {
 
                       </a>
                         `
-                  var nameFile = 
+                  var nameFile = quoteNumber + '_' + historyClientsName
                   pdf.create(html, this.options).toFile('./server/uploads/pdf/' + req.params.quoteId + '.pdf', function(err, resPDF) {
                     if (err) {
                       console.log(err)
