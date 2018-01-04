@@ -140,7 +140,7 @@ module.exports = {
                     <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                          <td>Bonjour,</td>
+                          <td>Bonjour {html += user.profile.title + ' ' + user.profile.name + ' ' + user.profile.lastName} ,</td>
                         </tr>
                         <tr>
                           <td style="padding: 15px 0 30px 0;">
@@ -171,6 +171,10 @@ html += `
 html += `
                             </a>
                           </td>
+                        <tr>
+                          <td>De la part de {html += companie.nameCompanie}</td>
+                        </tr>
+                          
                         </tr>
                       </table>
                     </td>
@@ -455,11 +459,11 @@ html += `
         var mailOptions = {
           to: user.email,
           from: config.userGmail,
-          subject: 'Gooplus Management | New Invitation',
+          subject: 'Mirabelle.io | Invitation',
           html: html
         };
         mailer.sendMail(mailOptions, function(err) {
-          console.log('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+          console.log('info', 'Un email à été envoyé à ' + user.email + ' avec les instructions à suivre.');
           return res.status(200).json({message: 'Success', token: 'InMail'})
         });
       }
