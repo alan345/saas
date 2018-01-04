@@ -20,7 +20,11 @@
   </mat-form-field>
 </div>
 <div class="row">
-  <mat-form-field class="col-12">
+    <div class="col-12 col-md-4">
+      <img mat-card-image src="/assets/images/cards.png" [routerLink]="['/']" class="cards" alt="Paiement Sécurisé">
+    </div>
+    
+  <mat-form-field class="col-12 col-md-4">
     <input matInput type="number" [(ngModel)]="newCard.number" placeholder="{{'Card number' | translate}}">
   </mat-form-field>
   <mat-form-field class="col-12 col-md-4">
