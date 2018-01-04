@@ -127,7 +127,8 @@ Votre email de connexion est ${user.email}, vous êtes le seul à connaître vot
         }
         var nameCompanie = ''
         obj.ownerCompanies.forEach(companie => {
-          nameCompanie= companie.nameCompanie
+          nameCompanie = companie.nameCompanie
+          emailCompanie = companie.email
         })
 
 
@@ -215,7 +216,7 @@ html += `
 
           var mailOptions = {
             to: client.email,
-            from: config.userGmail,
+            from: emailCompanie,
             subject: nameCompanie + ' | ' + typeQuoteNew,
             html: html
           };
