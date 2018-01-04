@@ -4,6 +4,7 @@ export const LANG_FR_NAME = 'fr';
 
 export const LANG_FR_TRANS = {
     'Please enter a valid email address': 'Merci d\'entrer une adresse mail valide',
+    'Please enter a valid email': 'Merci d\'entrer une adresse mail valide',
     'Payment method': 'Mode de paiement',
     'Your password must have at least 6 characters': 'Votre mot de passe doit contenir au moins 6 caractères',
     'Your quotes at you clients place': 'Vos devis chez vos clients !',
