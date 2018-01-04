@@ -35,7 +35,7 @@ module.exports = {
                 <tr>
                   <td align="center" bgcolor="#ff4351" height="150">
                     <img
-                      src="http://mirabelle.io/wp-content/uploads/2017/12/Logo-Mirabelle-noir-200.png"
+                      src="http://mirabelle.io/wp-content/uploads/2018/01/Logo-mail.png"
                       alt="Email de la part de Mirabelle" style="display: block; color: #ffffff;"
                     />
                   </td>
@@ -45,8 +45,7 @@ module.exports = {
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                       <tr>
                         <td style="padding: 15px 0 30px 0;">
-                             Bonjour ${user.profile.name}!
-
+                          Bonjour ${user.profile.name}!
                         </td>
                       </tr>
                       <tr>
@@ -361,8 +360,8 @@ html += `
                 <tr>
                   <td align="center" bgcolor="#ff4351" height="150">
                     <img
-                      src="http://${req.headers.host}/assets/images/Logo-mail.png"
-                      alt="Email de la part de Mirabelle"  style="display: block; color: #ffffff;"
+                      src="http://mirabelle.io/wp-content/uploads/2018/01/Logo-mail.png"
+                      alt="Email de la part de Mirabelle" style="display: block; color: #ffffff;"
                     />
                   </td>
                 </tr>
