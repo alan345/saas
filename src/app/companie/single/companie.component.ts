@@ -12,7 +12,7 @@ import {ToastsManager} from 'ng2-toastr';
 import {MatDialog } from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+// import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
@@ -32,15 +32,16 @@ export class CompanieComponent implements OnInit {
   fetchedCompanie: Companie = new Companie()
   step = -1;
   debugMode: boolean = false
+  loading: boolean = false
   // userAdmins : User[] = []
   // userManagers : User[] = []
   // userClients : User[] = []
   // usersSalesRep : User[] = []
   // userStylists : User[] = []
-  myForm: FormGroup;
+  // myForm: FormGroup;
   // seeRights = false;
-  seeCategProject = false;
-  seeCategProduct = false;
+  // seeCategProject = false;
+  // seeCategProduct = false;
 
   // servicesBancks = ['stripe', 'paypal']
   // typesRights = [
@@ -56,7 +57,7 @@ export class CompanieComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
-    private _fb: FormBuilder,
+    // private _fb: FormBuilder,
     public authService: AuthService,
     // private userService: UserService,
     private paiementService: PaiementService,
@@ -102,14 +103,14 @@ export class CompanieComponent implements OnInit {
 
 
     this.activatedRoute.queryParamMap.subscribe((params: Params)  => {
-        console.log(params.params.debug)
+        // console.log(params.params.debug)
         if (params.params.debug === 'true') {
           this.debugMode = true
         }
         if(params.params.scope === 'read_write' && params.params.code) {
+          this.step = 2
           this.paiementService.oauthConnect(params.params)
           .subscribe( res => {
-            this.step = 2
             // console.log(res)
             this.fetchedCompanie = res.obj
           }, error => { console.log(error) } )
@@ -249,12 +250,15 @@ export class CompanieComponent implements OnInit {
     })
   }
   getCompanie(id: string) {
+    this.loading = true
     this.companieService.getCompanie(id, {})
       .subscribe(
         res => {
+          this.loading = false
           this.fetchedCompanie = res
         },
         error => {
+          this.loading = false
           console.log(error);
         }
       )
