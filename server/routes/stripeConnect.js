@@ -95,7 +95,7 @@ router.use('/', function(req, res, next) {
 // })
 
 router.get('/goToLinkAuthorizeConnect', function(req, res, next) {
-  let url = 'https://connect.stripe.com/oauth/authorize?response_type=code&client_id=' + config.stripe.connect.client_id + '&scope=read_write&redirect_uri=http://' + req.headers.host + '/%23/companie/mine'
+  let url = 'https://connect.stripe.com/oauth/authorize?response_type=code&client_id=' + config.stripe.connect.client_id + '&scope=read_write&redirect_uri=https://' + req.headers.host + '/%23/companie/mine'
   return res.status(200).json({message: 'ok', url: url});
 })
 // router.get('/getStripeAccountDetails', function(req, res, next) {
