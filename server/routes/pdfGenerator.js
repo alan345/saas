@@ -429,7 +429,7 @@ module.exports = {
                       // html += '<td class="elem">' + img + '</td>'
                       // html += '<td class="desc">' + bucketProduct.typeRow + '</td>'
                       // html += '<td class="elem">' + bucketProduct.title + '</td>'
-                      html += '<td class="elem bghFree"><p>' + unit + '</p></td>'
+                      html += '<td class="elem bghFree"><div><p>' + unit + '</p></div></td>'
                       html += '<td class="elem bghFree"><p>' + bucketProduct.quantity + '</p></td>'
                       html += '<td class="elem bghFree"><p>' + bucketProduct.priceWithoutTaxes + '</p></td>'
                       html += '<td class="elem bghFree"><p>' + bucketProduct.priceWithQuantity + '</p></td>'
@@ -524,7 +524,7 @@ module.exports = {
                              <tr>
                                <th class="col-1 desc">
                                </th>
-                               <th class="col-8 elem bghFree">`
+                               <th class="col-8 desc bghFree">`
                                item.legalApprovals.forEach(legalApproval => {
                                  html += '<p>' + legalApproval + '</p>'
                                })
