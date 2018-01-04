@@ -1,6 +1,9 @@
 <!-- <h6>{{'Create a new card' | translate}}</h6> -->
 <div *ngIf="!hideAddress" class="row">
   <div class="col-12 col-md-6">
+    <div class="col-12">
+      {{'Invoice informations' | translate}}
+    </div>
   <mat-form-field class="col-12">
     <input matInput type="text" [(ngModel)]="newCard.address_line1" placeholder="{{'Address' | translate}}">
   </mat-form-field>
@@ -21,6 +24,10 @@
   </mat-form-field>
   </div>  
   <div class="col-12 col-md-6">
+    <div class="col-12">
+      {{'Bank card informations' | translate}}
+    </div>
+    
      <div class="col-12">
       <img mat-card-image src="/assets/images/cards.png" [routerLink]="['/']" class="cards" alt="Paiement Sécurisé">
     </div>
