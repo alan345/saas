@@ -81,11 +81,7 @@ export class ProductSingleComponent implements OnInit {
         height: [''],
         width: [''],
         depth: [''],
-
-
     })
-
-
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id']) {

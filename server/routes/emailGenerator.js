@@ -46,12 +46,12 @@ module.exports = {
                       <tr>
                         <td style="padding: 15px 0 30px 0;">
                              Bonjour ${user.profile.name}!
-                              
+
                         </td>
                       </tr>
                       <tr>
                         <td style="padding: 15px 0 30px 0;">
-                            
+
                               Bienvenue sur Mirabelle.io. Votre inscription s'est déroulée avec succès. Vous pouvez désormais accéder aux fonctionnalités de Mirabelle.io.
                               Votre email de connexion est <b>${user.email}</b>, vous êtes le seul à connaître votre mot de passe.
                         </td>
@@ -179,7 +179,7 @@ html += `
                         <tr>
                           <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
                             <a
-                              href="http://${req.headers.host}/uploads/pdf/${req.params.quoteId}.pdf"
+                              href="http://${req.headers.host}/uploads/pdf/${req.params.quoteId}"
                               style="color: #ffffff; text-decoration: none;"
                             >`
                               if(type ==='quote') {

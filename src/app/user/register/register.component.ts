@@ -96,7 +96,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         this.toastr.success('Great!');
         localStorage.setItem('id_token', data.token);
         localStorage.setItem('token', data.token);
-        this.router.navigate(['/']);
+        this.router.navigate(['/companie/mine']);
         // this.loginInAppDone.emit(data.token)
         // location.reload();
       },
