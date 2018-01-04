@@ -21,11 +21,11 @@ export class SidebarComponent implements OnInit {
   isLoggedIn: boolean = false;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  fetchedUser: User = new User();
+  // fetchedUser: User = new User();
 
   constructor(
     private globalEventsManager: GlobalEventsManager,
-    private authService: AuthService,
+    public authService: AuthService,
     // private adminService: AdminService,
     private userService: UserService,
     private router: Router,
@@ -66,7 +66,7 @@ export class SidebarComponent implements OnInit {
       this.showNavBar = true;
       //let userId = localStorage.getItem('userId');
 
-      this.fetchedUser = this.authService.getCurrentUser()
+      // this.fetchedUser = this.authService.getCurrentUser()
       // console.log(this.fetchedUser)
     }
   }

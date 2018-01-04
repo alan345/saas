@@ -111,7 +111,7 @@
           class="nav-link" [routerLink]="['/user/list/false']" routerLinkActive="active">{{'Team'|translate}}</a>
         <a class="nav-link"
           (click)="menuClick()"
-          [routerLink]="['/user/' + fetchedUser._id]" routerLinkActive="active">{{'My profile'|translate}}</a>
+          [routerLink]="['/user/' + authService.getCurrentUser()._id]" routerLinkActive="active">{{'My profile'|translate}}</a>
         <a class="nav-link"
           (click)="menuClick()"
           (click)="logout()">{{'Logout'|translate}}</a>
