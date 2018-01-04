@@ -47,7 +47,7 @@ module.exports = {
                         <td style="padding: 15px 0 30px 0;">
                              Bonjour ${user.profile.name}!\n\n'
 Bienvenue sur Mirabelle.io. Votre inscription s'est déroulée avec succès. Vous pouvez désormais accéder aux fonctionnalités de Mirabelle.io. \n\n'
-Votre email de connexion est ${user.email}, vous êtes le seul à connaître votre mot de passe. 
+Votre email de connexion est ${user.email}, vous êtes le seul à connaître votre mot de passe.
                         </td>
                       </tr>
                       <tr>
@@ -110,7 +110,10 @@ Votre email de connexion est ${user.email}, vous êtes le seul à connaître vot
   sendQuoteByEmailToClient(req, res, next, type) {
 
     return new Promise(function(resolve, reject) {
-      Quote.findById(req.params.quoteId).populate({path: 'clients', model: 'User'}).exec(function(err, obj) {
+      Quote.findById(req.params.quoteId)
+      .populate({path: 'clients', model: 'User'})
+      .populate({path: 'ownerCompanies', model: 'Companie'})
+        .exec(function(err, obj) {
         if (err) {
           reject(new Error({message: 'An error occured', err: err}))
         }
@@ -171,10 +174,17 @@ html += `
                             </a>
                           </td>
                         <tr>
-                          <td style="padding: 15px 15px 15px 15px;">De la part de
+                          <td style="padding: 15px 15px 15px 15px;">De la part de `
+                          // console.log(obj.ownerCompanies)
+                          obj.ownerCompanies.forEach(companie => {
+                            console.log(companie.nameCompanie)
+                            html += companie.nameCompanie
+                          })
+
+html += `
                           </td>
                      </tr>
-                         
+
                         </tr>
                       </table>
                     </td>
