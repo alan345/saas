@@ -254,7 +254,7 @@ html += `
                   <td align="center" bgcolor="#ff4351" height="150">
                     <img
                       src="http://${req.headers.host}/assets/images/Logo-Mirabelle.png"
-                      alt="Email de la part de Mirabelle" width="305" height="100" style="display: block; color: #ffffff;"
+                      alt="Email de la part de Mirabelle" width="200" height="200" style="display: block; color: #ffffff;"
                     />
                   </td>
                 </tr>
