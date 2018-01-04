@@ -95,9 +95,9 @@ export class UserFormsComponent implements OnInit, OnChanges {
     // }
 
   }
-  isAdmin() {
-    return this.authService.isAdmin();
-  }
+  // isAdmin() {
+  //   return this.authService.isAdmin();
+  // }
 
   onDelete(formId: string) {
     this.formService.deleteForm(formId)

@@ -96,9 +96,9 @@ export class UserFormsListComponent implements OnInit {
     // }
 
   }
-  isAdmin() {
-    return this.authService.isAdmin();
-  }
+  // isAdmin() {
+  //   return this.authService.isAdmin();
+  // }
 
   onDelete(formId: string) {
     this.removeForm.emit(formId);

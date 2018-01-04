@@ -9,7 +9,7 @@ import {ToastsManager} from 'ng2-toastr';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './resetPassword.component.html',
-  styleUrls: ['./resetPagesStyle.css']
+  styleUrls: ['../user.component.css']
 })
 
 export class ResetPasswordComponent implements OnInit, AfterViewInit {
@@ -38,9 +38,9 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.renderer.invokeElementMethod(this.newPassword.nativeElement, 'focus', []);
-    }, 50);
+    // setTimeout(() => {
+    //   this.renderer.invokeElementMethod(this.newPassword.nativeElement, 'focus', []);
+    // }, 50);
   }
 
   // submit the login form with the user credentials and navigate the user to the index page of our app

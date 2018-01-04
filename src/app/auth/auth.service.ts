@@ -140,15 +140,15 @@ export class AuthService {
   // }
 
 
-  isAdmin() {
-    // let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;
-    // if (this.user) {
-    //   if (this.user.role[0] === 'admin') {
-    //     return true;
-    //   }
-    // }
-    // return false;
-  }
+  // isAdmin() {
+  //   // let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;
+  //   // if (this.user) {
+  //   //   if (this.user.role[0] === 'admin') {
+  //   //     return true;
+  //   //   }
+  //   // }
+  //   // return false;
+  // }
 
 
 

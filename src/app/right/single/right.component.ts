@@ -227,7 +227,7 @@ export class RightComponent implements OnInit {
         }
       );
   }
-  // 
+  //
   // goBack() {
   //   this.location.back();
   // }
@@ -245,9 +245,9 @@ export class RightComponent implements OnInit {
         }
       )
   }
-  isAdmin() {
-    return this.authService.isAdmin();
-  }
+  // isAdmin() {
+  //   return this.authService.isAdmin();
+  // }
 
 
 }

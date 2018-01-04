@@ -104,9 +104,9 @@ export class RightsComponent implements OnInit {
   }
 
 
-  isAdmin() {
-    return this.authService.isAdmin();
-  }
+  // isAdmin() {
+  //   return this.authService.isAdmin();
+  // }
 
 
 }
