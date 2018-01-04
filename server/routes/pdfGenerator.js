@@ -313,13 +313,18 @@ module.exports = {
                            <thead>
                              <tr>`
                              if(type === 'quote') {
+                               html += '<p>'
                                html += 'Devis : dev-' + item.quoteNumber
+                               html += '</p>'
                              }
                              if(type === 'invoice') {
+                               html += '<p>'
                                html += 'Facture : fac-' + item.quoteNumber
+                               html += '</p>'
                                if(item.statusQuote === 'paid') {
-                                 html += '<br>'
+                                 html += '<p><br>'
                                  html += 'Payé'
+                                 html += '</p>'
                               }
                              }
                              item.ownerCompanies.forEach(companie => {
