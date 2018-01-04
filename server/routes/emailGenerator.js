@@ -170,10 +170,10 @@ html += `
 html += `
                             </a>
                           </td>
-                        <tr>
+                   
                           <td>De la part de ${companie.nameCompanie}
                       </td>
-                        </tr>
+                     
                           
                         </tr>
                       </table>
