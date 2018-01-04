@@ -171,7 +171,7 @@ html += `
                             </a>
                           </td>
                         <tr>
-                          <td style="padding: 15px 15px 15px 15px;>De la part de 
+                          <td style="padding: 15px 15px 15px 15px;">De la part de 
                           </td>
                      </tr>
                          
