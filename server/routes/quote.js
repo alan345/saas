@@ -246,7 +246,7 @@ router.get('/pdf/:quoteId', function(req, res, next) {
   pdfGenerator.generatePDF(req, res, next, 'quote').then(quoteId => {
     res.status(200).json({
       message: 'Success',
-      item: quoteId + '.pdf'
+      item: quoteId
     })
   }).catch((error) => {
     return res.status(404).json({title: 'Error_pdf', error: error})
@@ -256,7 +256,7 @@ router.get('/pdfInvoice/:quoteId', function(req, res, next) {
   pdfGenerator.generatePDF(req, res, next, 'invoice').then(quoteId => {
     res.status(200).json({
       message: 'Success',
-      item: quoteId + '.pdf'
+      item: quoteId
     })
   }).catch((error) => {
     return res.status(404).json({title: 'Error_pdf', error: error})

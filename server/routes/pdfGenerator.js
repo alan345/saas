@@ -374,11 +374,24 @@ module.exports = {
             html += `         <th class="col-4"></th>
                                <th class="col-4 desc">`
 
+
+
+                   item.historyClients.forEach(user => {
+                     historyClientsName =  user.profile.name + '_' + user.profile.lastName
+                     // console.log(user)
+                     html += '<p><b>'
+                     html += user.profile.title + ' ' + user.profile.name + ' ' + user.profile.lastName
+                     html += '</b></p>'
+                   })
+
+
+
                   item.historyClientsCross.forEach(user => {
-                    historyClientsName =  user.profile.name + ' ' + user.profile.lastName
-                    html += '<p><b>'
-                    html += user.profile.title + ' ' + user.profile.name + ' ' + user.profile.lastName
-                    html += '</b></p>'
+                    // historyClientsName =  user.profile.name + ' ' + user.profile.lastName
+                    // console.log(user)
+                    // html += '<p><b>'
+                    // html += user.profile.title + ' ' + user.profile.name + ' ' + user.profile.lastName
+                    // html += '</b></p>'
                     user.profile.address.forEach(singleAddress => {
                       // if (singleAddress.nameAddress === 'billing') {
                         html += '<p>'
@@ -563,8 +576,16 @@ module.exports = {
                                 </p>
                                   `
 
-                                if (item.drawingSignature.namePicture)
-                                  html += `<img class="imgSignature" src="http://localhost/uploads/signature/${item.drawingSignature.namePicture}" />`
+                                if (item.drawingSignature.namePicture) {
+                                  html += '<img class="imgSignature" src="file:///' + path.join(__dirname, '..') + '/uploads/signature/' + item.drawingSignature.namePicture + '" />'
+                                  // console.log('<img class="imgSignature" src="file:///' + path.join(__dirname, '..') + '/uploads/signature/' + item.drawingSignature.namePicture + '" />')
+                                }
+
+
+// html +=  '<img class="imglogo" src="file:///' + path.join(__dirname,  '..') + '/uploads/forms/' + form.owner + '/' + form.imagePath + '">'
+
+
+
 
                                 html += `<p class="inf2">Le `
                                 if (item.drawingSignature.dateSignature)
@@ -598,14 +619,16 @@ module.exports = {
 
                       </a>
                         `
-                        
-                  var nameFile = quoteNumber + '_' + historyClientsName
-                  pdf.create(html, this.options).toFile('./server/uploads/pdf/' + req.params.quoteId + '.pdf', function(err, resPDF) {
+
+                  var nameFile = quoteNumber + '_' + historyClientsName + '.pdf'
+                  nameFile = nameFile.replace(/\s+/g, '_')
+                  console.log(nameFile)
+                  pdf.create(html, this.options).toFile('./server/uploads/pdf/' + nameFile, function(err, resPDF) {
                     if (err) {
                       console.log(err)
                       reject(err)
                     } else {
-                      resolve(req.params.quoteId)
+                      resolve(nameFile)
                     }
                   })
                 }
