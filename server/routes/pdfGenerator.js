@@ -585,7 +585,7 @@ module.exports = {
 
                       </a>
                         `
-
+                  var nameFile = 
                   pdf.create(html, this.options).toFile('./server/uploads/pdf/' + req.params.quoteId + '.pdf', function(err, resPDF) {
                     if (err) {
                       console.log(err)
