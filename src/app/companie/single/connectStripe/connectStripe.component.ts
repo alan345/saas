@@ -20,6 +20,7 @@ export class ConnectStripeComponent implements OnInit, OnChanges {
     private paiementService: PaiementService,
     private location: Location,
   ) { }
+  
 
   ngOnInit() {
     // this.paiementService.getUserInfosConnect()
@@ -45,10 +46,14 @@ export class ConnectStripeComponent implements OnInit, OnChanges {
 
 
   deauthorizeConnect() {
+    this.loading = true
     this.paiementService.deauthorizeConnect()
       .subscribe(res => {
+        this.loading = false
         this.accountConnectStripe = new AccountConnectStripe();
-      }, error => { console.log(error) })
+      }, error => {
+        this.loading = false
+        console.log(error) })
   }
   goToLinkAuthorizeConnect() {
     this.loading = true

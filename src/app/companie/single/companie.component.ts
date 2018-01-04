@@ -109,6 +109,7 @@ export class CompanieComponent implements OnInit {
         if(params.params.scope === 'read_write' && params.params.code) {
           this.paiementService.oauthConnect(params.params)
           .subscribe( res => {
+            this.step = 2
             // console.log(res)
             this.fetchedCompanie = res.obj
           }, error => { console.log(error) } )
