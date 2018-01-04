@@ -1,6 +1,9 @@
 /*ALAN: DO NOT DELETE*/
 
 /*ALAN: Signature*/
+.cards {  
+  height: 30px!important;
+}
 
 .mat-raised-button {
     background-color: #fff!important;
