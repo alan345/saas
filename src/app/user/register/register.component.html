@@ -27,17 +27,17 @@
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput type="password" formControlName="password" placeholder="Mot de Passe">
+            <input matInput type="password" formControlName="password" placeholder="{{'Password' | translate}}">
           </mat-form-field>
           <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-            Password must contain 6 or more characters</div>
+            {{'Password must contain 6 or more characters' | translate}}</div>
           <br>
           <div formGroupName="profile">
             <mat-form-field>
-              <input matInput #name type="text" formControlName="name" placeholder="Prénom">
+              <input matInput #name type="text" formControlName="name" placeholder="{{'Firstname' | translate}}">
             </mat-form-field>
             <mat-form-field>
-              <input matInput #lastName type="text" formControlName="lastName" placeholder="Nom">
+              <input matInput #lastName type="text" formControlName="lastName" placeholder="{{'Lastname' | translate}}">
             </mat-form-field>
           </div>
           <div formGroupName="company">
