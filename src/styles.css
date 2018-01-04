@@ -5,8 +5,9 @@
 .mat-raised-button {
     background-color: #fff!important;
   color: #00c853!important;
-  min-width: none!important;
+  min-width: 0px!important;
   margin-bottom : 2px!important;
+  margin-top : 2px!important;
 }
 
 .logomiraind {
