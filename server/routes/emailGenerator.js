@@ -45,9 +45,15 @@ module.exports = {
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                       <tr>
                         <td style="padding: 15px 0 30px 0;">
-                             Bonjour ${user.profile.name}!\n\n'
-Bienvenue sur Mirabelle.io. Votre inscription s'est déroulée avec succès. Vous pouvez désormais accéder aux fonctionnalités de Mirabelle.io. \n\n'
-Votre email de connexion est ${user.email}, vous êtes le seul à connaître votre mot de passe.
+                             Bonjour ${user.profile.name}!
+                              
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 15px 0 30px 0;">
+                            
+                              Bienvenue sur Mirabelle.io. Votre inscription s'est déroulée avec succès. Vous pouvez désormais accéder aux fonctionnalités de Mirabelle.io.
+                              Votre email de connexion est <b>${user.email}</b>, vous êtes le seul à connaître votre mot de passe.
                         </td>
                       </tr>
                       <tr>
@@ -62,9 +68,13 @@ Votre email de connexion est ${user.email}, vous êtes le seul à connaître vot
                       </tr>
                       <tr>
                         <td style="padding: 15px 0 30px 0;">
-                          L'équipe Mirabelle vous remercie de votre confiance. A tout de suite sur Mirabelle!
+                          L'équipe Mirabelle vous remercie de votre confiance.
 
-                          \n Mirabelle, Faites vos devis chez vos clients!
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 15px 0 30px 0;">
+                           Mirabelle, Faites vos devis chez vos clients!
                         </td>
                       </tr>
                     </table>
