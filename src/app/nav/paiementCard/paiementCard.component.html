@@ -1,6 +1,7 @@
 <!-- <h6>{{'Create a new card' | translate}}</h6> -->
 <div *ngIf="!hideAddress" class="row">
-  <mat-form-field class="col-12 col-md-4">
+  <div class="col-12 col-md-6">
+  <mat-form-field class="col-12">
     <input matInput type="text" [(ngModel)]="newCard.address_line1" placeholder="{{'Address' | translate}}">
   </mat-form-field>
   <mat-form-field class="col-12 col-md-4">
@@ -18,9 +19,9 @@
   <mat-form-field class="col-12 col-md-4">
     <input matInput type="text" [(ngModel)]="newCard.address_country" placeholder="{{'Country' | translate}}">
   </mat-form-field>
-</div>
-<div class="row">
-    <div class="col-12 col-md-4">
+  </div>  
+  <div class="col-12 col-md-6">
+     <div class="col-12 col-md-4">
       <img mat-card-image src="/assets/images/cards.png" [routerLink]="['/']" class="cards" alt="Paiement Sécurisé">
     </div>
     
@@ -47,6 +48,9 @@
   <mat-form-field class="col-12 col-md-4">
     <input matInput type="number" [(ngModel)]="newCard.cvc" placeholder="{{'Security code' | translate}}">
   </mat-form-field>
+  </div>
+     
 </div>
+
 <br>
 8 / 2018 / 4242424242424242 / 123
