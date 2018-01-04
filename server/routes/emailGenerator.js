@@ -172,9 +172,9 @@ html += `
                           </td>
                    
                           <td>De la part de ${companie.nameCompanie}
-                      </td>
+                          </td>
                      
-                          
+                         </tr> 
                         </tr>
                       </table>
                     </td>
