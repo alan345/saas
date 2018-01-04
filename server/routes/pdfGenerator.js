@@ -429,7 +429,7 @@ module.exports = {
                       // html += '<td class="elem">' + img + '</td>'
                       // html += '<td class="desc">' + bucketProduct.typeRow + '</td>'
                       // html += '<td class="elem">' + bucketProduct.title + '</td>'
-                      html += '<td class="elem bghFree"><div><p>' + unit + '</p></div></td>'
+                      html += '<td class="elem bghFree"><div class="avoid bghFree"><p>' + unit + '</p></div></td>'
                       html += '<td class="elem bghFree"><p>' + bucketProduct.quantity + '</p></td>'
                       html += '<td class="elem bghFree"><p>' + bucketProduct.priceWithoutTaxes + '</p></td>'
                       html += '<td class="elem bghFree"><p>' + bucketProduct.priceWithQuantity + '</p></td>'
