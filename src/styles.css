@@ -2,6 +2,12 @@
 
 /*ALAN: Signature*/
 
+.mat-raised-button {
+    background-color: #fff!important;
+  color: #00c853!important;
+  min-width: none!important;
+  margin-bottom : 2px;
+}
 
 .logomiraind {
   width: 200px;
