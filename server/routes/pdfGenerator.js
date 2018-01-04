@@ -301,7 +301,6 @@ module.exports = {
                   // html += '</div>'
                   // html += `
 
-
 // console.log(path.join(__dirname,  '..'))
                   item.ownerCompanies.forEach(companie => {
                     companie.forms.forEach(form => {
