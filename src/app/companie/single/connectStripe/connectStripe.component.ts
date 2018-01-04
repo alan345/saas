@@ -13,6 +13,7 @@ export class ConnectStripeComponent implements OnInit, OnChanges {
   // @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() fetchedCompanie: Companie = new Companie()
   accountConnectStripe: AccountConnectStripe = new AccountConnectStripe();
+  loading: boolan = false
 
   constructor(
     // private toastr: ToastsManager,
@@ -28,10 +29,15 @@ export class ConnectStripeComponent implements OnInit, OnChanges {
   }
   ngOnChanges() {
     // if(this.fetchedCompanie.banck.stripe.stripe_user_id) {
+      this.loading = true
       this.paiementService.getUserInfosConnect()
         .subscribe(res => {
+          this.loading = false
           this.accountConnectStripe = res.customer
-        }, error => { console.log(error) })
+        }, error => {
+          this.loading = false
+          console.log(error)
+        })
     // }
 
 
@@ -45,6 +51,7 @@ export class ConnectStripeComponent implements OnInit, OnChanges {
       }, error => { console.log(error) })
   }
   goToLinkAuthorizeConnect() {
+    this.loading = true
     this.paiementService.goToLinkAuthorizeConnect()
       .subscribe(res => {
         window.location.href = res.url;
