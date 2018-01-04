@@ -140,7 +140,7 @@ module.exports = {
                     <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                          <td>Bonjour ${user.profile.title} ${user.profile.name} ${user.profile.lastName} ,</td>
+                          <td>Bonjour  ,</td>
                         </tr>
                         <tr>
                           <td style="padding: 15px 0 30px 0;">
@@ -171,10 +171,10 @@ html += `
                             </a>
                           </td>
                    
-                          <td>De la part de ${companie.nameCompanie}
+                          <td>De la part de 
                           </td>
                      
-                         </tr> 
+                         
                         </tr>
                       </table>
                     </td>
