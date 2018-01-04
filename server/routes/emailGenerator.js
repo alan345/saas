@@ -22,15 +22,79 @@ var transportOptions = {
 module.exports = {
   sendWelcomeEmail (user) {
     var html = `
-    Bonjour ${user.profile.name}! Bienvenue sur Mirabelle.io
-    Votre email est ${user.email}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+              <title>Email</title>
+              <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></link>
+            </head>
+            <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
+              <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc;">
+                <tr>
+                  <td align="center" bgcolor="#ff4351" height="150">
+                    <img
+                      src="http://${req.headers.host}/assets/images/Logo-Mirabelle.png"
+                      alt="Email de la part de Mirabelle" width="200" height="200" style="display: block; color: #ffffff;"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td style="padding: 15px 0 30px 0;">
+                             Bonjour ${user.profile.name}!
+\n Bienvenue sur Mirabelle.io. Votre inscription s'est déroulée avec succès. Vous pouvez désormais accéder aux fonctionnalités de Mirabelle.io.
+    \n Votre email de connexion est ${user.email}, vous êtes le seul à connaître votre mot de passe.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" style="background-color: #fff; padding: 10px 15px;">
+                          <a
+                            href="https://app.mirabelle.io"
+                            style="background-color: #ff4351; padding: 10px 15px; border: none; outline: none; color: #ffffff; text-decoration: none;"
+                          >
+                            Se connecter
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 15px 0 30px 0;">
+                          L'équipe Mirabelle vous remercie de votre confiance. A tout de suite sur Mirabelle!
+
+                          \n Mirabelle, Faites vos devis chez vos clients!
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td bgcolor="#ff4351">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                     <tr>
+                      <td style="padding: 15px 15px 15px 15px;">
+                        <a href="https://www.mirabelle.io/" style="text-decoration: none;">Site Web Mirabelle</a>
+                      </td>
+                      <td style="padding: 15px 15px 15px 15px;">
+                        <a href="mailto:hello@mirabelle.io?Subject=false%reset" style="text-decoration: none;">Nous contacter</a>
+                      </td>
+                     </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </body>
+          </html>
+
 
     `
     var mailer = nodemailer.createTransport(transportOptions);
 
     var mailOptions = {
       to: user.email,
-      from: 'contact@mirabelle.io',
+      from: 'hello@mirabelle.io',
       subject: 'Bienvenue sur Mirabelle!',
       html: html
     };
