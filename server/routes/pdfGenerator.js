@@ -165,6 +165,10 @@ p, a {
      page-break-inside: avoid !important;
      margin: 4px 0 4px 0;  /* to keep the page break from cutting too close to the text in the div */
    }
+
+.data {     
+     margin: 4px 0 4px 0;  
+   }
   #pageBody {
     height: 0px;
   }
@@ -429,10 +433,10 @@ module.exports = {
                       // html += '<td class="elem">' + img + '</td>'
                       // html += '<td class="desc">' + bucketProduct.typeRow + '</td>'
                       // html += '<td class="elem">' + bucketProduct.title + '</td>'
-                      html += '<td class="elem bghFree"><div class="avoid bghFree"><p>' + unit + '</p></div></td>'
-                      html += '<td class="elem bghFree"><p>' + bucketProduct.quantity + '</p></td>'
-                      html += '<td class="elem bghFree"><p>' + bucketProduct.priceWithoutTaxes + '</p></td>'
-                      html += '<td class="elem bghFree"><p>' + bucketProduct.priceWithQuantity + '</p></td>'
+                      html += '<td class="elem bghFree"><div class="data bghFree"><p>' + unit + '</p></div></div></td>'
+                      html += '<td class="elem bghFree"><div class="data bghFree"><p>' + bucketProduct.quantity + '</p></div></td>'
+                      html += '<td class="elem bghFree"><div class="data bghFree"><p>' + bucketProduct.priceWithoutTaxes + '</p></div></td>'
+                      html += '<td class="elem bghFree"><div class="data bghFree"><p>' + bucketProduct.priceWithQuantity + '</p></div></td>'
                       // html += '<td class="elem">' + bucketProduct.vat + '%</td>'
                       html += '</tr>'
 
@@ -522,8 +526,7 @@ module.exports = {
                          <table>
                            <thead>
                              <tr>
-                               <th class="col-1 desc">
-                               </th>
+
                                <th class="col-8 desc bghFree">`
                                item.legalApprovals.forEach(legalApproval => {
                                  html += '<p>' + legalApproval + '</p>'
