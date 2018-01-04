@@ -3,6 +3,7 @@
 export const LANG_FR_NAME = 'fr';
 
 export const LANG_FR_TRANS = {
+    'Welcome!': 'Bienvenue!',
     'Send': 'Envoyer',
     'Please enter a valid email address': 'Merci d\'entrer une adresse mail valide',
     'Please enter a valid email': 'Merci d\'entrer une adresse mail valide',
