@@ -65,6 +65,7 @@ import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material';
 import {MatCardModule} from '@angular/material';
 import {MatRadioModule} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material';
 
 @NgModule({
   imports:      [
@@ -87,6 +88,7 @@ import {MatRadioModule} from '@angular/material';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
+    MatCheckboxModule,
   ],
   declarations: [
 //    UserDeleteDialog,

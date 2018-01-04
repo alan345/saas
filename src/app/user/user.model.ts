@@ -14,8 +14,9 @@ export class User {
   // isAdminOfHisCompanie: Boolean = false;
   isExternalUser: Boolean = true;
   email: string = '';
-  role: string[] = [];
-  typeUsers: string[] = [];
+  // role: string[] = [];
+  isAdmin: boolean = false;
+  typeUsers: string = '';
   forms: Form[] = [];
   // rights: Right[] = []
   rightsInApp: Right[] = []
@@ -36,7 +37,7 @@ export class UserRegister {
 
 export class CompanyRegister {
   nameCompanie: string = '';
-  typeCompanie: string = '';  
+  typeCompanie: string = '';
 }
 
 export class UserCross {

@@ -26,7 +26,12 @@
         <input matInput type="text" autocomplete="off" name="Search" placeholder="{{'Search' | translate}}" [(ngModel)]="search.search" (ngModelChange)="searchUsers()">
       </mat-form-field>
     </div>
+
+    <mat-checkbox *ngIf="authService.getCurrentUser().isAdmin" (change)="searchUsers()" [(ngModel)]="search.isAdmin">Admin Data</mat-checkbox>
+
   </div>
+
+
 
   <div class="row">
     <div class="col-md-12">

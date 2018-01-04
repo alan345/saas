@@ -20,6 +20,7 @@ export class Search {
   typeQuote: string = '';
   year: number = 0;
   isFromAutocomplete: boolean = false;
+  isAdmin: boolean = false;
   // isSigned: boolean = false;
   statusQuote: string = '';
 };

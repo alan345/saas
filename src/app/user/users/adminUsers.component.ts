@@ -41,7 +41,7 @@ export class AdminUsersComponent implements OnInit {
     private toastr: ToastsManager,
     private router: Router,
     private location: Location,
-    private authService: AuthService,
+    public authService: AuthService,
     private activatedRoute: ActivatedRoute,
   ) {}
 

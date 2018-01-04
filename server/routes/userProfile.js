@@ -65,18 +65,24 @@ router.get('/page/:page', function(req, res, next) {
   let roleToSearch = []
   let searchQuery = {}
 
-  if (req.query.isExternalUser === 'true') {
-    // searchQuery['isExternalUser'] = true
-    searchQuery['canBeSeenByCompanies'] = req.user.ownerCompanies
-    searchQuery['ownerCompanies'] = {
-      $ne: req.user.ownerCompanies
+  if (req.query.isAdmin === 'true' && req.user.isAdmin === true) {
+    // admin data
+  } else {
+
+
+    if (req.query.isExternalUser === 'true') {
+      // searchQuery['isExternalUser'] = true
+      searchQuery['canBeSeenByCompanies'] = req.user.ownerCompanies
+      searchQuery['ownerCompanies'] = {
+        $ne: req.user.ownerCompanies
+      }
     }
-  }
 
-  if (req.query.isExternalUser === 'false') {
-    // searchQuery['isExternalUser'] = false
-    searchQuery['ownerCompanies'] = req.user.ownerCompanies
+    if (req.query.isExternalUser === 'false') {
+      // searchQuery['isExternalUser'] = false
+      searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
+    }
   }
 
   if (req.query.search) {
