@@ -14,6 +14,8 @@ export const LANG_FR_TRANS = {
     'Your quotes at you clients place': 'Vos devis chez vos clients !',
     'Forgotten password?': 'Mot de passe oublié ?',
     'Back': 'Retour',
+    'Password Confirmation': 'Mot de passe',
+    'Confirm your password:': 'Confirmation du mot de passe',
     'Month': 'Mois',
     'Year': 'Année',
     'Plomber': 'Plombier',

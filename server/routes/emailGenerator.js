@@ -22,7 +22,7 @@ var transportOptions = {
 module.exports = {
   sendWelcomeEmail (user) {
     var html = `
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+          <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
           <html xmlns="http://www.w3.org/1999/xhtml">
             <head>
               <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -35,7 +35,8 @@ module.exports = {
                 <tr>
                   <td align="center" bgcolor="#ff4351" height="150">
                     <img
-                      src="http://mirabelle.io/wp-content/uploads/2017/12/Logo-mail.png"
+                      
+                      src="http://${req.headers.host}/assets/images/Logo-mail.png"
                       alt="Email de la part de Mirabelle" style="display: block; color: #ffffff;"
                     />
                   </td>

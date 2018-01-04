@@ -248,7 +248,7 @@
 
     <mat-expansion-panel *ngIf="showReLoginInApp" [expanded]="step === 4" (opened)="setStep(4)">
       <mat-expansion-panel-header>
-        {{'Password Confirmation'}}
+        {{'Password Confirmation' | translate}}
       </mat-expansion-panel-header>
       {{'Confirm your password:' | translate}}
       <app-loginInApp (loginInAppDone)="loginInAppDone()"></app-loginInApp>
