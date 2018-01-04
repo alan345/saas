@@ -144,7 +144,15 @@ module.exports = {
                         </tr>
                         <tr>
                           <td style="padding: 15px 0 30px 0;">
-                            Merci de trouver un document
+                            Merci de trouver votre `
+                              if(type ==='quote') {
+                                html += ' Devis'
+                              }
+                              if(type ==='invoice') {
+                                html += ' Facture'
+                              }
+
+html += `
                           </td>
                         </tr>
                         <tr>
@@ -154,10 +162,10 @@ module.exports = {
                               style="color: #ffffff; text-decoration: none;"
                             >`
                               if(type ==='quote') {
-                                html += ' Voir le Devis'
+                                html += ' Consulter le Devis'
                               }
                               if(type ==='invoice') {
-                                html += ' Voir la facture'
+                                html += ' Consulter la facture'
                               }
 
 html += `
