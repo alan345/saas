@@ -140,7 +140,7 @@ Votre email de connexion est ${user.email}, vous êtes le seul à connaître vot
                     <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                          <td>Bonjour  ,</td>
+                          <td>Bonjour ${client.profile.title} ${client.profile.name} ${client.profile.lastName},</td>
                         </tr>
                         <tr>
                           <td style="padding: 15px 0 30px 0;">
@@ -171,7 +171,7 @@ html += `
                             </a>
                           </td>
                         <tr>
-                          <td style="padding: 15px 15px 15px 15px;">De la part de 
+                          <td style="padding: 15px 15px 15px 15px;">De la part de
                           </td>
                      </tr>
                          
