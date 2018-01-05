@@ -3,11 +3,11 @@
     <app-header-title [isDialog]="isDialog" [showBack]=-1 [title]="'Products'" (saved)="saved($event)" [search]="search" [typeObj]="'product'"></app-header-title>
   </div>
 
-  <button *ngIf="isDialog" (click)="closeDialog()" mat-mini-fab>
+ <!-- <button *ngIf="isDialog" (click)="closeDialog()" mat-mini-fab>
     <mat-icon>close</mat-icon>
-  </button>
+  </button> -->
   
-        <div>
+        <div class="fermer">
         <a *ngIf="isDialog" (click)="closeDialog()">
             Fermer
           </a>
