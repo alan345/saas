@@ -2,6 +2,15 @@
 
 /*ALAN: Signature*/
 
+
+fermerbtn {
+    font-size: 13px;
+    padding: 6px;
+    border-radius: 2px;
+    background-color: #00C853;
+
+}
+
 .fermer {
     text-align: right;
     font-size: 13px;
