@@ -5,6 +5,15 @@ export const LANG_FR_NAME = 'fr';
 export const LANG_FR_TRANS = {
     'TandC approved': 'Conditions générales de vente approuvées',
     'TandC': 'Conditions générales de vente',
+    'Card number': 'Numéro de carte',
+    'Card Exp month': 'Mois d´expiration',
+    'Card Exp Year': 'Année d´expiration',
+    'Security code': 'Code de sécurité',
+    'Invoice informations': 'Informations de facturation',
+    'Bank card informations': 'Informations bancaires',
+    'Submit': 'Soumettre',
+    'Login': 'Se connecter',
+    'Please enter a new password': 'Merci d´entrer un nouveau mot de passe',
     'Welcome!': 'Bienvenue!',
     'Send': 'Envoyer',
     'Please enter a valid email address': 'Merci d\'entrer une adresse mail valide',
@@ -299,7 +308,7 @@ export const LANG_FR_TRANS = {
     'interval_count': 'Interval',
     'current_period_start': 'Début dernier abonnement',
     'current_period_end': 'Fin de l´abonnement',
-    'deleteSubInStripe': 'Supprimer inscription Stipe',
+    'deleteSubInStripe': 'Supprimer inscription Stripe',
 
     'Connect with Stripe': 'Connecter avec Stripe',
 
