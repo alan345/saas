@@ -1,10 +1,5 @@
 <div class="row">
-  <!-- <div class="col-3" *ngFor="let form of forms; let i=index;">
-    <img class="imgList" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-    <button *ngIf="deletePicture" type="button" md-button (click)="removePic(i)">
-        <i class="fa fa-times"></i>
-      </button>
-  </div> -->
+  
   <app-user-form-list
     *ngIf="showPictures"
     [itemsPerPage]=8
@@ -20,18 +15,14 @@
   <div *ngIf="!singleForm || forms.length<1">
   
     <div *ngIf="addPicture">
-    <!-- <input #fileInput type="file" accept="image/*" capture="camera" (change)="onFileSelect($event)" /> -->
+   
 
       <app-form
       *ngIf="!openLibrairy"
       [openCameraStraight]="openCameraStraight"
       (onPassForm)="onPassForm($event)"></app-form>
 
-    <!-- <button *ngIf="openLibrairy" type="button"  mat-button (click)="openDialog('img')" class="addpic-squr btn btn-primary">
-      {{labelButtonAddPicture | translate}}
-      <br>
-      <i class="fa fa-plus"></i>
-    </button> -->
+ 
 
   <div matTooltip="{{'Upload document' | translate}}">
     <mat-icon class="bigIcon pointer" *ngIf="openLibrairy" (click)="openDialog('img')" color="primary">cloud_upload</mat-icon>
