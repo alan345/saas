@@ -10,12 +10,12 @@
     </mat-expansion-panel-header>
     <form [formGroup]="myForm">
       <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="tac col-12 col-md-6">
           <!-- {{'Start:' | translate}} -->
           <mat-icon>flight_takeoff</mat-icon>
           {{fetchedUserCalendar.start | date:'dd/MM/yyyy HH:mm'}}
         </div>
-        <div class="col-12 col-md-6">
+        <div class="tac col-12 col-md-6">
           <!-- {{'End:' | translate}}  -->
           <mat-icon>flight_land</mat-icon>
           {{fetchedUserCalendar.end | date:'dd/MM/yyyy HH:mm'}}
@@ -26,14 +26,20 @@
           </app-autocomplete>
         </div>
 
-        <div class="col-md-6" *ngFor="let address of fetchedUserCross.profile.address">
+        <div class="tac col-md-6" *ngFor="let address of fetchedUserCross.profile.address">
           <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{address.address}}+{{address.address2}}+{{address.zip}}+{{address.city}}+{{address.state}}+{{address.country}}">
             <mat-icon class="bigIcon" color="primary">map</mat-icon>
           </a>
+          <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{address.address}}+{{address.address2}}+{{address.zip}}+{{address.city}}+{{address.state}}+{{address.country}}">
+            Calculer l'itinéraire
+          </a>
         </div>
-        <div class="col-md-6" *ngIf="fetchedUserCross.profile.phoneNumber">
+        <div class="tac col-md-6" *ngIf="fetchedUserCross.profile.phoneNumber">
           <a href="tel:{{fetchedUserCross.profile.phoneNumber}}">
             <mat-icon class="bigIcon" color="primary">phone</mat-icon>
+          </a>
+          <a href="tel:{{fetchedUserCross.profile.phoneNumber}}">
+            Appeler le client
           </a>
         </div>
 
