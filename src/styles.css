@@ -1,6 +1,12 @@
 /*ALAN: DO NOT DELETE*/
 
 /*ALAN: Signature*/
+
+.fermer {
+    text-align: right;
+    font-size: 13px;
+}
+
 .cards {  
   height: 30px!important;
 }
