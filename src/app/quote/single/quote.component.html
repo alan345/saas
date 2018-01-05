@@ -39,29 +39,22 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="row">
-        <div class="col-12 col-md-6 tac">
-          <div>
+     
+
           <app-picture
             [showPagination]=false [showPictures]=false
             [openLibrairy]=true [labelButtonAddPicture]="'Add'"
             [forms]="fetchedQuote.forms"></app-picture>
-          </div>
-          <div>
-            {{'Add document' | translate}}
-          </div>  
-        </div>
-        <div class="col-12 col-md-6 tac showMobile">
-         <div> 
+
+
           <app-picture
             [showPagination]=false [showPictures]=false
             [openLibrairy]=false [openCameraStraight]=true
             [labelButtonAddPicture]="'Add'"
             [forms]="fetchedQuote.forms"></app-picture>
-          </div>
-          <div>
-           {{'Take a photo' | translate}}
-          </div>
-        </div> 
+    
+
+
       </div>
       <app-picture
         [showPagination]=false
