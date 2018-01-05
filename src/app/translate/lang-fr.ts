@@ -12,6 +12,8 @@ export const LANG_FR_TRANS = {
     'Address line 2': 'Complément d´adresse',
     'Save Card': 'Sauvegarder la carte',
     'Card number': 'Numéro de carte',
+    'Go to destination': 'Chez le client',
+    'Call client': 'Appeler le client',
     'Card Exp month': 'Mois d´expiration',
     'Card Exp Year': 'Année d´expiration',
     'Security code': 'Code de sécurité',
