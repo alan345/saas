@@ -32,7 +32,7 @@
         </mat-card-content>
         <mat-card-actions>
           <div class="login ac">
-            <button type="submit" mat-raised-button color="primary">Login</button>
+            <button type="submit" mat-raised-button color="primary">{{'Login' | translate}}</button>
             <p class="messagelogin"><a [routerLink]="'/user/reset'">{{'Forgotten password?' | translate}}</a></p>
             <p class="messagelogin"><a [routerLink]="['/user/register', {lang: langParam}]">
               {{'Register' | translate}}
