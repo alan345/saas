@@ -5,6 +5,7 @@ export const LANG_FR_NAME = 'fr';
 export const LANG_FR_TRANS = {
     'TandC approved': 'Conditions générales de vente approuvées',
     'TandC': 'Conditions générales de vente',
+    'Great': 'Enregistré',
     'Address line 2': 'Complément d´adresse',
     'Save Card': 'Sauvegarder la carte',
     'Card number': 'Numéro de carte',
