@@ -3,92 +3,83 @@
     <app-header-title [isDialog]="isDialog" [showBack]=-1 [title]="'Products'" (saved)="saved($event)" [search]="search" [typeObj]="'product'"></app-header-title>
   </div>
 
- <!-- <button *ngIf="isDialog" (click)="closeDialog()" mat-mini-fab>
+  <!-- <button *ngIf="isDialog" (click)="closeDialog()" mat-mini-fab>
     <mat-icon>close</mat-icon>
   </button> -->
-  
-        <div class="fermer">
-        <a class="fermerbtn" *ngIf="isDialog" (click)="closeDialog()">
-            Fermer/Ajouter au devis
-          </a>
-        </div>
 
-  <div class="tac" *ngIf="isDialog">
-    <div><h5>Nombre de produits à ajouter : <b>4</b></h5></div>
-    <div><h5>Montant à ajouter au devis : <b>250 €</b></h5></div>
-  </div>  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <div class="d-flex flex-row">
-    <div class="p-2">
-      <mat-form-field>
-        <input matInput type="text" autocomplete="off" name="Search" placeholder="{{'Search' | translate}}" [(ngModel)]="search.search" (ngModelChange)="searchProducts()">
-      </mat-form-field>
+  <div class="row">
+    <div class="col-10">
+      <div class="tac" *ngIf="isDialog">
+        <div>
+          <h5>Nombre de produits à ajouter : <b>{{listProductsTempToAdd.length}}</b></h5>
+        </div>
+        <div>
+          <h5>Montant à ajouter au devis : <b>{{valueTempProduct | currency}}</b></h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <button *ngIf="isDialog" (click)="closeDialog()" mat-raised-button color="primary">
+        <mat-icon>done</mat-icon>
+      </button>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th class="centre tdunder">{{'Name' | translate}}
-              <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'details.referenceName'"></app-sort>
-            </th>
-            <th class="centre tdunder hideMobile">{{'Description' | translate}}
-              <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'details.description'"></app-sort>
-            </th>
-            <th class="centre tdunder">{{'Price' | translate}}
-              <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'details.price.sellingPrice'"></app-sort>
-            </th>
-            <th class="centre tdunder hideMobile">{{'Unit' | translate}}
-              <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'details.unit'"></app-sort>
-            </th>
-            <th *ngIf="customButton">
-            </th>
-          </tr>
-        </thead>
-        <tbody class="clienttbl">
-          <tr *ngFor="let product of fetchedProducts" (click)="actionRow(product._id)">
-            <!--    <td class="centre tdunder">
+
+    <div class="d-flex flex-row">
+      <div class="p-2">
+        <mat-form-field>
+          <input matInput type="text" autocomplete="off" name="Search" placeholder="{{'Search' | translate}}" [(ngModel)]="search.search" (ngModelChange)="searchProducts()">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="centre tdunder">{{'Name' | translate}}
+                <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'details.referenceName'"></app-sort>
+              </th>
+              <th class="centre tdunder hideMobile">{{'Description' | translate}}
+                <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'details.description'"></app-sort>
+              </th>
+              <th class="centre tdunder">{{'Price' | translate}}
+                <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'details.price.sellingPrice'"></app-sort>
+              </th>
+              <th class="centre tdunder hideMobile">{{'Unit' | translate}}
+                <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'details.unit'"></app-sort>
+              </th>
+              <th *ngIf="customButton">
+              </th>
+            </tr>
+          </thead>
+          <tbody class="clienttbl">
+            <tr *ngFor="let product of fetchedProducts" (click)="actionRow(product._id)">
+              <!--    <td class="centre tdunder">
               <div *ngFor="let singleForm of product.forms; let i = index;">
                 <img *ngIf="i<=0" height="50px" class="img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
               </div>
             </td>  -->
-            <td class="centre tdunder">{{product.details.referenceName}}</td>
+              <td class="centre tdunder">{{product.details.referenceName}}</td>
 
-            <td class="centre tdunder hideMobile">{{product.details.description | smallText}}</td>
+              <td class="centre tdunder hideMobile">{{product.details.description | smallText}}</td>
 
 
-            <td class="centre tdunder">{{product.details.price.sellingPrice | round | currency}}</td>
-            <td class="centre tdunder hideMobile">{{product.details.unit}}</td>
-            <td *ngIf="customButton" class="centre tdunder">
-
-              <button mat-icon-button color="primary" (click)="customButtonAction(product)">
+              <td class="centre tdunder">{{product.details.price.sellingPrice | round | currency}}</td>
+              <td class="centre tdunder hideMobile">{{product.details.unit}}</td>
+              <td *ngIf="customButton" class="centre tdunder">
+                <button mat-icon-button color="primary" (click)="customButtonAction(product)">
                   <mat-icon aria-label="Select">add_box</mat-icon>
                 </button>
-
-            </td>
-
-          </tr>
-        </tbody>
-      </table>
-      <div>
-        <mat-paginator *ngIf="paginationData.totalItems>paginationData.itemsPerPage" [length]="paginationData.totalItems" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
-        </mat-paginator>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <mat-paginator *ngIf="paginationData.totalItems>paginationData.itemsPerPage" [length]="paginationData.totalItems" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
+          </mat-paginator>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<app-loadingInApp [loading]="loading"></app-loadingInApp>
+  <app-loadingInApp [loading]="loading"></app-loadingInApp>

@@ -25,7 +25,7 @@
           <div *ngIf="bucketProduct.typeRow=='product'">
             <div *ngFor="let product of fetchedQuote.devisDetails[i].bucketProducts[j].productInit; let k=index;">
               <mat-form-field>
-                <input readonly matInput placeholder="{{'referenceName' | translate}}" [(ngModel)]="fetchedQuote.devisDetails[i].bucketProducts[j].productInit[k].details.referenceName">
+                <input readonly matInput placeholder="{{'Product' | translate}}" [(ngModel)]="fetchedQuote.devisDetails[i].bucketProducts[j].productInit[k].details.referenceName">
               </mat-form-field>
             </div>
           </div>

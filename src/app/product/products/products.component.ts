@@ -28,8 +28,10 @@ export class ProductsComponent implements OnInit {
   @Output() closeDialogEmit: EventEmitter<any> = new EventEmitter();
   // token: string = localStorage.getItem('id_token');
   fetchedProducts: Product[] = [];
+  listProductsTempToAdd: Product[] = [];
   search: Search = new Search()
   loading: boolean= false;
+  valueTempProduct: number = 0;
 
   paginationData: PaginationData = new PaginationData()
 
@@ -55,6 +57,8 @@ export class ProductsComponent implements OnInit {
 
 
   customButtonAction(product: Product) {
+    this.listProductsTempToAdd.push(product)
+    this.valueTempProduct += product.details.price.sellingPrice
     this.customButtonActionEmit.emit(product);
   }
 
