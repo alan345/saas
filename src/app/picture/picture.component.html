@@ -21,21 +21,21 @@
   
     <div *ngIf="addPicture">
     <!-- <input #fileInput type="file" accept="image/*" capture="camera" (change)="onFileSelect($event)" /> -->
-    <div class="tac col-md-6">
+
       <app-form
       *ngIf="!openLibrairy"
       [openCameraStraight]="openCameraStraight"
       (onPassForm)="onPassForm($event)"></app-form>
-     </div>
+
     <!-- <button *ngIf="openLibrairy" type="button"  mat-button (click)="openDialog('img')" class="addpic-squr btn btn-primary">
       {{labelButtonAddPicture | translate}}
       <br>
       <i class="fa fa-plus"></i>
     </button> -->
-<div class="tac col-md-6">
+
   <div matTooltip="{{'Upload document' | translate}}">
     <mat-icon class="bigIcon pointer" *ngIf="openLibrairy" (click)="openDialog('img')" color="primary">cloud_upload</mat-icon>
-</div>
+
   </div>
   </div>
   </div>
