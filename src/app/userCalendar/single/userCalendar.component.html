@@ -27,20 +27,26 @@
         </div>
 
         <div class="tac col-md-6" *ngFor="let address of fetchedUserCross.profile.address">
-          <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{address.address}}+{{address.address2}}+{{address.zip}}+{{address.city}}+{{address.state}}+{{address.country}}">
+          <div><a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{address.address}}+{{address.address2}}+{{address.zip}}+{{address.city}}+{{address.state}}+{{address.country}}">
             <mat-icon class="bigIcon" color="primary">map</mat-icon>
           </a>
-          <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{address.address}}+{{address.address2}}+{{address.zip}}+{{address.city}}+{{address.state}}+{{address.country}}">
+            </div>
+          <div><a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{address.address}}+{{address.address2}}+{{address.zip}}+{{address.city}}+{{address.state}}+{{address.country}}">
             Calculer l'itinéraire
           </a>
+            </div>
         </div>
         <div class="tac col-md-6" *ngIf="fetchedUserCross.profile.phoneNumber">
-          <a href="tel:{{fetchedUserCross.profile.phoneNumber}}">
+          <div>
+        <a href="tel:{{fetchedUserCross.profile.phoneNumber}}">
             <mat-icon class="bigIcon" color="primary">phone</mat-icon>
           </a>
+        </div>
+      <div>
           <a href="tel:{{fetchedUserCross.profile.phoneNumber}}">
             Appeler le client
           </a>
+    </div>
         </div>
 
 
