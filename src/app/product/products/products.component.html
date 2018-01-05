@@ -6,6 +6,12 @@
   <button *ngIf="isDialog" (click)="closeDialog()" mat-mini-fab>
     <mat-icon>close</mat-icon>
   </button>
+  
+        <div>
+        <a *ngIf="isDialog" (click)="closeDialog()">
+            Fermer
+          </a>
+        </div>
 
   <div class="d-flex flex-row">
     <div class="p-2">
