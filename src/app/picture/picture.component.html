@@ -16,22 +16,27 @@
     >
   </app-user-form-list>
 </div>
-<div class="row">
+<div class="row"> 
   <div *ngIf="!singleForm || forms.length<1">
-  <div *ngIf="addPicture">
+  
+    <div *ngIf="addPicture">
     <!-- <input #fileInput type="file" accept="image/*" capture="camera" (change)="onFileSelect($event)" /> -->
-    <app-form
+    <div class="tac col-md-6">
+      <app-form
       *ngIf="!openLibrairy"
       [openCameraStraight]="openCameraStraight"
       (onPassForm)="onPassForm($event)"></app-form>
+     </div>
     <!-- <button *ngIf="openLibrairy" type="button"  mat-button (click)="openDialog('img')" class="addpic-squr btn btn-primary">
       {{labelButtonAddPicture | translate}}
       <br>
       <i class="fa fa-plus"></i>
     </button> -->
-<div matTooltip="Uplaod document">
+<div class="tac col-md-6">
+  <div matTooltip="{{'Upload document' | translate}}">
     <mat-icon class="bigIcon pointer" *ngIf="openLibrairy" (click)="openDialog('img')" color="primary">cloud_upload</mat-icon>
 </div>
+  </div>
   </div>
   </div>
 </div>
