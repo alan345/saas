@@ -19,7 +19,7 @@ let defaultValue = [
 {name : 'Companie', value: 'companie', typeAccess:
   [{value:'read',name:'Read'},{value:'write',name:'Write'}]},
 {name : 'User', value: 'user', typeAccess:
-  [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+  [{value:'read',name:'Read'},{value:'write', name:'Write'}, {value:'create1',name:'Create1'}]},
 {name : 'Paiement', value: 'paiementQuote', typeAccess:
   [
     {value:'read',name:'Read'},
@@ -33,11 +33,52 @@ let defaultValue = [
 //   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
 {name : 'Right', value: 'right', typeAccess:
   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+
 // {name : 'Expense', value: 'expense', typeAccess:
 //   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
 // {name : 'Comment', value: 'comment', typeAccess:
 //   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
 ]
+
+
+
+let goldValue = [
+{name : 'Product', value: 'product', typeAccess:
+  [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+{name : 'Quote', value: 'quote', typeAccess:
+  [
+    {value:'read',name:'Read'},
+    {value:'write', name:'Write'},
+    // {value:'notification', name:'Get notification'},
+    {value:'signature', name:'Signature'},
+    {value:'drawing', name:'Drawing'},
+    // {value:'comment', name:'Comment'},
+    {value:'template', name:'Template'},
+  ]},
+{name : 'Companie', value: 'companie', typeAccess:
+  [{value:'read',name:'Read'},{value:'write',name:'Write'}]},
+{name : 'User', value: 'user', typeAccess:
+  [{value:'read',name:'Read'},{value:'write', name:'Write'},{value:'create5',name:'Create5'}]},
+{name : 'Paiement', value: 'paiementQuote', typeAccess:
+  [
+    {value:'read',name:'Read'},
+    {value:'write', name:'Write'}
+  ]},
+// {name : 'Task', value: 'task', typeAccess:
+//   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+{name : 'userCalendar', value: 'userCalendar', typeAccess:
+  [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+// {name : 'Plan', value: 'plan', typeAccess:
+//   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+{name : 'Right', value: 'right', typeAccess:
+  [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+
+// {name : 'Expense', value: 'expense', typeAccess:
+//   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+// {name : 'Comment', value: 'comment', typeAccess:
+//   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+]
+
 
 
 let externalUserRights = [
@@ -51,7 +92,7 @@ let externalUserRights = [
 
 module.exports = {
   externalUserRights: externalUserRights,
-  gold : defaultValue,
+  gold : goldValue,
   silver: defaultValue,
   default: defaultValue
 }

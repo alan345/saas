@@ -21,6 +21,7 @@ export class AdminUsersComponent implements OnInit {
   fetchedUsers: User[] = [];
   loading: boolean = false;
   search: Search = new Search()
+  createNewTeam: boolean = false
   // {
   //   orderBy : '',
   //   search: '',
@@ -47,6 +48,9 @@ export class AdminUsersComponent implements OnInit {
 
 
   ngOnInit() {
+
+
+
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['isExternalUser']) {
         this.search.isExternalUser = (params['isExternalUser'] === 'true')
@@ -109,6 +113,7 @@ export class AdminUsersComponent implements OnInit {
           this.paginationData = res.paginationData;
           this.fetchedUsers =  res.data;
           this.loading = false
+          this.checkIfCanCreateNewTeamUser()
         },
         error => {
           console.log(error);
@@ -116,5 +121,28 @@ export class AdminUsersComponent implements OnInit {
         }
       );
   }
+
+  checkIfCanCreateNewTeamUser() {
+    this.createNewTeam = false
+    this.authService.getCurrentUser().rightsInApp.forEach(rightInApp => {
+      rightInApp.detailRight.permissions.forEach(permission => {
+        if (permission.namePermission === 'user') {
+          permission.access.forEach(singleAccess => {
+            if (singleAccess.typeAccess === 'create5') {
+              if(this.fetchedUsers.length < 5) {
+                this.createNewTeam = true
+              }
+            }
+            if (singleAccess.typeAccess === 'create1') {
+              if(this.fetchedUsers.length < 1) {
+                this.createNewTeam = true
+              }
+            }
+          })
+        }
+      })
+    })
+  }
+
 
 }

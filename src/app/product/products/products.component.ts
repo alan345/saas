@@ -104,14 +104,17 @@ export class ProductsComponent implements OnInit {
 
   getProducts(page: number, search: any) {
     // this.globalEventsManager.isLoadding(true);
+    this.loading = true
     this.productService.getProducts(page, search)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
           this.fetchedProducts = res.data
+          this.loading = false
           // this.globalEventsManager.isLoadding(false);
         },
         error => {
+          this.loading = false
           console.log(error);
         }
       );

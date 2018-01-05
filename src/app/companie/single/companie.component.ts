@@ -9,7 +9,7 @@ import {Address} from '../../shared/address/address.model';
 
 import {ToastsManager} from 'ng2-toastr';
 
-import {MatDialog } from '@angular/material';
+// import {MatDialog } from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 // import { FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -53,7 +53,7 @@ export class CompanieComponent implements OnInit {
     private companieService: CompanieService,
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
-    public dialog: MatDialog,
+    // public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,

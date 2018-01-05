@@ -5,7 +5,7 @@ var Notification = require('../models/notification.model'),
 
 module.exports = {
 
-  getRight(user){
+  getRight(user) {
     // console.log(user)
         let typesRightToUse = []
         // console.log(user)
