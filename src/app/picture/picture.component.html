@@ -23,10 +23,15 @@
       (onPassForm)="onPassForm($event)"></app-form>
 
  
-
-  <div matTooltip="{{'Upload document' | translate}}">
-    <mat-icon class="bigIcon pointer" *ngIf="openLibrairy" (click)="openDialog('img')" color="primary">cloud_upload</mat-icon>
-
+    <div class="col-12 col-md-6 tac" *ngIf="openLibrairy">
+      <div>
+      <div matTooltip="{{'Upload document' | translate}}">
+        <mat-icon class="bigIcon pointer" (click)="openDialog('img')" color="primary">cloud_upload</mat-icon>
+      </div>
+      <div>
+       {{'Add document' | translate}}  
+      </div>  
+    </div>
   </div>
   </div>
   </div>
