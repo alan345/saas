@@ -6,6 +6,8 @@ export const LANG_FR_TRANS = {
     'TandC approved': 'Conditions générales de vente approuvées',
     'TandC': 'Conditions générales de vente',
     'check': 'Chèque',
+    'Add document': 'Ajouter un document',
+    'Take a picture': 'Prendre une photo',
     'Great!': 'Enregistré!',
     'Address line 2': 'Complément d´adresse',
     'Save Card': 'Sauvegarder la carte',

@@ -1,38 +1,20 @@
-<div class="row">
-  
-  <app-user-form-list
-    *ngIf="showPictures"
-    [itemsPerPage]=8
-    [deletePicture]="deletePicture"
-    [fetchedForms]="forms"
-    [showPagination]="showPagination"
-    (removeForm)="removeForm($event)"
-    (onPassForm)="onGetForm($event)"
-    >
+
+  <app-user-form-list *ngIf="showPictures" [itemsPerPage]=8 [deletePicture]="deletePicture" [fetchedForms]="forms" [showPagination]="showPagination" (removeForm)="removeForm($event)" (onPassForm)="onGetForm($event)">
   </app-user-form-list>
-</div>
-<div class="row"> 
-  <div *ngIf="!singleForm || forms.length<1">
-  
+
+
+  <div class="tac" *ngIf="!singleForm || forms.length<1">
     <div *ngIf="addPicture">
-   
-
-      <app-form
-      *ngIf="!openLibrairy"
-      [openCameraStraight]="openCameraStraight"
-      (onPassForm)="onPassForm($event)"></app-form>
-
- 
-    <div class="col-12 col-md-6 tac" *ngIf="openLibrairy">
-      <div>
-      <div matTooltip="{{'Upload document' | translate}}">
-        <mat-icon class="bigIcon pointer" (click)="openDialog('img')" color="primary">cloud_upload</mat-icon>
+      <app-form *ngIf="!openLibrairy" [openCameraStraight]="openCameraStraight" (onPassForm)="onPassForm($event)"></app-form>
+      <div *ngIf="openLibrairy">
+        <div>
+          <!-- <div matTooltip="{{'Add document' | translate}}"> -->
+            <mat-icon class="bigIcon pointer" (click)="openDialog('img')" color="primary">cloud_upload</mat-icon>
+          <!-- </div> -->
+          <div>
+            {{'Add document' | translate}}
+          </div>
+        </div>
       </div>
-      <div>
-       {{'Add document' | translate}}  
-      </div>  
     </div>
   </div>
-  </div>
-  </div>
-</div>

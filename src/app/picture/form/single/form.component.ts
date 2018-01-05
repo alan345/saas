@@ -46,7 +46,7 @@ export class FormComponent implements OnInit {
   onClear: EventEmitter<any> = new EventEmitter();
 
   constructor(
-      private _fb: FormBuilder,
+      // private _fb: FormBuilder,
       private toastr: ToastsManager,
       private router: Router,
       private sanitizer: DomSanitizer,
@@ -176,10 +176,10 @@ export class FormComponent implements OnInit {
     // this.textInput1 = new FormControl('');
     // this.textInput2 = new FormControl('');
     //
-    this.myForm = this._fb.group({
-      // textInput1: this.textInput1,
-      // textInput2: this.textInput2
-    });
+    // this.myForm = this._fb.group({
+    //   // textInput1: this.textInput1,
+    //   // textInput2: this.textInput2
+    // });
   }
   // focus on first input box after the view is initialized
   // ngAfterViewInit() {
