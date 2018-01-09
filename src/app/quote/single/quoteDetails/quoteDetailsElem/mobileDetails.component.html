@@ -25,14 +25,18 @@
           <div *ngIf="bucketProduct.typeRow=='product'">
             <div *ngFor="let product of fetchedQuote.devisDetails[i].bucketProducts[j].productInit; let k=index;">
               <mat-form-field>
-                <input readonly matInput placeholder="{{'Product' | translate}}" [(ngModel)]="fetchedQuote.devisDetails[i].bucketProducts[j].productInit[k].details.referenceName">
+                <input readonly matInput
+                  placeholder="{{fetchedQuote.devisDetails[i].bucketProducts[j].quantity}} {{fetchedQuote.devisDetails[i].bucketProducts[j].productInit[k].details.unit}}"
+                  [(ngModel)]="fetchedQuote.devisDetails[i].bucketProducts[j].productInit[k].details.referenceName">
               </mat-form-field>
             </div>
           </div>
         </div>
         <div class="col-3">
           <mat-form-field>
-            <input matInput disabled value="{{fetchedQuote.devisDetails[i].bucketProducts[j].priceWithQuantityWithDiscountWithSurface | round}}" placeholder="{{'Total' | translate}}">
+            <input matInput disabled
+              value="{{fetchedQuote.devisDetails[i].bucketProducts[j].priceWithQuantityWithDiscountWithSurface | round | currency}}"
+              placeholder="{{'Total' | translate}}">
           </mat-form-field>
         </div>
       </div>
