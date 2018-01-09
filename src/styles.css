@@ -16,7 +16,7 @@
     font-size: 13px;
 }
 
-.cards {  
+.cards {
   height: 30px!important;
 }
 
@@ -178,6 +178,12 @@ img {
 
 
 /*Green Notifif at top*/
+.toast-success {
+  width: 50px!important;
+}
+.toast-success .toast-title, .toast-success .toast-message {
+  display: none;
+}
 /*#toast-container>div {
   width: 25px;
 }
