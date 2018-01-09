@@ -169,7 +169,6 @@ export class AddElemComponent implements OnInit {
 
 
   addProductToQuote(product: Product) {
-    console.log(this.fetchedQuote.devisDetails)
     let productFounded = false;
     this.fetchedQuote.devisDetails.forEach((devisDetail, i) => {
       devisDetail.bucketProducts.forEach((bucketProductSingle, j) => {
