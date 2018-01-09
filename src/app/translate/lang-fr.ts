@@ -50,7 +50,7 @@ export const LANG_FR_TRANS = {
     'Add': 'Ajouter',
     'Calendar Options': 'Options du calendrier',
     'Meeting': 'Rendez-vous',
-    'Register': 'S\'enregistrer',
+    'Register': 'S\'inscrire',
     'Dashboard': 'Tableau de Bord',
     'My Planning': 'Mon Calendrier',
     'Planning': 'Calendrier',
@@ -310,6 +310,9 @@ export const LANG_FR_TRANS = {
     'Funding': 'Financement',
     'last4': 'derniers chiffres de la carte',
     'delete Card': 'Supprimer Carte',
+  
+    'Plumber': 'Plombier',
+    
 
     'Next': 'Suivant',
     'Subscritpion': 'Souscription',
