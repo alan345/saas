@@ -6,11 +6,11 @@
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
 
 
-    <input type="text" class="form-control col-md-3" placeholder="Name Right Profile" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedRight.detailRight.nameRight">
+    <input type="text" class="form-control col-lg-3" placeholder="Name Right Profile" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedRight.detailRight.nameRight">
 
     <button type="button" class="btn btn-success" (click)="addRight(1,0,0,0)"><i class="fa fa-plus"></i> Add Type</button>
     <div class="categ1" *ngFor="let permission of fetchedRight.detailRight.permissions; let j = index;">
-      <table class="col-md-3">
+      <table class="col-lg-3">
         <tr>
           <td class="tdbtn1">
             <select class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedRight.detailRight.permissions[j].namePermission">
@@ -27,7 +27,7 @@
       </table>
       <div class="form-control" class="categ2" *ngFor="let singleAccess of permission.access; let k = index;">
 
-        <table class="col-md-2">
+        <table class="col-lg-2">
           <tr>
             <td class="tdbtn1">
 

@@ -9,7 +9,7 @@
 <mat-checkbox [(ngModel)]="daysToHideTemp[6]" (change)="changeDay()">{{'Saturday' | translate}}</mat-checkbox>
 <mat-checkbox [(ngModel)]="daysToHideTemp[0]" (change)="changeDay()">{{'Sunday' | translate}}</mat-checkbox>
 
-<div class="col-sm-12 col-md-6 col-lg-6">
+<div class="col-sm-12 col-lg-6">
   <mat-form-field>
   <input matInput (change)="dataChanged()" [(ngModel)]="fetchedCompanie.option.calendar.timeBegin" required minlength="1" placeholder="{{'First hour of your day. (06:00:00)' | translate}}">
 </mat-form-field>

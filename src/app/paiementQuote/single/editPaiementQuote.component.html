@@ -20,22 +20,22 @@
         </mat-form-field> -->
         <div class="row">
 
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-lg-6">
             <app-autocomplete class="mb8 bn" [canDelete]=true [typeAutocomplete]="'user'" [search]="search" [canDelete]="true" [title]="'Customer'" [singleChoice]="true" [arrayContent]="fetchedPaiementQuote.userDebiteds" (getResultAutocomplete)="selectUserDebited($event[0])"
               (autocompleteAfterNgChanges)="autocompleteAfterNgChangesUser($event)">
             </app-autocomplete>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-lg-6">
             <app-autocomplete *ngIf="fetchedPaiementQuote.userDebiteds.length" class="mb8 bn" [canDelete]=true [typeAutocomplete]="'quote'" [search]="search" [canDelete]="true" [title]="'Intervention'" [singleChoice]="true" [arrayContent]="fetchedPaiementQuote.quotes"
               (getResultAutocomplete)="selectQuote($event[0])" (autocompleteAfterNgChanges)="autocompleteAfterNgChanges($event)">
             </app-autocomplete>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-lg-6">
             <mat-form-field>
               <input matInput type="number" formControlName="amount" [(ngModel)]="fetchedPaiementQuote.amount" placeholder="Amount">
             </mat-form-field>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-lg-6">
             <mat-form-field>
               <input matInput [matDatepicker]="picker" placeholder="{{'Paiement Date'}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedPaiementQuote.datePaiement">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

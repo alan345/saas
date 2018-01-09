@@ -1,6 +1,6 @@
 <!-- <h6>{{'Create a new card' | translate}}</h6> -->
 <div *ngIf="!hideAddress" class="row">
-  <div class="col-12 col-md-6">
+  <div class="col-12 col-lg-6">
     <div class="col-12">
       <b>{{'Invoice informations' | translate}}</b>
     </div>
@@ -39,21 +39,21 @@
       <mat-form-field class="col-12">
         <input matInput type="number" [(ngModel)]="newCard.number" placeholder="{{'Card number' | translate}}">
       </mat-form-field>
-      <mat-form-field class="col-md-4 col-12">
+      <mat-form-field class="col-lg-4 col-12">
         <mat-select placeholder="{{'Card Exp month' | translate}}" [(ngModel)]="newCard.exp_month">
           <mat-option *ngFor="let month of months" [value]="month">
             {{ month }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="col-md-4 col-12">
+      <mat-form-field class="col-lg-4 col-12">
         <mat-select placeholder="{{'Card Exp Year' | translate}}" [(ngModel)]="newCard.exp_year">
           <mat-option *ngFor="let year of years" [value]="year">
             {{ year }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="col-md-4 col-12">
+      <mat-form-field class="col-lg-4 col-12">
         <input matInput type="number" [(ngModel)]="newCard.cvc" placeholder="{{'Security code' | translate}}">
       </mat-form-field>
     </div>
