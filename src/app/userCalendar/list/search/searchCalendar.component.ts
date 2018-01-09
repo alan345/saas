@@ -19,7 +19,7 @@ import { User } from '../../../user/user.model';
 // import { ProjectService} from '../../../project/project.service';
 
 import {CalendarComponent} from 'ap-angular2-fullcalendar';
-
+// import {Search} from '../../../shared/shared.model'
 // import { UserCalendarDialogComponent } from '../single/dialog/userCalendarDialog.component';
 
 // import * as $ from 'jquery';
@@ -72,7 +72,7 @@ export class SearchCalendarComponent implements OnInit {
   //
   // fetchedUserSearchs: User[] = [];
   // fetchedProjectSearchs: Project[] = [];
-  typeUsers = ['plombier','electricien']
+  // typeUsers = ['plombier', 'electricien']
 
   searchData: SearchData = new SearchData()
 
@@ -94,9 +94,9 @@ export class SearchCalendarComponent implements OnInit {
     this.currentUser = this.authService.getCurrentUser()
   }
 
-  ngAfterViewInit() {
-
-  }
+  // ngAfterViewInit() {
+  //
+  // }
   calendarInitialized() {
     this.activatedRoute.params.subscribe((params: Params) => {
       if(Object.keys(params).length === 0 && params.constructor === Object) {

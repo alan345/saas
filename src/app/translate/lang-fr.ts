@@ -9,6 +9,7 @@ export const LANG_FR_TRANS = {
     'Add document': 'Ajouter un document',
     'Take a picture': 'Prendre une photo',
     'Great!': 'Enregistré!',
+    'Repairer': 'Réparateur',
     'Address line 2': 'Complément d´adresse',
     'Save Card': 'Sauvegarder la carte',
     'Card number': 'Numéro de carte',
@@ -313,9 +314,9 @@ export const LANG_FR_TRANS = {
     'Funding': 'Financement',
     'last4': 'derniers chiffres de la carte',
     'delete Card': 'Supprimer Carte',
-  
 
-    
+
+
 
     'Next': 'Suivant',
     'Subscritpion': 'Souscription',
