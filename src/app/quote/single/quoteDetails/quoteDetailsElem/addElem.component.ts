@@ -101,55 +101,55 @@ export class AddElemComponent implements OnInit {
 
 
 
-    addRow(typeRow) {
-      if (typeRow) {
-        if (typeRow === 'category')
-          this.addBucketProducts()
+  addRow(typeRow) {
+    if (typeRow) {
+      if (typeRow === 'category')
+        this.addBucketProducts()
 
-        if (!this.fetchedQuote.devisDetails.length)
-          this.addBucketProducts()
+      if (!this.fetchedQuote.devisDetails.length)
+        this.addBucketProducts()
 
-        if (typeRow === 'product' || typeRow === 'text') {
-          let bucketProduct: BucketProduct = new BucketProduct()
-          bucketProduct.isEditMode = true
-          bucketProduct.typeRow = typeRow
-          this.fetchedQuote.devisDetails[this.fetchedQuote.devisDetails.length - 1].bucketProducts.push(bucketProduct)
-          this.calculateQuote()
-        }
+      if (typeRow === 'product' || typeRow === 'text') {
+        let bucketProduct: BucketProduct = new BucketProduct()
+        bucketProduct.isEditMode = true
+        bucketProduct.typeRow = typeRow
+        this.fetchedQuote.devisDetails[this.fetchedQuote.devisDetails.length - 1].bucketProducts.push(bucketProduct)
+        this.calculateQuote()
       }
     }
+  }
 
-    calculateQuote() {
-      this.calculateQuoteEmit.emit()
-    }
+  calculateQuote() {
+    this.calculateQuoteEmit.emit()
+  }
 
-    addRowMobileProduct () {
-        const this2 = this
-        const dialogRefProducts = this.dialog.open(ProductsDialogComponent)
-        const sub = dialogRefProducts.componentInstance.onAdd.subscribe((product) => {
-          this.addProductToQuote(product)
-        });
-        dialogRefProducts.afterClosed().subscribe(result => {
-          if (result) {
-            //
-          }
-        })
+  addRowMobileProduct() {
+    const this2 = this
+    const dialogRefProducts = this.dialog.open(ProductsDialogComponent)
+    const sub = dialogRefProducts.componentInstance.onAdd.subscribe((product) => {
+      this.addProductToQuote(product)
+    });
+    dialogRefProducts.afterClosed().subscribe(result => {
+      if (result) {
+        //
       }
-      addRowMobileText() {
-        const this2 = this
-        const dialogRefText = this.dialog.open(AddTextRowDialogComponent)
-        const sub = dialogRefText.componentInstance.addTextToQuoteEmit.subscribe((product) => {
-          // this.addProductToQuote(product)
-          this.addTextToQuote(product)
-        });
-        dialogRefText.afterClosed().subscribe(result => {
-          if (result) {
-            //
-          }
-        })
+    })
+  }
+  addRowMobileText() {
+    const this2 = this
+    const dialogRefText = this.dialog.open(AddTextRowDialogComponent)
+    const sub = dialogRefText.componentInstance.addTextToQuoteEmit.subscribe((product) => {
+      // this.addProductToQuote(product)
+      this.addTextToQuote(product)
+    });
+    dialogRefText.afterClosed().subscribe(result => {
+      if (result) {
+        //
       }
+    })
+  }
 
-      addTextToQuote(textToQuote) {
+  addTextToQuote(textToQuote) {
     const bucketProduct: BucketProduct = new BucketProduct()
     bucketProduct.typeRow = 'text'
     bucketProduct.title = textToQuote.title
@@ -168,22 +168,43 @@ export class AddElemComponent implements OnInit {
   }
 
 
-        addProductToQuote(product: Product) {
-            const bucketProduct: BucketProduct = new BucketProduct()
-            bucketProduct.typeRow = 'product'
-            bucketProduct.productInit = [product]
-            bucketProduct.vat = product.details.price.vat
-            bucketProduct.priceWithoutTaxes = product.details.price.sellingPrice
-            bucketProduct.priceWithTaxes = 0
-            bucketProduct.priceWithTaxesWithQuantity = 0
-            bucketProduct.priceWithQuantity = 0
-            bucketProduct.quantity = 1
-            bucketProduct.discount = 0
+  addProductToQuote(product: Product) {
+    console.log(this.fetchedQuote.devisDetails)
+    let productFounded = false;
+    this.fetchedQuote.devisDetails.forEach((devisDetail, i) => {
+      devisDetail.bucketProducts.forEach((bucketProductSingle, j) => {
+        bucketProductSingle.productInit.forEach((productInitSingle, k) => {
+          if (productInitSingle._id === product._id) {
+            productFounded = true;
+            this.fetchedQuote.devisDetails[i]
+            .bucketProducts[j].quantity = this.fetchedQuote
+            .devisDetails[i].bucketProducts[j].quantity + 1
+          }
+        });
+      });
+    })
 
-            const newDevisDetail: DevisDetail = new DevisDetail();
-            newDevisDetail.bucketProducts.push(bucketProduct)
-            this.fetchedQuote.devisDetails.push(newDevisDetail)
-            this.calculateQuote();
-        }
+    if (!productFounded) {
+      const bucketProduct: BucketProduct = new BucketProduct()
+      bucketProduct.typeRow = 'product'
+      bucketProduct.productInit = [product]
+      bucketProduct.vat = product.details.price.vat
+      bucketProduct.priceWithoutTaxes = product.details.price.sellingPrice
+      bucketProduct.priceWithTaxes = 0
+      bucketProduct.priceWithTaxesWithQuantity = 0
+      bucketProduct.priceWithQuantity = 0
+      bucketProduct.quantity = 1
+      bucketProduct.discount = 0
+
+      const newDevisDetail: DevisDetail = new DevisDetail();
+      newDevisDetail.bucketProducts.push(bucketProduct)
+      this.fetchedQuote.devisDetails.push(newDevisDetail)
+    }
+
+
+
+
+    this.calculateQuote();
+  }
 
 }
