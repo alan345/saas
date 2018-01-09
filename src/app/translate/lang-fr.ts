@@ -36,8 +36,11 @@ export const LANG_FR_TRANS = {
     'Month': 'Mois',
     'Disconnect': 'Déconnexion',
     'Year': 'Année',
-    'Plomber': 'Plombier',
+    'Plumber': 'Plombier',
     'Locksmith': 'Serrurier',
+    'Electrician': 'Électricien',
+    'Gardener': 'Paysagiste',
+    'Glazier': 'Vitrier',
     'Type Company': 'Type',
     '$ Interventions': '€ Interventions',
     'Company Email': 'Email de l\'entreprise',
@@ -311,7 +314,7 @@ export const LANG_FR_TRANS = {
     'last4': 'derniers chiffres de la carte',
     'delete Card': 'Supprimer Carte',
   
-    'Plumber': 'Plombier',
+
     
 
     'Next': 'Suivant',
