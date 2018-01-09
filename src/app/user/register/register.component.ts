@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   email: FormControl;
   password: FormControl;
   @ViewChild('userEmail') userEmail: ElementRef;
-  typesCompanie: string[] = ['Plomber', 'Locksmith', 'Other']
+  typesCompanie: string[] = ['Plumber', 'Locksmith', 'Electrician', 'Electrician', 'Gardener', 'Glazier', 'Services', 'Other']
 
 
   constructor(
