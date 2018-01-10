@@ -24,6 +24,9 @@ export class GlobalEventsManager {
     public showBackButtonEmitter: Observable<number> = this._showBackButton.asObservable();
 
 
+    private _isMobileSizeScreen: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
+    public isMobileSizeScreenEmitter: Observable<boolean> = this._isMobileSizeScreen.asObservable();
+
 
     constructor() {}
 
@@ -41,6 +44,9 @@ export class GlobalEventsManager {
     }
     showBackButton(ifShow: number) {
         this._showBackButton.next(ifShow);
+    }
+    isMobileSizeScreen(ifShow: boolean) {
+        this._isMobileSizeScreen.next(ifShow);
     }
 
 

@@ -74,7 +74,10 @@ export class AppComponent implements AfterViewInit {
     setTimeout(() => {
       this2.widthContainer = this2.elementView.nativeElement.offsetWidth
       if (this2.widthContainer < 700) {
+        this.globalEventsManager.isMobileSizeScreen(true);
         this.modeSidenav = 'over'
+      } else {
+        this.globalEventsManager.isMobileSizeScreen(false);
       }
     });
   }

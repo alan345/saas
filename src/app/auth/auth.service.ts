@@ -1,22 +1,22 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import {UserAuth} from './user.model';
+import { UserAuth } from './user.model';
 
 
-import {Observable} from 'rxjs/Observable';
-import {Response, Headers, Http, RequestOptions} from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { Response, Headers, Http, RequestOptions } from '@angular/http';
 
 import 'rxjs/operator/map';
 import 'rxjs/operator/catch';
-import {ToastsManager} from 'ng2-toastr';
-import {ErrorService} from '../errorHandler/error.service';
-import {Reset} from './resetPassword';
-import {tokenNotExpired} from 'angular2-jwt';
-import {Router} from '@angular/router';
-import {JwtHelper} from 'angular2-jwt';
+import { ToastsManager } from 'ng2-toastr';
+import { ErrorService } from '../errorHandler/error.service';
+import { Reset } from './resetPassword';
+import { tokenNotExpired } from 'angular2-jwt';
+import { Router } from '@angular/router';
+import { JwtHelper } from 'angular2-jwt';
 // import {UserService} from '../user/user.service'
-import {User} from '../user/user.model'
-import {GlobalEventsManager} from '../globalEventsManager';
+import { User } from '../user/user.model'
+import { GlobalEventsManager } from '../globalEventsManager';
 import { Config } from '../shared/config.model';
 
 
@@ -24,18 +24,19 @@ import { Config } from '../shared/config.model';
 
 export class AuthService {
   private url = Config.backendURL;
+  private isMobileSizeScreen: boolean = false;
   public token: string;
   public langParam: string = 'fr';
-  public currentUser={
+  public currentUser = {
     userId: '',
     token: '',
     // user: {}
-  //  companieId:[]
+    //  companieId:[]
 
   }
   jwtHelper: JwtHelper = new JwtHelper();
   //public userId: string;
-  user:User
+  user: User
 
   constructor(
     private http: Http,
@@ -46,20 +47,27 @@ export class AuthService {
     // private userService: UserService,
   ) {
 
-      this.user = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')).user : null;
+    this.user = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')).user : null;
 
-      var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-      this.token = currentUser && currentUser.token;
-      this.currentUser = currentUser;
+    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = currentUser && currentUser.token;
+    this.currentUser = currentUser;
 
+
+    this.globalEventsManager.isMobileSizeScreenEmitter.subscribe((mode) => {
+      if (mode !== null) {
+        // console.log(mode)
+        this.isMobileSizeScreen = mode;
+      }
+    });
 
   }
 
   // sending request to back end to register our user
   signup(user: UserAuth) {
     const body = JSON.stringify(user);
-    const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.post(this.url + 'user/register', body, {headers: headers})
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.post(this.url + 'user/register', body, { headers: headers })
       .map(response => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -70,8 +78,8 @@ export class AuthService {
   // sending request to back end to login the user
   signin(user: UserAuth) {
     const body = JSON.stringify(user);
-    const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.post(this.url + 'user/login', body, {headers: headers})
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.post(this.url + 'user/login', body, { headers: headers })
       .map((response: Response) => {
         let token = response.json() && response.json().token;
         let userId = response.json() && response.json().userId;
@@ -84,12 +92,15 @@ export class AuthService {
             // user: user
           }
 
+
           this.token = token
           this.currentUser = currentUser
           this.user = this.jwtHelper.decodeToken(token).user
-          // this.globalEventsManager.showNavBar(true);
-        //  console.log(this.currentUser)
-         console.log(this.user)
+          if (!this.isMobileSizeScreen) {
+            setTimeout(() => this.globalEventsManager.showNavBar(true), 700)
+          }
+          //  console.log(this.currentUser)
+          // console.log(this.user)
           localStorage.setItem('currentUser', JSON.stringify(currentUser))
         }
 
@@ -173,7 +184,7 @@ export class AuthService {
 
 
   getLanguage() {
-    if(!this.user) {
+    if (!this.user) {
       return this.langParam
     }
     return this.user.profile.language
@@ -204,10 +215,10 @@ export class AuthService {
 
     return itemFounded
   }
-  isCurrentUserHasCompanie(){
+  isCurrentUserHasCompanie() {
     // console.log(this.user)
     // let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;
-    if(this.user.ownerCompanies.length)
+    if (this.user.ownerCompanies.length)
       return true
     return false
   }
@@ -232,7 +243,7 @@ export class AuthService {
 
     let rightsInAppCheck = this.user.rightsInApp.some(right => {
       return right.detailRight.permissions.some(permission => {
-        if(permission.namePermission === nameObject)
+        if (permission.namePermission === nameObject)
           return permission.access.some(access => {
             return access.typeAccess === typeAccess
           })
@@ -249,12 +260,12 @@ export class AuthService {
     // console.log(this.isCurentUserHasAccess(nameObject, typeAccess))
     // console.log(this.isCurrentUserIsInSubPeriod())
     // console.log(this.isCurrentUserHasCompanie())
-    if(
+    if (
       this.isCurentUserHasAccess(nameObject, typeAccess)
       && this.isCurrentUserIsInSubPeriod()
       // && this.isCurrentUserHasCompanie()
     )
-    return true
+      return true
   }
 
   // isCurrentUserIsInSubPeriod(){
@@ -301,8 +312,8 @@ export class AuthService {
   // sending request for password reset
   forget(reset: Reset) {
     const body = JSON.stringify(reset);
-    const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.post('/user/forgot', body, {headers: headers})
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.post('/user/forgot', body, { headers: headers })
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -313,8 +324,8 @@ export class AuthService {
   // sending request with the newly created password
   reset(reset: Reset) {
     const body = JSON.stringify(reset);
-    const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.post('/user/reset/' + reset.token, body, {headers: headers})
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.post('/user/reset/' + reset.token, body, { headers: headers })
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -353,28 +364,28 @@ export class AuthService {
     return tokenNotExpired();
   }
 
-    //
-    // HTMLDatetoIsoDate(htmlDate){
-    //   let year = Number(htmlDate.toString().substring(0, 4))
-    //   let month = Number(htmlDate.toString().substring(5, 7))
-    //   let day = Number(htmlDate.toString().substring(8, 10))
-    //   return new Date(year, month - 1, day)
-    // }
-    // isoDateToHtmlDate(isoDate){
-    //   let date = new Date(isoDate);
-    //   let dtString = ''
-    //   let monthString = ''
-    //   if (date.getDate() < 10) {
-    //     dtString = '0' + date.getDate();
-    //   } else {
-    //     dtString = String(date.getDate())
-    //   }
-    //   if (date.getMonth()+1 < 10) {
-    //     monthString = '0' + Number(date.getMonth()+1);
-    //   } else {
-    //     monthString = String(date.getMonth()+1);
-    //   }
-    //   return date.getFullYear()+'-' + monthString + '-'+dtString
-    // }
+  //
+  // HTMLDatetoIsoDate(htmlDate){
+  //   let year = Number(htmlDate.toString().substring(0, 4))
+  //   let month = Number(htmlDate.toString().substring(5, 7))
+  //   let day = Number(htmlDate.toString().substring(8, 10))
+  //   return new Date(year, month - 1, day)
+  // }
+  // isoDateToHtmlDate(isoDate){
+  //   let date = new Date(isoDate);
+  //   let dtString = ''
+  //   let monthString = ''
+  //   if (date.getDate() < 10) {
+  //     dtString = '0' + date.getDate();
+  //   } else {
+  //     dtString = String(date.getDate())
+  //   }
+  //   if (date.getMonth()+1 < 10) {
+  //     monthString = '0' + Number(date.getMonth()+1);
+  //   } else {
+  //     monthString = String(date.getMonth()+1);
+  //   }
+  //   return date.getFullYear()+'-' + monthString + '-'+dtString
+  // }
 
 }

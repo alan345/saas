@@ -133,15 +133,9 @@ export const LANG_FR_TRANS = {
     'City': 'Ville',
     'state': 'Pays',
     'State': 'Etat',
-    'zip': 'Code Postal',
+    'zip': 'code Postal',
     'Zip': 'Code Postal',
     'Country': 'Pays',
-    'Acces Code': 'Code Entrée',
-    'accessCode': 'Code Immeuble',
-    'Acces type': 'Type d´accès',
-    'floor': 'Etage',
-    'Floor': 'Etage',
-    'Number': 'N°',
     'Other': 'Autre',
     'Identity': 'Détails',
     'Details': 'Détails',
@@ -166,15 +160,8 @@ export const LANG_FR_TRANS = {
     'Phone number': 'Téléphone',
     'Status': 'Statut',
     'Details Quote': 'Détails',
-
-
-
     'Items': 'Eléments',
-
-
-
     'Quotes': 'Devis',
-
     'quote': 'devis',
     'Create a new quote': 'Créer un nouveau Devis',
     'Assigned to me': 'Assigné à Moi',
@@ -227,7 +214,6 @@ export const LANG_FR_TRANS = {
     'Paymentquote': 'Encaissement',
     'Sent': 'Envoyée',
     'Date Invoice Paid': 'Date Encaissement',
-
     'Signed': 'Signé',
     'signed': 'signé',
     'Rejected': 'Refusé',
@@ -244,28 +230,17 @@ export const LANG_FR_TRANS = {
     'June': 'Juin',
     'July': 'Juillet',
     'Aug': 'Aout',
-
-
-
     'I want to unscribe': 'Désinscription',
-
-
-
-
     // 'Signed, pending payment': 'Signé, en attente de règlement',
     'Drawing': 'Dessin',
     'Get invoice': 'Créer Facture',
     'Is Paid': 'Payé',
-
     'Calendar': 'Calendrier',
     'Start:': 'Débute le :',
     'End:': 'Termine le :',
     'Invoices': 'Factures',
     'invoice': 'Facture',
-
     'Today': 'Aujourd´hui',
-
-
     'project': 'Rendez-vous',
     'Projects': 'Rendez-vous',
     'Ref': 'Référence',
@@ -276,27 +251,17 @@ export const LANG_FR_TRANS = {
     'My tasks': 'Mes tâches',
     'Name Task': 'Description tâche',
     'Project sheet': 'Fiche Rendez-vous',
-
-
     'task': 'tâche',
     'Tasks': 'Tâches',
     'Add a project': 'Ajouter un projet',
     'Individual' : 'Particulier',
-
-
     'right': 'droit',
     'Rights': 'Droits',
-
-
-
     'today': 'aujourd\'hui',
     'month': 'mois',
     'week': 'semaine',
     'day': 'jour',
     'list': 'liste',
-
-
-
     'Companie': 'Entreprise',
     'Companie Email': 'Email Entreprise',
     'Plan': 'Abonnement',
@@ -315,10 +280,6 @@ export const LANG_FR_TRANS = {
     'Funding': 'Financement',
     'last4': 'derniers chiffres de la carte',
     'delete Card': 'Supprimer Carte',
-
-
-
-
     'Next': 'Suivant',
     'Subscritpion': 'Souscription',
     'interval_count': 'Interval',
@@ -346,23 +307,15 @@ export const LANG_FR_TRANS = {
     'Slot Duraation. (01:00:00)': 'Intervalle (01:00:00)',
     'First hour of your daywork. (10:30:00)': 'Heure de début d´activité (10:30:00)',
     'Last hour of your daywork. (17:00:00)': 'Heure de fin d´activité (17:00:00)',
-
     'Notes legales': 'Notes de devis',
-
     'legal Approval': 'Conditions à cocher',
     'Quote Legal Notice': 'Informations légales du devis',
     'Invoice Legal Notice': 'Informations légales de la Facture',
     'Your company logo': 'Logo de votre entreprise',
     'Documents Settings': 'Paramétrage des documents',
-
     'Cost Price': 'Prix d\'achat',
-
     'Name of Companie': 'Nom de la Société',
     'Type Companie': 'Activité principale',
-
-
-
-
     'Search': 'Recherche',
     'This action is not reversible. Are you sure you want to delete?': 'Cette action est irréversible. Confirmez-vous la suppression ?',
 
