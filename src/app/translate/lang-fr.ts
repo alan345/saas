@@ -6,6 +6,7 @@ export const LANG_FR_TRANS = {
     'TandC approved': 'Conditions générales de vente approuvées',
     'TandC': 'Conditions générales de vente',
     'check': 'Chèque',
+    'Upload': 'Télécharger',
     'Add document': 'Ajouter un document',
     'Take a picture': 'Prendre une photo',
     'Great!': 'Enregistré!',
