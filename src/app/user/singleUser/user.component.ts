@@ -98,7 +98,7 @@ export class UserComponent implements OnInit {
     this.step--;
   }
   savedEmitExternElement(){
-    
+
   }
 
   // selectCity(i, city: string) {
@@ -234,10 +234,10 @@ export class UserComponent implements OnInit {
     this.saved.emit(this.fetchedUser)
   }
   save() {
-    if (this.fetchedUser.profile.name.length < 3) {
-      this.toastr.error('Error')
-      return
-    }
+    // if (this.fetchedUser.profile.name.length < 3) {
+    //   this.toastr.error('Error')
+    //   return
+    // }
     this.loading = true
 
     if (this.fetchedUser._id) {

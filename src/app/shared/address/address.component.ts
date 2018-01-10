@@ -39,27 +39,34 @@ export class AddressComponent implements OnInit {
     // this.places = []
   }
   searchCities(zip, i) {
-    if (zip.length > 4)
+    this.addresses[i].cities = []
+    if (zip.length > 4) {
       this.addressService.getCityByZip(zip, this.authService.getCurrentUser().profile.language)
-        .subscribe(
+      .subscribe(
         res => {
+          // this.addresses[i].cities = []
+          res.results.forEach((result, j) => {
 
-            res.results.forEach((result, i) => {
-              result.address_components.forEach((address_component, j) => {
+            if (typeof result.postcode_localities === 'undefined') {
+
+              result.address_components.forEach((address_component, k) => {
                 address_component.types.forEach(type => {
                   if(type === 'locality') {
-                    this.addresses[i].cities = [res.results[i].address_components[j].long_name]
+                    this.addresses[i].cities.push(res.results[j].address_components[k].long_name)
                   }
                 });
               })
-            })
-          // this.addresses[i].cities =
-          // this.addresses[i].cities = res.places
-          // console.log(this.places)
+            } else {
+              result.postcode_localities.forEach(postcode_localitie => {
+                  this.addresses[i].cities.push(postcode_localitie)
+              })
+            }
+          })
         },
         error => {
           console.log(error);
         })
+    }
   }
 
 
