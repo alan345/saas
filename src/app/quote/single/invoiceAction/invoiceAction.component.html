@@ -7,7 +7,7 @@
     <div *ngFor="let client of fetchedQuote.clients">
       <button mat-raised-button color="primary" (click)="sendInvoiceByEmailToClient()">
       <mat-icon aria-label="Email">email</mat-icon>
-    </button> {{'Send document to client:' | translate}} {{client.email}}
+    </button> {{'Send by Email:' | translate}} {{client.email}}
     </div>
   </mat-tab>
   <mat-tab label="{{'Quote' | translate}}">
@@ -19,7 +19,7 @@
       <button mat-raised-button color="primary" (click)="sendQuoteByEmailToClient()">
         <mat-icon aria-label="Email">email</mat-icon>
       </button>
-      {{'Send document to client:' | translate}} {{client.email}}
+      {{'Send by Email:' | translate}} {{client.email}}
     </div>
   </mat-tab>
 </mat-tab-group>

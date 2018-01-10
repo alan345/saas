@@ -9,6 +9,7 @@ export const LANG_FR_TRANS = {
     'Add document': 'Ajouter un document',
     'Take a picture': 'Prendre une photo',
     'Great!': 'Enregistré!',
+    'Send by Email:': 'Envoyer par mail : ',
     'Repairer': 'Réparateur',
     'Address line 2': 'Complément d´adresse',
     'Save Card': 'Sauvegarder la carte',
