@@ -21,7 +21,7 @@ module.exports = {
 
 
           Companie.findById(({_id: companieId}), function (err, item) {
-            console.log('momomo')
+            // console.log('momomo')
             if (err) {
               return res.status(404).json({
                 message: err,
@@ -58,7 +58,7 @@ module.exports = {
             item.legalApprovals.push(`J'autorise la société à récupérer les déchets et le matériel usagé à la fin de la prestation`)
 
 
-
+            item.modelVATs = [10, 20];
 
 
             item.save(function (err, result) {
