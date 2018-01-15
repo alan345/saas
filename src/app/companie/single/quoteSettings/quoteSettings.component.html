@@ -25,6 +25,19 @@
 </mat-card>
 <br>
 <mat-card>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="fetchedCompanie.quoteSettings.prefixInvoice"
+      (blur)="save()"
+      placeholder="{{'Prefix Invoice' | translate}}">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="fetchedCompanie.quoteSettings.prefixQuote"
+      (blur)="save()"
+      placeholder="{{'Prefix Quote' | translate}}">
+  </mat-form-field>
+</mat-card>
+<br>
+<mat-card>
   <app-quote-legal-approval (save)="save()" [fetchedCompanie]="fetchedCompanie"></app-quote-legal-approval>
 </mat-card>
 <br>
