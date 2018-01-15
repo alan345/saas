@@ -369,8 +369,10 @@ export class UserCalendarsComponent implements OnInit {
   }
   viewRender(view, element) {
     // console.log(new Date(view.activeRange.start))
-    this.search.startDate = new Date(view.activeRange.start)
-    this.search.endDate = new Date(view.activeRange.end)
+    this.search.startDate = new Date(view.intervalStart)
+    this.search.endDate = new Date(view.intervalEnd)
+    // this.search.startDate = new Date(view.activeRange.start)
+    // this.search.endDate = new Date(view.activeRange.end)
     if (this.isSearchInitReady)
       this.resetSearchGetUserCalendars()
     // this.getUserCalendars(1, this.search)

@@ -61,6 +61,8 @@ var companie = new Schema({
     quoteSettings: {
       legalNotice: {type: String, default: ['']},
       legalNoticeInvoice: {type: String, default: ['']},
+      prefixeInvoice: {type: String, default: ['']},
+      prefixeQuote: {type: String, default: ['']},
     },
     // faxNumber: {type: String, default: ['']},
     phoneNumber: {type: String, default: ['']},
