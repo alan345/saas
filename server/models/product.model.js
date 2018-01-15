@@ -12,9 +12,9 @@ var product = new Schema({
       reference: {type: String, default: ['']},
       unit: {type: String, default: ['']},
       price: {
-        costPrice: {type: Number, default: [0]},
-        sellingPrice: {type: Number, default: [0]},
-        vat: {type: Number, default: [0]},
+        costPrice: {type: Number, default: 0},
+        sellingPrice: {type: Number, default: 0},
+        vat: {type: Number, default: 0},
       },
       description: {type: String},
       // dimension: {

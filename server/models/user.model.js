@@ -48,7 +48,7 @@ var user = new Schema({
       // otherData:{type: String, default: ['']},
       // detailHouse:{
       //   typeHouse:{type: String, default: ['']},
-      //   surface:{type: Number, default: [0]},
+      //   surface:{type: Number, default: 0},
       //   accesCode:{type: String, default: ['']},
       //   floor:{type: String, default: ['']},
       //   accessType:{type: String, default: ['']},

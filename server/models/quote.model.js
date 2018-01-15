@@ -109,7 +109,7 @@ var quote = new Schema({
     // companieClients: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
     // phoneNumber: {type: String, default: ['']},
     name: {type: String, default: ['']},
-    quoteNumber: {type: Number, default: [0]},
+    quoteNumber: {type: Number, default: 0},
     statusQuote: {type: String, default: ['']},
     detail: {
       currency: {type: String, default: ['']},
@@ -172,21 +172,21 @@ var quote = new Schema({
 
     ],
     priceQuote: {
-      discountGlobal: {type: Number, default: [0]},
-      vatGlobal: {type: Number, default: [0]},
-      painfulnessGlobal: {type: Number, default: [0]},
-      priceQuoteWithoutTaxes: {type: Number, default: [0]},
-      priceQuoteWithTaxes: {type: Number, default: [0]},
-      priceGlobalWithDiscountWithSurface: {type: Number, default: [0]},
-      priceGlobalWithTaxesWithDiscountWithSurfaceWithPainfulness: {type: Number, default: [0]},
-      priceGlobalWithDiscountWithSurfaceWithPainfulness: {type: Number, default: [0]},
+      discountGlobal: {type: Number, default: 0},
+      vatGlobal: {type: Number, default: 0},
+      painfulnessGlobal: {type: Number, default: 0},
+      priceQuoteWithoutTaxes: {type: Number, default: 0},
+      priceQuoteWithTaxes: {type: Number, default: 0},
+      priceGlobalWithDiscountWithSurface: {type: Number, default: 0},
+      priceGlobalWithTaxesWithDiscountWithSurfaceWithPainfulness: {type: Number, default: 0},
+      priceGlobalWithDiscountWithSurfaceWithPainfulness: {type: Number, default: 0},
 
 
       // priceQuoteTaxes: [{
-      //   VAT: {type: Number, default: [0]},
-      //   TotalVAT: {type: Number, default: [0]},
+      //   VAT: {type: Number, default: 0},
+      //   TotalVAT: {type: Number, default: 0},
       // }]
-      // paiementQuote: {type: Number, default: [0]},
+      // paiementQuote: {type: Number, default: 0},
     },
     // signature:{
     //   isSigned:{type: Boolean, default: [false]},

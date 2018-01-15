@@ -14,7 +14,7 @@ var project = new Schema({
     },
     clients: [{type: Schema.Types.ObjectId, ref: 'User'}],
     assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
-    status: {type: String, default: [0]},
+    status: {type: String, default: 0},
     // logs:[{
     //   comment: {type: String, default: ['']},
     //   by: [{type: Schema.Types.ObjectId, ref: 'User'}],
@@ -37,7 +37,7 @@ var project = new Schema({
     //   dateDrawing:{type: Date},
     //   users:[{type: Schema.Types.ObjectId, ref: 'User'}],
     // },
-    progressTasks:{type: Number, default: [0]},
+    progressTasks:{type: Number, default: 0},
     bucketTasks:[{
       bucketName:{type: String, default: ['']},
       tasks:[{type: Schema.Types.ObjectId, ref: 'Task'}

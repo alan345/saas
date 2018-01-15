@@ -156,8 +156,6 @@ function getQuote (idQuote, req) {
     searchQuery['ownerCompanies'] = req.user.ownerCompanies
     searchQuery['_id'] = idQuote
 
-
-
       Quote.findOne((searchQuery), function(err, obj) {
         if (err) {
           console.log(err)
