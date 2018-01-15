@@ -82,9 +82,8 @@
 
 
 .red {
-  color: #941111;
-  
-  /*color: #ff4351;*/
+
+color: #ff4351;
 }
 
 
@@ -549,9 +548,7 @@ a {
 
 .active {
   color: #ffffff !important;
-  background-color: #941111;
-  
-  /*background-color: #ff4351;*/
+  background-color: #ff4351;
 }
 
 .active2 {
