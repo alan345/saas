@@ -57,7 +57,6 @@ module.exports = {
             item.legalApprovals.push(`J'accepte les conditions générales de vente et accepte l'annulation du délai de rétractation légal`)
             item.legalApprovals.push(`J'autorise la société à récupérer les déchets et le matériel usagé à la fin de la prestation`)
 
-
             item.modelVATs = [10, 20];
 
 
