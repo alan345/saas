@@ -40,24 +40,33 @@
               <th class="centre tdunder">{{'Status' | translate}}
                 <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'statusQuote'"></app-sort>
               </th>
+              <th class="centre tdunder hideMobile">
+                {{'Invoice' | translate}}
+              </th>
             </tr>
           </thead>
           <tbody class="clienttbl">
-            <tr *ngFor="let quote of fetchedQuotes" [routerLink]="['/quote/' + quote._id]" routerLinkActive="active">
+            <tr *ngFor="let quote of fetchedQuotes" routerLinkActive="active">
               <!-- <td class="centre tdunder">
               {{quote.typeQuote | translate}}
             </td> -->
-              <td class="centre tdunder hideMobile">
+              <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">
                 <div *ngFor="let client of quote.clients">
                   {{client.profile.name}} {{client.profile.lastName}}
                 </div>
               </td>
-              <td class="centre tdunder showMobile">{{quote.name | smallText}}</td>
-              <td class="centre tdunder hideMobile">{{quote.name | mediumText}}</td>
-              <td class="centre tdunder hideMobile">{{quote.detail.dateQuote.issueDate | date:'yy-MM-dd' }}</td>
-              <td class="centre tdunder">{{quote.priceQuote.priceGlobalWithDiscountWithSurfaceWithPainfulness | round | currency}}</td>
-              <td class="centre tdunder">
+              <td class="centre tdunder showMobile" (click)="navigateToQuote(quote)">{{quote.name | smallText}}</td>
+              <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">{{quote.name | mediumText}}</td>
+              <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">{{quote.detail.dateQuote.issueDate | date:'yy-MM-dd' }}</td>
+              <td class="centre tdunder" (click)="navigateToQuote(quote)">
+                {{quote.priceQuote.priceGlobalWithDiscountWithSurfaceWithPainfulness | round | currency}}
+              </td>
+              <td class="centre tdunder" (click)="navigateToQuote(quote)">
                 <app-quote-status [showSingleSelected]=true [fetchedQuote]="quote"></app-quote-status>
+              </td>
+              <td class="centre tdunder hideMobile">
+                  <app-invoice-action-button [fetchedQuote]="quote" [typeQuote]="'invoice'" [showLabel]=false></app-invoice-action-button>
+                  <!-- <app-invoice-action-button [fetchedQuote]="quote" [typeQuote]="'quote'" [showLabel]=false>></app-invoice-action-button> -->
               </td>
             </tr>
           </tbody>

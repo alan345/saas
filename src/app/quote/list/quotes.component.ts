@@ -78,7 +78,9 @@ export class QuotesComponent implements OnInit, OnChanges {
     // }, 200);
 
   }
-
+  navigateToQuote(quote: Quote) {
+    this.router.navigate(['/quote/' + quote._id]);
+  }
 
   // saveAsInvoice() {
   //   this.quoteService.saveAsInvoice(this.search.parentQuoteId)

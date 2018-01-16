@@ -14,6 +14,7 @@ export class InvoiceActionButtonComponent {
 
   @Input() fetchedQuote: Quote = new Quote()
   @Input() typeQuote: string = ''
+  @Input() showLabel: boolean = true
   loading: boolean = false
 
 
