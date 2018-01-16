@@ -149,8 +149,8 @@ var quote = new Schema({
             priceWithTaxes: {type: Number},
             priceWithQuantity: {type: Number},
             priceWithTaxesWithQuantity: {type: Number},
-            priceWithQuantityWithDiscountWithSurface: {type: Number},
-            priceWithTaxesWithQuantityWithDiscountWithSurface: {type: Number},
+            priceWithQuantityWithDiscount: {type: Number},
+            priceWithTaxesWithQuantityWithDiscount: {type: Number},
             vat: {type: Number},
             quantity: {type: Number, default: 1},
             length: {type: Number, default: 1},
@@ -158,9 +158,9 @@ var quote = new Schema({
             surface: {type: Number, default: 1},
             discount: {type: Number},
             productInit: [],
-            priceWithoutTaxesWithDiscount: {type: Number},
-            priceWithQuantityWithDiscount: {type: Number},
-            priceWithTaxesWithQuantityWithDiscount: {type: Number},
+            priceWithDiscount: {type: Number},
+            // priceWithQuantityWithDiscount: {type: Number},
+            // priceWithTaxesWithQuantityWithDiscount: {type: Number},
             priceWithTaxesWithDiscount: {type: Number},
           }
         ]
@@ -175,7 +175,7 @@ var quote = new Schema({
       priceQuoteWithTaxes: {type: Number, default: 0},
       priceGlobalWithDiscount: {type: Number, default: 0},
       priceGlobalWithTaxesWithDiscount: {type: Number, default: 0},
-      priceGlobalWithDiscount: {type: Number, default: 0},
+      // priceGlobalWithDiscount: {type: Number, default: 0},
 
 
       // priceQuoteTaxes: [{

@@ -88,11 +88,11 @@ export class BucketProduct {
   title: string = '';
   productInit: Product[] = [];
   priceWithoutTaxes: number = 0;
-  priceWithoutTaxesWithDiscount: number = 0;
+  priceWithDiscount: number = 0;
   priceWithQuantityWithDiscount: number = 0;
-  priceWithQuantityWithDiscountWithSurface: number = 0;
-  priceWithTaxesWithQuantityWithDiscountWithSurface: number = 0;
+  // priceWithQuantityWithDiscount: number = 0;
   priceWithTaxesWithQuantityWithDiscount: number = 0;
+  // priceWithTaxesWithQuantityWithDiscount: number = 0;
   priceWithTaxesWithDiscount: number = 0;
   priceWithTaxes: number = 0;
   priceWithQuantity: number = 0;

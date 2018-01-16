@@ -295,7 +295,7 @@ export class QuoteComponent implements OnInit {
 
 
           this2.fetchedQuote.devisDetails[i].bucketProducts[j]
-            .priceWithoutTaxesWithDiscount = product.priceWithoutTaxes
+            .priceWithDiscount = product.priceWithoutTaxes
             * (1 - this2.fetchedQuote.devisDetails[i].bucketProducts[j].discount / 100)
 
           this2.fetchedQuote.devisDetails[i].bucketProducts[j]
@@ -329,22 +329,22 @@ export class QuoteComponent implements OnInit {
 
 
           this2.fetchedQuote.devisDetails[i].bucketProducts[j]
-            .priceWithQuantityWithDiscountWithSurface = this2.fetchedQuote.devisDetails[i].bucketProducts[j]
+            .priceWithQuantityWithDiscount = this2.fetchedQuote.devisDetails[i].bucketProducts[j]
               .priceWithQuantityWithDiscount * this2.fetchedQuote.devisDetails[i].bucketProducts[j].surface
 
           this2.fetchedQuote.devisDetails[i].bucketProducts[j]
-            .priceWithTaxesWithQuantityWithDiscountWithSurface = this2.fetchedQuote.devisDetails[i].bucketProducts[j]
-              .priceWithQuantityWithDiscountWithSurface * (1 - this2.fetchedQuote.devisDetails[i].bucketProducts[j].vat / 100)
+            .priceWithTaxesWithQuantityWithDiscount = this2.fetchedQuote.devisDetails[i].bucketProducts[j]
+              .priceWithQuantityWithDiscount * (1 - this2.fetchedQuote.devisDetails[i].bucketProducts[j].vat / 100)
 
 
           this2.fetchedQuote.priceQuote
             .priceQuoteWithTaxes += this2.fetchedQuote.devisDetails[i].bucketProducts[j]
-              .priceWithTaxesWithQuantityWithDiscountWithSurface * 1
+              .priceWithTaxesWithQuantityWithDiscount * 1
 
 
           this2.fetchedQuote.priceQuote
             .priceQuoteWithoutTaxes += this2.fetchedQuote.devisDetails[i].bucketProducts[j]
-              .priceWithQuantityWithDiscountWithSurface * 1
+              .priceWithQuantityWithDiscount * 1
 
 
           this2.fetchedQuote.priceQuote
@@ -363,7 +363,7 @@ export class QuoteComponent implements OnInit {
           this2.fetchedQuote.priceQuote.priceQuoteTaxes.forEach((priceQuoteTaxe, i) => {
             if (priceQuoteTaxe.VAT === product.vat) {
               this2.fetchedQuote.priceQuote.priceQuoteTaxes[i]
-                .TotalVAT += (product.priceWithoutTaxesWithDiscount * product.vat / 100) * product.quantity
+                .TotalVAT += (product.priceWithDiscount * product.vat / 100) * product.quantity
             }
           })
         })
