@@ -27,6 +27,7 @@ import { AddTextRowComponent} from './single/quoteDetails/quoteDetailsElem/addTe
 import { AddTextRowDialogComponent} from './single/quoteDetails/quoteDetailsElem/addTextRow/dialog/addTextRowDialog.component';
 
 import { InvoiceActionComponent} from './single/invoiceAction/invoiceAction.component';
+import { InvoiceActionButtonComponent} from './single/invoiceAction/button/invoiceActionButton.component';
 // import { QuoteDetailComponent} from './single/quoteDetail.component';
 import { QuoteService} from './quote.service';
 import { TemplateQuoteService} from './templateQuote.service';
@@ -121,6 +122,7 @@ import {MatRadioModule} from '@angular/material';
     QuoteStatusComponent,
     ActionButtonsComponent,
     InvoiceActionComponent,
+    InvoiceActionButtonComponent,
     // QuotePipe,
     // QuoteDetailComponent,
     // RoundPipe,

@@ -1,0 +1,14 @@
+{{type}}
+<div *ngIf="typeQuote === 'invoice'">
+  <button mat-raised-button color="primary" (click)="downloadInvoicePDF()">
+      <mat-icon aria-label="PDF">picture_as_pdf</mat-icon>
+    </button> {{'Download PDF' | translate}}
+</div>
+<div *ngIf="typeQuote === 'quote'">
+  <button mat-raised-button color="primary" (click)="downloadPDF()">
+      <mat-icon aria-label="PDF">picture_as_pdf</mat-icon>
+    </button> {{'Download PDF' | translate}}
+</div>
+
+
+<app-loadingInApp [loading]="loading"></app-loadingInApp>

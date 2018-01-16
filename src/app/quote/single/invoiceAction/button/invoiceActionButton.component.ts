@@ -1,18 +1,19 @@
 import {Component, Input} from '@angular/core';
-import {QuoteService} from '../../quote.service';
-import {Quote} from '../../quote.model';
+import {QuoteService} from '../../../quote.service';
+import {Quote} from '../../../quote.model';
 
 import {ToastsManager} from 'ng2-toastr';
 // import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-invoice-action',
-  templateUrl: './invoiceAction.component.html',
-  styleUrls: ['./invoiceAction.component.css'],
+  selector: 'app-invoice-action-button',
+  templateUrl: './invoiceActionButton.component.html',
+  styleUrls: ['./invoiceActionButton.component.css'],
 })
-export class InvoiceActionComponent {
+export class InvoiceActionButtonComponent {
 
   @Input() fetchedQuote: Quote = new Quote()
+  @Input() typeQuote: string = ''
   loading: boolean = false
 
 
@@ -25,35 +26,35 @@ export class InvoiceActionComponent {
   }
 
 
-    // downloadPDF() {
-    //   this.loading = true
-    //   this.quoteService.downloadPDF(this.fetchedQuote._id)
-    //     .subscribe(
-    //       res => {
-    //          window.open( '/uploads/pdf/' + res );
-    //          this.loading = false
-    //       },
-    //       error => {
-    //         this.loading = false
-    //         console.log(error)
-    //       }
-    //     )
-    // }
+    downloadPDF() {
+      this.loading = true
+      this.quoteService.downloadPDF(this.fetchedQuote._id)
+        .subscribe(
+          res => {
+             window.open( '/uploads/pdf/' + res );
+             this.loading = false
+          },
+          error => {
+            this.loading = false
+            console.log(error)
+          }
+        )
+    }
 
-    // downloadInvoicePDF() {
-    //   this.loading = true
-    //   this.quoteService.downloadInvoicePDF(this.fetchedQuote._id)
-    //     .subscribe(
-    //       res => {
-    //          window.open( '/uploads/pdf/' + res );
-    //          this.loading = false
-    //       },
-    //       error => {
-    //         this.loading = false
-    //         console.log(error)
-    //       }
-    //     )
-    // }
+    downloadInvoicePDF() {
+      this.loading = true
+      this.quoteService.downloadInvoicePDF(this.fetchedQuote._id)
+        .subscribe(
+          res => {
+             window.open( '/uploads/pdf/' + res );
+             this.loading = false
+          },
+          error => {
+            this.loading = false
+            console.log(error)
+          }
+        )
+    }
 
     sendQuoteByEmailToClient() {
       this.loading = true
