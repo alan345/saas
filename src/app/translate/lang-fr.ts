@@ -23,6 +23,7 @@ export const LANG_FR_TRANS = {
     'Invoice informations': 'Informations de facturation',
     'Bank card informations': 'Informations bancaires',
     'Submit': 'Soumettre',
+    'Paiement Date': 'Date de paiement',
     'Login': 'Se connecter',
     'Please enter a new password': 'Merci d´entrer un nouveau mot de passe',
     'Welcome!': 'Bienvenue!',
