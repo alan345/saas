@@ -25,7 +25,10 @@
           <thead>
             <tr>
               <!-- <th class="centre tdunder">{{'Type' | translate}}</th> -->
-              <th class="centre tdunder hideMobile">{{'Number Id' | translate}}</th>
+              <th class="centre tdunder hideMobile">
+                {{'Number Id' | translate}}
+                <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'quoteNumber'"></app-sort>
+              </th>
               <th class="centre tdunder hideMobile">{{'Client' | translate}}</th>
               <th class="centre tdunder">{{'Name' | translate}}
 
