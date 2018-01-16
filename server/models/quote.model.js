@@ -152,20 +152,16 @@ var quote = new Schema({
             priceWithQuantityWithDiscountWithSurface: {type: Number},
             priceWithTaxesWithQuantityWithDiscountWithSurface: {type: Number},
             vat: {type: Number},
-            quantity: {type: Number, default: [1]},
-            length: {type: Number, default: [1]},
-            width: {type: Number, default: [1]},
-            surface: {type: Number, default: [1]},
+            quantity: {type: Number, default: 1},
+            length: {type: Number, default: 1},
+            width: {type: Number, default: 1},
+            surface: {type: Number, default: 1},
             discount: {type: Number},
             productInit: [],
             priceWithoutTaxesWithDiscount: {type: Number},
             priceWithQuantityWithDiscount: {type: Number},
             priceWithTaxesWithQuantityWithDiscount: {type: Number},
             priceWithTaxesWithDiscount: {type: Number},
-
-
-
-
           }
         ]
       }
