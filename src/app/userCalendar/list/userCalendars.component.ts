@@ -49,7 +49,7 @@ export class UserCalendarsComponent implements OnInit {
 
   currentUser: User = new User()
   readyCalendar: boolean = false
-
+  loading: boolean = false
   searchData: SearchData = new SearchData()
   // search: Search = new Search()
   search = {
@@ -189,9 +189,11 @@ export class UserCalendarsComponent implements OnInit {
       eventRender: this.eventRender.bind(this),
     };
     this.readyCalendar = true
+    this.loading = false
   }
 
   getMyCompanie() {
+    this.loading = true
     this.companieService.getCompanie('', {})
       .subscribe(
         res => {
@@ -200,6 +202,7 @@ export class UserCalendarsComponent implements OnInit {
         },
         error => {
           console.log(error);
+          this.loading = false
         }
       )
   }
