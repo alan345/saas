@@ -5,7 +5,7 @@
 </div>
 <div *ngIf="typeQuote === 'quote'">
   <button mat-raised-button color="primary" (click)="downloadPDF()">
-      <mat-icon aria-label="PDF">photo_library</mat-icon>
+      <mat-icon class="red" aria-label="PDF">picture_as_pdf</mat-icon>
     </button><div *ngIf="showLabel"> {{'Download PDF' | translate}}</div>
 </div>
 
