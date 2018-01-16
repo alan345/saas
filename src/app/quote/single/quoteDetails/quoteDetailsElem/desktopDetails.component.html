@@ -29,6 +29,7 @@
               </textarea>
               </mat-form-field>
             </div>
+            
             <div *ngIf="bucketProduct.typeRow=='product'" class="col-6">
               <app-autocomplete [typeAutocomplete]="'product'"
                 [canDelete]="fetchedQuote.statusQuote === 'pending'"
