@@ -32,7 +32,7 @@ export class QuoteComponent implements OnInit {
   fetchedPaiementQuotes: PaiementQuote[] = []
   // showPaiements: boolean = false
   fetchedQuote: Quote = new Quote()
-  totalPaiementAmount: number = 0
+  // totalPaiementAmount: number = 0
   signatureBase64Temp: string = ''
   step = -1;
   myCompanie: Companie = new Companie()
@@ -217,14 +217,19 @@ export class QuoteComponent implements OnInit {
   }
   getPaiementQuotes(event) {
     // console.log(event)
-    this.totalPaiementAmount = 0
+    this.fetchedQuote.priceQuote.totalPaiementAmount = 0
     this.fetchedPaiementQuotes = event
     this.fetchedPaiementQuotes.forEach(paiement => {
-      this.totalPaiementAmount += paiement.amount
+      this.fetchedQuote.priceQuote.totalPaiementAmount += paiement.amount
     })
 
+    this.fetchedQuote.priceQuote.
+    outstandingBalance = this.fetchedQuote
+    .priceQuote.priceGlobalWithTaxesWithDiscount * 1 - this.fetchedQuote.
+    priceQuote.totalPaiementAmount*1
+
     if(
-      this.totalPaiementAmount >= this.fetchedQuote.priceQuote.priceGlobalWithTaxesWithDiscount &&
+      this.fetchedQuote.priceQuote.totalPaiementAmount >= this.fetchedQuote.priceQuote.priceGlobalWithTaxesWithDiscount &&
       this.fetchedQuote.priceQuote.priceQuoteWithoutTaxes &&
       this.fetchedQuote.statusQuote !== 'paid' ) {
         this.fetchedQuote.statusQuote = 'paid'

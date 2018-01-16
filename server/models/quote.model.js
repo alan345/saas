@@ -175,6 +175,9 @@ var quote = new Schema({
       priceQuoteWithTaxes: {type: Number, default: 0},
       priceGlobalWithDiscount: {type: Number, default: 0},
       priceGlobalWithTaxesWithDiscount: {type: Number, default: 0},
+
+      outstandingBalance: {type: Number, default: 0},
+      totalPaiementAmount: {type: Number, default: 0},
       // priceGlobalWithDiscount: {type: Number, default: 0},
 
 

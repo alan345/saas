@@ -70,6 +70,9 @@ export class PriceQuote {
   painfulnessGlobal: number = 0;
   priceGlobalWithDiscount: number = 0;
   priceGlobalWithTaxesWithDiscount: number = 0;
+
+  totalPaiementAmount: number = 0;
+  outstandingBalance: number = 0;
   // priceGlobalWithDiscount: number = 0;
   vatGlobal: number = 0;
   priceQuoteTaxes: PriceQuoteTaxe[] = []
