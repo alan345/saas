@@ -47,6 +47,9 @@
               <th class="centre tdunder hideMobile">
                 {{'Invoice' | translate}}
               </th>
+              <th class="centre tdunder hideMobile">
+                {{'Quote' | translate}}
+              </th>
             </tr>
           </thead>
           <tbody class="clienttbl">
@@ -73,6 +76,10 @@
               </td>
               <td class="centre tdunder hideMobile">
                   <app-invoice-action-button [fetchedQuote]="quote" [typeQuote]="'invoice'" [showLabel]=false></app-invoice-action-button>
+                  <!-- <app-invoice-action-button [fetchedQuote]="quote" [typeQuote]="'quote'" [showLabel]=false>></app-invoice-action-button> -->
+              </td>
+              <td class="centre tdunder hideMobile">
+                  <app-invoice-action-button [fetchedQuote]="quote" [typeQuote]="'quote'" [showLabel]=false></app-invoice-action-button>
                   <!-- <app-invoice-action-button [fetchedQuote]="quote" [typeQuote]="'quote'" [showLabel]=false>></app-invoice-action-button> -->
               </td>
             </tr>
