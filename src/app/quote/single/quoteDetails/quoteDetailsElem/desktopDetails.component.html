@@ -30,7 +30,9 @@
               </mat-form-field>
             </div>
             <div *ngIf="bucketProduct.typeRow=='product'" class="col-6">
-              <app-autocomplete [typeAutocomplete]="'product'" [canDelete]="!fetchedQuote.drawingSignature.isSigned" [title]="'Product'" [singleChoice]=true [arrayContent]="fetchedQuote.devisDetails[i].bucketProducts[j].productInit" (getResultAutocomplete)="selectProduct($event[0], i, j)">
+              <app-autocomplete [typeAutocomplete]="'product'"
+                [canDelete]="fetchedQuote.statusQuote === 'pending'"
+                [title]="'Product'" [singleChoice]=true [arrayContent]="fetchedQuote.devisDetails[i].bucketProducts[j].productInit" (getResultAutocomplete)="selectProduct($event[0], i, j)">
               </app-autocomplete>
             </div>
             <div *ngIf="bucketProduct.typeRow=='product'" class="col-5">
