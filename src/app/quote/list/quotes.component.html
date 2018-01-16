@@ -35,7 +35,7 @@
               </th>
 
               <th class="centre tdunder">{{'Price' | translate}}
-                <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'priceQuote.priceGlobalWithDiscountWithSurfaceWithPainfulness'"></app-sort>
+                <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'priceQuote.priceGlobalWithDiscount'"></app-sort>
               </th>
               <th class="centre tdunder">{{'Status' | translate}}
                 <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'statusQuote'"></app-sort>
@@ -59,7 +59,7 @@
               <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">{{quote.name | mediumText}}</td>
               <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">{{quote.detail.dateQuote.issueDate | date:'yy-MM-dd' }}</td>
               <td class="centre tdunder" (click)="navigateToQuote(quote)">
-                {{quote.priceQuote.priceGlobalWithDiscountWithSurfaceWithPainfulness | round | currency}}
+                {{quote.priceQuote.priceGlobalWithDiscount | round | currency}}
               </td>
               <td class="centre tdunder" (click)="navigateToQuote(quote)">
                 <app-quote-status [showSingleSelected]=true [fetchedQuote]="quote"></app-quote-status>

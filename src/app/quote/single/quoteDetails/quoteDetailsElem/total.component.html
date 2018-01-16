@@ -33,12 +33,12 @@
     <div class="row">
       <div class="col-6">
         <mat-form-field>
-          <input matInput [readonly]="fetchedQuote.statusQuote !== 'pending'" value="{{fetchedQuote.priceQuote.priceGlobalWithDiscountWithSurfaceWithPainfulness | round}} € HT" placeholder="{{'Total' | translate}}">
+          <input matInput [readonly]="fetchedQuote.statusQuote !== 'pending'" value="{{fetchedQuote.priceQuote.priceGlobalWithDiscount | round}} € HT" placeholder="{{'Total' | translate}}">
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field>
-          <input matInput [readonly]="fetchedQuote.statusQuote !== 'pending'" value="{{fetchedQuote.priceQuote.priceGlobalWithTaxesWithDiscountWithSurfaceWithPainfulness | round}} € TTC" placeholder="{{'Total with taxes' | translate}}">
+          <input matInput [readonly]="fetchedQuote.statusQuote !== 'pending'" value="{{fetchedQuote.priceQuote.priceGlobalWithTaxesWithDiscount | round}} € TTC" placeholder="{{'Total with taxes' | translate}}">
         </mat-form-field>
       </div>
     </div>

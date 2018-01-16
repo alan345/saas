@@ -68,9 +68,9 @@ export class PriceQuote {
   priceQuoteWithTaxes: number = 0;
   discountGlobal: number = 0;
   painfulnessGlobal: number = 0;
-  priceGlobalWithDiscountWithSurface: number = 0;
-  priceGlobalWithTaxesWithDiscountWithSurfaceWithPainfulness: number = 0;
-  priceGlobalWithDiscountWithSurfaceWithPainfulness: number = 0;
+  priceGlobalWithDiscount: number = 0;
+  priceGlobalWithTaxesWithDiscount: number = 0;
+  // priceGlobalWithDiscount: number = 0;
   vatGlobal: number = 0;
   priceQuoteTaxes: PriceQuoteTaxe[] = []
 }

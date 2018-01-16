@@ -139,7 +139,7 @@ export class EditPaiementQuoteComponent implements OnInit {
 
   // autocompleteAfterNgChanges(result) {
   //   this.fetchedPaiementQuote.quotes.forEach((quote: Quote) => {
-  //     this.fetchedPaiementQuote.amount = Math.round(quote.priceQuote.priceGlobalWithDiscountWithSurface)
+  //     this.fetchedPaiementQuote.amount = Math.round(quote.priceQuote.priceGlobalWithDiscount)
   //   })
   // }
   // getPdf() {
@@ -147,7 +147,7 @@ export class EditPaiementQuoteComponent implements OnInit {
   // }
     selectQuote(quote: Quote) {
 
-      // console.log(quote.priceQuote.priceGlobalWithDiscountWithSurface)
+      // console.log(quote.priceQuote.priceGlobalWithDiscount)
       this.fetchedPaiementQuote.quotes = [quote]
       this.search.quoteId = quote._id
 
@@ -190,7 +190,7 @@ export class EditPaiementQuoteComponent implements OnInit {
     autocompleteAfterNgChanges(quote: Quote) {
 
       if(!this.fetchedPaiementQuote._id) {
-        this.fetchedPaiementQuote.amount = Math.round(quote.priceQuote.priceGlobalWithTaxesWithDiscountWithSurfaceWithPainfulness)
+        this.fetchedPaiementQuote.amount = Math.round(quote.priceQuote.priceGlobalWithTaxesWithDiscount)
       }
       // console.log(this.fetchedPaiementQuote.quotes)
     }

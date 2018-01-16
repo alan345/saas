@@ -224,7 +224,7 @@ export class QuoteComponent implements OnInit {
     })
 
     if(
-      this.totalPaiementAmount >= this.fetchedQuote.priceQuote.priceGlobalWithTaxesWithDiscountWithSurfaceWithPainfulness &&
+      this.totalPaiementAmount >= this.fetchedQuote.priceQuote.priceGlobalWithTaxesWithDiscount &&
       this.fetchedQuote.priceQuote.priceQuoteWithoutTaxes &&
       this.fetchedQuote.statusQuote !== 'paid' ) {
         this.fetchedQuote.statusQuote = 'paid'
@@ -274,9 +274,9 @@ export class QuoteComponent implements OnInit {
       this2.fetchedQuote.priceQuote.priceQuoteWithTaxes = 0
       this2.fetchedQuote.priceQuote.priceQuoteWithoutTaxes = 0
       this2.fetchedQuote.priceQuote.priceQuoteWithoutTaxes = 0
-      this2.fetchedQuote.priceQuote.priceGlobalWithDiscountWithSurface = 0
-      this2.fetchedQuote.priceQuote.priceGlobalWithDiscountWithSurfaceWithPainfulness = 0
-      this2.fetchedQuote.priceQuote.priceGlobalWithTaxesWithDiscountWithSurfaceWithPainfulness = 0
+      this2.fetchedQuote.priceQuote.priceGlobalWithDiscount = 0
+      this2.fetchedQuote.priceQuote.priceGlobalWithDiscount = 0
+      this2.fetchedQuote.priceQuote.priceGlobalWithTaxesWithDiscount = 0
 
       this2.fetchedQuote.priceQuote.priceQuoteTaxes = []
       this2.VATs.forEach(VAT => {
@@ -348,17 +348,17 @@ export class QuoteComponent implements OnInit {
 
 
           this2.fetchedQuote.priceQuote
-            .priceGlobalWithDiscountWithSurface = this2.fetchedQuote.priceQuote
+            .priceGlobalWithDiscount = this2.fetchedQuote.priceQuote
               .priceQuoteWithoutTaxes
             * (1 - this2.fetchedQuote.priceQuote.discountGlobal / 100)
 
           this2.fetchedQuote.priceQuote
-            .priceGlobalWithDiscountWithSurfaceWithPainfulness = this2.fetchedQuote.priceQuote
-              .priceGlobalWithDiscountWithSurface * (1 + this2.fetchedQuote.priceQuote.painfulnessGlobal / 100)
+            .priceGlobalWithDiscount = this2.fetchedQuote.priceQuote
+              .priceGlobalWithDiscount * (1 + this2.fetchedQuote.priceQuote.painfulnessGlobal / 100)
 
           this2.fetchedQuote.priceQuote
-            .priceGlobalWithTaxesWithDiscountWithSurfaceWithPainfulness = this2.fetchedQuote.priceQuote
-              .priceGlobalWithDiscountWithSurfaceWithPainfulness * (1 + this2.fetchedQuote.priceQuote.vatGlobal / 100)
+            .priceGlobalWithTaxesWithDiscount = this2.fetchedQuote.priceQuote
+              .priceGlobalWithDiscount * (1 + this2.fetchedQuote.priceQuote.vatGlobal / 100)
 
           this2.fetchedQuote.priceQuote.priceQuoteTaxes.forEach((priceQuoteTaxe, i) => {
             if (priceQuoteTaxe.VAT === product.vat) {

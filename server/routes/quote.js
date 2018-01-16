@@ -115,7 +115,7 @@ router.get('/graph', function(req, res, next) {
         //  day: { $dayOfMonth : "$datePaiement" }
       },
       amountTotal: {
-        $sum: "$priceQuote.priceGlobalWithDiscountWithSurfaceWithPainfulness",
+        $sum: "$priceQuote.priceGlobalWithDiscount",
       },
       count:{$sum:1}
     }

@@ -173,9 +173,9 @@ var quote = new Schema({
       painfulnessGlobal: {type: Number, default: 0},
       priceQuoteWithoutTaxes: {type: Number, default: 0},
       priceQuoteWithTaxes: {type: Number, default: 0},
-      priceGlobalWithDiscountWithSurface: {type: Number, default: 0},
-      priceGlobalWithTaxesWithDiscountWithSurfaceWithPainfulness: {type: Number, default: 0},
-      priceGlobalWithDiscountWithSurfaceWithPainfulness: {type: Number, default: 0},
+      priceGlobalWithDiscount: {type: Number, default: 0},
+      priceGlobalWithTaxesWithDiscount: {type: Number, default: 0},
+      priceGlobalWithDiscount: {type: Number, default: 0},
 
 
       // priceQuoteTaxes: [{

@@ -521,7 +521,7 @@ module.exports = {
     <td class="col-2 alctr ts elem">TotaL HT</td>
     <td class="col-2 elem">
       <b>`
-        html += Math.round(item.priceQuote.priceGlobalWithDiscountWithSurfaceWithPainfulness)
+        html += Math.round(item.priceQuote.priceGlobalWithDiscount)
 
         item.ownerCompanies.forEach(companie => {
           if (companie.option.currency) {
@@ -542,7 +542,7 @@ module.exports = {
     <td class="col-2 alctr ts elem">TOTAL TTC</td>
     <td class="col-2 elem">
       <b>`
-        html += Math.round(item.priceQuote.priceGlobalWithTaxesWithDiscountWithSurfaceWithPainfulness)
+        html += Math.round(item.priceQuote.priceGlobalWithTaxesWithDiscount)
         item.ownerCompanies.forEach(companie => {
           if (companie.option.currency) {
             html += companie.option.currency
