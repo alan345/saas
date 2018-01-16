@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {PaiementQuoteService} from '../paiementQuote.service';
 import {PaiementService} from '../../companie/single/paiement/paiement.service';
-import { AccountConnectStripe} from '../../companie/single/connectStripe/connectStripe.model'
+import { AccountConnectStripe} from '../../companie/single/connectStripe/connectStripe.model';
 import {PaiementQuote, StripeCustomer, DataSource} from '../paiementQuote.model';
 import {ToastsManager} from 'ng2-toastr';
 import {Router, ActivatedRoute, Params } from '@angular/router';
@@ -13,7 +13,7 @@ import { User, TypeUser} from '../../user/user.model';
 import { Address, AddressTypes } from '../../shared/address/address.model';
 import { Quote } from '../../quote/quote.model';
 import { Product } from '../../product/product.model';
-import { Search} from '../../shared/shared.model'
+import { Search} from '../../shared/shared.model';
 import {MatDialog } from '@angular/material';
 // import { Location } from '@angular/common';
 // import {ProductService} from '../../product/product.service';
@@ -190,7 +190,7 @@ export class EditPaiementQuoteComponent implements OnInit {
     autocompleteAfterNgChanges(quote: Quote) {
 
       if(!this.fetchedPaiementQuote._id) {
-        this.fetchedPaiementQuote.amount = Math.round(quote.priceQuote.priceGlobalWithTaxesWithDiscount)
+        this.fetchedPaiementQuote.amount = Math.round(quote.priceQuote.outstandingBalance)
       }
       // console.log(this.fetchedPaiementQuote.quotes)
     }

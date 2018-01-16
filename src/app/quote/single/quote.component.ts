@@ -226,15 +226,15 @@ export class QuoteComponent implements OnInit {
     this.fetchedQuote.priceQuote.
     outstandingBalance = this.fetchedQuote
     .priceQuote.priceGlobalWithTaxesWithDiscount * 1 - this.fetchedQuote.
-    priceQuote.totalPaiementAmount*1
+    priceQuote.totalPaiementAmount * 1
 
     if(
       this.fetchedQuote.priceQuote.totalPaiementAmount >= this.fetchedQuote.priceQuote.priceGlobalWithTaxesWithDiscount &&
       this.fetchedQuote.priceQuote.priceQuoteWithoutTaxes &&
       this.fetchedQuote.statusQuote !== 'paid' ) {
         this.fetchedQuote.statusQuote = 'paid'
-        this.save()
     }
+    this.save()
   }
 
   save() {

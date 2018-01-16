@@ -18,7 +18,10 @@
         [(myCompanie)] = "myCompanie"
         [fetchedQuote]="fetchedQuote" (save)="save()" (quoteStatusChangedEmit)="save()"></app-quoteInfo>
       <mat-action-row *ngIf="fetchedQuote.statusQuote === 'pending'">
-        <app-actionButtons *ngIf="fetchedQuote.statusQuote === 'pending'" (nextStep)="nextStep()" [isDialog]="isDialog" [fetchedQuote]="fetchedQuote" (closeDialog)="closeDialog()" (saveEmmit)="save()">
+        <app-actionButtons
+          *ngIf="fetchedQuote.statusQuote === 'pending'"
+          (nextStep)="nextStep()" [isDialog]="isDialog"
+          [fetchedQuote]="fetchedQuote" (closeDialog)="closeDialog()" (saveEmmit)="save()">
         </app-actionButtons>
       </mat-action-row>
     </mat-expansion-panel>
@@ -145,7 +148,8 @@
       </app-paiementQuotes>
       <mat-card>
         {{'Paiements' | translate}}: {{fetchedQuote.priceQuote.totalPaiementAmount | round | currency}}
-        <br> {{'Outstanding balance' | translate}}: {{fetchedQuote.priceQuote.outstandingBalance | round | currency}}
+        <br>
+        {{'Outstanding balance' | translate}}: {{fetchedQuote.priceQuote.outstandingBalance | round | currency}}
       </mat-card>
       <mat-action-row>
         <app-actionButtons [fetchedQuote]="fetchedQuote" [showDeleteButton]=false (nextStep)="nextStep()">
