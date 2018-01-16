@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm-12 col-lg-4">
         <mat-form-field>
-          <span matPrefix>int-</span>
+          <span matPrefix>{{myCompanie.quoteSettings.prefixIntervention}}</span>
           <!-- <input matInput type="text" name="Search" placeholder="{{ title | translate}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()"> -->
           <input matInput [readonly]="fetchedQuote.statusQuote !== 'pending'" type="number" formControlName="quoteNumber" [(ngModel)]="fetchedQuote.quoteNumber" placeholder="{{'Number Id' | translate}}">
         </mat-form-field>

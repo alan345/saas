@@ -289,12 +289,15 @@ module.exports = {
 
                   var quoteNumber = ''
                   var historyClientsName = ''
-                  if(type === 'quote') {
-                    quoteNumber = 'dev-' + item.quoteNumber
-                  }
-                  if(type === 'invoice') {
-                    quoteNumber = 'fac-' + item.quoteNumber
-                  }
+                  item.ownerCompanies.forEach(companie => {
+                    if(type === 'quote') {
+                      quoteNumber = companie.quoteSettings.prefixQuote
+                    }
+                    if(type === 'invoice') {
+                      quoteNumber = companie.quoteSettings.prefixInvoice
+                    }
+                  })
+                  quoteNumber += item.quoteNumber
 
                   var html = ''
                   html += `
@@ -312,6 +315,7 @@ module.exports = {
                   // html += `
 
 // console.log(path.join(__dirname,  '..'))
+// fetchedCompanie.quoteSettings.prefixIntervention
                   item.ownerCompanies.forEach(companie => {
                     companie.forms.forEach(form => {
 

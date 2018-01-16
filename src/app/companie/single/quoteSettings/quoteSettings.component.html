@@ -26,6 +26,11 @@
 <br>
 <mat-card>
   <mat-form-field>
+    <input matInput type="text" [(ngModel)]="fetchedCompanie.quoteSettings.prefixIntervention"
+      (blur)="save()"
+      placeholder="{{'Prefix Intervention' | translate}}">
+  </mat-form-field>
+  <mat-form-field>
     <input matInput type="text" [(ngModel)]="fetchedCompanie.quoteSettings.prefixInvoice"
       (blur)="save()"
       placeholder="{{'Prefix Invoice' | translate}}">
