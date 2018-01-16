@@ -34,6 +34,7 @@ export class QuoteSettings {
   legalNoticeInvoice: string = '';
   prefixInvoice: string = '';
   prefixQuote: string = '';
+  prefixIntervention: string = '';
 }
 export class ContactsPerson {
   contactType: string = '';

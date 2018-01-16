@@ -17,8 +17,8 @@
     <div class="showMobile">
       <mat-slide-toggle
         [(ngModel)]="modeInput">
-        <div *ngIf="modeInput">{{'Edit Event'}}</div>
-        <div *ngIf="!modeInput">{{'Move Event'}}</div>
+        <div *ngIf="modeInput">{{'Edit Event' | translate}}</div>
+        <div *ngIf="!modeInput">{{'Move Event' | translate}}</div>
       </mat-slide-toggle>
     </div>
     <angular2-fullcalendar *ngIf="readyCalendar" #myCal [options]="calendarOptions" (initialized)="onCalendarInit($event)">
