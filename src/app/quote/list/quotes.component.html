@@ -25,6 +25,7 @@
           <thead>
             <tr>
               <!-- <th class="centre tdunder">{{'Type' | translate}}</th> -->
+              <th class="centre tdunder hideMobile">{{'Number Id' | translate}}</th>
               <th class="centre tdunder hideMobile">{{'Client' | translate}}</th>
               <th class="centre tdunder">{{'Name' | translate}}
 
@@ -50,6 +51,9 @@
               <!-- <td class="centre tdunder">
               {{quote.typeQuote | translate}}
             </td> -->
+              <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">
+                {{quote.quoteNumber}}
+              </td>
               <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">
                 <div *ngFor="let client of quote.clients">
                   {{client.profile.name}} {{client.profile.lastName}}
