@@ -22,7 +22,7 @@ import {trigger, state, style, animate, transition, keyframes} from '@angular/an
   styleUrls: ['../product.component.css'],
   animations: [
     trigger('hideShowAnimator', [
-        state('true' , style({ backgroundColor: '#5bc75c' })),
+        state('true' , style({ backgroundColor: '#c3ffc9' })),
         state('false', style({ backgroundColor: 'white' })),
         transition('0 => 1', animate('.5s')),
         transition('1 => 0', animate('.7s'))
