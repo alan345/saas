@@ -168,7 +168,7 @@ router.post('/', function (req, res, next) {
     if (err) {
       return res.status(403).json({
         title: 'There was an issue',
-        error: {message: 'The email you entered already exists'}
+        error: {message: err}
       });
     }
     res.status(200).json({

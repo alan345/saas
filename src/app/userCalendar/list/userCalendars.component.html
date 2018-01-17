@@ -13,14 +13,14 @@
     <div *ngIf="showSearch" class="col-12">
       <app-userCalendarSearch (getUserCalendarBySearch)="getUserCalendarBySearch($event)"></app-userCalendarSearch>
     </div>
-    <div class="showMobile">
+    <div class="showMobile col-12">
       <mat-slide-toggle
         [(ngModel)]="modeInput">
         <div *ngIf="modeInput">{{'Edit Event' | translate}}</div>
         <div *ngIf="!modeInput">{{'Move Event' | translate}}</div>
       </mat-slide-toggle>
     </div>
-    <div *ngIf="search.clientId">
+    <div *ngIf="search.clientId" class="col-12">
       <mat-slide-toggle [(ngModel)]="showCustomerData" (change)="resetSearchGetUserCalendars()">
         <div>{{'Client Calendar' | translate}}</div>
       </mat-slide-toggle>

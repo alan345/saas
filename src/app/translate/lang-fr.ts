@@ -6,6 +6,8 @@ export const LANG_FR_TRANS = {
     'TandC approved': 'Conditions générales de vente approuvées',
     'TandC': 'Conditions générales de vente',
     'check': 'Chèque',
+    'Load Template': 'Charger un modèle',
+    'Save Template': 'Sauvegarder le modèle',
     'Client Calendar': 'Calendrier du client',
     'Prefix Quote': 'Prefixe Devis',
     'Prefix Invoice': 'Prefixe Facture',
