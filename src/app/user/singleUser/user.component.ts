@@ -271,10 +271,10 @@ export class UserComponent implements OnInit {
           // this.addUserIdToCompanie(res.obj)
           //this.router.navigate(['user'])
         },
-        error => {
+        err => {
           // console.log(error)
           this.loading = false
-          this.toastr.error(error.error.message)
+          this.toastr.error(err.error.message)
 
         }
         );

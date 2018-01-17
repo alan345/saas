@@ -15,7 +15,7 @@ export class QuoteStatusComponent {
   statusQuotesSingleSelected = StatusQuotes;
 
   constructor() { }
-  changeStatus(){
+  changeStatus() {
     this.quoteStatusChanged.emit()
   }
   // ngOnChanges() {

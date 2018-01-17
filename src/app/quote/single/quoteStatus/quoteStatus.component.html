@@ -1,5 +1,8 @@
 <mat-button-toggle-group *ngIf="!showSingleSelected" (change)="changeStatus()" [(ngModel)]="fetchedQuote.statusQuote">
-  <mat-button-toggle *ngFor="let n of statusQuotes" matTooltip="{{n.label | translate}}" [value]="n.indexStatus">
+  <mat-button-toggle
+    *ngFor="let n of statusQuotes"
+    [disabled]="n.indexStatus === 'pending' && (fetchedQuote.statusQuote === 'signed' || fetchedQuote.statusQuote === 'paid')"
+    matTooltip="{{n.label | translate}}" [value]="n.indexStatus">
     <mat-icon color="{{n.color}}">{{n.icon | translate}}</mat-icon>
   </mat-button-toggle>
 </mat-button-toggle-group>
