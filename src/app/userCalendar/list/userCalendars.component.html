@@ -1,5 +1,5 @@
 <div class="container width100perc">
-  <app-header-title [title]="'Calendar'" [icon]="'event_available'"></app-header-title>
+  <app-header-title *ngIf="showTitle" [title]="'Calendar'" [icon]="'event_available'"></app-header-title>
 
   <!-- <div class="d-flex flex-row">
     <div class="p-2">

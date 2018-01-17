@@ -44,6 +44,7 @@ export class UserCalendarsComponent implements OnInit {
   @ViewChild(SearchCalendarComponent) private searchCalendarComponent: SearchCalendarComponent;
   @Input() search: Search = new Search()
   @Input() showSearch: boolean = true
+  @Input() showTitle: boolean = true
 
   myCompanie: Companie = new Companie()
   isSearchInitReady: boolean = false
