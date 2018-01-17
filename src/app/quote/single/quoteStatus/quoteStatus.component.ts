@@ -14,9 +14,16 @@ export class QuoteStatusComponent {
   statusQuotes = StatusQuotes;
   statusQuotesSingleSelected = StatusQuotes;
 
+
   constructor() { }
   changeStatus() {
     this.quoteStatusChanged.emit()
+  }
+  isButtonsDisabled(n) {
+    if (n.indexStatus === 'pending' && (this.fetchedQuote.statusQuote === 'signed' || this.fetchedQuote.statusQuote === 'paid')) {
+        return true
+    }
+    return false
   }
   // ngOnChanges() {
   //   // if(this.showSingleSelected) {
