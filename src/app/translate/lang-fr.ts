@@ -228,6 +228,7 @@ export const LANG_FR_TRANS = {
     'pending': 'en attente',
     'Paid': 'Payé',
     'paid': 'payé',
+    'Pictures' : 'Photos',
 
     'Feb': 'Fev',
     'Apr': 'Avr',
