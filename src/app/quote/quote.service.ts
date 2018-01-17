@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {Response, Headers, Http, RequestOptions} from '@angular/http';
+import {Response, Headers, Http, RequestOptions, ResponseContentType} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
 import {Quote} from './quote.model';
 import {ToastsManager} from 'ng2-toastr';
 import { AuthService } from '../auth/auth.service';
 import { Config } from '../shared/config.model';
+import * as FileSaver from 'file-saver';
 
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/catch';
@@ -132,24 +133,40 @@ export class QuoteService {
   }
 
 
-    downloadPDF(id: string) {
+    downloadPDF(quote: Quote) {
       let headers = new Headers({'Content-Type': 'application/json'});
       headers.append('Authorization', '' + this.authService.currentUser.token);
-      return this.http.get(this.url + 'quote/pdf/' + id, {headers: headers})
-        .map((response: Response) => {
-          return response.json().item;
+      return this.http.get(this.url + 'quote/pdf/' + quote._id, {headers: headers, responseType: ResponseContentType.Blob})
+        .map((response: any) => {
+          const blob = new Blob([response._body], { type: 'application/pdf' });
+          FileSaver.saveAs(blob, 'quote_' + quote.quoteNumber + '.pdf');
+          return 'ok';
         })
         .catch((error: Response) => {
           this.errorService.handleError(error.json());
           return Observable.throw(error.json());
         });
     }
-    downloadInvoicePDF(id: string) {
+    // private downloadFile(data){
+    //
+    //   console.log(data)
+    //   let blob = new Blob([data._body], { type: 'application/pdf' });
+    //   FileSaver.saveAs(blob, "export.pdf");
+    //   // let url = window.URL.createObjectURL(blob);
+    //   // window.open(url);
+    // }
+
+    downloadInvoicePDF(quote: Quote) {
       let headers = new Headers({'Content-Type': 'application/json'});
       headers.append('Authorization', '' + this.authService.currentUser.token);
-      return this.http.get(this.url + 'quote/pdfInvoice/' + id, {headers: headers})
-        .map((response: Response) => {
-          return response.json().item;
+      return this.http.get(this.url + 'quote/pdfInvoice/' + quote._id, {headers: headers, responseType: ResponseContentType.Blob})
+        .map((response: any) => {
+          // console.log(response)
+          // this.downloadFile(response)
+          const blob = new Blob([response._body], { type: 'application/pdf' });
+          FileSaver.saveAs(blob, 'invoice_' + quote.quoteNumber + '.pdf');
+          return 'ok';
+          // return response.json().item;
         })
         .catch((error: Response) => {
           this.errorService.handleError(error.json());

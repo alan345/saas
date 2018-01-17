@@ -192,7 +192,7 @@ module.exports = {
   },
 
 
-  generatePDF (req, res, next, type) {
+  generatePDF (req, res, next, type, typeExtract) {
     return new Promise(function(resolve, reject) {
       // User
       // .findOne({_id: req.user._id})
@@ -626,15 +626,30 @@ module.exports = {
 
                   var nameFile = quoteNumber + '_' + historyClientsName + '.pdf'
                   nameFile = nameFile.replace(/\s+/g, '_')
-                  console.log(nameFile)
-                  pdf.create(html, this.options).toFile('./server/uploads/pdf/' + nameFile, function(err, resPDF) {
-                    if (err) {
-                      console.log(err)
-                      reject(err)
-                    } else {
-                      resolve(nameFile)
-                    }
-                  })
+                  // console.log(nameFile)
+                  if(typeExtract === 'stream') {
+                    pdf.create(html, this.options).toStream(function(err, stream) {
+                      if (err) {
+                        console.log(err)
+                        reject(err)
+                      } else {
+                        res.body = nameFile
+                        // console.log(res.nameFile)
+                        stream.pipe(res)
+                        // resolve(stream)
+                      }
+                    })
+                  }
+                  if(typeExtract === 'file') {
+                    pdf.create(html, this.options).toFile('./server/uploads/pdf/' + nameFile, function(err, resPDF) {
+                      if (err) {
+                        console.log(err)
+                        reject(err)
+                      } else {
+                        resolve(nameFile)
+                      }
+                    })
+                  }
                 }
             //   })
             // })

@@ -29,10 +29,10 @@ export class InvoiceActionButtonComponent {
 
     downloadPDF() {
       this.loading = true
-      this.quoteService.downloadPDF(this.fetchedQuote._id)
+      this.quoteService.downloadPDF(this.fetchedQuote)
         .subscribe(
           res => {
-             window.open( '/uploads/pdf/' + res );
+             // window.open( '/uploads/pdf/' + res );
              this.loading = false
           },
           error => {
@@ -44,10 +44,10 @@ export class InvoiceActionButtonComponent {
 
     downloadInvoicePDF() {
       this.loading = true
-      this.quoteService.downloadInvoicePDF(this.fetchedQuote._id)
+      this.quoteService.downloadInvoicePDF(this.fetchedQuote)
         .subscribe(
           res => {
-             window.open( '/uploads/pdf/' + res );
+             // window.open( '/uploads/pdf/' + res );
              this.loading = false
           },
           error => {

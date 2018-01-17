@@ -214,7 +214,7 @@ router.get('/:id', function(req, res, next) {
 })
 
 router.get('/sendQuoteByEmailToClient/:quoteId', function(req, res, next) {
-  pdfGenerator.generatePDF(req, res, next, 'quote').then(quoteId => {
+  pdfGenerator.generatePDF(req, res, next, 'quote', 'file').then(quoteId => {
     emailGenerator.sendQuoteByEmailToClient(req, res, next, 'quote').then((message) => {
       res.status(200).json({message: message, quoteId: quoteId})
     }).catch(error => {
@@ -225,7 +225,7 @@ router.get('/sendQuoteByEmailToClient/:quoteId', function(req, res, next) {
   })
 })
 router.get('/sendInvoiceByEmailToClient/:quoteId', function(req, res, next) {
-  pdfGenerator.generatePDF(req, res, next, 'invoice')
+  pdfGenerator.generatePDF(req, res, next, 'invoice', 'file')
   .then(quoteId => {
     emailGenerator.sendQuoteByEmailToClient(req, res, next, 'invoice')
     .then(() => {
@@ -241,7 +241,7 @@ router.get('/sendInvoiceByEmailToClient/:quoteId', function(req, res, next) {
 })
 
 router.get('/pdf/:quoteId', function(req, res, next) {
-  pdfGenerator.generatePDF(req, res, next, 'quote').then(quoteId => {
+  pdfGenerator.generatePDF(req, res, next, 'quote', 'stream').then(quoteId => {
     res.status(200).json({
       message: 'Success',
       item: quoteId
@@ -251,7 +251,7 @@ router.get('/pdf/:quoteId', function(req, res, next) {
   })
 })
 router.get('/pdfInvoice/:quoteId', function(req, res, next) {
-  pdfGenerator.generatePDF(req, res, next, 'invoice').then(quoteId => {
+  pdfGenerator.generatePDF(req, res, next, 'invoice', 'stream').then(quoteId => {
     res.status(200).json({
       message: 'Success',
       item: quoteId
