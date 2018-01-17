@@ -53,6 +53,7 @@ export class UserCalendarsComponent implements OnInit {
   currentUser: User = new User()
   readyCalendar: boolean = false
   loading: boolean = false
+  showCustomerData: boolean = true
   searchData: SearchData = new SearchData()
   // search = {
   //   typeUser: '',
@@ -229,8 +230,11 @@ export class UserCalendarsComponent implements OnInit {
     // this.search.typeUser = searchData.search.typeUser
     // this.search.userSearch = searchData.search.userSearch
     // this.search.projectSearch = searchData.search.projectSearch
-
-    this.getUserCalendars(1, this.search)
+    const tempSearch: Search = Object.assign({}, this.search)
+    if (!this.showCustomerData) {
+      tempSearch.clientId = ''
+    }
+    this.getUserCalendars(1, tempSearch)
   }
 
 
@@ -286,7 +290,7 @@ export class UserCalendarsComponent implements OnInit {
 
 
   openDialog(userCalendar: UserCalendar) {
-    console.log(this.search)
+    // console.log(this.search)
     const dialogRef = this.dialog.open(UserCalendarDialogComponent, {
       data: {
         search: this.search,

@@ -20,6 +20,11 @@
         <div *ngIf="!modeInput">{{'Move Event' | translate}}</div>
       </mat-slide-toggle>
     </div>
+    <div *ngIf="search.clientId">
+      <mat-slide-toggle [(ngModel)]="showCustomerData" (change)="resetSearchGetUserCalendars()">
+        <div>{{'Customer data' | translate}}</div>
+      </mat-slide-toggle>
+    </div>
     <angular2-fullcalendar *ngIf="readyCalendar" #myCal [options]="calendarOptions" (initialized)="onCalendarInit($event)">
     </angular2-fullcalendar>
   </div>
