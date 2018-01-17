@@ -5,7 +5,9 @@ export const LANG_FR_NAME = 'fr';
 export const LANG_FR_TRANS = {
     'TandC approved': 'Conditions générales de vente approuvées',
     'TandC': 'Conditions générales de vente',
-    'check': 'Chèque',
+    'check': 'chèque',
+    'Check': 'Chèque',
+    'Cash': 'Espèce',
     'Load Template': 'Charger un modèle',
     'Save Template': 'Sauvegarder le modèle',
     'Client Calendar': 'Calendrier du client',
@@ -269,6 +271,8 @@ export const LANG_FR_TRANS = {
     'today': 'aujourd\'hui',
     'month': 'mois',
     'week': 'semaine',
+
+
     'day': 'jour',
     'list': 'liste',
     'Companie': 'Entreprise',

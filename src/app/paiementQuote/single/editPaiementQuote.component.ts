@@ -47,8 +47,8 @@ export class EditPaiementQuoteComponent implements OnInit {
   autocompleteProduct: String = ''
   step = -1;
   paiementsTypes = [
-    { label: 'Cheque', value: 'check' },
-    { label: 'Espece', value: 'cash' },
+    { label: 'Check', value: 'check' },
+    { label: 'Cash', value: 'cash' },
   ]
   // arrayContentToSearch = []
   // fetchedUsers: User[] = [];
@@ -94,6 +94,7 @@ export class EditPaiementQuoteComponent implements OnInit {
         .subscribe(res => {
           //  this.paiementsTypes.push({label: 'Stripe', value: 'stripe' })
           this.accountConnectStripe = res.customer
+          this.paiementsTypes.push({ label: 'Card', value: 'stripe' })
         }, error => { console.log(error) })
     })
   }
