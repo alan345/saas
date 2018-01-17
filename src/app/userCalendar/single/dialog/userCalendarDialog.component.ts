@@ -3,6 +3,9 @@ import { MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA} from '@angular/material
 import { UserCalendarComponent } from '../userCalendar.component';
 import { Quote } from '../../../quote/quote.model'
 import { UserCalendar } from '../../userCalendar.model';
+import { Search } from '../../../shared/shared.model';
+
+
 
 
 @Component({
@@ -13,6 +16,7 @@ import { UserCalendar } from '../../userCalendar.model';
 export class UserCalendarDialogComponent {
   // fetchedQuote: Quote
   fetchedUserCalendar: UserCalendar = new UserCalendar()
+  search = new Search()
   //
   // @ViewChild(EditUserCalendarComponent)
   // private editUserCalendarComponent: EditUserCalendarComponent;
@@ -21,6 +25,7 @@ export class UserCalendarDialogComponent {
     public dialogRef: MatDialogRef<UserCalendarComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+      this.search = data.search
      this.fetchedUserCalendar._id = data.fetchedUserCalendar._id
      this.fetchedUserCalendar.title = data.fetchedUserCalendar.title
      this.fetchedUserCalendar.start = data.fetchedUserCalendar.start

@@ -9,12 +9,13 @@ export class Search {
   quoteType: string = '';
   quoteId: string = '';
   userId: string = '';
+  clientId: string = '';
   paiementQuoteId: string = '';
   endDate: Date = new Date();
   startDate: Date = new Date();
   // assignedToId: string = '';
   projectId: string = '';
-  parentQuoteId: string = '';
+  // parentQuoteId: string = '';
   isExternalUser: boolean = true;
   isExpense: boolean = false;
   typeQuote: string = '';

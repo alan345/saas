@@ -16,6 +16,7 @@ import { UserRouting } from './userRouting.module';
 
 import { QuoteModule} from '../quote/quote.module';
 import { PaiementQuoteModule} from '../paiementQuote/paiementQuote.module';
+import { UserCalendarModule} from '../userCalendar/userCalendar.module';
 import { CompanieModule} from '../companie/companie.module';
 // import { ProjectModule} from '../project/project.module';
 
@@ -77,6 +78,7 @@ import {MatCheckboxModule} from '@angular/material';
     ReactiveFormsModule,
     QuoteModule,
     PaiementQuoteModule,
+    UserCalendarModule,
     // ProjectModule,
     // RightModule,
     CompanieModule,

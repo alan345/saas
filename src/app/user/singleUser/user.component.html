@@ -64,6 +64,18 @@
       </mat-expansion-panel-header>
       <app-paiementQuotes *ngIf="step === 3" [showBack]=0 (savedEmit)="savedEmitExternElement()" [search]="{userId: fetchedUser._id}"></app-paiementQuotes>
     </mat-expansion-panel>
+
+    <mat-expansion-panel *ngIf="fetchedUser._id && fetchedUser.isExternalUser && !search.isFromAutocomplete" [expanded]="step === 4" (opened)="setStep(4)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>event_available</mat-icon>
+        </mat-panel-title>
+        <mat-panel-description>
+          {{'Calendar' | translate}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-userCalendars *ngIf="step === 4" [showSearch]=false [search]="{clientId: fetchedUser._id}"></app-userCalendars>
+    </mat-expansion-panel>
   </mat-accordion>
 </div>
 <app-loadingInApp [loading]="loading"></app-loadingInApp>

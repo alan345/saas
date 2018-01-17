@@ -10,8 +10,7 @@
     </div>
   </div> -->
   <div class="row pad15">
-    <div class="col-12">
-
+    <div *ngIf="showSearch" class="col-12">
       <app-userCalendarSearch (getUserCalendarBySearch)="getUserCalendarBySearch($event)"></app-userCalendarSearch>
     </div>
     <div class="showMobile">

@@ -42,6 +42,8 @@ export class UserCalendarsComponent implements OnInit {
   // @ViewChild('myCal', { read: ElementRef }) myCal: ElementRef;
   @ViewChild(CalendarComponent) myCalendar: CalendarComponent;
   @ViewChild(SearchCalendarComponent) private searchCalendarComponent: SearchCalendarComponent;
+  @Input() search: Search = new Search()
+  @Input() showSearch: boolean = true
 
   myCompanie: Companie = new Companie()
   isSearchInitReady: boolean = false
@@ -51,15 +53,14 @@ export class UserCalendarsComponent implements OnInit {
   readyCalendar: boolean = false
   loading: boolean = false
   searchData: SearchData = new SearchData()
-  // search: Search = new Search()
-  search = {
-    typeUser: '',
-    userSearch: '',
-    userId: '',
-    projectSearch: '',
-    endDate: new Date(),
-    startDate: new Date(),
-  }
+  // search = {
+  //   typeUser: '',
+  //   userSearch: '',
+  //   userId: '',
+  //   projectSearch: '',
+  //   endDate: new Date(),
+  //   startDate: new Date(),
+  // }
 
   events: UserCalendar[] = []
   myForm: FormGroup;
@@ -84,7 +85,9 @@ export class UserCalendarsComponent implements OnInit {
     // private globalEventsManager: GlobalEventsManager,
   ) { }
   onCalendarInit(result) {
-    this.searchCalendarComponent.calendarInitialized()
+    if (this.showSearch) {
+      this.searchCalendarComponent.calendarInitialized()
+    }
 
     // this.getUserCalendarsInit()
     // console.log('Calendar initialized');
@@ -115,7 +118,6 @@ export class UserCalendarsComponent implements OnInit {
   // }
 
   initCalendar() {
-
 
     let slotDuration = ''
     let timeBegin = ''
@@ -215,7 +217,7 @@ export class UserCalendarsComponent implements OnInit {
   }
   resetSearchGetUserCalendars() {
     // this.search.typeUser = this.searchData.typeUser
-    this.search.userId = ''
+    // this.search.userId = ''
     // this.search.projectSearch = ''
     this.searchData.fetchedUserSearchs.forEach(fetchedUserSearch => {
       this.search.userId = fetchedUserSearch._id
@@ -283,9 +285,10 @@ export class UserCalendarsComponent implements OnInit {
 
 
   openDialog(userCalendar: UserCalendar) {
-    // console.log(userCalendar)
-    let dialogRef = this.dialog.open(UserCalendarDialogComponent, {
+    console.log(this.search)
+    const dialogRef = this.dialog.open(UserCalendarDialogComponent, {
       data: {
+        search: this.search,
         fetchedUserCalendar: userCalendar
       }
     });
@@ -324,7 +327,7 @@ export class UserCalendarsComponent implements OnInit {
 
 
   dayClick(event, jsEvent, view) {
-    console.log('dayClick')
+    // console.log('dayClick')
   }
 
   eventMouseover(event, jsEvent, view) {
@@ -339,6 +342,7 @@ export class UserCalendarsComponent implements OnInit {
     const newUserCalendar = new UserCalendar()
     newUserCalendar.start = start._d
     newUserCalendar.end = end._d
+    // newUserCalendar.clients = [{_id: this.search.clientId}]
     this.openDialog(newUserCalendar)
   }
   eventClick(event, jsEvent, view) {
@@ -376,8 +380,10 @@ export class UserCalendarsComponent implements OnInit {
     this.search.endDate = new Date(view.intervalEnd)
     // this.search.startDate = new Date(view.activeRange.start)
     // this.search.endDate = new Date(view.activeRange.end)
-    if (this.isSearchInitReady)
+    // if (this.isSearchInitReady) {
+    // console.log('resetSearchGetUserCalendars')
       this.resetSearchGetUserCalendars()
+    // }
     // this.getUserCalendars(1, this.search)
     // console.log(view)
   }

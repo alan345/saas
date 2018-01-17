@@ -35,7 +35,7 @@ export class UserCalendarComponent implements OnInit, OnChanges {
   @Input() fetchedUserCalendar: UserCalendar = new UserCalendar()
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
-  search = new Search()
+  @Input() search = new Search()
   loading: boolean = false
   fetchedUserCross: UserCross = new UserCross()
   // fetchedUserCalendar: UserCalendar = new UserCalendar()
@@ -53,6 +53,7 @@ export class UserCalendarComponent implements OnInit, OnChanges {
 
   ) {}
   ngOnChanges() {
+    // console.log(this.search)
     this.fetchedUserCalendar.clients.forEach(client => {
       this.getUserCross(client._id)
     })
