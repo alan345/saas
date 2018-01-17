@@ -6,6 +6,10 @@ import { Router} from '@angular/router';
 import { ViewEncapsulation} from '@angular/core';
 import { GlobalEventsManager } from '../../globalEventsManager';
 import { Search, PaginationData } from '../../shared/shared.model';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {trigger, state, style, animate, transition, keyframes} from '@angular/animations';
+
 // import { AuthService} from '../../auth/auth.service';
 // import { DomSanitizer } from '@angular/platform-browser';
 // import { UserService} from '../../user/user.service';
@@ -16,6 +20,14 @@ import { Search, PaginationData } from '../../shared/shared.model';
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['../product.component.css'],
+  animations: [
+    trigger('hideShowAnimator', [
+        state('true' , style({ backgroundColor: 'red' })),
+        state('false', style({ backgroundColor: 'white' })),
+        transition('0 => 1', animate('.5s')),
+        transition('1 => 0', animate('.7s'))
+    ])
+]
   // encapsulation: ViewEncapsulation.None
 
 })
@@ -32,7 +44,7 @@ export class ProductsComponent implements OnInit {
   search: Search = new Search()
   loading: boolean= false;
   valueTempProduct: number = 0;
-
+  hideShowAnimator:boolean = false;
   paginationData: PaginationData = new PaginationData()
 
   // trackinPage : any = {
@@ -56,7 +68,16 @@ export class ProductsComponent implements OnInit {
 
 
 
+
   customButtonAction(product: Product) {
+    const this2 = this
+    this.hideShowAnimator = true;
+    setTimeout(_ => {
+      this2.hideShowAnimator = false;
+    }, 500);
+
+
+
     this.listProductsTempToAdd.push(product)
     this.valueTempProduct += product.details.price.sellingPrice
     this.customButtonActionEmit.emit(product);
