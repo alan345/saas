@@ -177,7 +177,31 @@ module.exports = {
                       </tr>
                       <tr>
                         <td style="padding: 15px 0 30px 0;">
-                          Vous êtes invité à rejoindre l'application Mirabelle.io
+                          `
+                            if(type ==='quote') {
+                              html += 'Un Devis'
+                            }
+                            if(type ==='invoice') {
+                              html += 'Une Facture'
+                            }
+
+                          html += `
+                          est dispoible dans votre compte mirabelle.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
+                          <a
+                            href="http://${req.headers.host}/"
+                            style="color: #ffffff; text-decoration: none;"
+                          >
+                            Voir le cocument
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                        .
                         </td>
                       </tr>
                       <tr>
@@ -186,7 +210,7 @@ module.exports = {
                             href="http://${req.headers.host}/#/user/reset/${token}"
                             style="color: #ffffff; text-decoration: none;"
                           >
-                            Accepter l'invitation
+                            1ere connexion? Inscrivez vous
                           </a>
                         </td>
                       </tr>

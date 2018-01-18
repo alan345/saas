@@ -18,6 +18,7 @@ import { UserModule } from './user/user.module';
 // import { AutocompleteComponent } from './autocomplete/autocomplete.component'
 import { AppRoutingModule } from './appRouting.module';
 import { AuthGuardService } from './auth/authguard.service';
+import { NotClientGuardService } from './auth/notClientGuard.service';
 import { AuthService } from './auth/auth.service';
 import { ErrorService } from './errorHandler/error.service';
 import { ErrorComponent } from './errorHandler/error.component';
@@ -55,6 +56,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   exports: [],
   providers: [
     AuthGuardService,
+    NotClientGuardService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     AuthService,
     ErrorService,

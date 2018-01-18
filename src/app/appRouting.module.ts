@@ -10,6 +10,7 @@ import {ModuleWithProviders} from '@angular/core';
 
 import { PaiementGuardService} from './companie/single/paiement/paiementGuard.service';
 import { AuthGuardService} from './auth/authguard.service';
+import { NotClientGuardService} from './auth/notClientGuard.service';
 
 // import { MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
 
@@ -27,7 +28,7 @@ export const routes: Routes = [
   {path: 'quote', loadChildren: 'app/quote/quote.module#QuoteModule'},
   {path: 'paiementQuote', loadChildren: 'app/paiementQuote/paiementQuote.module#PaiementQuoteModule', canActivate: [AuthGuardService, PaiementGuardService]},
   {path: 'userCalendar', loadChildren: 'app/userCalendar/userCalendar.module#UserCalendarModule', canActivate: [AuthGuardService, PaiementGuardService]},
-  {path: 'home', loadChildren: 'app/reporting/reporting.module#ReportingModule', canActivate: [AuthGuardService]},
+  {path: 'home', loadChildren: 'app/reporting/reporting.module#ReportingModule', canActivate: [AuthGuardService, NotClientGuardService]},
   {path: 'product', loadChildren: 'app/product/product.module#ProductModule', canActivate: [AuthGuardService, PaiementGuardService]},
   {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
   {path: '404', component: ErrorPageComponent},
