@@ -7,6 +7,7 @@
     <mat-expansion-panel
       (click)="menuClick()"
       class="noOutline"
+      *ngIf="authService.showObjHTML('home', 'read')"
       hideToggle="true" [routerLink]="['/home']" routerLinkActive="active">
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -50,7 +51,7 @@
     <mat-expansion-panel
       (click)="menuClick()"
       class="noOutline"
-      *ngIf="authService.showObjHTML('userCalendar', 'read')"
+      *ngIf="authService.showObjHTML('quote', 'read')"
       [routerLink]="['/quote/list/quote']" routerLinkActive="active"
       hideToggle="true">
       <mat-expansion-panel-header>
@@ -99,11 +100,12 @@
           <mat-icon>settings</mat-icon>
         </mat-panel-title>
         <mat-panel-description>
-          {{'Options'|translate}}
+          {{'Options' | translate}}
         </mat-panel-description>
       </mat-expansion-panel-header>
         <a class="nav-link"
           (click)="menuClick()"
+          *ngIf="authService.showObjHTML('settings', 'read')"
           [routerLink]="['/companie/mine']"
           routerLinkActive="active">{{'Settings'|translate}}</a>
         <a *ngIf="authService.showObjHTML('user', 'read')"

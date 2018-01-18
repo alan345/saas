@@ -116,132 +116,241 @@ module.exports = {
 
 
   },
-  sendQuoteByEmailToClient(req, res, next, type) {
-
+  sendQuoteByEmailToClient (req, res, next, type) {
     return new Promise(function(resolve, reject) {
-      Quote.findById(req.params.quoteId)
+      Quote.findById({_id: req.params.quoteId})
       .populate({path: 'clients', model: 'User'})
-      .populate({path: 'ownerCompanies', model: 'Companie'})
-        .exec(function(err, obj) {
+      .exec(function(err, item) {
         if (err) {
-          reject(new Error({message: 'An error occured', err: err}))
+          return res.status(404).json({message: '', err: err})
         }
-        if (!obj) {
-          reject(new Error({
-            title: 'No form found',
+        if (!item) {
+          // console.log('e')
+          return res.status(404).json({
+            title: 'No obj found',
             error: {
-              message: 'Form not found!'
-            }
-          }))
-        }
-        var nameCompanie = ''
-        obj.ownerCompanies.forEach(companie => {
-          nameCompanie = companie.nameCompanie
-          emailCompanie = companie.email
-        })
-
-
-
-        obj.clients.forEach(client => {
-
-          var html = `
-            <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-            <html xmlns="http://www.w3.org/1999/xhtml">
-              <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <title>Email de Mirabelle.io</title>
-                <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></link>
-              </head>
-              <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
-                <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc;">
-
-                  <tr>
-                    <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                          <td>Bonjour ${client.profile.title} ${client.profile.name} ${client.profile.lastName},</td>
-                        </tr>
-                        <tr>
-                          <td style="padding: 15px 0 30px 0;">
-                            Merci de trouver votre `
-                              if(type ==='quote') {
-                                html += ' Devis'
-                              }
-                              if(type ==='invoice') {
-                                html += ' Facture'
-                              }
-
-html += `
-                          </td>
-                        </tr>
-                        <tr>
-                          <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
-                            <a
-                              href="http://${req.headers.host}/uploads/pdf/${req.params.quoteId}"
-                              style="color: #ffffff; text-decoration: none;"
-                            >`
-                              if(type ==='quote') {
-                                html += ' Consulter le Devis'
-                              }
-                              if(type ==='invoice') {
-                                html += ' Consulter la facture'
-                              }
-html += `
-                            </a>
-                          </td>
-                        <tr>
-                          <td style="padding: 15px 15px 15px 15px;">De la part de ${nameCompanie}
-                          </td>
-                     </tr>
-
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-              </body>
-            </html>
-            `;
-
-          var mailer = nodemailer.createTransport({
-            // service: "Gmail",
-            host: config.hostName,
-            port: config.port,
-            auth: {
-              user: config.userGmail,
-              pass: config.passGmail
+              message: 'Obj not found!'
             }
           })
+        } else {
 
-          var typeQuoteNew = ''
-          if(type ==='quote') {
-            typeQuoteNew += 'Nouveau Devis'
-          }
-          if(type ==='invoice') {
-            typeQuoteNew += 'Nouvelle Facture'
-          }
+          var user = {}
+          item.clients.forEach(client => {
+            user = client
+          })
 
 
+      async.waterfall([
+        function(done) {
+          crypto.randomBytes(20, function(err, buf) {
+            var token = buf.toString('hex');
+            done(err, token);
+          });
+        },
+        function(token, done) {
+          user.resetPasswordToken = token;
+          user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+          user.save(function(err) {
+            done(err, token, user);
+          });
+
+        },
+        function(token, user, done) {
+          var mailer = nodemailer.createTransport(transportOptions)
+          var html = `
+          <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+              <title>Email depuis Mirabelle</title>
+              <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></link>
+            </head>
+            <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
+              <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc;">
+
+                <tr>
+                  <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td>Bonjour ${user.profile.name} ${user.profile.lastName},</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 15px 0 30px 0;">
+                          Vous êtes invité à rejoindre l'application Mirabelle.io
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
+                          <a
+                            href="http://${req.headers.host}/#/user/reset/${token}"
+                            style="color: #ffffff; text-decoration: none;"
+                          >
+                            Accepter l'invitation
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </body>
+          </html>
+          `;
           var mailOptions = {
-            to: client.email,
-            from: emailCompanie,
-            subject: nameCompanie + ' | ' + typeQuoteNew,
+            to: user.email,
+            from: config.userGmail,
+            subject: 'Mirabelle.io | Invitation',
             html: html
           };
-          // console.log(mailOptions)
           mailer.sendMail(mailOptions, function(err) {
-            if(err) {
-              console.log('ttt')
-              reject(new Error({message: 'An error occured', err: err}))
-            }
-            // console.log('info', 'An e-mail has been sent.');
-            resolve({message: 'Success', obj: 'Mail sent to ' + client.email})
+            console.log('info', 'Un email à été envoyé à ' + user.email + ' avec les instructions à suivre.');
+            // return res.status(200).json({message: 'Success', token: 'InMail'})
+            resolve({message: 'Success', token: 'InMail'})
           });
-        })
-      })
+        }
+      ], function(err) {
+        console.log(err)
+        if (err) {
+          reject(err);
+          return next(err);
+
+        }
+        }
+      );
+
+              }
+            })
     })
   },
+//   sendQuoteByEmailToClient(req, res, next, type) {
+//
+//     return new Promise(function(resolve, reject) {
+//       Quote.findById(req.params.quoteId)
+//       .populate({path: 'clients', model: 'User'})
+//       .populate({path: 'ownerCompanies', model: 'Companie'})
+//         .exec(function(err, obj) {
+//         if (err) {
+//           reject(new Error({message: 'An error occured', err: err}))
+//         }
+//         if (!obj) {
+//           reject(new Error({
+//             title: 'No form found',
+//             error: {
+//               message: 'Form not found!'
+//             }
+//           }))
+//         }
+//         var nameCompanie = ''
+//         var emailCompanie = ''
+//         obj.ownerCompanies.forEach(companie => {
+//           nameCompanie = companie.nameCompanie
+//           emailCompanie = companie.email
+//         })
+//
+//
+//
+//         obj.clients.forEach(client => {
+//
+//           var html = `
+//             <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+//             <html xmlns="http://www.w3.org/1999/xhtml">
+//               <head>
+//                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+//                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+//                 <title>Email de Mirabelle.io</title>
+//                 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></link>
+//               </head>
+//               <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
+//                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc;">
+//
+//                   <tr>
+//                     <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
+//                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+//                         <tr>
+//                           <td>Bonjour ${client.profile.title} ${client.profile.name} ${client.profile.lastName},</td>
+//                         </tr>
+//                         <tr>
+//                           <td style="padding: 15px 0 30px 0;">
+//                             Merci de trouver votre `
+//                               if(type ==='quote') {
+//                                 html += ' Devis'
+//                               }
+//                               if(type ==='invoice') {
+//                                 html += ' Facture'
+//                               }
+//
+// html += `
+//                           </td>
+//                         </tr>
+//                         <tr>
+//                           <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
+//                             <a
+//                               href="http://${req.headers.host}/uploads/pdf/${req.params.quoteId}"
+//                               style="color: #ffffff; text-decoration: none;"
+//                             >`
+//                               if(type ==='quote') {
+//                                 html += ' Consulter le Devis'
+//                               }
+//                               if(type ==='invoice') {
+//                                 html += ' Consulter la facture'
+//                               }
+// html += `
+//                             </a>
+//                           </td>
+//                         <tr>
+//                           <td style="padding: 15px 15px 15px 15px;">De la part de ${nameCompanie}
+//                           </td>
+//                      </tr>
+//
+//                         </tr>
+//                       </table>
+//                     </td>
+//                   </tr>
+//                 </table>
+//               </body>
+//             </html>
+//             `;
+//
+//           var mailer = nodemailer.createTransport({
+//             // service: "Gmail",
+//             host: config.hostName,
+//             port: config.port,
+//             auth: {
+//               user: config.userGmail,
+//               pass: config.passGmail
+//             }
+//           })
+//
+//           var typeQuoteNew = ''
+//           if(type === 'quote') {
+//             typeQuoteNew += 'Nouveau Devis'
+//           }
+//           if(type === 'invoice') {
+//             typeQuoteNew += 'Nouvelle Facture'
+//           }
+//
+//
+//           var mailOptions = {
+//             to: client.email,
+//             from: emailCompanie,
+//             subject: nameCompanie + ' | ' + typeQuoteNew,
+//             html: html
+//           };
+//           console.log(mailOptions)
+//           mailer.sendMail(mailOptions, function(err) {
+//             if(err) {
+//               // console.log('ttt')
+//               reject(new Error({message: 'An error occured', err: err}))
+//             }
+//             // console.log('info', 'An e-mail has been sent.');
+//             console.log({message: 'Success', obj: 'Mail sent to ' + client.email})
+//             resolve({message: 'Success', obj: 'Mail sent to ' + client.email})
+//           });
+//         })
+//       })
+//     })
+//   },
   sendMailResetPassword(token, req, res) {
     async.waterfall([
       function(done) {

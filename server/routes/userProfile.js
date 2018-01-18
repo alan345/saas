@@ -9,13 +9,12 @@ var express = require('express'),
   multer = require('multer'),
   mime = require('mime'),
   path = require('path'),
+  Companie = require('../models/companie.model'),
   crypto = require("crypto"),
   gm = require('gm').subClass({imageMagick: true}),
   User = require('../models/user.model'),
-  emailGenerator      = require('./emailGenerator'),
+  emailGenerator = require('./emailGenerator'),
   stripe = require("stripe")("sk_test_cg4vcpE5gV1ApywsErwoWL7u");
-
-
 
 router.use('/', function(req, res, next) {
   var token = req.headers['authorization'];
@@ -68,7 +67,6 @@ router.get('/page/:page', function(req, res, next) {
   if (req.query.isAdmin === 'true' && req.user.isAdmin === true) {
     // admin data
   } else {
-
 
     if (req.query.isExternalUser === 'true') {
       // searchQuery['isExternalUser'] = true
@@ -125,13 +123,7 @@ function getUser(req, res, next, id) {
   // searchQuery['ownerCompanies'] = req.user.ownerCompanies
   searchQuery['_id'] = id
 
-
-  User.findOne(searchQuery)
-  .populate({path: 'forms', model: 'Form'})
-  .populate({path: 'rights', model: 'Right'})
-  .populate({path: 'salesMan', model: 'User'})
-  .populate({path: 'ownerCompanies', model: 'Companie'})
-  .populate({path: 'profile.profilePicture', model: 'Form'})
+  User.findOne(searchQuery).populate({path: 'forms', model: 'Form'}).populate({path: 'rights', model: 'Right'}).populate({path: 'salesMan', model: 'User'}).populate({path: 'ownerCompanies', model: 'Companie'}).populate({path: 'profile.profilePicture', model: 'Form'})
   // .populate({
   //     path: 'companies',
   //     model: 'Companie',
@@ -153,7 +145,6 @@ function getUser(req, res, next, id) {
         }
       });
     }
-
 
     // user.isExternalUser = true
     // user.ownerCompanies.forEach((companie, index) => {
@@ -337,7 +328,7 @@ function makeid() {
   return text;
 }
 //
-// // user Create without email. See register
+//  user Create without email. See register
 router.post('/', function(req, res, next) {
   //  console.log(req.body)
   // let uniqueString = makeid()
@@ -361,8 +352,7 @@ router.post('/', function(req, res, next) {
   // req.body.isInOwnerCompanie = false
   //
 
-  User.findOne({email:req.body.email})
-    .exec(function(err, user) {
+  User.findOne({email: req.body.email}).exec(function(err, user) {
     if (err) {
       return res.status(403).json({
         title: 'An error occured',
@@ -381,20 +371,28 @@ router.post('/', function(req, res, next) {
       })
     }
     if (!user) {
-        if (!req.body.isExternalUser)
-          req.body.ownerCompanies = req.user.ownerCompanies
+      if (!req.body.isExternalUser)
+        req.body.ownerCompanies = req.user.ownerCompanies
 
-        if (req.body.isExternalUser) {
-          req.body.ownerCompanies = req.body.canBeSeenByCompanies
-          req.body.canBeSeenByCompanies = req.user.ownerCompanies
-        }
+      if (req.body.isExternalUser) {
+        req.body.ownerCompanies = req.body.canBeSeenByCompanies
+        req.body.canBeSeenByCompanies = req.user.ownerCompanies
+      }
+
+
+      // var companie = new Companie()
+      // companie.save(function(err, CompanieResult) {
+      //   if (err) {
+      //     return res.status(403).json({title: 'There was an issue', error: err});
+      //   }
 
         delete req.body._id
         // var project = new Project(req.body)
         var user = new User(req.body)
 
           // user.role = role
-          user.password = passwordHash.generate(makeid()),
+          user.password = passwordHash.generate(makeid())
+          // user.ownerCompanies = [CompanieResult._id]
 
           user.save(function(err, user) {
             if (err) {
@@ -404,14 +402,12 @@ router.post('/', function(req, res, next) {
             if (!req.body.isExternalUser) {
               emailGenerator.sendEmailToUserToJoinCompanie(req, user)
             }
-
           })
-    }
+      // })
 
+      }
 
-  })
-
-
+    })
 
   });
   //
@@ -425,7 +421,7 @@ router.post('/', function(req, res, next) {
   //     },
   //     function(token, done) {
   //       user.resetPasswordToken = token;
-  //       user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+  //       user.resetPasswordExpires = Date.now() + 3600000;  1 hour
   //       user.save(function(err) {
   //         done(err, token, user);
   //       });
@@ -433,7 +429,7 @@ router.post('/', function(req, res, next) {
   //     },
   //     function(token, user, done) {
   //       var mailer = nodemailer.createTransport({
-  //         // service: "Gmail",
+  //          service: "Gmail",
   //         host: config.hostName,
   //         port: config.port,
   //         auth: {

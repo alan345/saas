@@ -20,8 +20,8 @@ export const routes: Routes = [
 
   // {path: ':id', component: QuoteDetailComponent, canActivate: [AuthGuardService, PaiementGuardService]},
   // {path: 'public/:idQuote', component: QuoteComponent},
-  {path: ':idQuote', component: QuoteComponent, canActivate: [AuthGuardService, PaiementGuardService]},
-  {path: 'list/:searchType', component: QuotesComponent, canActivate: [AuthGuardService, PaiementGuardService]},
+  {path: ':idQuote', component: QuoteComponent, canActivate: [AuthGuardService]},
+  {path: 'list/:searchType', component: QuotesComponent, canActivate: [AuthGuardService]},
 
 ];
 

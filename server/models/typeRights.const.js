@@ -2,8 +2,10 @@
 let defaultValue = [
 // {name : 'Project', value: 'project', typeAccess:
 //   [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+{name : 'Home', value: 'home', typeAccess: [{value:'read',name:'Read'}]},
 {name : 'Product', value: 'product', typeAccess:
   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+{name : 'Settings', value: 'settings', typeAccess: [{value:'read',name:'Read'}]},
 {name : 'Quote', value: 'quote', typeAccess:
   [
     {value:'read',name:'Read'},
@@ -19,7 +21,7 @@ let defaultValue = [
 {name : 'Companie', value: 'companie', typeAccess:
   [{value:'read',name:'Read'},{value:'write',name:'Write'}]},
 {name : 'User', value: 'user', typeAccess:
-  [{value:'read',name:'Read'},{value:'write', name:'Write'}, {value:'create1',name:'Create1'}]},
+  [{value:'read',name:'Read'},{value:'write', name:'Write'}, {value:'create1',name:'Create1'}, {value:'readCross',name:'ReadCross'}]},
 {name : 'Paiement', value: 'paiementQuote', typeAccess:
   [
     {value:'read',name:'Read'},
@@ -43,8 +45,10 @@ let defaultValue = [
 
 
 let goldValue = [
+{name : 'Home', value: 'home', typeAccess: [{value:'read',name:'Read'}]},
 {name : 'Product', value: 'product', typeAccess:
   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+{name : 'Settings', value: 'settings', typeAccess: [{value:'read',name:'Read'}]},
 {name : 'Quote', value: 'quote', typeAccess:
   [
     {value:'read',name:'Read'},
@@ -58,7 +62,7 @@ let goldValue = [
 {name : 'Companie', value: 'companie', typeAccess:
   [{value:'read',name:'Read'},{value:'write',name:'Write'}]},
 {name : 'User', value: 'user', typeAccess:
-  [{value:'read',name:'Read'},{value:'write', name:'Write'},{value:'create5',name:'Create5'}]},
+  [{value:'read',name:'Read'},{value:'write', name:'Write'},{value:'create5',name:'Create5'}, {value:'readCross',name:'ReadCross'}]},
 {name : 'Paiement', value: 'paiementQuote', typeAccess:
   [
     {value:'read',name:'Read'},

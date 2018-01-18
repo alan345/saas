@@ -52,14 +52,14 @@ router.use('/', function(req, res, next) {
             }
           })
         }
-        if (!shared.isCurentUserHasAccess(doc, 'quote', 'read')) {
-          return res.status(404).json({
-            title: 'No rights',
-            error: {
-              message: 'No rights'
-            }
-          })
-        }
+        // if (!shared.isCurentUserHasAccess(doc, 'quote', 'read')) {
+        //   return res.status(404).json({
+        //     title: 'No rights',
+        //     error: {
+        //       message: 'No rights'
+        //     }
+        //   })
+        // }
         if (doc) {
           req.user = doc;
           next();
@@ -152,8 +152,24 @@ router.get('/maxQuoteNumber', function (req, res, next) {
 function getQuote (idQuote, req) {
   return new Promise(function (resolve, reject) {
 
+
+
+
+
     let searchQuery = {}
-    searchQuery['ownerCompanies'] = req.user.ownerCompanies
+
+    // let arrObj2 = []
+    // arrObj2.push({ownerCompanies: req.user.ownerCompanies})
+    // arrObj2.push({clients: req.user})
+    // searchQuery['$or'] = arrObj2
+
+    if (req.user.isExternalUser) {
+      searchQuery['clients'] = req.user
+    } else {
+      searchQuery['ownerCompanies'] = req.user.ownerCompanies
+    }
+
+    // searchQuery['ownerCompanies'] = req.user.ownerCompanies
     searchQuery['_id'] = idQuote
 
       Quote.findOne((searchQuery), function(err, obj) {
@@ -545,6 +561,7 @@ router.get('/page/:page', function(req, res, next) {
   let nameQuery = {}
   let cityQuery = {}
   let arrObj = []
+  // let arrObj2 = []
 
   let searchQuery = {}
   // searchQuery['ownerCompanies'] = req.user.ownerCompanies
@@ -556,14 +573,20 @@ router.get('/page/:page', function(req, res, next) {
   // }
 
   if (req.user.isExternalUser) {
-    searchQuery['clients'] = req.user._id
+    searchQuery['clients'] = req.user
   } else {
     searchQuery['ownerCompanies'] = req.user.ownerCompanies
+  // arrObj2.push({ownerCompanies: req.user.ownerCompanies})
+  // arrObj2.push({clients: req.user})
+  // // arrObj2['clients'] = req.user.ownerCompanies
+  // searchQuery['$or'] = arrObj2
   }
-  if (req.query.typeQuote)
-    searchQuery['typeQuote'] = req.query.typeQuote
-  if (req.query.userId)
+
+  // if (req.query.typeQuote)
+  //   searchQuery['typeQuote'] = req.query.typeQuote
+  if (req.query.userId) {
     searchQuery['clients'] = mongoose.Types.ObjectId(req.query.userId)
+  }
 
 
   // if (req.query.parentQuoteId)
@@ -593,7 +616,8 @@ router.get('/page/:page', function(req, res, next) {
   //
   // if (req.query.projectId)
   //   searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
-  // console.log(searchQuery)
+  console.log(searchQuery)
+
   Quote.find(searchQuery)
   .populate({
     path: 'clients',

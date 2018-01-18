@@ -29,7 +29,9 @@
       </mat-action-row>
     </mat-expansion-panel>
 
-    <mat-expansion-panel *ngIf="fetchedUser._id" [expanded]="step === 1" (opened)="setStep(1)">
+    <mat-expansion-panel
+      *ngIf="authService.showObjHTML('user', 'ReadCross') && fetchedUser._id"
+      [expanded]="step === 1" (opened)="setStep(1)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <mat-icon>assignment_ind</mat-icon>
@@ -53,7 +55,8 @@
       <app-quotes *ngIf="step === 2" [showBack]=0 (savedEmit)="savedEmitExternElement()" [search]="{userId: fetchedUser._id, typeQuote: 'quote'}"></app-quotes>
     </mat-expansion-panel>
 
-    <mat-expansion-panel *ngIf="fetchedUser._id && fetchedUser.isExternalUser && !search.isFromAutocomplete" [expanded]="step === 3" (opened)="setStep(3)">
+    <mat-expansion-panel
+      *ngIf="authService.showObjHTML('paiementQuote', 'read') && fetchedUser._id && fetchedUser.isExternalUser && !search.isFromAutocomplete" [expanded]="step === 3" (opened)="setStep(3)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <mat-icon>credit_card</mat-icon>
@@ -65,7 +68,8 @@
       <app-paiementQuotes *ngIf="step === 3" [showBack]=0 (savedEmit)="savedEmitExternElement()" [search]="{userId: fetchedUser._id}"></app-paiementQuotes>
     </mat-expansion-panel>
 
-    <mat-expansion-panel *ngIf="fetchedUser._id && fetchedUser.isExternalUser && !search.isFromAutocomplete" [expanded]="step === 4" (opened)="setStep(4)">
+    <mat-expansion-panel
+      *ngIf="authService.showObjHTML('userCalendar', 'read') && fetchedUser._id && fetchedUser.isExternalUser && !search.isFromAutocomplete" [expanded]="step === 4" (opened)="setStep(4)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <mat-icon>event_available</mat-icon>
