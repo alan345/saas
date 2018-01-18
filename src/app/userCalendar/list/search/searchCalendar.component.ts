@@ -25,7 +25,7 @@ import {CalendarComponent} from 'ap-angular2-fullcalendar';
 // import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-userCalendarSearch',
+  selector: 'app-user-calendarSearch',
   templateUrl: './searchCalendar.component.html',
   styleUrls: ['../../userCalendar.component.css'],
 })

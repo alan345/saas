@@ -30,7 +30,7 @@ import { TranslateService } from '../../translate/translate.service';
 // import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-userCalendars',
+  selector: 'app-user-calendars',
   templateUrl: './userCalendars.component.html',
   styleUrls: ['../userCalendar.component.css'],
 })

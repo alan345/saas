@@ -78,7 +78,7 @@
           {{'Calendar' | translate}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <app-userCalendars *ngIf="step === 4" [showTitle]=false [showSearch]=false [search]="{clientId: fetchedUser._id}"></app-userCalendars>
+      <app-user-calendars *ngIf="step === 4" [showTitle]=false [showSearch]=false [search]="{clientId: fetchedUser._id}"></app-user-calendars>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

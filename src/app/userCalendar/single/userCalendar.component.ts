@@ -27,7 +27,7 @@ import { Search } from '../../shared/shared.model';
 
 
 @Component({
-  selector: 'app-userCalendar',
+  selector: 'app-user-calendar',
   templateUrl: './userCalendar.component.html',
   styleUrls: ['../userCalendar.component.css'],
 })
