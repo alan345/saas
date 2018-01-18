@@ -84,7 +84,7 @@ export class UserComponent implements OnInit {
     private location: Location,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
-    private authService: AuthService,
+    public authService: AuthService,
     private companieService: CompanieService,
   ) {
   }
