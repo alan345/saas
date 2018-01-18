@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Quote, StatusQuotes } from '../../quote.model';
+import { AuthService} from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-quote-status',
@@ -15,11 +16,16 @@ export class QuoteStatusComponent {
   statusQuotesSingleSelected = StatusQuotes;
 
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
   changeStatus() {
     this.quoteStatusChanged.emit()
   }
   isButtonsDisabled(n) {
+    // console.log(this.authService.showObjHTML('quote', 'write'))
+    if (!this.authService.showObjHTML('quote', 'write')) {
+      return true
+    }
+
     if (n.indexStatus === 'pending' && (this.fetchedQuote.statusQuote === 'signed' || this.fetchedQuote.statusQuote === 'paid')) {
         return true
     }

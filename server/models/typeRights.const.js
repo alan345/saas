@@ -2,7 +2,7 @@
 let defaultValue = [
 // {name : 'Project', value: 'project', typeAccess:
 //   [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
-{name : 'Home', value: 'home', typeAccess: [{value:'read',name:'Read'}]},
+{name : 'Home', value: 'home', typeAccess: [{value:'read', name:'Read'}]},
 {name : 'Product', value: 'product', typeAccess:
   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
 {name : 'Settings', value: 'settings', typeAccess: [{value:'read',name:'Read'}]},
