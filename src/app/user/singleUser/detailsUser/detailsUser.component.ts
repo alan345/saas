@@ -1,18 +1,16 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../../../auth/auth.service';
 import { UserService } from '../../user.service';
-// import { Right } from '../../../right/right.model';
-
-import { Companie } from '../../../companie/companie.model';
 import { CompanieService } from '../../../companie/companie.service';
 import { ToastsManager } from 'ng2-toastr';
-
 import { MatDialog } from '@angular/material';
 import { User, TypeUser  } from '../../user.model';
-import { Address, AddressTypes } from '../../../shared/address/address.model';
+import { AddressTypes } from '../../../shared/address/address.model';
 import { Search, CustomFormControls } from '../../../shared/shared.model';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+// import { Right } from '../../../right/right.model';
 
+// import { Companie } from '../../../companie/companie.model';
 // import { EditOptionsComponentDialog } from '../../../form/modalLibrary/modalLibrary.component';
 //import { Form } from '../../../form/form.model';
 

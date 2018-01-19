@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // import { AuthService } from '../../../auth/auth.service';
 import {Quote, DevisDetail, BucketProduct, StatusQuotes} from '../../quote.model';
 import { ToastsManager } from 'ng2-toastr';
@@ -31,7 +31,7 @@ import { Companie} from '../../../companie/companie.model';
 // import { SignaturePad } from '../../../angular2-signaturepad/signature-pad';
 
 // import { PaiementQuotesComponent } from '../../../paiementQuote/paiementQuotes/paiementQuotes.component';
-import { Search } from '../../../shared/shared.model'
+// import { Search } from '../../../shared/shared.model'
 
 @Component({
   selector: 'app-quoteDetails',

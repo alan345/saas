@@ -3,7 +3,9 @@ import {Observable} from 'rxjs/Observable';
 import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../../../errorHandler/error.service';
 import {User} from '../../../user/user.model';
-import {Companie} from '../../../companie/companie.model';
+import {AuthService} from '../../../auth/auth.service';
+import { Config } from '../../../shared/config.model';
+// import {Companie} from '../../../companie/companie.model';
 // import {ToastsManager} from 'ng2-toastr';
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/catch';
@@ -11,8 +13,6 @@ import {Companie} from '../../../companie/companie.model';
 
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/catch';
-import {AuthService} from '../../../auth/auth.service';
-import { Config } from '../../../shared/config.model';
 
 
 

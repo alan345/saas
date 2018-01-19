@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // import { AuthService } from '../../../auth/auth.service';
 import { QuoteService } from '../../../quote.service';
 // import { TemplateQuoteService } from '../../templateQuote.service';
@@ -18,7 +18,7 @@ import { ToastsManager } from 'ng2-toastr';
 // import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 // import { UserService } from '../../../user/user.service';
 // import { DeleteDialog } from '../../../deleteDialog/deleteDialog.component';
 // import { User } from '../../../user/user.model';
@@ -34,7 +34,7 @@ import { Product } from '../../../../product/product.model';
 // import { SignaturePad } from '../../../angular2-signaturepad/signature-pad';
 
 // import { PaiementQuotesComponent } from '../../../paiementQuote/paiementQuotes/paiementQuotes.component';
-import { Search } from '../../../../shared/shared.model'
+// import { Search } from '../../../../shared/shared.model'
 
 @Component({
   selector: 'app-desktop-details',

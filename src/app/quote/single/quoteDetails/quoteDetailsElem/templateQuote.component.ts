@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../../../../auth/auth.service';
 // import { QuoteService } from '../../quote.service';
 // import { TemplateQuoteService } from '../../templateQuote.service';
@@ -7,8 +7,7 @@ import { AuthService } from '../../../../auth/auth.service';
 // import { ProjectService} from '../../../project/project.service';
 import { TemplateQuoteService } from '../../../templateQuote.service';
 import { TemplateQuote } from '../../../templateQuote.model';
-import {
-  Quote, DevisDetail, BucketProduct, StatusQuotes,
+import { Quote, StatusQuotes,
   // StatusQuotesInvoice,
   // PriceQuoteTaxe,
   // ModelVATs
@@ -35,7 +34,7 @@ import {
 // import { SignaturePad } from '../../../angular2-signaturepad/signature-pad';
 
 // import { PaiementQuotesComponent } from '../../../paiementQuote/paiementQuotes/paiementQuotes.component';
-import { Search } from '../../../../shared/shared.model'
+// import { Search } from '../../../../shared/shared.model'
 
 @Component({
   selector: 'app-template-quote',

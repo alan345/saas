@@ -1,5 +1,5 @@
-import { Component, ViewChild, Inject } from '@angular/core';
-import { MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA} from '@angular/material';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { UserComponent } from '../user.component';
 
 

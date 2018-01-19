@@ -1,15 +1,13 @@
-import { Component, OnInit,
-  // Input
- } from '@angular/core';
- import { Location } from '@angular/common';
+import { Component, OnInit} from '@angular/core';
+import { Location } from '@angular/common';
 import { AuthService } from '../../auth/auth.service';
-// import { AdminService } from '../../admin/services/admin.service';
 import { Router } from '@angular/router';
-import { UserService } from '../../user/user.service';
 import { User } from '../../user/user.model';
-import { PaiementGuardService } from '../../companie/single/paiement/paiementGuard.service'
-// import { ChangeDetectionStrategy } from '@angular/core';
 import { GlobalEventsManager } from '../../globalEventsManager';
+// import { AdminService } from '../../admin/services/admin.service';
+// import { UserService } from '../../user/user.service';
+// import { PaiementGuardService } from '../../companie/single/paiement/paiementGuard.service'
+// import { ChangeDetectionStrategy } from '@angular/core';
 // import { NotificationService } from '../../notification/notification.service';
 // import { Notification } from '../../notification/notification.model';
 // import { Observable } from 'rxjs/Rx';

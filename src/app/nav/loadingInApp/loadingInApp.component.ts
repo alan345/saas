@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
+import { GlobalEventsManager } from '../../globalEventsManager';
 
 // import {Router} from '@angular/router';
-import { GlobalEventsManager } from '../../globalEventsManager';
 
 @Component({
   selector: 'app-loadingInApp',

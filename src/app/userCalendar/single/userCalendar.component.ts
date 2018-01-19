@@ -1,27 +1,26 @@
-import {Component, OnInit,OnChanges, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, OnChanges, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {UserCalendarService} from '../userCalendar.service';
-import {ProductService} from '../../product/product.service';
-// import { ProjectService} from '../../project/project.service';
-
-import {UserCalendar} from '../userCalendar.model';
-
-// import {ToastsManager} from 'ng2-toastr';
-
 import {MatDialog } from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
+import {Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { UserService} from '../../user/user.service';
 import { UserCross} from '../../user/user.model';
-
 import { DeleteDialogComponent } from '../../nav/deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
-import { Quote } from '../../quote/quote.model';
-import { Product } from '../../product/product.model';
+import { Search } from '../../shared/shared.model';
+import {UserCalendar} from '../userCalendar.model';
+// import {ProductService} from '../../product/product.service';
+// import { ProjectService} from '../../project/project.service';
+
+
+// import {ToastsManager} from 'ng2-toastr';
+
+// import { Quote } from '../../quote/quote.model';
+// import { Product } from '../../product/product.model';
 // import { Project } from '../../project/project.model';
 
-import { Search } from '../../shared/shared.model';
 
 
 
@@ -45,7 +44,7 @@ export class UserCalendarComponent implements OnInit, OnChanges {
     private userService: UserService,
     // private toastr: ToastsManager,
     public dialog: MatDialog,
-    private activatedRoute: ActivatedRoute,
+    // private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
     private _fb: FormBuilder,

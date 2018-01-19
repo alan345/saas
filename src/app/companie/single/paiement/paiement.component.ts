@@ -6,11 +6,11 @@ import { PaiementService} from './paiement.service';
 import { ToastsManager} from 'ng2-toastr';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { User } from '../../../user//user.model';
+// import { User } from '../../../user//user.model';
 import { Quote } from '../../../quote/quote.model';
 import { StripeCustomer, DataSource } from './paiement.model';
 import { Companie } from '../../../companie/companie.model';
-import { FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
+import { FormBuilder} from '@angular/forms';
 
 
 

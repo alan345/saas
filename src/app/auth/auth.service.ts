@@ -4,7 +4,7 @@ import { UserAuth } from './user.model';
 
 
 import { Observable } from 'rxjs/Observable';
-import { Response, Headers, Http, RequestOptions } from '@angular/http';
+import { Response, Headers, Http } from '@angular/http';
 
 import 'rxjs/operator/map';
 import 'rxjs/operator/catch';
@@ -42,8 +42,8 @@ export class AuthService {
     private http: Http,
     private error2Service: Error2Service,
     private toastr: ToastsManager,
-    private router: Router,
     private globalEventsManager: GlobalEventsManager,
+    // private router: Router,
     // private userService: UserService,
   ) {
 

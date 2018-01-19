@@ -1,24 +1,22 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {CompanieService} from '../companie.service';
-// import {UserService} from '../../user/user.service';
-
-
 import {Companie} from '../companie.model';
-import {Address} from '../../shared/address/address.model';
+import {Router, ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+import { PaiementService} from './paiement/paiement.service';
+// import {UserService} from '../../user/user.service';
+// import {Address} from '../../shared/address/address.model';
 
 // import {ToastsManager} from 'ng2-toastr';
 
 // import {MatDialog } from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
 // import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
-import { User } from '../../user/user.model';
+// import { User } from '../../user/user.model';
 
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
-import { PaiementService} from './paiement/paiement.service';
 
 
 @Component({

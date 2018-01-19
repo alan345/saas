@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { CompanieService} from '../../companie.service';
 import { Companie } from '../../companie.model';
 
@@ -15,7 +15,7 @@ export class DebugComponent implements OnInit {
 
   ngOnInit() {}
   sendPassword(password: string) {
-    console.log(password)
+    // console.log(password)
     this.companieService.sendPassword(password)
       .subscribe(
         res => {

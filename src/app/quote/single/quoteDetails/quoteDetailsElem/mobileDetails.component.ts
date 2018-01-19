@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // import { AuthService } from '../../../auth/auth.service';
 // import { QuoteService } from '../../quote.service';
 // import { TemplateQuoteService } from '../../templateQuote.service';
@@ -9,7 +9,7 @@ import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angu
 // import { ProductsDialogComponent } from '../../../../product/products/dialog/productsDialog.component';
 
 import {
-  Quote, DevisDetail, BucketProduct, StatusQuotes,
+  Quote, DevisDetail, StatusQuotes,
   // StatusQuotesInvoice,
   // PriceQuoteTaxe,
   // ModelVATs
@@ -24,7 +24,7 @@ import {
 // import { UserService } from '../../../user/user.service';
 // import { DeleteDialog } from '../../../deleteDialog/deleteDialog.component';
 // import { User } from '../../../user/user.model';
-import { Product } from '../../../../product/product.model';
+// import { Product } from '../../../../product/product.model';
 // import { Project } from '../../../project/project.model';
 // import { PaiementQuote } from '../../../paiementQuote/paiementQuote.model';
 // import { PaiementQuoteDialogComponent } from '../paiementQuote/single/dialog/paiementQuoteDialog.component';
@@ -36,7 +36,7 @@ import { Product } from '../../../../product/product.model';
 // import { SignaturePad } from '../../../angular2-signaturepad/signature-pad';
 
 // import { PaiementQuotesComponent } from '../../../paiementQuote/paiementQuotes/paiementQuotes.component';
-import { Search } from '../../../../shared/shared.model'
+// import { Search } from '../../../../shared/shared.model'
 
 @Component({
   selector: 'app-mobile-details',

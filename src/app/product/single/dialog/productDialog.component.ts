@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef} from '@angular/material';
 import { ProductSingleComponent } from '../productSingle.component';
 

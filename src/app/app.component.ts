@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewContainerRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import {
   Router,
@@ -13,7 +13,7 @@ import {
 import { GlobalEventsManager } from './globalEventsManager';
 import { MatSidenav } from '@angular/material';
 
-import { tokenNotExpired } from 'angular2-jwt';
+// import { tokenNotExpired } from 'angular2-jwt';
 // import { DateAdapter, NativeDateAdapter } from '@angular/material';
 
 

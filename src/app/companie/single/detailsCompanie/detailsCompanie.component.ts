@@ -2,9 +2,9 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../../auth/auth.service';
 import {CompanieService} from '../../companie.service';
 import {Companie} from '../../companie.model';
-import {Address} from '../../../shared/address/address.model';
 import {Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+// import {Address} from '../../../shared/address/address.model';
 // import {UserService} from '../../user/user.service';
 
 

@@ -52,7 +52,7 @@ export class PaiementQuotesComponent implements OnInit, OnChanges {
 
 
   ngOnChanges() {
-    console.log(this.search)
+    // console.log(this.search)
     this.getPaiementQuotes(this.paginationData.currentPage, this.search);
   }
 

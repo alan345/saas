@@ -18,8 +18,8 @@ export class CompanieService {
   private url = Config.backendURL;
 //  private token: string = localStorage.getItem('id_token');
 //  private userId: string = localStorage.getItem('userId');
-  private companiesForCurrentUser: Companie[] = [];
-  private singleCompanie = Object;
+  // private companiesForCurrentUser: Companie[] = [];
+  // private singleCompanie = Object;
 
   constructor(
     private http: Http,

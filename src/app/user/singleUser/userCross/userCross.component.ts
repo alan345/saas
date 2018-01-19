@@ -1,21 +1,20 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../../../auth/auth.service';
 import { UserService } from '../../user.service';
-// import { Right } from '../../../right/right.model';
-
 import { Companie } from '../../../companie/companie.model';
 import { CompanieService } from '../../../companie/companie.service';
-// import { EditOptionsComponentDialog } from '../../../form/modalLibrary/modalLibrary.component';
 import { ToastsManager } from 'ng2-toastr';
-
 import { MatDialog } from '@angular/material';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { User, UserCross, TypeUser} from '../../user.model';
+import { User, UserCross} from '../../user.model';
 import { Address, AddressTypes } from '../../../shared/address/address.model';
-//import { Form } from '../../../form/form.model';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+//import { Form } from '../../../form/form.model';
+// import { EditOptionsComponentDialog } from '../../../form/modalLibrary/modalLibrary.component';
+
+// import { Right } from '../../../right/right.model';
 // import { DeleteDialog } from '../../../deleteDialog/deleteDialog.component'
 // import { Search } from '../../../shared/shared.model';
 

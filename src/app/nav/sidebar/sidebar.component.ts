@@ -1,12 +1,12 @@
 import {Component, OnInit, Input, ViewChild} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {Router} from '@angular/router';
-import { UserService} from '../../user/user.service';
-import { User} from '../../user/user.model';
-import { PaiementGuardService} from '../../companie/single/paiement/paiementGuard.service'
-import { ChangeDetectionStrategy} from '@angular/core';
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {MatSidenav} from '@angular/material';
+// import { UserService} from '../../user/user.service';
+// import { User} from '../../user/user.model';
+// import { PaiementGuardService} from '../../companie/single/paiement/paiementGuard.service'
+// import { ChangeDetectionStrategy} from '@angular/core';
+// import {MatSidenav} from '@angular/material';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,9 +26,9 @@ export class SidebarComponent implements OnInit {
   constructor(
     private globalEventsManager: GlobalEventsManager,
     public authService: AuthService,
-    // private adminService: AdminService,
-    private userService: UserService,
     private router: Router,
+    // private userService: UserService,
+    // private adminService: AdminService,
     // private paiementGuardService: PaiementGuardService,
   ) {
     this.globalEventsManager.isLoggedInEmitter.subscribe((mode) => {

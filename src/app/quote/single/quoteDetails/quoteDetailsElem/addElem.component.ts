@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // import { AuthService } from '../../../auth/auth.service';
 import { QuoteService } from '../../../quote.service';
 // import { TemplateQuoteService } from '../../templateQuote.service';
@@ -13,17 +13,17 @@ import {
   // PriceQuoteTaxe,
   // ModelVATs
 } from '../../../quote.model';
-// import { TemplateQuote } from '../../templateQuote.model';
-
 import { ToastsManager } from 'ng2-toastr';
-// import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { Product } from '../../../../product/product.model';
+// import { TemplateQuote } from '../../templateQuote.model';
+
+// import { MatDialog } from '@angular/material';
 // import { UserService } from '../../../user/user.service';
 // import { DeleteDialog } from '../../../deleteDialog/deleteDialog.component';
 // import { User } from '../../../user/user.model';
-import { Product } from '../../../../product/product.model';
 // import { Project } from '../../../project/project.model';
 // import { PaiementQuote } from '../../../paiementQuote/paiementQuote.model';
 // import { PaiementQuoteDialogComponent } from '../paiementQuote/single/dialog/paiementQuoteDialog.component';
@@ -35,7 +35,7 @@ import { Product } from '../../../../product/product.model';
 // import { SignaturePad } from '../../../angular2-signaturepad/signature-pad';
 
 // import { PaiementQuotesComponent } from '../../../paiementQuote/paiementQuotes/paiementQuotes.component';
-import { Search } from '../../../../shared/shared.model'
+// import { Search } from '../../../../shared/shared.model'
 
 @Component({
   selector: 'app-add-elem',

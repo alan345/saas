@@ -1,18 +1,18 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-// import {AuthService} from '../../auth/auth.service';
 import {CompanieService} from '../../companie.service';
+import {Companie, Categorie0} from '../../companie.model';
+import { Location } from '@angular/common';
+import { FormBuilder} from '@angular/forms';
+// import {AuthService} from '../../auth/auth.service';
 // import {UserService} from '../../user/user.service';
 
 
-import {Companie, Categorie0} from '../../companie.model';
 // import {Address} from '../../shared/address/address.model';
 
 // import {ToastsManager} from 'ng2-toastr';
 
 // import {MatDialog } from '@angular/material';
-import { Params } from '@angular/router';
-import { Location } from '@angular/common';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+// import { Params } from '@angular/router';
 
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 // import { User } from '../../user/user.model';

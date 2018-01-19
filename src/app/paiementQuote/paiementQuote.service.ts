@@ -20,8 +20,8 @@ export class PaiementQuoteService {
   private url = Config.backendURL;
 //  private token: string = localStorage.getItem('id_token');
 //  private userId: string = localStorage.getItem('userId');
-  private paiementQuotesForCurrentUser: PaiementQuote[] = [];
-  private singlePaiementQuote = Object;
+  // private paiementQuotesForCurrentUser: PaiementQuote[] = [];
+  // private singlePaiementQuote = Object;
 
   constructor(
     private http: Http,
@@ -31,9 +31,9 @@ export class PaiementQuoteService {
 
 
   getPaiementQuotesGraph(search: any) {
-    let headers = new Headers({'Content-Type': 'application/json'});
+    const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token)
-    let options = new RequestOptions({ headers: headers, search: search});
+    const options = new RequestOptions({ headers: headers, search: search});
     return this.http.get(this.url + 'paiementQuote/graph/' , options)
       .timeout(15000)
       .map((response: Response) => {

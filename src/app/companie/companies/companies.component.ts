@@ -2,12 +2,12 @@ import { Component, OnInit} from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
 import { CompanieService} from '../../companie/companie.service';
 import { Companie} from '../../companie/companie.model';
-// import { ToastsManager} from 'ng2-toastr';
 import { MatDialog} from '@angular/material';
 import { Router} from '@angular/router';
 import { Location} from '@angular/common';
 import { GlobalEventsManager } from '../../globalEventsManager';
 
+// import { ToastsManager} from 'ng2-toastr';
 
 
 @Component({
@@ -98,7 +98,7 @@ export class CompaniesComponent implements OnInit {
         //  console.log("companies");
         //  console.log(res);
           this.paginationData = res.paginationData;
-          this.fetchedCompanies =  res.data
+          this.fetchedCompanies = res.data;
           this.globalEventsManager.isLoadding(false);
         },
         error => {

@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
-// import { AuthService} from '../auth/auth.service';
 import { PaiementQuoteService } from '../paiementQuote/paiementQuote.service';
 import { QuoteService } from '../quote/quote.service';
-
-import { PaiementQuote } from '../paiementQuote/paiementQuote.model';
-import { PaiementQuoteGraph, EmptyRow } from './reporting.model'
-import { BaseChartDirective } from 'ng2-charts/ng2-charts';
+import { EmptyRow } from './reporting.model'
 import { Search } from '../shared/shared.model'
 import { TranslateService } from '../translate/translate.service';
+
+// import { PaiementQuote } from '../paiementQuote/paiementQuote.model';
+// import { BaseChartDirective } from 'ng2-charts/ng2-charts';
+// import { AuthService} from '../auth/auth.service';
 // import { ToastsManager } from 'ng2-toastr';
 
 

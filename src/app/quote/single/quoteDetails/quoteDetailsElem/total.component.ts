@@ -1,10 +1,8 @@
-import { Component, OnInit, OnChanges, ViewChild, Input, Output, EventEmitter } from '@angular/core';
-
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { Quote, StatusQuotes } from '../../../quote.model';
-
-import { Search } from '../../../../shared/shared.model'
 import { AuthService} from '../../../../auth/auth.service';
 import { Companie} from '../../../../companie/companie.model';
+// import { Search } from '../../../../shared/shared.model'
 
 
 @Component({

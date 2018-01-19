@@ -1,15 +1,12 @@
 import {Component, OnInit, OnChanges, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../../auth/auth.service';
 import {CompanieService} from '../../companie.service';
-// import {UserService} from '../../user/user.service';
-
-
 import {Companie} from '../../companie.model';
-
-import {Address} from '../../../shared/address/address.model';
-// import {ToastsManager} from 'ng2-toastr';
 import {Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+// import {UserService} from '../../user/user.service';
+// import {Address} from '../../../shared/address/address.model';
+// import {ToastsManager} from 'ng2-toastr';
 
 @Component({
   selector: 'app-details-calendar',

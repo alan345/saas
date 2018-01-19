@@ -3,14 +3,14 @@ import { ProductService} from '../product.service';
 import { Product} from '../product.model';
 import { ToastsManager} from 'ng2-toastr';
 import { Router} from '@angular/router';
-// import { ViewEncapsulation} from '@angular/core';
 import { GlobalEventsManager } from '../../globalEventsManager';
 import { Search, PaginationData } from '../../shared/shared.model';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {trigger, state, style, animate, transition, keyframes} from '@angular/animations';
+import {trigger, state, style, animate, transition} from '@angular/animations';
 import { AuthService} from '../../auth/auth.service';
+// import { ViewEncapsulation} from '@angular/core';
 
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { DomSanitizer } from '@angular/platform-browser';
 // import { UserService} from '../../user/user.service';
 // import { MatDialog} from '@angular/material';
