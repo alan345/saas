@@ -11,22 +11,22 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['../user.component.css']
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
+  @ViewChild('userEmail') userEmail: ElementRef;
   myForm: FormGroup;
   email: FormControl;
   password: FormControl;
-  @ViewChild('userEmail') userEmail: ElementRef;
   typesCompanie: string[] = ['Plumber', 'Locksmith', 'Electrician', 'Electrician', 'Gardener', 'Glazier', 'Services', 'Other']
 
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder, private authService: AuthService,
-              private router: Router, private toastr: ToastsManager, private renderer: Renderer) {
+    private router: Router, private toastr: ToastsManager, private renderer: Renderer) {
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-      if(params.lang) {
+      if (params.lang) {
         this.authService.setLangParam(params.lang)
       }
     })

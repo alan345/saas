@@ -4,12 +4,10 @@ import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
 import {PaiementQuote} from './paiementQuote.model';
 import { AuthService } from '../auth/auth.service';
+import { Config } from '../shared/config.model';
 // import {ToastsManager} from 'ng2-toastr';
-
-
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/catch';
-import { Config } from '../shared/config.model';
 
 
 
