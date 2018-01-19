@@ -6,7 +6,7 @@ import { Search } from '../../../shared/shared.model';
 
 
 @Component({
-  selector: 'edit-options-dialog',
+  selector: 'app-edit-options-dialog',
   templateUrl: './paiementQuoteDialog.component.html',
 })
 

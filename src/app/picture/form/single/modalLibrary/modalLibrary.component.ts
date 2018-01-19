@@ -5,7 +5,7 @@ import { UserFormsComponent } from '../../list/userForms.component';
 
 
 @Component({
-  selector: 'edit-options-dialog',
+  selector: 'app-edit-options-dialog',
   templateUrl: './editOptionsDialog.component.html',
 })
 

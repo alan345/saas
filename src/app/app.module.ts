@@ -15,20 +15,20 @@ import { CustomOption } from './toast-options';
 import { NavbarModule } from './nav/navbar/navbar.module';
 import { SidebarModule } from './nav/sidebar/sidebar.module';
 import { UserModule } from './user/user.module';
-// import { AutocompleteComponent } from './autocomplete/autocomplete.component'
 import { AppRoutingModule } from './appRouting.module';
 import { AuthGuardService } from './auth/authguard.service';
 import { NotClientGuardService } from './auth/notClientGuard.service';
 import { AuthService } from './auth/auth.service';
 import { ErrorService } from './errorHandler/error.service';
 import { Error2Service } from './errorHandler/error2.service';
-import { ErrorComponent } from './errorHandler/error.component';
 import { ErrorPageComponent } from './errorPage/errorPage.component';
 import { PaiementGuardService } from './companie/single/paiement/paiementGuard.service';
 import { LoadingInAppModule } from './nav/loadingInApp/loadingInApp.module';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr, 'fr');
+// import { ErrorComponent } from './errorHandler/error.component';
+// import { AutocompleteComponent } from './autocomplete/autocomplete.component'
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({}), http, options);
@@ -37,7 +37,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorComponent,
+    // ErrorComponent,
     ErrorPageComponent,
   ],
   imports: [

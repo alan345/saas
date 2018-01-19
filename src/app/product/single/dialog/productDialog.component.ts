@@ -5,7 +5,7 @@ import { ProductSingleComponent } from '../productSingle.component';
 
 
 @Component({
-  selector: 'edit-options-dialog',
+  selector: 'app-edit-options-dialog',
   templateUrl: './productDialog.component.html',
 })
 

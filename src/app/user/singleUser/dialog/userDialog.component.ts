@@ -5,7 +5,7 @@ import { UserComponent } from '../user.component';
 
 
 @Component({
-  selector: 'edit-options-dialog',
+  selector: 'app-edit-options-dialog',
   templateUrl: './userDialog.component.html',
 })
 

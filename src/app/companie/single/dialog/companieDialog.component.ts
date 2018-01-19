@@ -5,7 +5,7 @@ import { MatDialogRef} from '@angular/material';
 
 
 @Component({
-  selector: 'edit-options-dialog',
+  selector: 'app-edit-options-dialog',
   templateUrl: './companieDialog.component.html',
 })
 

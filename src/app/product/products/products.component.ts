@@ -3,7 +3,7 @@ import { ProductService} from '../product.service';
 import { Product} from '../product.model';
 import { ToastsManager} from 'ng2-toastr';
 import { Router} from '@angular/router';
-import { ViewEncapsulation} from '@angular/core';
+// import { ViewEncapsulation} from '@angular/core';
 import { GlobalEventsManager } from '../../globalEventsManager';
 import { Search, PaginationData } from '../../shared/shared.model';
 
@@ -118,8 +118,9 @@ export class ProductsComponent implements OnInit {
   }
   saved(result) {
     console.log(result)
-    if(result)
+    if(result) {
       this.getProducts(1, this.search)
+    }
   }
 
   // loadMore(){
