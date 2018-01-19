@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-// import { AuthService } from '../../../auth/auth.service';
 import {Quote, DevisDetail, BucketProduct, StatusQuotes} from '../../quote.model';
 import { ToastsManager } from 'ng2-toastr';
 import { Product } from '../../../product/product.model';
 import { Companie} from '../../../companie/companie.model';
+// import { AuthService } from '../../../auth/auth.service';
 // import { QuoteService } from '../../quote.service';
 // import { TemplateQuoteService } from '../../templateQuote.service';
 // import { TemplateQuote } from '../../templateQuote.model';
@@ -60,14 +60,14 @@ export class QuoteDetailsComponent implements OnInit {
   // imgLogoUrl: string = './assets/images/profile-placeholder.jpg'
   // imgSignatureBase64Temp = ''
   // fetchedPaiementQuotes: PaiementQuote[] = []
-  statusQuotes = StatusQuotes
+  statusQuotes = StatusQuotes;
 
-  public editorOptions = {
-    placeholder: "insert content...",
-    modules: {
-      // toolbar: [['bold', 'italic'], ['link', 'image']] // see https://quilljs.com/docs/formats/
-    }
-  };
+  // public editorOptions = {
+  //   placeholder: "insert content...",
+  //   modules: {
+  //     // toolbar: [['bold', 'italic'], ['link', 'image']] // see https://quilljs.com/docs/formats/
+  //   }
+  // };
 
   // arrayContentToSearch = []
 
@@ -109,8 +109,8 @@ export class QuoteDetailsComponent implements OnInit {
     this.calculateQuote()
   }
   addBucketProducts() {
-    const newDevisDetail = new DevisDetail()
-    this.fetchedQuote.devisDetails.push(newDevisDetail)
+    const newDevisDetail = new DevisDetail();
+    this.fetchedQuote.devisDetails.push(newDevisDetail);
   }
 
 

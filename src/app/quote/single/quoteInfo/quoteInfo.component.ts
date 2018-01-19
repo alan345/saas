@@ -1,11 +1,11 @@
-import {Component, OnInit, ViewChild, Input, Output, EventEmitter} from '@angular/core';
-import { DragulaService } from 'ng2-dragula';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Quote } from '../../quote.model';
-import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Search} from '../../../shared/shared.model'
 import { AuthService} from '../../../auth/auth.service';
 import { Companie} from '../../../companie/companie.model';
+// import { Location } from '@angular/common';
+// import { DragulaService } from 'ng2-dragula';
 // import {ToastsManager} from 'ng2-toastr';
 // import {Router, ActivatedRoute, Params } from '@angular/router';
 // import {QuoteService} from '../../quote.service';
@@ -43,11 +43,11 @@ export class QuoteInfoComponent implements OnInit {
   loading = false;
   @Output() quoteStatusChangedEmit: EventEmitter<any> = new EventEmitter();
   @Output() save: EventEmitter<any> = new EventEmitter();
-  @Input() search: Search = new Search()
-  @Input() fetchedQuote: Quote = new Quote()
-  @Input() myCompanie: Companie = new Companie()
+  @Input() search: Search = new Search();
+  @Input() fetchedQuote: Quote = new Quote();
+  @Input() myCompanie: Companie = new Companie();
   myForm: FormGroup;
-  typeInterventions: string[] = []
+  typeInterventions: string[] = [];
   // typeInterventionTempBool: boolean[]= []
   // statusQuotes = StatusQuotes
   // fetchedProducts: Product[] = []

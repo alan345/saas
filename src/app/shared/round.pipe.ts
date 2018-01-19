@@ -18,8 +18,8 @@ export class CurrencyPipe implements PipeTransform {
   }
 
   transform (input:number) {
-    let currency: string = ''
-    let returnValue: string = '' + input
+    let currency = '';
+    let returnValue = ''; + input
     this.authService.getCurrentUser().ownerCompanies.forEach(companie => {
       currency = companie.option.currency
     })

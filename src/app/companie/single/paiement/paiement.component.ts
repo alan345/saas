@@ -4,7 +4,7 @@ import { UserService} from '../../../user/user.service';
 import { PaiementService} from './paiement.service';
 
 import { ToastsManager} from 'ng2-toastr';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router} from '@angular/router';
 import { Location } from '@angular/common';
 // import { User } from '../../../user//user.model';
 import { Quote } from '../../../quote/quote.model';
@@ -30,11 +30,11 @@ export class PaiementComponent implements OnInit {
   // maxPictureToShow=3;
   // instapic=1;
   approveTnC = false;
-  plan: string = ''
+  plan = '';
   loading = false;
   // companies: Companie[] = [];
-  // isEditMode:boolean = false
-  showReLoginInApp:boolean = false
+  // isEditMode = false;
+  showReLoginInApp = false;
   newCard: DataSource = new DataSource()
   // fetchedUser : User = new User()
   stripeCust: StripeCustomer = new StripeCustomer()
@@ -48,7 +48,7 @@ export class PaiementComponent implements OnInit {
     private toastr: ToastsManager,
     private router: Router,
     private location: Location,
-    private activatedRoute: ActivatedRoute,
+    // private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     private authService: AuthService
   ) {}

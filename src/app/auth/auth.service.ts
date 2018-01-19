@@ -9,7 +9,7 @@ import { Error2Service } from '../errorHandler/error2.service';
 import { Reset } from './resetPassword';
 import { tokenNotExpired } from 'angular2-jwt';
 import { JwtHelper } from 'angular2-jwt';
-import { User } from '../user/user.model'
+import { User } from '../user/user.model';
 import { GlobalEventsManager } from '../globalEventsManager';
 import { Config } from '../shared/config.model';
 // import {UserService} from '../user/user.service'
@@ -45,7 +45,7 @@ export class AuthService {
 
     this.user = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')).user : null;
 
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
     this.currentUser = currentUser;
 
@@ -77,12 +77,12 @@ export class AuthService {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http.post(this.url + 'user/login', body, { headers: headers })
       .map((response: Response) => {
-        let token = response.json() && response.json().token;
-        let userId = response.json() && response.json().userId;
+        const token = response.json() && response.json().token;
+        const userId = response.json() && response.json().userId;
         // let user = response.json() && response.json().user;
         if (token) {
 
-          let currentUser = {
+          const currentUser = {
             userId: userId,
             token: token,
             // user: user

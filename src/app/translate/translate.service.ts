@@ -65,7 +65,7 @@ export class TranslateService {
     return translation;
   }
 
-  public replace(word: string = '', words: string | string[] = '') {
+  public replace(word = '';, words: string | string[] = '') {
     let translation: string = word;
 
     const values: string[] = [].concat(words);

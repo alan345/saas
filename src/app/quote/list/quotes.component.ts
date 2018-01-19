@@ -2,11 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angul
 import { AuthService} from '../../auth/auth.service';
 import { QuoteService} from '../../quote/quote.service';
 import { Quote, StatusQuotes} from '../../quote/quote.model';
-import { ToastsManager} from 'ng2-toastr';
-// import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-// import { Location} from '@angular/common';
 import { Search, PaginationData } from '../../shared/shared.model';
+// import { ToastsManager} from 'ng2-toastr';
+// import { Location} from '@angular/common';
+// import { MatDialog} from '@angular/material';
 // import { GlobalEventsManager } from '../../globalEventsManager';
 
 
@@ -22,28 +22,28 @@ export class QuotesComponent implements OnInit, OnChanges {
   @Input() showSearch = true;
   @Input() showBack: number = -1;
   // @Input() showBackButton = true;
-  @Input() idProject = '';
+  // @Input() idProject = '';
   @Input() idClient = '';
   @Input() createNewButton = true;
   @Output() savedEmit: EventEmitter<any> = new EventEmitter();
 
   fetchedQuotes: Quote[] = [];
   loading = false;
-  paginationData = new PaginationData()
+  paginationData = new PaginationData();
 
   statusQuotes = StatusQuotes
-  @Input() search = new Search()
+  @Input() search = new Search();
 
   constructor(
     private quoteService: QuoteService,
     private authService: AuthService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    // private toastr: ToastsManager,
     // private globalEventsManager: GlobalEventsManager,
   //  private modalService: NgbModal,
-    private toastr: ToastsManager,
     // public dialog: MatDialog,
-    private router: Router,
     // private location: Location,
-    private activatedRoute: ActivatedRoute,
   ) {}
 
 

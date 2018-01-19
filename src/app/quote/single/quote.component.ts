@@ -33,7 +33,7 @@ export class QuoteComponent implements OnInit {
   // showPaiements = false;
   fetchedQuote: Quote = new Quote()
   // totalPaiementAmount: number = 0
-  signatureBase64Temp: string = ''
+  signatureBase64Temp = '';
   step = -1;
   myCompanie: Companie = new Companie()
 

@@ -17,9 +17,9 @@ export class Quote {
   // statusQuoteString = '';
   typeQuote: string = 'quote';
   quoteNumber: number;
-  isSigned:boolean = false;
+  isSigned = false;;
   legalApprovals: string[] = []
-  typeIntervention: string = ''  // _users: User[] = [];
+  typeIntervention = '';  // _users: User[] = [];
   // ownerQuotes: User[] = [];
   // companieClients: Companie[] = []
   forms: Form[] = [];

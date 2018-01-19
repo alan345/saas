@@ -5,8 +5,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { Router} from '@angular/router';
 import { GlobalEventsManager } from '../../globalEventsManager';
 import { Search, PaginationData } from '../../shared/shared.model';
-
-import {trigger, state, style, animate, transition} from '@angular/animations';
+import { trigger, state, style, animate, transition} from '@angular/animations';
 import { AuthService} from '../../auth/auth.service';
 // import { ViewEncapsulation} from '@angular/core';
 
@@ -24,7 +23,7 @@ import { AuthService} from '../../auth/auth.service';
     trigger('hideShowAnimator', [
         state('true' , style({ backgroundColor: '#6be576' })),
         state('false', style({ backgroundColor: 'white' })),
-        transition('0 => 1', animate('.5s')),
+        transition('0 => 1', animate('.3s')),
         transition('1 => 0', animate('.7s'))
     ])
 ]
@@ -44,7 +43,7 @@ export class ProductsComponent implements OnInit {
   search: Search = new Search()
   loading: boolean= false;
   valueTempProduct: number = 0;
-  hideShowAnimator:boolean = false;
+  hideShowAnimator = false;;
   paginationData: PaginationData = new PaginationData()
 
   // trackinPage : any = {

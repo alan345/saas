@@ -56,10 +56,10 @@ export class ReportingsComponent implements OnInit {
   // donutChartDataGraph1 = { "labels": ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'], "data": [350, 450, 100] }
 
 
-  nameGraph: string = ''
+  nameGraph = '';
   serieNumber: number = 0
-  label: string = ''
-  typeSum: string = ''
+  label = '';
+  typeSum = '';
 
   public lineChartLabels: Array<any> = [
     this.translateService.instant('Jan'),

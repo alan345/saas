@@ -307,9 +307,7 @@ export class MobileDetailsComponent implements OnInit {
 
 
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
 
 

@@ -1,19 +1,19 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-// import { AuthService } from '../../../auth/auth.service';
 import { QuoteService } from '../../../quote.service';
-// import { TemplateQuoteService } from '../../templateQuote.service';
-
-// import { ProductService } from '../../../product/product.service';
-// import { ProjectService} from '../../../project/project.service';
 import { ProductsDialogComponent } from '../../../../product/products/dialog/productsDialog.component';
 import { AddTextRowDialogComponent } from './addTextRow/dialog/addTextRowDialog.component';
 import { MatDialog } from '@angular/material';
 import { Quote, DevisDetail, BucketProduct, StatusQuotes } from '../../../quote.model';
-import { ToastsManager } from 'ng2-toastr';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
 import { Product } from '../../../../product/product.model';
+// import { ToastsManager } from 'ng2-toastr';
+// import { TemplateQuoteService } from '../../templateQuote.service';
+
+// import { ProductService } from '../../../product/product.service';
+// import { ProjectService} from '../../../project/project.service';
+// import { AuthService } from '../../../auth/auth.service';
 // import { TemplateQuote } from '../../templateQuote.model';
 
 // import { MatDialog } from '@angular/material';
@@ -46,7 +46,6 @@ export class AddElemComponent implements OnInit {
   // @Output() saved: EventEmitter<any> = new EventEmitter();
   // @Output() quoteDetailsUpdated: EventEmitter<any> = new EventEmitter();
   @Output() calculateQuoteEmit: EventEmitter<any> = new EventEmitter();
-
   @Input() fetchedQuote: Quote = new Quote()
   // @Input() search: Search = new Search()
   //
@@ -70,7 +69,7 @@ export class AddElemComponent implements OnInit {
     // private userService: UserService,
     // private productService: ProductService,
     //    private modalService: NgbModal,
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     // public dialog: MatDialog,
     // private activatedRoute: ActivatedRoute,
     private router: Router,

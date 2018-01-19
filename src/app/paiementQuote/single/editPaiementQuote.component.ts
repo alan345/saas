@@ -58,7 +58,7 @@ export class EditPaiementQuoteComponent implements OnInit {
   // currentUser: User = new User()
   // imgLogoUrl: string = './assets/images/profile-placeholder.jpg'
   // imgSignatureBase64Temp = ''
-  // showReLoginInApp:boolean = false
+  // showReLoginInApp = false;
   // userAdmins : User[] = []
   // userManagers : User[] = []
   // userClients : User[] = []

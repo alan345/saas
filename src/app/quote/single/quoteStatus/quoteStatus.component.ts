@@ -18,18 +18,18 @@ export class QuoteStatusComponent {
 
   constructor(private authService: AuthService) { }
   changeStatus() {
-    this.quoteStatusChanged.emit()
+    this.quoteStatusChanged.emit();
   }
   isButtonsDisabled(n) {
     // console.log(this.authService.showObjHTML('quote', 'write'))
     if (!this.authService.showObjHTML('quote', 'write')) {
-      return true
+      return true;
     }
 
     if (n.indexStatus === 'pending' && (this.fetchedQuote.statusQuote === 'signed' || this.fetchedQuote.statusQuote === 'paid')) {
-        return true
+        return true;
     }
-    return false
+    return false;
   }
   // ngOnChanges() {
   //   // if(this.showSingleSelected) {

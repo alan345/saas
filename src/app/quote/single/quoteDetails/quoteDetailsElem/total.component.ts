@@ -19,8 +19,8 @@ export class TotalComponent implements OnInit, OnChanges {
   // @Output() quoteDetailsUpdated: EventEmitter<any> = new EventEmitter();
   @Output() calculateQuoteEmit: EventEmitter<any> = new EventEmitter();
 
-  @Input() fetchedQuote: Quote = new Quote()
-  @Input() myCompanie: Companie = new Companie()
+  @Input() fetchedQuote: Quote = new Quote();
+  @Input() myCompanie: Companie = new Companie();
   // @Input() search: Search = new Search()
   //
   // // showPaiements = false;
@@ -32,11 +32,11 @@ export class TotalComponent implements OnInit, OnChanges {
   // imgLogoUrl: string = './assets/images/profile-placeholder.jpg'
   // imgSignatureBase64Temp = ''
   // fetchedPaiementQuotes: PaiementQuote[] = []
-  statusQuotes = StatusQuotes
+  statusQuotes = StatusQuotes;
 
-  VATs: number[] = []
-  legalApprovals: string[] = []
-  approvalTempBool: boolean[]= []
+  VATs: number[] = [];
+  legalApprovals: string[] = [];
+  approvalTempBool: boolean[]= [];
 
 
   constructor(

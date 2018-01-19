@@ -7,11 +7,7 @@ import { AuthService } from '../../../../auth/auth.service';
 // import { ProjectService} from '../../../project/project.service';
 import { TemplateQuoteService } from '../../../templateQuote.service';
 import { TemplateQuote } from '../../../templateQuote.model';
-import { Quote, StatusQuotes,
-  // StatusQuotesInvoice,
-  // PriceQuoteTaxe,
-  // ModelVATs
-} from '../../../quote.model';
+import { Quote, StatusQuotes } from '../../../quote.model';
 // import { TemplateQuote } from '../../templateQuote.model';
 
 // import { ToastsManager } from 'ng2-toastr';

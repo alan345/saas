@@ -13,7 +13,7 @@ import {AuthService} from '../../../../auth/auth.service';
 export class InvoiceActionButtonComponent {
 
   @Input() fetchedQuote: Quote = new Quote()
-  @Input() typeQuote: string = ''
+  @Input() typeQuote = '';
   @Input() showLabel = true;
   loading = false;
 
