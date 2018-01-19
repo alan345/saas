@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
 import { CompanieService} from '../../companie/companie.service';
 import { Companie} from '../../companie/companie.model';
-import { ToastsManager} from 'ng2-toastr';
+// import { ToastsManager} from 'ng2-toastr';
 import { MatDialog} from '@angular/material';
 import { Router} from '@angular/router';
 import { Location} from '@angular/common';
@@ -34,7 +34,7 @@ export class CompaniesComponent implements OnInit {
     private companieService: CompanieService,
     private authService: AuthService,
   //  private modalService: NgbModal,
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     public dialog: MatDialog,
     private router: Router,
     private location: Location,
@@ -72,7 +72,7 @@ export class CompaniesComponent implements OnInit {
     this.companieService.deleteCompanie(id)
       .subscribe(
         res => {
-          this.toastr.success('Great!', res.message);
+          this.authService.successNotif(res.message);
           console.log(res);
         },
         error => {

@@ -5,7 +5,7 @@ import {ToastsManager} from 'ng2-toastr';
 import {Router } from '@angular/router';
 import {DeleteDialogComponent } from '../../../nav/deleteDialog/deleteDialog.component';
 import {MatDialog } from '@angular/material';
-// import {AuthService} from '../../../auth/auth.service';
+import {AuthService} from '../../../auth/auth.service';
 // import {TemplateQuoteService} from '../templateQuote.service';
 
 // import { DragulaService } from 'ng2-dragula';
@@ -53,10 +53,10 @@ export class ActionButtonsComponent implements OnInit {
     private router: Router,
     private toastr: ToastsManager,
     public dialog: MatDialog,
+    public authService: AuthService,
     // private activatedRoute: ActivatedRoute,
     // private location: Location,
     // private _fb: FormBuilder,
-    // public authService: AuthService,
     // private dragulaService: DragulaService,
     // private translateService: TranslateService,
   ) {
@@ -87,7 +87,7 @@ export class ActionButtonsComponent implements OnInit {
     //     .subscribe(
     //     res => {
     //
-    //       this.toastr.success('Great!', res.message)
+    //       this.authService.successNotif(res.message)
     //       this.nextStep.emit(this.fetchedQuote)
     //     },
     //     error => { console.log(error) }
@@ -100,7 +100,7 @@ export class ActionButtonsComponent implements OnInit {
     //   this.quoteService.updateQuote(this.fetchedQuote)
     //     .subscribe(
     //     res => {
-    //       this.toastr.success('Great!', res.message)
+    //       this.authService.successNotif(res.message)
     //       // this.getQuote(res.obj._id)
     //       this.saved.emit(res)
     //       //this.router.navigate(['quote/edit/' + this.fetchedQuote._id])
@@ -114,7 +114,7 @@ export class ActionButtonsComponent implements OnInit {
     //     .subscribe(
     //     res => {
     //       console.log(res)
-    //       this.toastr.success('Great!', res.message)
+    //       this.authService.successNotif(res.message)
     //       // this.router.navigate(['quote/' + res.obj._id])
     //       this.saved.emit(res)
     //     },
@@ -148,7 +148,7 @@ export class ActionButtonsComponent implements OnInit {
       this2.quoteService.deleteQuote(id)
         .subscribe(
         res => {
-          this2.toastr.success('Great!', res.message);
+          this2.authService.successNotif(res.message);
           resolve(res)
         },
         error => {

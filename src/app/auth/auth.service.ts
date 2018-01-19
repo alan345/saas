@@ -118,6 +118,10 @@ export class AuthService {
         return Observable.throw(error.json());
       });
   }
+
+  successNotif(message: string) {
+    this.toastr.success('')
+  }
   //
   // refreshCookiesOfCurrentUser() {
   //   console.log('refreshCookiesOfCurrentUser')

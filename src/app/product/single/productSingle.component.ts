@@ -10,7 +10,7 @@ import { User } from '../../user/user.model';
 import { ModelVATs } from '../../quote/quote.model';
 import { Companie } from '../../companie/companie.model';
 import { CompanieService} from '../../companie/companie.service';
-// import { AuthService} from '../../auth/auth.service';
+import { AuthService} from '../../auth/auth.service';
 // import { CompanieService} from '../../companie/companie.service';
 // import { Location } from '@angular/common';
 // import { DomSanitizer } from '@angular/platform-browser';
@@ -60,7 +60,7 @@ export class ProductSingleComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     // private companieService: CompanieService,
-    // private authService: AuthService,
+    private authService: AuthService,
   ) {
   }
 
@@ -250,7 +250,7 @@ export class ProductSingleComponent implements OnInit {
           .subscribe(
             res => {
               resolve(res)
-              this2.toastr.success('Great!', res.message)
+              this2.authService.successNotif(res.message)
               // this2.router.navigate(['product']);
               // this2.getProduct(res.obj._id)
               // this2.saved.emit(res.obj)
@@ -264,7 +264,7 @@ export class ProductSingleComponent implements OnInit {
           .subscribe(
             res => {
               resolve(res)
-              this2.toastr.success('Great!', res.message)
+              this2.authService.successNotif(res.message)
               this2.fetchedProduct = res.obj
               // this2.getProduct(res.obj._id)
               // this2.router.navigate(['product']);
@@ -329,7 +329,7 @@ export class ProductSingleComponent implements OnInit {
       this2.productService.deleteProduct(id)
         .subscribe(
           res => {
-            this2.toastr.success('Great!', res.message);
+            this2.authService.successNotif(res.message);
             resolve(res)
           },
           error => {

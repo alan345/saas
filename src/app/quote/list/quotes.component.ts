@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
-// import { AuthService} from '../../auth/auth.service';
+import { AuthService} from '../../auth/auth.service';
 import { QuoteService} from '../../quote/quote.service';
 import { Quote, StatusQuotes} from '../../quote/quote.model';
 import { ToastsManager} from 'ng2-toastr';
@@ -36,7 +36,7 @@ export class QuotesComponent implements OnInit, OnChanges {
 
   constructor(
     private quoteService: QuoteService,
-    // private authService: AuthService,
+    private authService: AuthService,
     // private globalEventsManager: GlobalEventsManager,
   //  private modalService: NgbModal,
     private toastr: ToastsManager,
@@ -86,7 +86,7 @@ export class QuotesComponent implements OnInit, OnChanges {
   //   this.quoteService.saveAsInvoice(this.search.parentQuoteId)
   //     .subscribe(
   //     res => {
-  //       // this.toastr.success('Great!', res.message)
+  //       // this.authService.successNotif(res.message)
   //       this.saved.emit(res)
   //       // this.goToInvoice(res.obj._id)
   //     }, error => { console.log(error) } )
@@ -125,7 +125,7 @@ export class QuotesComponent implements OnInit, OnChanges {
     this.quoteService.deleteQuote(id)
       .subscribe(
         res => {
-          this.toastr.success('Great!', res.message);
+          this.authService.successNotif(res.message);
           console.log(res);
         },
         error => {

@@ -93,7 +93,7 @@ export class PaiementQuotesComponent implements OnInit, OnChanges {
   //     .subscribe(
   //       res => {
   //         this.getPaiementQuotesInit()
-  //         this.toastr.success('Great!', res.message);
+  //         this.authService.successNotif(res.message);
   //         this.getPaiementQuotesCross.emit(this.fetchedPaiementQuotes)
   //         // console.log(res);
   //       },

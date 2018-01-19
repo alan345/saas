@@ -6,7 +6,7 @@ import { UserService } from '../user.service';
 import { Companie } from '../../companie/companie.model';
 import { CompanieService } from '../../companie/companie.service';
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
-import { ToastsManager } from 'ng2-toastr';
+// import { ToastsManager } from 'ng2-toastr';
 
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -78,7 +78,7 @@ export class UserComponent implements OnInit {
   constructor(
     private changeDetectionRef: ChangeDetectorRef,
     private userService: UserService,
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     public dialog: MatDialog,
     private router: Router,
     private location: Location,
@@ -239,26 +239,26 @@ export class UserComponent implements OnInit {
     //   return
     // }
     this.loading = true
-
     if (this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message)
-          this.loading = false
-          // this.nextStep()
-        },
-        error => {
-          this.toastr.error('Error!')
-          this.loading = false
-          // console.log(error)
-        }
+          res => {
+            this.authService.successNotif(res.message)
+            this.loading = false
+            // this.nextStep()
+          },
+          error => {
+            // this.toastr.error('Error!')
+            this.loading = false
+            // console.log(error)
+          }
         )
     } else {
       this.userService.saveUser(this.fetchedUser)
         .subscribe(
         res => {
-          this.toastr.success('Great!', res.message)
+          // this.authService.successNotif(res.message)
+          this.authService.successNotif(res.message)
           this.fetchedUser = res.obj
           this.loading = false
           // this.nextStep()
@@ -274,7 +274,7 @@ export class UserComponent implements OnInit {
         err => {
           // console.log(error)
           this.loading = false
-          this.toastr.error(err.error.message)
+          // this.toastr.error(err.error.message)
 
         }
         );
@@ -287,8 +287,9 @@ export class UserComponent implements OnInit {
   }
 
   isUserIsMyself() {
-    if (this.currentUser._id === this.fetchedUser._id)
+    if (this.currentUser._id === this.fetchedUser._id) {
       return true
+    }
     return false
   }
 
@@ -319,7 +320,7 @@ export class UserComponent implements OnInit {
       this2.userService.deleteUser(id)
         .subscribe(
         res => {
-          this2.toastr.success('Great!', res.message);
+          this2.authService.successNotif(res.message);
           resolve(res)
         },
         error => {

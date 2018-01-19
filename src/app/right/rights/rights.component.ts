@@ -67,7 +67,7 @@ export class RightsComponent implements OnInit {
     this.rightService.deleteRight(id)
       .subscribe(
         res => {
-          this.toastr.success('Great!', res.message);
+          this.authService.successNotif(res.message);
           console.log(res);
         },
         error => {

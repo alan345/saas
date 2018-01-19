@@ -5,20 +5,20 @@ import { UserService } from '../../user.service';
 
 import { Companie } from '../../../companie/companie.model';
 import { CompanieService } from '../../../companie/companie.service';
-// import { EditOptionsComponentDialog } from '../../../form/modalLibrary/modalLibrary.component';
 import { ToastsManager } from 'ng2-toastr';
 
 import { MatDialog } from '@angular/material';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
 import { User, TypeUser  } from '../../user.model';
 import { Address, AddressTypes } from '../../../shared/address/address.model';
+import { Search, CustomFormControls } from '../../../shared/shared.model';
+import { FormGroup, FormControl } from '@angular/forms';
 
+// import { EditOptionsComponentDialog } from '../../../form/modalLibrary/modalLibrary.component';
 //import { Form } from '../../../form/form.model';
 
-import { FormGroup, FormControl } from '@angular/forms';
 // import { DeleteDialog } from '../../../deleteDialog/deleteDialog.component'
-import { Search, CustomFormControls } from '../../../shared/shared.model';
+// import { Router, ActivatedRoute, Params } from '@angular/router';
+// import { Location } from '@angular/common';
 
 // const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -101,12 +101,12 @@ export class DetailsUserComponent implements OnInit {
     private userService: UserService,
     private toastr: ToastsManager,
     public dialog: MatDialog,
-    private router: Router,
-    private location: Location,
-    private activatedRoute: ActivatedRoute,
-    // private _fb: FormBuilder,
     public authService: AuthService,
     private companieService: CompanieService,
+    // private router: Router,
+    // private location: Location,
+    // private activatedRoute: ActivatedRoute,
+    // private _fb: FormBuilder,
   ) {
   }
   onChangeLang() {
@@ -263,7 +263,7 @@ export class DetailsUserComponent implements OnInit {
   // goBack() {
   //   this.location.back();
   // }
-  // 
+  //
   // openDialogDelete() {
   //   // let this2 = this
   //   // let dialogRefDelete = this.dialog.open(DeleteDialog)
@@ -290,7 +290,7 @@ export class DetailsUserComponent implements OnInit {
   //     this.userService.updateUser(this.fetchedUser)
   //       .subscribe(
   //       res => {
-  //         this.toastr.success('Great!', res.message)
+  //         this.authService.successNotif(res.message)
   //         // location.reload();
   //         // if(redirect == 'profile')
   //         //   this.router.navigate(['user/profile/' + res.obj._id])
@@ -306,7 +306,7 @@ export class DetailsUserComponent implements OnInit {
   //     this.userService.saveUser(this.fetchedUser)
   //       .subscribe(
   //       res => {
-  //         this.toastr.success('Great!', res.message)
+  //         this.authService.successNotif(res.message)
   //         // this.fetchedUser = res.obj
   //         this.saved.emit(res.obj)
   //         // if(redirect == 'profile')
@@ -359,7 +359,7 @@ export class DetailsUserComponent implements OnInit {
       this2.userService.deleteUser(id)
         .subscribe(
         res => {
-          this2.toastr.success('Great!', res.message);
+          this2.authService.successNotif(res.message);
           resolve(res)
         },
         error => {

@@ -314,7 +314,7 @@ export class UserCalendarsComponent implements OnInit {
         .subscribe(
         res => {
           // this.globalEventsManager.isLoadding(false);
-          // this.toastr.success('Great!', res.message)
+          // this.authService.successNotif(res.message)
         },
         error => { this.toastr.error('error!', error) }
         )
@@ -323,7 +323,7 @@ export class UserCalendarsComponent implements OnInit {
         .subscribe(
         res => {
           // this.globalEventsManager.isLoadding(false);
-          this.toastr.success('Great!', res.message)
+          this.authService.successNotif(res.message)
         },
         error => { console.log(error) }
         )

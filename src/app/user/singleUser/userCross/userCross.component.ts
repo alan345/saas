@@ -252,7 +252,7 @@ export class UserCrossComponent implements OnInit {
       this.userService.updateCrossUser(this.fetchedUserCross)
         .subscribe(
         res => {
-          this.toastr.success('Great!', res.message)
+          this.authService.successNotif(res.message)
           // this.fetchedUserCross = res.obj
           // this.getUserCross(res.obj._id)
           // console.log(this.fetchedUser._id)
@@ -277,7 +277,7 @@ export class UserCrossComponent implements OnInit {
         .subscribe(
         res => {
           this.loading = false
-          this.toastr.success('Great!', res.message)
+          this.authService.successNotif(res.message)
           // this.fetchedUserCross = res.obj
           // console.log(res.obj._id)
           // this.getUserCross(this.fetchedUser._id)
@@ -321,7 +321,7 @@ export class UserCrossComponent implements OnInit {
   //     this2.userService.deleteUser(id)
   //       .subscribe(
   //       res => {
-  //         this2.toastr.success('Great!', res.message);
+  //         this2.authService.successNotif(res.message);
   //         resolve(res)
   //       },
   //       error => {

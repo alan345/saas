@@ -28,6 +28,7 @@ export class UserService {
   constructor(
     private http: Http,
     private errorService: ErrorService,
+    // private successNotifService: SuccessNotifService,
     private toastr: ToastsManager,
     private authService: AuthService
   ) {}
@@ -137,7 +138,8 @@ export class UserService {
   //  let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.post(this.url + 'profile/',body, {headers: headers})
-      .map(response => response.json())
+      .map(
+        response => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
         return Observable.throw(error.json());

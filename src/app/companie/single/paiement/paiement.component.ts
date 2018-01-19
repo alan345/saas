@@ -272,7 +272,7 @@ export class PaiementComponent implements OnInit {
   //   this.userService.updateUser(this.fetchedUser)
   //     .subscribe(
   //       res => {
-  //         this.toastr.success('Great!', res.message)
+  //         this.authService.successNotif(res.message)
   //       },
   //       error => {console.log(error)}
   //     )
@@ -296,7 +296,7 @@ export class PaiementComponent implements OnInit {
   //   this.userService.deleteUser(id)
   //     .subscribe(
   //       res => {
-  //         this.toastr.success('Great!', res.message);
+  //         this.authService.successNotif(res.message);
   //       },
   //       error => {
   //         console.log(error);

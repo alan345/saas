@@ -1,8 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {QuoteService} from '../../quote.service';
 import {Quote} from '../../quote.model';
-
-import {ToastsManager} from 'ng2-toastr';
+import {AuthService} from '../../../auth/auth.service';
+// import {ToastsManager} from 'ng2-toastr';
 // import { Location } from '@angular/common';
 
 @Component({
@@ -18,7 +18,8 @@ export class InvoiceActionComponent {
 
   constructor(
     private quoteService: QuoteService,
-    private toastr: ToastsManager,
+    public authService: AuthService,
+    // private toastr: ToastsManager,
 
   ) {
 
@@ -61,7 +62,7 @@ export class InvoiceActionComponent {
         .subscribe(
           res => {
             // console.log(res)
-            this.toastr.success('Great!', 'Mail envoyeé!')
+            this.authService.successNotif('Mail envoyeé!')
             //  window.open( '/uploads/pdf/' + res );
              this.loading = false
           },
@@ -77,7 +78,7 @@ export class InvoiceActionComponent {
       this.quoteService.sendInvoiceByEmailToClient(this.fetchedQuote._id)
         .subscribe(
           res => {
-            this.toastr.success('Great!', 'Mail envoyeé!')
+            this.authService.successNotif('Mail envoyeé!')
              this.loading = false
           },
           error => {

@@ -146,7 +146,7 @@ export class UserCalendarComponent implements OnInit, OnChanges {
       this2.userCalendarService.deleteUserCalendar(id)
         .subscribe(
           res => {
-            this2.toastr.success('Great!', res.message);
+            this2.authService.successNotif(res.message);
 
             resolve(res)
           },
@@ -176,7 +176,7 @@ newInterventionCLicked() {
           .subscribe(
             res => {
               console.log(res)
-              this.toastr.success('Great!', res.message)
+              this.authService.successNotif(res.message)
               this.saved.emit(res)
             },
             error => {
@@ -188,7 +188,7 @@ newInterventionCLicked() {
           .subscribe(
             res => {
               console.log(res)
-              this.toastr.success('Great!', res.message)
+              this.authService.successNotif(res.message)
               this.saved.emit(res)
             },
             error => {console.log(error)}

@@ -301,7 +301,7 @@ export class MobileDetailsComponent implements OnInit {
   //   this.templateQuoteService.saveTemplateQuote(newTemplateQuote)
   //     .subscribe(
   //     res => {
-  //       this.toastr.success('Great!', res.message)
+  //       this.authService.successNotif(res.message)
   //     },
   //     error => { console.log(error) }
   //     )

@@ -165,7 +165,7 @@ export class RightComponent implements OnInit {
       this.rightService.updateRight(this.fetchedRight)
         .subscribe(
           res => {
-            this.toastr.success('Great!', res.message)
+            this.authService.successNotif(res.message)
           //  this.router.navigate(['right/' + this.fetchedRight._id])
           },
           error => {
@@ -176,7 +176,7 @@ export class RightComponent implements OnInit {
       this.rightService.saveRight(this.fetchedRight)
         .subscribe(
           res => {
-            this.toastr.success('Great!', res.message)
+            this.authService.successNotif(res.message)
             this.fetchedRight = res.obj
             //  this.router.navigate(['right/' + res.obj._id])
           },
@@ -195,11 +195,11 @@ export class RightComponent implements OnInit {
 //             res => {
 //               // this.userService.cleanCurrentUserInSession()
 //               location.reload();
-//               this.toastr.success('Great!', res.message)
+//               this.authService.successNotif(res.message)
 //             },
 //             error => {console.log(error)}
 //           )
-//         this.toastr.success('Great!', res.message)
+//         this.authService.successNotif(res.message)
 //       },
 //       error => {console.log(error)}
 //     )
@@ -218,7 +218,7 @@ export class RightComponent implements OnInit {
     this.rightService.deleteRight(id)
       .subscribe(
         res => {
-          this.toastr.success('Great!', res.message);
+          this.authService.successNotif(res.message);
           this.router.navigate(['right/'])
           console.log(res);
         },

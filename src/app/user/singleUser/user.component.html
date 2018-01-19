@@ -30,7 +30,7 @@
     </mat-expansion-panel>
 
     <mat-expansion-panel
-      *ngIf="authService.showObjHTML('user', 'ReadCross') && fetchedUser._id"
+      *ngIf="authService.showObjHTML('user', 'readCross') && fetchedUser._id"
       [expanded]="step === 1" (opened)="setStep(1)">
       <mat-expansion-panel-header>
         <mat-panel-title>

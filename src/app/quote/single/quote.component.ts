@@ -200,7 +200,7 @@ export class QuoteComponent implements OnInit {
         .subscribe(
         res => {
           this.fetchedQuote = res.obj
-          this.toastr.success('Great!', res.message)
+          this.authService.successNotif(res.message)
           // this.nextStep.emit(this.fetchedQuote)
           this.nextStep()
         },
@@ -246,7 +246,7 @@ export class QuoteComponent implements OnInit {
       this.quoteService.updateQuote(this.fetchedQuote)
         .subscribe(
         res => {
-          this.toastr.success('Great!', res.message)
+          this.authService.successNotif(res.message)
           this.fetchedQuote = res.obj
           this.fetchedQuote.clients.forEach(user => { this.search.userId = user._id })
           this.search.quoteId = this.fetchedQuote._id
@@ -261,7 +261,7 @@ export class QuoteComponent implements OnInit {
       this.quoteService.saveQuote(this.fetchedQuote)
         .subscribe(
         res => {
-          this.toastr.success('Great!', res.message)
+          this.authService.successNotif(res.message)
           this.fetchedQuote = res.obj
           this.fetchedQuote.clients.forEach(user => { this.search.userId = user._id })
           this.search.quoteId = this.fetchedQuote._id

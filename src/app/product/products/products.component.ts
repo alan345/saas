@@ -9,8 +9,8 @@ import { Search, PaginationData } from '../../shared/shared.model';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {trigger, state, style, animate, transition, keyframes} from '@angular/animations';
+import { AuthService} from '../../auth/auth.service';
 
-// import { AuthService} from '../../auth/auth.service';
 // import { DomSanitizer } from '@angular/platform-browser';
 // import { UserService} from '../../user/user.service';
 // import { MatDialog} from '@angular/material';
@@ -60,7 +60,7 @@ export class ProductsComponent implements OnInit {
     // private sanitizer: DomSanitizer,
     // public dialog: MatDialog,
     // private location: Location,
-    // private authService: AuthService,
+    private authService: AuthService,
     // private userService: UserService,
     // private translateService: TranslateService,
   ) {
@@ -104,7 +104,7 @@ export class ProductsComponent implements OnInit {
     this.productService.deleteProduct(id)
       .subscribe(
         res => {
-          this.toastr.success('Great!', res.message);
+          this.authService.successNotif(res.message);
           console.log(res);
         },
         error => {

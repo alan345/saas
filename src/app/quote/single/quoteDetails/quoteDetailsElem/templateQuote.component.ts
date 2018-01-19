@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
-// import { AuthService } from '../../../auth/auth.service';
+import { AuthService } from '../../../../auth/auth.service';
 // import { QuoteService } from '../../quote.service';
 // import { TemplateQuoteService } from '../../templateQuote.service';
-
 // import { DragulaService } from 'ng2-dragula';
 // import { ProductService } from '../../../product/product.service';
 // import { ProjectService} from '../../../project/project.service';
@@ -16,7 +15,7 @@ import {
 } from '../../../quote.model';
 // import { TemplateQuote } from '../../templateQuote.model';
 
-import { ToastsManager } from 'ng2-toastr';
+// import { ToastsManager } from 'ng2-toastr';
 // import { MatDialog } from '@angular/material';
 // import { Params } from '@angular/router';
 // import { Location } from '@angular/common';
@@ -87,13 +86,13 @@ export class TemplateQuoteComponent implements OnInit {
     // private userService: UserService,
     // private productService: ProductService,
     //    private modalService: NgbModal,
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     // public dialog: MatDialog,
     // private activatedRoute: ActivatedRoute,
     // private router: Router,
     // private location: Location,
     // private _fb: FormBuilder,
-    // public authService: AuthService,
+    public authService: AuthService,
     // private dragulaService: DragulaService,
     // private translateService: TranslateService,
   ) {
@@ -117,7 +116,7 @@ export class TemplateQuoteComponent implements OnInit {
     this.templateQuoteService.saveTemplateQuote(newTemplateQuote)
       .subscribe(
       res => {
-        this.toastr.success('Great!', res.message)
+        this.authService.successNotif(res.message)
       },
       error => { console.log(error) }
       )
@@ -325,7 +324,7 @@ export class TemplateQuoteComponent implements OnInit {
   //   this.templateQuoteService.saveTemplateQuote(newTemplateQuote)
   //     .subscribe(
   //     res => {
-  //       this.toastr.success('Great!', res.message)
+  //       this.authService.successNotif(res.message)
   //     },
   //     error => { console.log(error) }
   //     )

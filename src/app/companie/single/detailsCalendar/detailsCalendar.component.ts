@@ -206,7 +206,7 @@ export class DetailsCalendarComponent implements OnInit, OnChanges {
   //     this.companieService.updateCompanie(this.fetchedCompanie)
   //       .subscribe(
   //         res => {
-  //           this.toastr.success('Great!', res.message)
+  //           this.authService.successNotif(res.message)
   //           this.saved.emit(res.obj)
   //         //  this.router.navigate(['companie/' + this.fetchedCompanie._id])
   //         },
@@ -218,7 +218,7 @@ export class DetailsCalendarComponent implements OnInit, OnChanges {
   //     this.companieService.saveCompanie(this.fetchedCompanie)
   //       .subscribe(
   //         res => {
-  //           this.toastr.success('Great!', res.message)
+  //           this.authService.successNotif(res.message)
   //           this.fetchedCompanie = res.obj
   //           this.saved.emit(res.obj)
   //           //  this.router.navigate(['companie/' + res.obj._id])
@@ -231,7 +231,7 @@ export class DetailsCalendarComponent implements OnInit, OnChanges {
   //   this.companieService.saveMyCompanie(this.fetchedCompanie)
   //     .subscribe(
   //       res => {
-  //         this.toastr.success('Great!', res.message)
+  //         this.authService.successNotif(res.message)
   //         this.fetchedCompanie = res.obj
   //       },
   //       error => {console.log(error)}

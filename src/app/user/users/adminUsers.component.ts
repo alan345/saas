@@ -93,7 +93,7 @@ export class AdminUsersComponent implements OnInit {
     this.userService.deleteUser(id)
       .subscribe(
         res => {
-          this.toastr.success('Great!', res.message);
+          this.authService.successNotif(res.message);
         },
         error => {
           console.log(error);

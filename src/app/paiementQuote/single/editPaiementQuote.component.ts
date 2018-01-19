@@ -15,10 +15,10 @@ import { Quote } from '../../quote/quote.model';
 import { Product } from '../../product/product.model';
 import { Search } from '../../shared/shared.model';
 import { MatDialog } from '@angular/material';
+import {AuthService} from '../../auth/auth.service';
 // import { Location } from '@angular/common';
 // import {ProductService} from '../../product/product.service';
 // import { ProjectService} from '../../project/project.service';
-// import {AuthService} from '../../auth/auth.service';
 // import { Project } from '../../project/project.model';
 
 
@@ -75,11 +75,11 @@ export class EditPaiementQuoteComponent implements OnInit {
     private router: Router,
     private _fb: FormBuilder,
     private userService: UserService,
+    private authService: AuthService,
     // private projectService: ProjectService,
     // private productService: ProductService,
     //    private modalService: NgbModal,
     // private location: Location,
-    // private authService: AuthService,
   ) { }
 
 
@@ -234,7 +234,7 @@ export class EditPaiementQuoteComponent implements OnInit {
         this2.paiementQuoteService.updatePaiementQuote(this2.fetchedPaiementQuote)
           .subscribe(
           res => {
-            this2.toastr.success('Great!', res.message)
+            this2.authService.successNotif(res.message)
             // this2.saved.emit()
             this2.getPaiementQuote(res.obj._id)
             resolve(true)
@@ -249,7 +249,7 @@ export class EditPaiementQuoteComponent implements OnInit {
         this2.paiementQuoteService.savePaiementQuote(this2.fetchedPaiementQuote)
           .subscribe(
           res => {
-            this2.toastr.success('Great!', res.message)
+            this2.authService.successNotif(res.message)
             // this2.saved.emit()
             this2.getPaiementQuote(res.obj._id)
             // if(this.showHeader)
@@ -272,7 +272,7 @@ export class EditPaiementQuoteComponent implements OnInit {
       this2.paiementQuoteService.deletePaiementQuote(id)
         .subscribe(
         res => {
-          this2.toastr.success('Great!', res.message);
+          this2.authService.successNotif(res.message);
           resolve(res)
         },
         error => {

@@ -76,7 +76,7 @@ export class ChangePasswordComponent implements OnInit, AfterViewInit {
     this.userService.updateUser(this.fetchedUser)
       .subscribe(
         res => {
-          this.toastr.success('Great!', res.message)
+          this.authService.successNotif(res.message)
           this.router.navigate(['/']);
         },
         error => {console.log(error)}
