@@ -195,7 +195,7 @@ module.exports = {
                             href="http://${req.headers.host}/"
                             style="color: #ffffff; text-decoration: none;"
                           >
-                            Voir le cocument
+                            Voir le Document
                           </a>
                         </td>
                       </tr>

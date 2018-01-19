@@ -21,6 +21,7 @@ export const LANG_FR_TRANS = {
     'Add document': 'Ajouter un document',
     'Take a picture': 'Prendre une photo',
     'Great!': 'Enregistré!',
+    'No results.': 'Pas de résultats.',
     'VAT. Example: 20': 'TVA. Example: 20',
     'Send by Email:': 'Envoyer par mail : ',
     'Repairer': 'Réparateur',
