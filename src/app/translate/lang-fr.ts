@@ -9,6 +9,7 @@ export const LANG_FR_TRANS = {
     'Edit Event': 'Editer rendez-vous',
     'Move Event': 'Déplacer rendez-vous',
     'Check': 'Chèque',
+    'Email already exists': 'Email existe déjà',
     'Cash': 'Espèce',
     'Load Template': 'Charger un modèle',
     'Save Template': 'Sauvegarder le modèle',

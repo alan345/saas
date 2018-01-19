@@ -9,7 +9,7 @@ import { Response, Headers, Http, RequestOptions } from '@angular/http';
 import 'rxjs/operator/map';
 import 'rxjs/operator/catch';
 import { ToastsManager } from 'ng2-toastr';
-import { ErrorService } from '../errorHandler/error.service';
+import { Error2Service } from '../errorHandler/error2.service';
 import { Reset } from './resetPassword';
 import { tokenNotExpired } from 'angular2-jwt';
 import { Router } from '@angular/router';
@@ -40,7 +40,7 @@ export class AuthService {
 
   constructor(
     private http: Http,
-    private errorService: ErrorService,
+    private error2Service: Error2Service,
     private toastr: ToastsManager,
     private router: Router,
     private globalEventsManager: GlobalEventsManager,
@@ -70,7 +70,7 @@ export class AuthService {
     return this.http.post(this.url + 'user/register', body, { headers: headers })
       .map(response => response.json())
       .catch((error: Response) => {
-        this.errorService.handleError(error.json());
+        this.error2Service.handleError(error.json());
         return Observable.throw(error.json());
       });
   }
@@ -114,7 +114,7 @@ export class AuthService {
         return response.json()
       })
       .catch((error: Response) => {
-        this.errorService.handleError(error.json());
+        this.error2Service.handleError(error.json());
         return Observable.throw(error.json());
       });
   }
@@ -149,7 +149,7 @@ export class AuthService {
   //       return response.json().user;
   //     })
   //     .catch((error: Response) => {
-  //       this.errorService.handleError(error.json());
+  //       this.error2Service.handleError(error.json());
   //       return Observable.throw(error.json());
   //     });
   // }
@@ -330,7 +330,7 @@ export class AuthService {
     return this.http.post('/user/forgot', body, { headers: headers })
       .map((response: Response) => response.json())
       .catch((error: Response) => {
-        this.errorService.handleError(error.json());
+        this.error2Service.handleError(error.json());
         return Observable.throw(error.json());
       });
   }
@@ -342,7 +342,7 @@ export class AuthService {
     return this.http.post('/user/reset/' + reset.token, body, { headers: headers })
       .map((response: Response) => response.json())
       .catch((error: Response) => {
-        this.errorService.handleError(error.json());
+        this.error2Service.handleError(error.json());
         return Observable.throw(error.json());
       });
   }

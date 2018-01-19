@@ -21,6 +21,7 @@ import { AuthGuardService } from './auth/authguard.service';
 import { NotClientGuardService } from './auth/notClientGuard.service';
 import { AuthService } from './auth/auth.service';
 import { ErrorService } from './errorHandler/error.service';
+import { Error2Service } from './errorHandler/error2.service';
 import { ErrorComponent } from './errorHandler/error.component';
 import { ErrorPageComponent } from './errorPage/errorPage.component';
 import { PaiementGuardService } from './companie/single/paiement/paiementGuard.service';
@@ -60,6 +61,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     AuthService,
     ErrorService,
+    Error2Service,
     PaiementGuardService,
     GlobalEventsManager,
     {
