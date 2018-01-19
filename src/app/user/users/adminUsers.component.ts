@@ -19,7 +19,7 @@ import { GlobalEventsManager } from '../../globalEventsManager';
 })
 export class AdminUsersComponent implements OnInit {
   fetchedUsers: User[] = [];
-  loading: boolean = false;
+  loading = false;
   search: Search = new Search()
   createNewTeam: boolean = false
   // {

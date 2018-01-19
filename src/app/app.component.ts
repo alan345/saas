@@ -25,8 +25,8 @@ import { MatSidenav } from '@angular/material';
   styleUrls: ['app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  // loading: boolean = true;
-  isLoggedIn: boolean = false;
+  // loading = true;
+  isLoggedIn = false;
   @ViewChild('sidenav') public sidenav: MatSidenav;
   @ViewChild('mainScreen') elementView;
   modeSidenav: string = 'side'

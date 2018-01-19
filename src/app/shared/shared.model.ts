@@ -3,27 +3,27 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA
 
 
 export class Search {
-  // isQuoteAssignedToMe: boolean = false;
-  orderBy: string = '';
-  search: string = '';
-  quoteType: string = '';
-  quoteId: string = '';
-  userId: string = '';
-  clientId: string = '';
-  paiementQuoteId: string = '';
+  // isQuoteAssignedToMe = false;
+  orderBy = '';
+  search = '';
+  quoteType = '';
+  quoteId = '';
+  userId = '';
+  clientId = '';
+  paiementQuoteId = '';
   endDate: Date = new Date();
   startDate: Date = new Date();
-  // assignedToId: string = '';
-  projectId: string = '';
-  // parentQuoteId: string = '';
-  isExternalUser: boolean = true;
-  isExpense: boolean = false;
-  typeQuote: string = '';
+  // assignedToId = '';
+  projectId = '';
+  // parentQuoteId = '';
+  isExternalUser = true;
+  isExpense = false;
+  typeQuote = '';
   year: number = 0;
-  isFromAutocomplete: boolean = false;
-  isAdmin: boolean = false;
-  // isSigned: boolean = false;
-  statusQuote: string = '';
+  isFromAutocomplete = false;
+  isAdmin = false;
+  // isSigned = false;
+  statusQuote = '';
 };
 
 

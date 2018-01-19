@@ -4,20 +4,20 @@ import { User } from '../user/user.model';
 
 
 export class UserCalendar {
-    _id: string = '';
-    title: string = '';
+    _id = '';
+    title = '';
     start: Date = new Date();
     end: Date = new Date();
-    color: string = '';
-    // description: string = '';
-    // content: string = '';
+    color = '';
+    // description = '';
+    // content = '';
     // clients: User[] = [];
     clients: User[] = [];
     assignedTos: User[] = [];
     // projects: Project[] = [];
-    isActiveEvent: boolean = false;
+    isActiveEvent = false;
     // color: Color = new Color();
-    draggable: boolean = true;
+    draggable = true;
     resizable: Resizable = new Resizable();
     details: Details = new Details();
     // assignedTo: User[] = [];
@@ -35,15 +35,15 @@ export class SearchData {
 }
 
 export class Details {
-  description: string = '';
+  description = '';
 }
 export class Resizable {
-  beforeStart: boolean = true;
-  afterEnd: boolean = true;
+  beforeStart = true;
+  afterEnd = true;
 }
 
 
 export class Color {
-  primary: string = '';
-  secondary: string = '';
+  primary = '';
+  secondary = '';
 }

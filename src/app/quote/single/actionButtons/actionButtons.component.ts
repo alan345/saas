@@ -29,7 +29,7 @@ export class ActionButtonsComponent implements OnInit {
   // @ViewChild(SignaturePad) signaturePad: SignaturePad;
   // @ViewChild(PaiementQuotesComponent) paiementQuotesComponent: PaiementQuotesComponent;
 
-  // loading: boolean = false;
+  // loading = false;
   @Output() saveEmmit: EventEmitter<any> = new EventEmitter();
   @Output() closeDialog: EventEmitter<any> = new EventEmitter();
   @Output() nextStep: EventEmitter<any> = new EventEmitter();

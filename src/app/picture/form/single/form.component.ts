@@ -19,7 +19,7 @@ export class FormComponent implements OnInit {
 
 
   @Output() onPassForm = new EventEmitter<any>();
-  @Input() openCameraStraight: boolean = false;
+  @Input() openCameraStraight = false;
   // setting up the form
   myForm: FormGroup;
   // textInput1: FormControl;

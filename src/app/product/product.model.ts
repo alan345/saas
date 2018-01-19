@@ -3,10 +3,10 @@ import { Companie } from '../companie/companie.model';
 import { User } from '../user/user.model';
 
 export class Product {
-    _id: string = '';
+    _id = '';
     details: Details = new Details();
-    referenceName: string = '';
-    reference: string = '';
+    referenceName = '';
+    reference = '';
     forms: Form[] = [];
     categorie: Categorie = new Categorie();
     owner: User[] = [];
@@ -14,11 +14,11 @@ export class Product {
 }
 
 export class Details {
-  unit: string = '';
-  referenceName: string = '';
-  reference: string = '';
+  unit = '';
+  referenceName = '';
+  reference = '';
   price: Price = new Price();
-  description: string = '';
+  description = '';
   dimension: Dimension = new Dimension();
   stock: Stock = new Stock();
 }
@@ -31,7 +31,7 @@ export class Categorie {
 
 
 export class Categ {
-  name: string = '';
+  name = '';
 }
 
 

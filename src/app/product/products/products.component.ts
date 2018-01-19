@@ -32,10 +32,10 @@ import { AuthService} from '../../auth/auth.service';
 
 })
 export class ProductsComponent implements OnInit {
-  @Input() customButton: boolean = false;
-  @Input() showNewItem: boolean = true;
-  @Input() showTitle: boolean = true;
-  @Input() isDialog: boolean = false;
+  @Input() customButton = false;
+  @Input() showNewItem = true;
+  @Input() showTitle = true;
+  @Input() isDialog = false;
   @Output() customButtonActionEmit: EventEmitter<any> = new EventEmitter();
   @Output() closeDialogEmit: EventEmitter<any> = new EventEmitter();
   // token: string = localStorage.getItem('id_token');

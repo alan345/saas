@@ -52,8 +52,8 @@ export class EditPaiementQuoteComponent implements OnInit {
   ]
   // arrayContentToSearch = []
   // fetchedUsers: User[] = [];
-  // autocompleteUser: string = '';
-  // autocompleteProject: string = '';
+  // autocompleteUser = '';
+  // autocompleteProject = '';
   // fetchedProjects: Project[] = []
   // currentUser: User = new User()
   // imgLogoUrl: string = './assets/images/profile-placeholder.jpg'

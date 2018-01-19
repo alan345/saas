@@ -20,10 +20,10 @@ import { PaiementQuoteDialogComponent } from '../single/dialog/paiementQuoteDial
 export class PaiementQuotesComponent implements OnInit, OnChanges {
   // @Input() userId = '';
   // @Input() idQuote = '';
-  // @Input() showHeader: boolean = true;
+  // @Input() showHeader = true;
   @Output() getPaiementQuotesCross: EventEmitter<any> = new EventEmitter();
   // @Output() newPaiementSaved: EventEmitter<any> = new EventEmitter();
-  // @Input() showCreate: boolean = true;
+  // @Input() showCreate = true;
   @Input() search: Search = new Search()
   @Input() showBack: number = -1
 

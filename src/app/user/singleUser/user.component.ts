@@ -35,7 +35,7 @@ export class UserComponent implements OnInit {
   @Input() isDialog: boolean = false
 
   customFormControls = new CustomFormControls()
-  loading: boolean = false;
+  loading = false;
 
   myForm: FormGroup
   // myForm: FormGroup = this._fb.group({
@@ -49,7 +49,7 @@ export class UserComponent implements OnInit {
   // })
 
   fetchedTypeUsers = []
-  autocompleteTypeUser: string = '';
+  autocompleteTypeUser = '';
 
   // fetchedRights: Right[] = []
   addressTypes = AddressTypes;
@@ -68,7 +68,7 @@ export class UserComponent implements OnInit {
 
   fetchedUser: User = new User();
   currentUser: User = new User();
-  showProjects: boolean = false;
+  showProjects = false;
   places = []
   step = -1;
 

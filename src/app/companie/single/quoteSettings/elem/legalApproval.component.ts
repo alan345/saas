@@ -10,8 +10,8 @@ import {Companie} from '../../../companie.model';
 export class LegalApprovalComponent {
   @Output() save: EventEmitter<any> = new EventEmitter();
   @Input() fetchedCompanie: Companie = new Companie()
-  legalApprovalValueToAdd: string = '';
-  // showLoginInApp: boolean = false;
+  legalApprovalValueToAdd = '';
+  // showLoginInApp = false;
 
   constructor(
   ) {}

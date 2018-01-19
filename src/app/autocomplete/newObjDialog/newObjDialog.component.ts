@@ -25,9 +25,9 @@ import { MatDialog } from '@angular/material';
 export class newObjDialogComponent implements OnInit {
 
   @Input() search = new Search();
-  @Input() typeObj: string = '';
-  @Input() title: string = '';
-  @Input() icon: string = '';
+  @Input() typeObj = '';
+  @Input() title = '';
+  @Input() icon = '';
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Output() cliked: EventEmitter<any> = new EventEmitter();
 

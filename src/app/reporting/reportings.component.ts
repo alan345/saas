@@ -19,7 +19,7 @@ import { TranslateService } from '../translate/translate.service';
 export class ReportingsComponent implements OnInit {
   year: number = (new Date()).getFullYear()
   month: number = (new Date()).getMonth()
-  ready: boolean = false;
+  ready = false;
   statusQuote = ['signed', 'paid', 'pending', 'rejected']
   emptyRowPaid = new EmptyRow();
   emptyRowPending = new EmptyRow();
@@ -141,7 +141,7 @@ export class ReportingsComponent implements OnInit {
     responsive: true
   };
 
-  public lineChartLegend: boolean = true;
+  public lineChartLegend = true;
   search: Search = new Search();
 
   constructor(

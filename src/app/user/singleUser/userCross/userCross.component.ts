@@ -32,10 +32,10 @@ export class UserCrossComponent implements OnInit {
 
   loading: boolean = false
   fetchedCompanies: Companie[] = []
-  // autocompleteCompanie: string = '';
+  // autocompleteCompanie = '';
 
   fetchedTypeUsers = []
-  // autocompleteTypeUser: string = '';
+  // autocompleteTypeUser = '';
 
   // fetchedRights: Right[] = []
   addressTypes = AddressTypes;
@@ -54,7 +54,7 @@ export class UserCrossComponent implements OnInit {
   @Input() fetchedUser: User = new User();
   fetchedUserCross: UserCross = new UserCross();
   currentUser: User = new User();
-  showProjects: boolean = false;
+  showProjects = false;
   places = []
 
 

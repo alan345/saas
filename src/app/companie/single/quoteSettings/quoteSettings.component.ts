@@ -30,9 +30,9 @@ import {Router} from '@angular/router';
 
 export class QuoteSettingsComponent implements OnInit {
   @Output() saveEmit: EventEmitter<any> = new EventEmitter();
-  // @Input() showBackButton: Boolean = true;
+  // @Input() showBackButton = true;
   @Input() fetchedCompanie: Companie = new Companie()
-  showLoginInApp: boolean = false;
+  showLoginInApp = false;
 
 
   constructor(

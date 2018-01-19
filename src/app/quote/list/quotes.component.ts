@@ -22,9 +22,9 @@ export class QuotesComponent implements OnInit, OnChanges {
   @Input() showSearch = true;
   @Input() showBack: number = -1;
   // @Input() showBackButton = true;
-  @Input() idProject: string = '';
-  @Input() idClient: string = '';
-  @Input() createNewButton: boolean = true;
+  @Input() idProject = '';
+  @Input() idClient = '';
+  @Input() createNewButton = true;
   @Output() savedEmit: EventEmitter<any> = new EventEmitter();
 
   fetchedQuotes: Quote[] = [];

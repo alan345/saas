@@ -17,8 +17,8 @@ import {GlobalEventsManager} from '../../globalEventsManager';
 export class SidebarComponent implements OnInit {
   @Input() sidenav: any;
   // @ViewChild('sidenav') public sidenav: MatSidenav;
-  showNavBar: boolean = false;
-  isLoggedIn: boolean = false;
+  showNavBar = false;
+  isLoggedIn = false;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   // fetchedUser: User = new User();

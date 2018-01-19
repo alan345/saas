@@ -40,7 +40,7 @@ import { Companie} from '../../../companie/companie.model';
   styleUrls: ['../../quote.component.css'],
 })
 export class QuoteInfoComponent implements OnInit {
-  loading: boolean = false;
+  loading = false;
   @Output() quoteStatusChangedEmit: EventEmitter<any> = new EventEmitter();
   @Output() save: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search()

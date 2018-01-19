@@ -1,21 +1,21 @@
 
 export class Right {
-  _id: string = '';
+  _id = '';
 
   detailRight: DetailRight = new DetailRight()
 }
 
 export class DetailRight {
-  nameRight: string = '';
+  nameRight = '';
   permissions: Permission[] = []
 }
 
 export class Permission {
-  namePermission: string = '';
+  namePermission = '';
   access: Access[] = []
 }
 export class Access {
-  typeAccess: string = '';
+  typeAccess = '';
 }
 
 export const TypeRights = [

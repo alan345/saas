@@ -7,54 +7,54 @@ import { Address } from '../shared/address/address.model';
 export const TypeUser = ['plombier', 'serrurier']
 
 export class User {
-  _id: string = '';
+  _id = '';
   canBeSeenByCompanies: Companie[] = [];
   ownerCompanies: Companie[] = [];
   dateSeeLatestNotif: Date= new Date()
-  // isAdminOfHisCompanie: Boolean = false;
-  isExternalUser: Boolean = true;
-  email: string = '';
+  // isAdminOfHisCompanie = false;
+  isExternalUser = true;
+  email = '';
   // role: string[] = [];
-  isAdmin: boolean = false;
-  typeUsers: string = '';
+  isAdmin = false;
+  typeUsers = '';
   forms: Form[] = [];
   // rights: Right[] = []
   rightsInApp: Right[] = []
   profile: Profile = new Profile();
-  password: string = '';
+  password = '';
   salesMan: User[] = [];
   paiement: Paiement= new Paiement()
 }
 export class UserRegister {
 
-  email: string = '';
+  email = '';
 
   profile: Profile = new Profile();
-  password: string = '';
+  password = '';
   company: CompanyRegister = new CompanyRegister()
 
 }
 
 export class CompanyRegister {
-  nameCompanie: string = '';
-  typeCompanie: string = '';
+  nameCompanie = '';
+  typeCompanie = '';
 }
 
 export class UserCross {
-  _id: string = '';
+  _id = '';
   ownerCompanies: Companie[] = [];
   users: User[] = [];
 
-  // isAdminOfHisCompanie: Boolean = false;
-  isExternalUser: Boolean = true;
-  email: string = '';
+  // isAdminOfHisCompanie = false;
+  isExternalUser = true;
+  email = '';
   role: string[] = [];
   // typeUsers: string[] = [];
   forms: Form[] = [];
   // rights: Right[] = []
   rightsInApp: Right[] = []
   profile: Profile = new Profile();
-  password: string = '';
+  password = '';
   // salesMan: User[] = [];
   // paiement: Paiement= new Paiement()
 }
@@ -68,20 +68,20 @@ export class Stripe {
 
 
 export class Profile {
-  name: string = '';
-  lastName: string = '';
-  phoneNumber: string = '';
-  otherData: string = '';
-  companyName: string = '';
+  name = '';
+  lastName = '';
+  phoneNumber = '';
+  otherData = '';
+  companyName = '';
 
   // parentUser: User[] = [];
   profilePicture: Form[] = [];
-  colorCalendar: string = '';
-  // fax: string = '';
+  colorCalendar = '';
+  // fax = '';
   title: string = 'Mr.';
   typeClient: string = 'Individual';
-  // statusHouse: string = '';
-  // sourceContact: string = '';
+  // statusHouse = '';
+  // sourceContact = '';
   // detailHouse: DetailHouse = new DetailHouse();
   address: Address[] = [];
   language: string = 'fr';
@@ -91,11 +91,11 @@ export class Profile {
 
 
 // export class DetailHouse {
-//   typeHouse: string = '';
+//   typeHouse = '';
 //   surface: number;
-//   accesCode: string = '';
-//   floor: string = '';
-//   accessType: string = '';
+//   accesCode = '';
+//   floor = '';
+//   accessType = '';
 // }
 
 
@@ -109,13 +109,13 @@ export class Profile {
 //
 // export class Address {
 //     nameAddress: string = 'shipping';
-//     address: string = '';
-//     address2: string = '';
-//     city: string = '';
+//     address = '';
+//     address2 = '';
+//     city = '';
 //     cities: string[] = [];
-//     state : string = '';
-//     zip : string = '';
-//     country : string = '';
+//     state  = '';
+//     zip  = '';
+//     country  = '';
 // }
 
 

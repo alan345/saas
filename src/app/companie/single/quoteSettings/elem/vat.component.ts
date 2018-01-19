@@ -11,7 +11,7 @@ export class VATComponent {
   @Output() save: EventEmitter<any> = new EventEmitter();
   @Input() fetchedCompanie: Companie = new Companie()
   VATvalueToAdd: number;
-  // showLoginInApp: boolean = false;
+  // showLoginInApp = false;
 
   constructor(
   ) {}

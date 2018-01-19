@@ -4,10 +4,10 @@ import { User } from '../user/user.model';
 import {Address} from '../shared/address/address.model';
 
 export class Companie {
-  _id: string = '';
-  nameCompanie: string = '';
-  // typeCompanie: string = '';
-  isSupplier: boolean = false;
+  _id = '';
+  nameCompanie = '';
+  // typeCompanie = '';
+  isSupplier = false;
   phoneNumber: string= '';
   faxNumber: string= '';
   email: string= '';
@@ -31,41 +31,41 @@ export class Companie {
 
 
 export class QuoteSettings {
-  legalNotice: string = '';
-  legalNoticeInvoice: string = '';
-  prefixInvoice: string = '';
-  prefixQuote: string = '';
-  prefixIntervention: string = '';
+  legalNotice = '';
+  legalNoticeInvoice = '';
+  prefixInvoice = '';
+  prefixQuote = '';
+  prefixIntervention = '';
 }
 // export class ContactsPerson {
-//   contactType: string = '';
-//   contactName: string = '';
-//   contactFirstName: string = '';
-//   contactPhoneNumber: string = '';
-//   contactEmail: string = '';
+//   contactType = '';
+//   contactName = '';
+//   contactFirstName = '';
+//   contactPhoneNumber = '';
+//   contactEmail = '';
 // }
 
 
 export class TypeUsers {
-  value: string = '';
+  value = '';
 }
 
 export class Banck {
-  serviceSelected: string = '';
+  serviceSelected = '';
   stripe: Stripe = new Stripe()
 }
 export class Stripe {
-  stripe_user_id: string = '';
-  stripe_user_id_gooplus: string = '';
+  stripe_user_id = '';
+  stripe_user_id_gooplus = '';
 }
 
 export class Rigth {
-  nameRight: string = '';
+  nameRight = '';
   permissions: Permission[] = []
 }
 
 export class Permission {
-  namePermission: string = '';
+  namePermission = '';
   access: Access[] = []
 }
 
@@ -88,7 +88,7 @@ export class Categorie {
 
 export class Categorie0 {
   categ: string= '';
-  isFlagged: boolean = false;
+  isFlagged = false;
   subCateg: Categorie1[] = []
 }
 
@@ -122,11 +122,11 @@ export class Calendar {
 }
 //
 // export class Address {
-//   nameAddress: string = '';
-//   address: string = '';
-//   city: string = '';
-//   state: string = '';
-//   zip: string = '';
-//   country: string = '';
+//   nameAddress = '';
+//   address = '';
+//   city = '';
+//   state = '';
+//   zip = '';
+//   country = '';
 //
 // }

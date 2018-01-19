@@ -25,7 +25,7 @@ import { AuthService} from '../../auth/auth.service';
 })
 
 export class ProductSingleComponent implements OnInit {
-  @Input() isDialog: boolean = false;
+  @Input() isDialog = false;
   @Output() saved: EventEmitter<any> = new EventEmitter();
   selectedIndex0: number = -1
   selectedIndex1: number = -1
@@ -34,16 +34,16 @@ export class ProductSingleComponent implements OnInit {
   // selectedIndex2 = 0
   // show1 = false
   // show2 = false
-  // categ1: string = '';
-  // categ2: string = '';
-  // categ3: string = '';
+  // categ1 = '';
+  // categ2 = '';
+  // categ3 = '';
   itemSteps = ItemSteps;
   step = -1;
 
   VATs = ModelVATs;
   myCompanie: Companie = new Companie()
 
-  // autocompleteCompanie: string = '';
+  // autocompleteCompanie = '';
 
   // fetchedCurrentUser: User = new User()
   fetchedProduct: Product = new Product();

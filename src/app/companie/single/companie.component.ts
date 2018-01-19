@@ -26,7 +26,7 @@ import { PaiementService} from './paiement/paiement.service';
 })
 export class CompanieComponent implements OnInit {
   // @Output() saved: EventEmitter<any> = new EventEmitter();
-  // @Input() showBackButton: Boolean = true;
+  // @Input() showBackButton = true;
   fetchedCompanie: Companie = new Companie()
   step = -1;
   debugMode: boolean = false

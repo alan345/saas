@@ -10,8 +10,8 @@ import {Companie} from '../../../companie.model';
 export class TypeInterventionComponent {
   @Output() save: EventEmitter<any> = new EventEmitter();
   @Input() fetchedCompanie: Companie = new Companie()
-  valueToAdd: string = '';
-  // showLoginInApp: boolean = false;
+  valueToAdd = '';
+  // showLoginInApp = false;
 
   constructor(
   ) {}

@@ -53,8 +53,8 @@ export class QuoteDetailsComponent implements OnInit {
 
   // showPaiements: boolean = false
   // fetchedQuote: Quote = new Quote()
-  // autocompleteUser: string = '';
-  // autocompleteProject: string = '';
+  // autocompleteUser = '';
+  // autocompleteProject = '';
   // fetchedProducts: Product[] = []
 
   // imgLogoUrl: string = './assets/images/profile-placeholder.jpg'

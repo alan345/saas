@@ -27,14 +27,14 @@ import {Search} from '../shared/shared.model'
 export class AutocompleteComponent implements OnChanges{
   @Input() typeAutocomplete: string;
   @Input() arrayContent = [];
-  @Input() singleChoice: boolean = true;
-  @Input() title: string = '';
+  @Input() singleChoice = true;
+  @Input() title = '';
   @Input() search: Search = new Search()
-  @Input() canDelete: boolean = true;
-  @Input() canCreateNewObj: boolean = true;
-  @Input() enableLink: boolean = true;
-  @Input() displayIfContentIsNull: boolean = true;
-  @Input() readonly: boolean = false;
+  @Input() canDelete = true;
+  @Input() canCreateNewObj = true;
+  @Input() enableLink = true;
+  @Input() displayIfContentIsNull = true;
+  @Input() readonly = false;
 
   @Output() getResultAutocomplete: EventEmitter<any> = new EventEmitter();
   @Output() linkClicked: EventEmitter<any> = new EventEmitter();
@@ -42,8 +42,8 @@ export class AutocompleteComponent implements OnChanges{
   @Output() autocompleteAfterNgChanges: EventEmitter<any> = new EventEmitter();
   autocompleteSearch = ''
   fetchedData: User[] = [];
-  loading: boolean = false;
-  // createNewItem: boolean = false;
+  loading = false;
+  // createNewItem = false;
 
 
   constructor(

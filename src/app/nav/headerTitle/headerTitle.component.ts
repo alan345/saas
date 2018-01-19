@@ -12,12 +12,12 @@ import { GlobalEventsManager } from '../../globalEventsManager';
   styleUrls: ['./headerTitle.component.css']
 })
 export class HeaderTitleComponent implements OnInit, OnChanges {
-  @Input() title: string = '';
-  @Input() isDialog: boolean = false;
-  @Input() icon: string = '';
-  @Input() typeObj: string = '';
+  @Input() title = '';
+  @Input() isDialog = false;
+  @Input() icon = '';
+  @Input() typeObj = '';
   @Input() showBack: number = 0;
-  @Input() createNewButton: boolean = true;
+  @Input() createNewButton = true;
   @Input() search: Search = new Search();
   @Output() saved: EventEmitter<any> = new EventEmitter();
 

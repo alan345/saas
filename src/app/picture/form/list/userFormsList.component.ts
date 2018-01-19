@@ -16,14 +16,14 @@ import { GlobalEventsManager } from '../../../globalEventsManager';
 export class UserFormsListComponent implements OnInit {
   @Input() itemsPerPage: number;
   @Input() isDialog: boolean;
-  @Input() showPagination: boolean = true;
+  @Input() showPagination = true;
 
 
   @Output() onPassForm = new EventEmitter<any>();
   @Output() removeForm = new EventEmitter<any>();
   @Output() getUserForms = new EventEmitter<any>();
   @Input() fetchedForms: Form[] = [];
-  @Input() deletePicture: boolean = true;
+  @Input() deletePicture = true;
 
   @Input() paginationData = {
     currentPage: 1,

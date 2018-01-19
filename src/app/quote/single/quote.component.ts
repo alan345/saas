@@ -20,7 +20,7 @@ import { Companie} from '../../companie/companie.model';
 })
 export class QuoteComponent implements OnInit {
   @ViewChild(DrawingSignatureComponent) drawingSignatureComponent: DrawingSignatureComponent
-  loading: boolean = false;
+  loading = false;
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Output() close: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search()

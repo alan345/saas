@@ -9,7 +9,7 @@ import { AuthService} from '../../../auth/auth.service';
 })
 export class QuoteStatusComponent {
   @Input() fetchedQuote: Quote = new Quote();
-  @Input() showSingleSelected: boolean = false;
+  @Input() showSingleSelected = false;
   @Output() quoteStatusChanged: EventEmitter<any> = new EventEmitter();
 
   statusQuotes = StatusQuotes;

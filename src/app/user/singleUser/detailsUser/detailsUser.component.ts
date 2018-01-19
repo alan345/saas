@@ -68,10 +68,10 @@ export class DetailsUserComponent implements OnInit {
 
 
   // fetchedCompanies: Companie[] = []
-  // autocompleteCompanie: string = '';
+  // autocompleteCompanie = '';
 
   fetchedTypeUsers = []
-  // autocompleteTypeUser: string = '';
+  // autocompleteTypeUser = '';
 
   // fetchedRights: Right[] = []
   addressTypes = AddressTypes;
@@ -89,7 +89,7 @@ export class DetailsUserComponent implements OnInit {
 
   @Input() fetchedUser: User = new User();
   currentUser: User = new User();
-  showProjects: boolean = false;
+  showProjects = false;
   places = []
 
 

@@ -41,8 +41,8 @@ export class SearchCalendarComponent implements OnInit {
   //
   // showPaiements: boolean = false
   // fetchedUserCalendar: UserCalendar = new UserCalendar()
-  // autocompleteUser: string = '';
-  // autocompleteProject: string = '';
+  // autocompleteUser = '';
+  // autocompleteProject = '';
   // fetchedProducts: Product[] = []
   // fetchedProjects: Project[] = []
   currentUser: User = new User()
@@ -163,7 +163,7 @@ export class SearchCalendarComponent implements OnInit {
   }
   // autocolplete typeUser
   //  fetchedTypeUsers = []
-  //  autocompleteTypeUser: string = '';
+  //  autocompleteTypeUser = '';
   //  searchTypeUser() {
   //    if(!this.autocompleteTypeUser) {
   //      this.fetchedTypeUsers = []

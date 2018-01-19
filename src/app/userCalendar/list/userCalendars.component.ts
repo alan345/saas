@@ -67,7 +67,7 @@ export class UserCalendarsComponent implements OnInit {
   events: UserCalendar[] = []
   myForm: FormGroup;
 
-  // loading: boolean = false;
+  // loading = false;
   calendarOptions: {}
   modeInput: boolean = true
 

@@ -15,7 +15,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class DetailsCalendarComponent implements OnInit, OnChanges {
   @Output() saveEmit: EventEmitter<any> = new EventEmitter();
-  // @Input() showBackButton: Boolean = true;
+  // @Input() showBackButton = true;
   @Input() fetchedCompanie: Companie = new Companie()
 
   daysToHideTemp: any = [true, true, true, true, true, true, true]

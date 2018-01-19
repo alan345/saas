@@ -7,95 +7,95 @@ import { Quote } from '../quote/quote.model';
 
 
 export class PaiementQuote {
-  _id: string = '';
+  _id = '';
   ownerCompanies: Companie[] = []
   quotes: Quote[] = []
   createdBy: User[] = []
   userDebiteds: User[] = []
   // projects: Project[] = []
   datePaiement: Date = new Date();
-  datePaiementString: string = '';
+  datePaiementString = '';
   amount: number = 0;
   type: string = 'cash';
-  title: string = '';
-  isGooplusPaiement: boolean = false;
-  isPaid: boolean = true;
-  isExpense: boolean = false;
-  editModeDate: boolean = false;
+  title = '';
+  isGooplusPaiement = false;
+  isPaid = true;
+  isExpense = false;
+  editModeDate = false;
   stripe: Stripe = new Stripe()
 }
 export class Stripe {
-  cusId: string = '';
-  isSubscription: boolean = false;
+  cusId = '';
+  isSubscription = false;
   charge: Charge = new Charge()
 }
 export class Charge {
-  balance_transaction: string = '';
+  balance_transaction = '';
   amount: number;
   created: number
-  currency: string = '';
-  customer: string = '';
-  id: string = '';
-  status: string = '';
+  currency = '';
+  customer = '';
+  id = '';
+  status = '';
   source: Source = new Source()
 }
 
 export class Source {
-  address_city: string = '';
-  address_country: string = '';
-  address_line1: string = '';
-  address_line1_check: string = '';
-  address_line2: string = '';
-  address_state: string = '';
-  address_zip: string = '';
-  address_zip_check: string = '';
-  brand: string = '';
-  country: string = '';
-  customer: string = '';
-  cvc_check: string = '';
-  dynamic_last4: string = '';
-  exp_month: string = '';
-  exp_year: string = '';
-  fingerprint: string = '';
-  funding: string = '';
-  id: string = '';
-  last4: string = '';
+  address_city = '';
+  address_country = '';
+  address_line1 = '';
+  address_line1_check = '';
+  address_line2 = '';
+  address_state = '';
+  address_zip = '';
+  address_zip_check = '';
+  brand = '';
+  country = '';
+  customer = '';
+  cvc_check = '';
+  dynamic_last4 = '';
+  exp_month = '';
+  exp_year = '';
+  fingerprint = '';
+  funding = '';
+  id = '';
+  last4 = '';
 }
 
 
 // stripe: {
 //   charge:{
-//     balance_transaction: string = '';
+//     balance_transaction = '';
 //     amount: {type: Number},
 //     created: {type: Number},
-//     currency: string = '';
-//     customer: string = '';
-//     id: string = '';
-//     status: string = '';
+//     currency = '';
+//     customer = '';
+//     id = '';
+//     status = '';
 //     source: {
-//       address_city: string = '';
-//       address_country: string = '';
-//       address_line1: string = '';
-//       address_line1_check: string = '';
-//       address_line2  : string = '';
-//       address_state: string = '';
-//       address_zip: string = '';
-//       address_zip_check: string = '';
-//       brand: string = '';
-//       country: string = '';
-//       customer  : string = '';
-//       cvc_check  : string = '';
-//       dynamic_last4: string = '';
-//       exp_month  : string = '';
-//       exp_year: string = '';
-//       fingerprint  : string = '';
-//       funding: string = '';
-//       id: string = '';
-//       last4: string = '';
+//       address_city = '';
+//       address_country = '';
+//       address_line1 = '';
+//       address_line1_check = '';
+//       address_line2   = '';
+//       address_state = '';
+//       address_zip = '';
+//       address_zip_check = '';
+//       brand = '';
+//       country = '';
+//       customer   = '';
+//       cvc_check   = '';
+//       dynamic_last4 = '';
+//       exp_month   = '';
+//       exp_year = '';
+//       fingerprint   = '';
+//       funding = '';
+//       id = '';
+//       last4 = '';
 //     }
 //
 //   },
-//   cusId: string = '';
+//   cusId = '';
 //   isSubscription:{type: Boolean, default: [false]},
 //   planDetail:{
 //     plan:{type: String, default: ['']},
@@ -104,12 +104,12 @@ export class Source {
 // }
 
 export class StripeCustomer {
-  id: string = '';
+  id = '';
   account_balance: number = 0;
-  created: string = '';
-  default_source: string = '';
-  description: string = '';
-  email: string = '';
+  created = '';
+  default_source = '';
+  description = '';
+  email = '';
   sources: Sources = new Sources()
   subscriptions: Subscription = new Subscription()
 }
@@ -119,21 +119,21 @@ export class Sources {
 }
 
 export class DataSource {
-  id: string = '';
+  id = '';
   object: string = 'card';
-  address_city: string = '';
-  address_country: string = '';
-  address_line1: string = '';
-  address_state: string = '';
-  address_zip: string = '';
-  address_line2: string = '';
-  brand: string = '';
-  country: string = '';
-  exp_month: string = '';
-  exp_year: string = '';
-  last4: string = '';
-  funding: string = '';
-  cvc: string = '';
+  address_city = '';
+  address_country = '';
+  address_line1 = '';
+  address_state = '';
+  address_zip = '';
+  address_line2 = '';
+  brand = '';
+  country = '';
+  exp_month = '';
+  exp_year = '';
+  last4 = '';
+  funding = '';
+  cvc = '';
 }
 
 export class Subscription {
@@ -141,10 +141,10 @@ export class Subscription {
 }
 
 export class DataSubscription {
-  id: string = '';
-  created: string = '';
-  current_period_end: string = '';
-  current_period_start: string = '';
+  id = '';
+  created = '';
+  current_period_end = '';
+  current_period_start = '';
   items: Items = new Items()
 }
 
@@ -154,16 +154,16 @@ export class Items {
 }
 
 export class DataItem {
-  id: string = '';
-  created: string = '';
+  id = '';
+  created = '';
   plan: Plan = new Plan()
 }
 
 export class Plan {
-  id: string = '';
+  id = '';
   amount: number = 0;
-  created: string = '';
-  currency: string = '';
-  interval: string = '';
+  created = '';
+  currency = '';
+  interval = '';
   interval_count: number = 0;
 }

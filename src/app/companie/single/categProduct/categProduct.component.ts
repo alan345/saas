@@ -28,10 +28,10 @@ import { FormBuilder} from '@angular/forms';
 })
 export class CategProductComponent implements OnInit {
   @Output() save: EventEmitter<any> = new EventEmitter();
-  // @Input() showBackButton: Boolean = true;
+  // @Input() showBackButton = true;
   @Input() fetchedCompanie: Companie = new Companie();
   // fetchedCompanie: Companie = new Companie()
-  // showLoginInApp: boolean = false;
+  // showLoginInApp = false;
   // userAdmins : User[] = []
   // userManagers : User[] = []
   // userClients : User[] = []

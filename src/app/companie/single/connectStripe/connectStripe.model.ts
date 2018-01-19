@@ -2,22 +2,22 @@
 
 
 export class AccountConnectStripe {
-  id: string = '';
-  business_logo: string = '';
-  business_name: string = '';
-  business_url: string = '';
-  charges_enabled: boolean = false;
-  country: string = '';
-  default_currency: string = '';
-  details_submitted: boolean = false;
-  display_name: string = '';
-  email: string = '';
-  object: string = '';
-  payouts_enabled: boolean = false;
-  statement_descriptor: string = '';
-  support_email: string = '';
-  support_phone: string = '';
-  timezone: string = '';
-  type: string = '';
+  id = '';
+  business_logo = '';
+  business_name = '';
+  business_url = '';
+  charges_enabled = false;
+  country = '';
+  default_currency = '';
+  details_submitted = false;
+  display_name = '';
+  email = '';
+  object = '';
+  payouts_enabled = false;
+  statement_descriptor = '';
+  support_email = '';
+  support_phone = '';
+  timezone = '';
+  type = '';
 
 }

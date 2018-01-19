@@ -25,8 +25,8 @@ export class TotalComponent implements OnInit, OnChanges {
   //
   // // showPaiements: boolean = false
   // // fetchedQuote: Quote = new Quote()
-  // // autocompleteUser: string = '';
-  // // autocompleteProject: string = '';
+  // // autocompleteUser = '';
+  // // autocompleteProject = '';
   // fetchedProducts: Product[] = []
 
   // imgLogoUrl: string = './assets/images/profile-placeholder.jpg'

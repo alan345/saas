@@ -20,7 +20,7 @@ export class DrawingSignatureComponent implements OnInit {
   // @ViewChild('signaturePadClass') elementView: ElementRef;
   imgSignatureBase64Temp: string[] = []
   drawing: DrawingSignature = new DrawingSignature();
-  // @Input() base64: string = '';
+  // @Input() base64 = '';
   // @Output() saved: EventEmitter<any> = new EventEmitter();
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() cleared: EventEmitter<any> = new EventEmitter();

@@ -8,13 +8,13 @@ import { DrawingSignature } from './single/drawingSignature/drawingSignature.mod
 
 
 export class Quote {
-  _id: string = '';
+  _id = '';
   clients: User[] = [];
   historyClients: User[] = [];
   historyClientsCross: UserCross[] = [];
-  name: string = '';
+  name = '';
   statusQuote: string = 'pending';
-  // statusQuoteString: string = '';
+  // statusQuoteString = '';
   typeQuote: string = 'quote';
   quoteNumber: number;
   isSigned:boolean = false;
@@ -37,8 +37,8 @@ export class Quote {
 }
 
 export class Detail {
-  currency: string = '';
-  quoteRef: string = '';
+  currency = '';
+  quoteRef = '';
   dateQuote: DateQuote = new DateQuote()
 }
 
@@ -47,7 +47,7 @@ tomorrow.setDate(tomorrow.getDate() + 30);
 
 export class DateQuote {
   issueDate: Date = new Date();
-  // issueDateString: string = '';
+  // issueDateString = '';
   expiryDate: Date = tomorrow;
   // expiryDateString: string ='';
   dateInvoicePaid: Date = new Date();
@@ -58,8 +58,8 @@ export class DateQuote {
 
 //
 // export class Signature {
-//   base64: string = '';
-//   isSigned: boolean = false;
+//   base64 = '';
+//   isSigned = false;
 //   dateSignature: Date;
 //   users: User[] = [];
 // }
@@ -87,8 +87,8 @@ export const ModelVATs: number[] = [0, 5.5, 10]
 
 
 export class BucketProduct {
-  typeRow: string = '';
-  title: string = '';
+  typeRow = '';
+  title = '';
   productInit: Product[] = [];
   priceWithoutTaxes: number = 0;
   priceWithDiscount: number = 0;
@@ -107,16 +107,16 @@ export class BucketProduct {
   width: number = 1;
   surface: number = 1;
   discount: number = 0;
-  isEditMode: boolean = false;
+  isEditMode = false;
 }
 
 export class TextToQuote {
-    title: string = '';
+    title = '';
     priceWithoutTaxes: number;
   }
 
 export class DevisDetail {
-  nameBucketProducts: string = '';
+  nameBucketProducts = '';
   bucketProducts: BucketProduct[] = []
 }
 
@@ -136,8 +136,8 @@ export const StatusQuotes =
 // ]
 
 // export class Address {
-//   address: string = '';
-//   city: string = '';
-//   state: string = '';
-//   zip: string = '';
+//   address = '';
+//   city = '';
+//   state = '';
+//   zip = '';
 // }

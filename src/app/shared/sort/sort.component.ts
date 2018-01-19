@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
 
 export class SortComponent implements OnInit {
   @Input() search: Search = new Search;
-  @Input() filedToOrder: string = '';
+  @Input() filedToOrder = '';
   @Output() orderBy: EventEmitter<any> = new EventEmitter();
 
   constructor(

@@ -1,30 +1,26 @@
 import { Injectable } from '@angular/core';
-
 import { UserAuth } from './user.model';
-
-
 import { Observable } from 'rxjs/Observable';
 import { Response, Headers, Http } from '@angular/http';
-
 import 'rxjs/operator/map';
 import 'rxjs/operator/catch';
 import { ToastsManager } from 'ng2-toastr';
 import { Error2Service } from '../errorHandler/error2.service';
 import { Reset } from './resetPassword';
 import { tokenNotExpired } from 'angular2-jwt';
-import { Router } from '@angular/router';
 import { JwtHelper } from 'angular2-jwt';
-// import {UserService} from '../user/user.service'
 import { User } from '../user/user.model'
 import { GlobalEventsManager } from '../globalEventsManager';
 import { Config } from '../shared/config.model';
+// import {UserService} from '../user/user.service'
+// import { Router } from '@angular/router';
 
 
 @Injectable()
 
 export class AuthService {
   private url = Config.backendURL;
-  private isMobileSizeScreen: boolean = false;
+  private isMobileSizeScreen = false;
   public token: string;
   public langParam: string = 'fr';
   public currentUser = {

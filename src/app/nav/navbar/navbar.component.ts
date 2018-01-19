@@ -28,9 +28,9 @@ import { GlobalEventsManager } from '../../globalEventsManager';
 export class NavbarComponent implements OnInit {
   // @Input() sidenav: any;
   // @Input() widthContainer: number = 0;
-  showNavBar: boolean = false;
-  showSideNavBar: boolean = false;
-  showBackButton: boolean = false;
+  showNavBar = false;
+  showSideNavBar = false;
+  showBackButton = false;
   // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   fetchedUser: User = new User();

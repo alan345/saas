@@ -8,11 +8,11 @@ export const AddressTypes =
 
 export class Address {
   nameAddress: string = 'shipping';
-  address: string = '';
-  address2: string = '';
-  city: string = '';
+  address = '';
+  address2 = '';
+  city = '';
   cities: string[] = [];
-  state: string = '';
-  zip: string = '';
-  country: string = '';
+  state = '';
+  zip = '';
+  country = '';
 }
