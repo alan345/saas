@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, RequestOptions, Http } from '@angular/http';
 import { AppComponent } from './app.component';
@@ -26,7 +26,9 @@ import { ErrorComponent } from './errorHandler/error.component';
 import { ErrorPageComponent } from './errorPage/errorPage.component';
 import { PaiementGuardService } from './companie/single/paiement/paiementGuard.service';
 import { LoadingInAppModule } from './nav/loadingInApp/loadingInApp.module';
-
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({}), http, options);
@@ -59,6 +61,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AuthGuardService,
     NotClientGuardService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
+    {
+      provide: LOCALE_ID,
+      deps: [AuthService],
+      useFactory: (authService) => authService.getLanguage()
+    },
     AuthService,
     ErrorService,
     Error2Service,

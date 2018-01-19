@@ -44,7 +44,7 @@
         <!-- <div *ngIf="typeAutocomplete=='user'"> -->
           <mat-form-field>
             <input *ngIf="typeAutocomplete=='user'" readonly placeholder="{{title | translate}}" matInput type="text" value="{{data.profile.name}} {{data.profile.lastName}}">
-            <input *ngIf="typeAutocomplete=='companie'" readonly placeholder="{{title} | translate}" matInput type="text" value="{{data.nameCompanie}}">
+            <input *ngIf="typeAutocomplete=='companie'" readonly placeholder="{{title | translate}}" matInput type="text" value="{{data.nameCompanie}}">
             <input *ngIf="typeAutocomplete=='quote'" readonly placeholder="{{title | translate}}" matInput type="text" value="{{data.name}}">
             <!-- <input *ngIf="typeAutocomplete=='project'" readonly placeholder="{{title}}" matInput type="text" value="{{data.details.name}}"> -->
             <input *ngIf="typeAutocomplete=='product'" readonly placeholder="{{title | translate}}" matInput type="text" value="{{data.details.referenceName}}">

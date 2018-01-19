@@ -154,6 +154,7 @@ export class UserCalendarsComponent implements OnInit {
       slotDuration: slotDuration,
       locale: 'fr',
       slotLabelFormat: "HH:mm",
+      columnFormat: 'ddd D/M',
       allDaySlot: false,
       nowIndicator: true,
       businessHours: {

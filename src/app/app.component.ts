@@ -14,6 +14,8 @@ import { GlobalEventsManager } from './globalEventsManager';
 import { MatSidenav } from '@angular/material';
 
 import { tokenNotExpired } from 'angular2-jwt';
+// import { DateAdapter, NativeDateAdapter } from '@angular/material';
+
 
 //
 
@@ -33,11 +35,12 @@ export class AppComponent implements AfterViewInit {
   constructor(
     private globalEventsManager: GlobalEventsManager,
     private router: Router,
+    // dateAdapter: DateAdapter<NativeDateAdapter>,
     // private authService: AuthService,
     public toastr: ToastsManager,
     public vcr: ViewContainerRef
   ) {
-
+    // dateAdapter.setLocale('fr');
     // if (window.screen.width < 1000) {
     //   this.modeSidenav = 'over'
     // }

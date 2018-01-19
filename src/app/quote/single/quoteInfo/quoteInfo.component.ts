@@ -5,7 +5,7 @@ import {ToastsManager} from 'ng2-toastr';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Search} from '../../../shared/shared.model'
-// import { AuthService} from '../../../auth/auth.service';
+import { AuthService} from '../../../auth/auth.service';
 import { Companie} from '../../../companie/companie.model';
 // import {Router, ActivatedRoute, Params } from '@angular/router';
 // import {QuoteService} from '../../quote.service';
@@ -32,6 +32,7 @@ import { Companie} from '../../../companie/companie.model';
 // import { SignaturePad } from '../../../angular2-signaturepad/signature-pad';
 
 // import { PaiementQuotesComponent } from '../../../paiementQuote/paiementQuotes/paiementQuotes.component';
+// import { DateAdapter, NativeDateAdapter } from '@angular/material';
 
 @Component({
   selector: 'app-quoteInfo',
@@ -58,7 +59,8 @@ export class QuoteInfoComponent implements OnInit {
   constructor(
     private toastr: ToastsManager,
     private _fb: FormBuilder,
-    // public authService: AuthService,
+    // dateAdapter: DateAdapter<NativeDateAdapter>,
+    public authService: AuthService,
     // private activatedRoute: ActivatedRoute,
     // private router: Router,
     // private quoteService: QuoteService,
@@ -68,6 +70,7 @@ export class QuoteInfoComponent implements OnInit {
     // public authService: AuthService,
     // private dragulaService: DragulaService,
   ) {
+    // dateAdapter.setLocale(authService.getLanguage());
   }
   //
   // changeStatutsQuote(statusQuoteSelect){

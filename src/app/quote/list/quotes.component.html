@@ -67,7 +67,7 @@
               </td>
               <td class="centre tdunder showMobile" (click)="navigateToQuote(quote)">{{quote.name | smallText}}</td>
               <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">{{quote.name | mediumText}}</td>
-              <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">{{quote.detail.dateQuote.issueDate | date:'yy-MM-dd' }}</td>
+              <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">{{quote.detail.dateQuote.issueDate | date:'longDate' }}</td>
               <td class="centre tdunder" (click)="navigateToQuote(quote)">
                 {{quote.priceQuote.priceGlobalWithDiscount | round | currency}}
               </td>
