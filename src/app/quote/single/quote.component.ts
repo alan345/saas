@@ -32,7 +32,7 @@ export class QuoteComponent implements OnInit {
   fetchedPaiementQuotes: PaiementQuote[] = []
   // showPaiements = false;
   fetchedQuote: Quote = new Quote()
-  // totalPaiementAmount: number = 0
+  // totalPaiementAmount = 0;
   signatureBase64Temp = '';
   step = -1;
   myCompanie: Companie = new Companie()

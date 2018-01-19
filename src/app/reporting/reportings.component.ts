@@ -57,7 +57,7 @@ export class ReportingsComponent implements OnInit {
 
 
   nameGraph = '';
-  serieNumber: number = 0
+  serieNumber = 0;
   label = '';
   typeSum = '';
 

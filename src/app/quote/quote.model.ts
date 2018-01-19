@@ -64,23 +64,23 @@ export class DateQuote {
 //   users: User[] = [];
 // }
 export class PriceQuote {
-  priceQuoteWithoutTaxes: number = 0;
-  priceQuoteWithTaxes: number = 0;
-  discountGlobal: number = 0;
-  painfulnessGlobal: number = 0;
-  priceGlobalWithDiscount: number = 0;
-  priceGlobalWithTaxesWithDiscount: number = 0;
+  priceQuoteWithoutTaxes = 0;
+  priceQuoteWithTaxes = 0;
+  discountGlobal = 0;
+  painfulnessGlobal = 0;
+  priceGlobalWithDiscount = 0;
+  priceGlobalWithTaxesWithDiscount = 0;
 
-  totalPaiementAmount: number = 0;
-  outstandingBalance: number = 0;
-  // priceGlobalWithDiscount: number = 0;
-  vatGlobal: number = 0;
+  totalPaiementAmount = 0;
+  outstandingBalance = 0;
+  // priceGlobalWithDiscount = 0;
+  vatGlobal = 0;
   priceQuoteTaxes: PriceQuoteTaxe[] = []
 }
 
 export class PriceQuoteTaxe {
-  VAT: number = 0;
-  TotalVAT: number = 0;
+  VAT = 0;
+  TotalVAT = 0;
 }
 
 export const ModelVATs: number[] = [0, 5.5, 10]
@@ -90,23 +90,23 @@ export class BucketProduct {
   typeRow = '';
   title = '';
   productInit: Product[] = [];
-  priceWithoutTaxes: number = 0;
-  priceWithDiscount: number = 0;
-  priceWithQuantityWithDiscount: number = 0;
-  // priceWithQuantityWithDiscount: number = 0;
-  priceWithTaxesWithQuantityWithDiscount: number = 0;
-  // priceWithTaxesWithQuantityWithDiscount: number = 0;
-  priceWithTaxesWithDiscount: number = 0;
-  priceWithTaxes: number = 0;
-  priceWithQuantity: number = 0;
+  priceWithoutTaxes = 0;
+  priceWithDiscount = 0;
+  priceWithQuantityWithDiscount = 0;
+  // priceWithQuantityWithDiscount = 0;
+  priceWithTaxesWithQuantityWithDiscount = 0;
+  // priceWithTaxesWithQuantityWithDiscount = 0;
+  priceWithTaxesWithDiscount = 0;
+  priceWithTaxes = 0;
+  priceWithQuantity = 0;
 
-  priceWithTaxesWithQuantity: number = 0;
-  vat: number = 0;
+  priceWithTaxesWithQuantity = 0;
+  vat = 0;
   quantity: number = 1;
   length: number = 1;
   width: number = 1;
   surface: number = 1;
-  discount: number = 0;
+  discount = 0;
   isEditMode = false;
 }
 

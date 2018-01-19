@@ -16,7 +16,7 @@ export class HeaderTitleComponent implements OnInit, OnChanges {
   @Input() isDialog = false;
   @Input() icon = '';
   @Input() typeObj = '';
-  @Input() showBack: number = 0;
+  @Input() showBack = 0;
   @Input() createNewButton = true;
   @Input() search: Search = new Search();
   @Output() saved: EventEmitter<any> = new EventEmitter();

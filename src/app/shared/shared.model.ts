@@ -19,7 +19,7 @@ export class Search {
   isExternalUser = true;
   isExpense = false;
   typeQuote = '';
-  year: number = 0;
+  year = 0;
   isFromAutocomplete = false;
   isAdmin = false;
   // isSigned = false;
@@ -30,8 +30,8 @@ export class Search {
 
 export class PaginationData {
   currentPage: number = 1;
-  itemsPerPage: number = 0;
-  totalItems: number = 0;
+  itemsPerPage = 0;
+  totalItems = 0;
 };
 
 

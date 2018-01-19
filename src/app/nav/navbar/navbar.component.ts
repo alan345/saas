@@ -27,7 +27,7 @@ import { GlobalEventsManager } from '../../globalEventsManager';
 })
 export class NavbarComponent implements OnInit {
   // @Input() sidenav: any;
-  // @Input() widthContainer: number = 0;
+  // @Input() widthContainer = 0;
   showNavBar = false;
   showSideNavBar = false;
   showBackButton = false;
@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
   // private userId: string;
   fetchedUser: User = new User();
   // fetchedNotifications: Notification[] = [];
-  // notificationsNotRead: number = 0;
+  // notificationsNotRead = 0;
   dialogRef: any
 
   constructor(

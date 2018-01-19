@@ -30,7 +30,7 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('sidenav') public sidenav: MatSidenav;
   @ViewChild('mainScreen') elementView;
   modeSidenav: string = 'side'
-  widthContainer: number = 0;
+  widthContainer = 0;
 
   constructor(
     private globalEventsManager: GlobalEventsManager,

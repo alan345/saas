@@ -53,7 +53,7 @@ export class QuoteInfoComponent implements OnInit {
   // fetchedProducts: Product[] = []
   // fetchedPaiementQuotes: PaiementQuote[] = []
 
-  // totalPaiementAmount: number = 0
+  // totalPaiementAmount = 0;
   // showPaiements = false;
 
   constructor(

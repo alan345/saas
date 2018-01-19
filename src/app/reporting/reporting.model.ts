@@ -5,14 +5,14 @@ import { Product } from '../product/product.model';
 
 
 export class PaiementQuoteGraph {
-  amountTotal: number = 0;
+  amountTotal = 0;
   _id: Id = new Id();
 
 }
 
 export class Id {
-  month: number = 0;
-  year: number = 0;
+  month = 0;
+  year = 0;
 }
 
 export class EmptyRow {

@@ -5,13 +5,17 @@ var Notification = require('../models/notification.model'),
 
 module.exports = {
 
-  getRight(user) {
+  getRight (user) {
     // console.log(user)
         let typesRightToUse = []
         // console.log(user)
 
-        if(user.isExternalUser) {
+        if (user.isExternalUser) {
           typesRightToUse = TypeRights.externalUserRights
+        } else {
+          // console.log('aa')
+          // console.log(TypeRights.newInternalUserRights)
+          // typesRightToUse = TypeRights.newInternalUserRights
         }
         user.ownerCompanies.forEach(companie => {
           if(companie.planDetail.plan === 'gold') typesRightToUse = TypeRights.gold

@@ -42,7 +42,7 @@ export class ProductsComponent implements OnInit {
   listProductsTempToAdd: Product[] = [];
   search: Search = new Search()
   loading: boolean= false;
-  valueTempProduct: number = 0;
+  valueTempProduct = 0;
   hideShowAnimator = false;;
   paginationData: PaginationData = new PaginationData()
 

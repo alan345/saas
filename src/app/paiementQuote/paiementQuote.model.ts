@@ -15,7 +15,7 @@ export class PaiementQuote {
   // projects: Project[] = []
   datePaiement: Date = new Date();
   datePaiementString = '';
-  amount: number = 0;
+  amount = 0;
   type: string = 'cash';
   title = '';
   isGooplusPaiement = false;
@@ -105,7 +105,7 @@ export class Source {
 
 export class StripeCustomer {
   id = '';
-  account_balance: number = 0;
+  account_balance = 0;
   created = '';
   default_source = '';
   description = '';
@@ -161,9 +161,9 @@ export class DataItem {
 
 export class Plan {
   id = '';
-  amount: number = 0;
+  amount = 0;
   created = '';
   currency = '';
   interval = '';
-  interval_count: number = 0;
+  interval_count = 0;
 }

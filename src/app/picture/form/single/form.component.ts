@@ -33,7 +33,7 @@ export class FormComponent implements OnInit {
   invalidFileSizeMessage: string = '{0}: Invalid file size, ';
   invalidFileSizeMessageDetail: string = 'Maximum upload size is {0}.';
   public files: File[];
-  public progress: number = 0;
+  public progress = 0;
   public submitStarted: boolean;
   @ViewChild('textOne') textOne: ElementRef;
   @ViewChild('fileInput') fileInput: ElementRef;

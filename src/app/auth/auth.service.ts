@@ -268,6 +268,9 @@ export class AuthService {
         return true
       }
     } else {
+      if(nameObject === 'settings' && typeAccess ==='read') {
+        return true;
+      }
       if (
         this.isCurentUserHasAccess(nameObject, typeAccess)
         && this.isCurrentUserIsInSubPeriod()

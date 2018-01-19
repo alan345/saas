@@ -93,9 +93,19 @@ let externalUserRights = [
     ]
   },
 ]
+let newInternalUserRights = [
+  {name : 'Settings', value: 'settings', typeAccess: [{value:'read',name:'Read'}]},
+  {
+    name : 'Quote', value: 'quote', typeAccess:
+    [
+      {value:'read', name: 'Read'},
+    ]
+  },
+]
 
 module.exports = {
   externalUserRights: externalUserRights,
+  newInternalUserRights: newInternalUserRights,
   gold : goldValue,
   silver: defaultValue,
   default: defaultValue

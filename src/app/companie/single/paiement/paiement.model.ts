@@ -58,9 +58,9 @@ export class DataItem {
 
 export class Plan {
   id = '';
-  amount: number = 0;
+  amount = 0;
   created = '';
   currency = '';
   interval = '';
-  interval_count: number = 0;
+  interval_count = 0;
 }

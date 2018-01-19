@@ -42,12 +42,12 @@ export class Price {
   vat: number;
 }
 export class Dimension {
-  height: number = 0;
-  width: number = 0;
-  depth: number = 0;
+  height = 0;
+  width = 0;
+  depth = 0;
 }
 export class Stock {
-  quantity: number = 0;
+  quantity = 0;
 }
 
 
