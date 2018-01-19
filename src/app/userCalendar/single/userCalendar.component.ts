@@ -6,7 +6,7 @@ import {ProductService} from '../../product/product.service';
 
 import {UserCalendar} from '../userCalendar.model';
 
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 
 import {MatDialog } from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
@@ -43,7 +43,7 @@ export class UserCalendarComponent implements OnInit, OnChanges {
   constructor(
     private userCalendarService: UserCalendarService,
     private userService: UserService,
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -180,7 +180,7 @@ newInterventionCLicked() {
               this.saved.emit(res)
             },
             error => {
-              this.toastr.error('error!', error)
+              // this.toastr.error('error!', error)
             }
           )
       } else {

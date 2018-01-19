@@ -3,7 +3,6 @@ import {AuthService} from '../../../auth/auth.service';
 import {UserCalendarService} from '../../userCalendar.service';
 
 import {UserCalendar, SearchData} from '../../userCalendar.model';
-import {ToastsManager} from 'ng2-toastr';
 
 import {MatDialog } from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
@@ -19,6 +18,7 @@ import { User } from '../../../user/user.model';
 // import { ProjectService} from '../../../project/project.service';
 
 import {CalendarComponent} from 'ap-angular2-fullcalendar';
+// import {ToastsManager} from 'ng2-toastr';
 // import {Search} from '../../../shared/shared.model'
 // import { UserCalendarDialogComponent } from '../single/dialog/userCalendarDialog.component';
 
@@ -80,14 +80,14 @@ export class SearchCalendarComponent implements OnInit {
   constructor(
     private userService: UserService,
     private userCalendarService: UserCalendarService,
-    private toastr: ToastsManager,
     public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
+    private authService: AuthService,
     // private _fb: FormBuilder,
     // private projectService: ProjectService,
-    private authService: AuthService,
+    // private toastr: ToastsManager,
   ) { }
 
   ngOnInit() {

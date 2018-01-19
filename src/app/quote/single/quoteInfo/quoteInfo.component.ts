@@ -1,12 +1,12 @@
 import {Component, OnInit, ViewChild, Input, Output, EventEmitter} from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
 import {Quote } from '../../quote.model';
-import {ToastsManager} from 'ng2-toastr';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Search} from '../../../shared/shared.model'
 import { AuthService} from '../../../auth/auth.service';
 import { Companie} from '../../../companie/companie.model';
+// import {ToastsManager} from 'ng2-toastr';
 // import {Router, ActivatedRoute, Params } from '@angular/router';
 // import {QuoteService} from '../../quote.service';
 // import { PaiementQuote } from '../../../paiementQuote/paiementQuote.model';
@@ -57,7 +57,7 @@ export class QuoteInfoComponent implements OnInit {
   // showPaiements: boolean = false
 
   constructor(
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     private _fb: FormBuilder,
     // dateAdapter: DateAdapter<NativeDateAdapter>,
     public authService: AuthService,

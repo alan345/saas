@@ -4,10 +4,10 @@ import {CompanieService} from '../companie.service';
 // import {UserService} from '../../user/user.service';
 
 
-import {Companie, Categorie0, ContactsPerson} from '../companie.model';
+import {Companie} from '../companie.model';
 import {Address} from '../../shared/address/address.model';
 
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 
 // import {MatDialog } from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
@@ -52,7 +52,7 @@ export class CompanieComponent implements OnInit {
   constructor(
     private companieService: CompanieService,
 //    private modalService: NgbModal,
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     // public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -152,7 +152,7 @@ export class CompanieComponent implements OnInit {
             //  this.router.navigate(['companie/' + this.fetchedCompanie._id])
             },
             error => {
-              this.toastr.error('error!', error)
+              // this.toastr.error('error!', error)
             }
           )
       } else {

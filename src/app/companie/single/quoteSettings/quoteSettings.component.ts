@@ -4,11 +4,11 @@ import {CompanieService} from '../../companie.service';
 // import {UserService} from '../../user/user.service';
 
 
-import {Companie, ContactsPerson} from '../../companie.model';
+import {Companie} from '../../companie.model';
 // import {Companie, Categorie0, ContactsPerson} from '../companie.model';
 import {Address} from '../../../shared/address/address.model';
 
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 
 // import {MatDialog } from '@angular/material';
 import {Router} from '@angular/router';
@@ -38,7 +38,7 @@ export class QuoteSettingsComponent implements OnInit {
   constructor(
     private companieService: CompanieService,
 //    private modalService: NgbModal,
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     // public dialog: MatDialog,
     // private activatedRoute: ActivatedRoute,
     private router: Router,

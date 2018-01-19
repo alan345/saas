@@ -26,8 +26,9 @@ export class Companie {
   planDetail = new PlanDetail()
   rights: Rigth[] = [];
   banck: Banck = new Banck()
-  contactsPerson: ContactsPerson[] = []
+  // contactsPerson: ContactsPerson[] = []
 }
+
 
 export class QuoteSettings {
   legalNotice: string = '';
@@ -36,13 +37,13 @@ export class QuoteSettings {
   prefixQuote: string = '';
   prefixIntervention: string = '';
 }
-export class ContactsPerson {
-  contactType: string = '';
-  contactName: string = '';
-  contactFirstName: string = '';
-  contactPhoneNumber: string = '';
-  contactEmail: string = '';
-}
+// export class ContactsPerson {
+//   contactType: string = '';
+//   contactName: string = '';
+//   contactFirstName: string = '';
+//   contactPhoneNumber: string = '';
+//   contactEmail: string = '';
+// }
 
 
 export class TypeUsers {

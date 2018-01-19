@@ -2,13 +2,13 @@ import { Component, OnInit, OnChanges, Input, Output, EventEmitter} from '@angul
 import { AuthService} from '../../auth/auth.service';
 import { PaiementQuoteService} from '../../paiementQuote/paiementQuote.service';
 import { PaiementQuote} from '../../paiementQuote/paiementQuote.model';
-import { ToastsManager} from 'ng2-toastr';
 import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params} from '@angular/router';
-// import { Location} from '@angular/common';
 import { Search, PaginationData} from '../../shared/shared.model'
 import { GlobalEventsManager } from '../../globalEventsManager';
 import { PaiementQuoteDialogComponent } from '../single/dialog/paiementQuoteDialog.component'
+// import { ToastsManager} from 'ng2-toastr';
+// import { Location} from '@angular/common';
 
 
 
@@ -42,7 +42,7 @@ export class PaiementQuotesComponent implements OnInit, OnChanges {
     private paiementQuoteService: PaiementQuoteService,
     private authService: AuthService,
     private activatedRoute: ActivatedRoute,
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     public dialog: MatDialog,
     private router: Router,
     // private location: Location,

@@ -1,19 +1,19 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../../auth/auth.service';
 import {CompanieService} from '../../companie.service';
+import {Companie} from '../../companie.model';
+import {Address} from '../../../shared/address/address.model';
+import {Router} from '@angular/router';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import {UserService} from '../../user/user.service';
 
 
-import {Companie, ContactsPerson} from '../../companie.model';
 // import {Companie, Categorie0, ContactsPerson} from '../companie.model';
-import {Address} from '../../../shared/address/address.model';
 
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 
 // import {MatDialog } from '@angular/material';
-import {Router} from '@angular/router';
 // import { Location } from '@angular/common';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 // import { DeleteDialog } from '../../../deleteDialog/deleteDialog.component';
 // import { User } from '../../user/user.model';
@@ -51,7 +51,7 @@ export class DetailsCompanieComponent implements OnInit {
   constructor(
     private companieService: CompanieService,
 //    private modalService: NgbModal,
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     // public dialog: MatDialog,
     // private activatedRoute: ActivatedRoute,
     private router: Router,

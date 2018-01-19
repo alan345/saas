@@ -4,7 +4,7 @@ import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../../../errorHandler/error.service';
 import {User} from '../../../user/user.model';
 import {Companie} from '../../../companie/companie.model';
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/catch';
 
@@ -28,7 +28,7 @@ export class PaiementService {
   constructor(
     private http: Http,
     private errorService: ErrorService,
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     private authService: AuthService
   ) {}
 

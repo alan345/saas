@@ -3,7 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
 import {Right} from './right.model';
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 import { AuthService } from '../auth/auth.service';
 import { Config } from '../shared/config.model';
 
@@ -24,7 +24,7 @@ export class RightService {
   constructor(
     private http: Http,
     private errorService: ErrorService,
-    private toastr: ToastsManager,
+    // private toastr: ToastsManager,
     private authService: AuthService) {}
 
   getRights(page: number, search: any) {

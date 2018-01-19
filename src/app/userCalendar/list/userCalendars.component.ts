@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewChild} from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { UserCalendarService } from '../userCalendar.service';
 import { UserCalendar, SearchData } from '../userCalendar.model';
-import { ToastsManager } from 'ng2-toastr';
+// import { ToastsManager } from 'ng2-toastr';
 import { Search } from '../../shared/shared.model';
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -76,7 +76,6 @@ export class UserCalendarsComponent implements OnInit {
     private companieService: CompanieService,
     private userService: UserService,
     private userCalendarService: UserCalendarService,
-    private toastr: ToastsManager,
     public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -84,6 +83,7 @@ export class UserCalendarsComponent implements OnInit {
     private _fb: FormBuilder,
     private authService: AuthService,
     private translateService: TranslateService,
+    // private toastr: ToastsManager,
     // private globalEventsManager: GlobalEventsManager,
   ) { }
   onCalendarInit(result) {
@@ -317,7 +317,9 @@ export class UserCalendarsComponent implements OnInit {
           // this.globalEventsManager.isLoadding(false);
           // this.authService.successNotif(res.message)
         },
-        error => { this.toastr.error('error!', error) }
+        error => {
+          // this.toastr.error('error!', error)
+         }
         )
     } else {
       this.userCalendarService.saveUserCalendar(userCalendar)
