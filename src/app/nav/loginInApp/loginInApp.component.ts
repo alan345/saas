@@ -12,7 +12,7 @@ import { ToastsManager} from 'ng2-toastr';
 })
 export class LoginInAppComponent implements OnInit {
   @Output() loginInAppDone: EventEmitter<any> = new EventEmitter();
-  loading: boolean = false
+  loading = false;
   constructor(
     private authService: AuthService,
     private router: Router,

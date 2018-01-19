@@ -51,7 +51,7 @@ export class QuoteDetailsComponent implements OnInit {
   @Input() myCompanie: Companie = new Companie()
   // @Input() search: Search = new Search()
 
-  // showPaiements: boolean = false
+  // showPaiements = false;
   // fetchedQuote: Quote = new Quote()
   // autocompleteUser = '';
   // autocompleteProject = '';

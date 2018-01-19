@@ -51,10 +51,10 @@ export class TemplateQuoteComponent implements OnInit {
   @Output() calculateQuoteEmit: EventEmitter<any> = new EventEmitter();
 
   @Input() fetchedQuote: Quote = new Quote()
-  showtemplate: boolean = false
+  showtemplate = false;
   // @Input() search: Search = new Search()
   //
-  // // showPaiements: boolean = false
+  // // showPaiements = false;
   // // fetchedQuote: Quote = new Quote()
   // // autocompleteUser = '';
   // // autocompleteProject = '';

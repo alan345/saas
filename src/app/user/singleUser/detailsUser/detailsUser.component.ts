@@ -85,7 +85,7 @@ export class DetailsUserComponent implements OnInit {
   // companieIndexToSelect = ''
   // typeUserDropDown = ''
   typeUser = TypeUser
-  showLoginInApp: boolean = false
+  showLoginInApp = false;
 
   @Input() fetchedUser: User = new User();
   currentUser: User = new User();

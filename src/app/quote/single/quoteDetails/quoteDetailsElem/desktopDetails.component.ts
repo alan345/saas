@@ -50,7 +50,7 @@ export class DesktopDetailsComponent implements OnInit {
   @Input() fetchedQuote: Quote = new Quote()
   // @Input() search: Search = new Search()
   //
-  // // showPaiements: boolean = false
+  // // showPaiements = false;
   // // fetchedQuote: Quote = new Quote()
   // // autocompleteUser = '';
   // // autocompleteProject = '';

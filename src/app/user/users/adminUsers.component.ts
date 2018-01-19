@@ -21,7 +21,7 @@ export class AdminUsersComponent implements OnInit {
   fetchedUsers: User[] = [];
   loading = false;
   search: Search = new Search()
-  createNewTeam: boolean = false
+  createNewTeam = false;
   // {
   //   orderBy : '',
   //   search: '',

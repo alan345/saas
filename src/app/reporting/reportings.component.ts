@@ -37,7 +37,7 @@ export class ReportingsComponent implements OnInit {
   totalRejected = 0
   totalPaid = 0
 
-  loading: boolean = false
+  loading = false;
   // lineChartDataGraph1 = [ new EmptyRow(), new EmptyRow()]
   // lineChartDataGraph2 = [ new EmptyRow(), new EmptyRow() ]
   // lineChartDataGraph3 = [ new EmptyRow(), new EmptyRow() ]

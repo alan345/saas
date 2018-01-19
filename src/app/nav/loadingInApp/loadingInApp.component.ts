@@ -10,7 +10,7 @@ import { GlobalEventsManager } from '../../globalEventsManager';
 })
 export class LoadingInAppComponent implements OnInit {
   // @Input() sidenav: any;
-  @Input() loading: boolean = false
+  @Input() loading = false;
 
   constructor(
     // private authService: AuthService,

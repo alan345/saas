@@ -39,7 +39,7 @@ export class SearchCalendarComponent implements OnInit {
   // @ViewChild('myCal', { read: ElementRef }) myCal: ElementRef;
 
   //
-  // showPaiements: boolean = false
+  // showPaiements = false;
   // fetchedUserCalendar: UserCalendar = new UserCalendar()
   // autocompleteUser = '';
   // autocompleteProject = '';

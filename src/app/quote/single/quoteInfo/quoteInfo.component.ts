@@ -54,7 +54,7 @@ export class QuoteInfoComponent implements OnInit {
   // fetchedPaiementQuotes: PaiementQuote[] = []
 
   // totalPaiementAmount: number = 0
-  // showPaiements: boolean = false
+  // showPaiements = false;
 
   constructor(
     // private toastr: ToastsManager,

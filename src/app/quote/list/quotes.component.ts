@@ -28,7 +28,7 @@ export class QuotesComponent implements OnInit, OnChanges {
   @Output() savedEmit: EventEmitter<any> = new EventEmitter();
 
   fetchedQuotes: Quote[] = [];
-  loading: boolean = false
+  loading = false;
   paginationData = new PaginationData()
 
   statusQuotes = StatusQuotes

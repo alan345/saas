@@ -24,13 +24,13 @@ export class QuoteComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Output() close: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search()
-  @Input() isDialog: boolean = false
+  @Input() isDialog = false;
   // @ViewChild(SignaturePad) signaturePad: SignaturePad;
   // @ViewChild(PaiementQuotesComponent) paiementQuotesComponent: PaiementQuotesComponent;
   // @ViewChild(ActionButtonsComponent) actionButtonsComponent: ActionButtonsComponent
 
   fetchedPaiementQuotes: PaiementQuote[] = []
-  // showPaiements: boolean = false
+  // showPaiements = false;
   fetchedQuote: Quote = new Quote()
   // totalPaiementAmount: number = 0
   signatureBase64Temp: string = ''

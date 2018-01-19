@@ -29,8 +29,8 @@ export class CompanieComponent implements OnInit {
   // @Input() showBackButton = true;
   fetchedCompanie: Companie = new Companie()
   step = -1;
-  debugMode: boolean = false
-  loading: boolean = false
+  debugMode = false;
+  loading = false;
   // userAdmins : User[] = []
   // userManagers : User[] = []
   // userClients : User[] = []

@@ -32,7 +32,7 @@ import { Search, CustomFormControls } from '../../shared/shared.model';
 export class UserComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search()
-  @Input() isDialog: boolean = false
+  @Input() isDialog = false;
 
   customFormControls = new CustomFormControls()
   loading = false;

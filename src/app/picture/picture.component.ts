@@ -15,15 +15,15 @@ import { FormComponent } from './form/single/form.component';
 
 export class PictureComponent {
   @Input() forms: Form[] = [];
-  @Input() addPicture: boolean = true
-  @Input() openCameraStraight: boolean = false
+  @Input() addPicture = true;
+  @Input() openCameraStraight = false;
   @Input() labelButtonAddPicture: string = 'Add Picture'
-  @Input() showPagination: boolean = true
-  @Input() showPictures: boolean = true
-  @Input() singleForm: boolean = false
-  @Input() deletePicture: boolean = true
-  @Input() useDialog: boolean = true
-  @Input() openLibrairy: boolean = true
+  @Input() showPagination = true;
+  @Input() showPictures = true;
+  @Input() singleForm = false;
+  @Input() deletePicture = true;
+  @Input() useDialog = true;
+  @Input() openLibrairy = true;
   @Output() getPicture: EventEmitter<any> = new EventEmitter();
   @ViewChild(FormComponent) formComponent: FormComponent;
 

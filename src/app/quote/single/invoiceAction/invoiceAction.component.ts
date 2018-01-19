@@ -13,7 +13,7 @@ import {AuthService} from '../../../auth/auth.service';
 export class InvoiceActionComponent {
 
   @Input() fetchedQuote: Quote = new Quote()
-  loading: boolean = false
+  loading = false;
 
 
   constructor(

@@ -43,17 +43,17 @@ export class UserCalendarsComponent implements OnInit {
   @ViewChild(CalendarComponent) myCalendar: CalendarComponent;
   @ViewChild(SearchCalendarComponent) private searchCalendarComponent: SearchCalendarComponent;
   @Input() search: Search = new Search()
-  @Input() showSearch: boolean = true
-  @Input() showTitle: boolean = true
+  @Input() showSearch = true;
+  @Input() showTitle = true;
 
   myCompanie: Companie = new Companie()
-  isSearchInitReady: boolean = false
+  isSearchInitReady = false;
   fetchedUserCalendar: UserCalendar = new UserCalendar()
 
   currentUser: User = new User()
-  readyCalendar: boolean = false
-  loading: boolean = false
-  showCustomerData: boolean = false
+  readyCalendar = false;
+  loading = false;
+  showCustomerData = false;
   searchData: SearchData = new SearchData()
   // search = {
   //   typeUser: '',
@@ -69,7 +69,7 @@ export class UserCalendarsComponent implements OnInit {
 
   // loading = false;
   calendarOptions: {}
-  modeInput: boolean = true
+  modeInput = true;
 
 
   constructor(

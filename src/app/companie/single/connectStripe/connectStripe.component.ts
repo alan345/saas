@@ -13,7 +13,7 @@ export class ConnectStripeComponent implements OnInit, OnChanges {
   // @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() fetchedCompanie: Companie = new Companie()
   accountConnectStripe: AccountConnectStripe = new AccountConnectStripe();
-  loading: boolean = false
+  loading = false;
 
   constructor(
     // private toastr: ToastsManager,

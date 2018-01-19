@@ -29,9 +29,9 @@ export class PaiementComponent implements OnInit {
   // isUserBelongToHQ=false
   // maxPictureToShow=3;
   // instapic=1;
-  approveTnC: boolean = false
+  approveTnC = false;
   plan: string = ''
-  loading: boolean = false
+  loading = false;
   // companies: Companie[] = [];
   // isEditMode:boolean = false
   showReLoginInApp:boolean = false

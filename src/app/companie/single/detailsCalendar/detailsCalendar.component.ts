@@ -20,7 +20,7 @@ export class DetailsCalendarComponent implements OnInit, OnChanges {
 
   daysToHideTemp: any = [true, true, true, true, true, true, true]
 
-  // showLoginInApp: boolean = false
+  // showLoginInApp = false;
   // userAdmins : User[] = []
   // userManagers : User[] = []
   // userClients : User[] = []

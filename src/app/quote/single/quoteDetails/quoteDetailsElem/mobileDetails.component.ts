@@ -52,7 +52,7 @@ export class MobileDetailsComponent implements OnInit {
   // @Output() quoteDetailsUpdated: EventEmitter<any> = new EventEmitter();
   // @Input() search: Search = new Search()
   //
-  // // showPaiements: boolean = false
+  // // showPaiements = false;
   // // fetchedQuote: Quote = new Quote()
   // // autocompleteUser = '';
   // // autocompleteProject = '';

@@ -37,16 +37,16 @@ export class ActionButtonsComponent implements OnInit {
   //
   // @Input() search: Search = new Search()
   //
-  // showPaiements: boolean = false
+  // showPaiements = false;
   @Input() fetchedQuote: Quote = new Quote()
-  @Input() showDeleteButton: boolean = true
-  @Input() showSaveButton: boolean = true
-  @Input() showSaveSignatureButton: boolean = false
-  @Input() isDialog: boolean = false
-  // @Input() showDLQuoteButton: boolean = false
+  @Input() showDeleteButton = true;
+  @Input() showSaveButton = true;
+  @Input() showSaveSignatureButton = false;
+  @Input() isDialog = false;
+  // @Input() showDLQuoteButton = false;
   @Input() step: number
 
-  loading: boolean = false
+  loading = false;
 
   constructor(
     private quoteService: QuoteService,

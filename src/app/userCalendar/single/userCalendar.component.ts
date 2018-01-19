@@ -35,7 +35,7 @@ export class UserCalendarComponent implements OnInit, OnChanges {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Input() search = new Search()
-  loading: boolean = false
+  loading = false;
   fetchedUserCross: UserCross = new UserCross()
   // fetchedUserCalendar: UserCalendar = new UserCalendar()
   myForm: FormGroup;

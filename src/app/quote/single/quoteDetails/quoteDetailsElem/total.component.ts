@@ -23,7 +23,7 @@ export class TotalComponent implements OnInit, OnChanges {
   @Input() myCompanie: Companie = new Companie()
   // @Input() search: Search = new Search()
   //
-  // // showPaiements: boolean = false
+  // // showPaiements = false;
   // // fetchedQuote: Quote = new Quote()
   // // autocompleteUser = '';
   // // autocompleteProject = '';

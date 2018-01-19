@@ -35,8 +35,8 @@ export class EditPaiementQuoteComponent implements OnInit {
   @Output() close: EventEmitter<any> = new EventEmitter();
   @Input() fetchedQuotes: Quote[] = []
   @Input() search: Search = new Search()
-  @Input() isDialog: boolean = false
-  showPaiements: boolean = false
+  @Input() isDialog = false;
+  showPaiements = false;
   fetchedPaiementQuote: PaiementQuote = new PaiementQuote()
   fetchedProducts: Product[] = []
   stripeCust: StripeCustomer = new StripeCustomer()

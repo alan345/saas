@@ -24,7 +24,7 @@ export class DrawingSignatureComponent implements OnInit {
   // @Output() saved: EventEmitter<any> = new EventEmitter();
   @Output() updated: EventEmitter<any> = new EventEmitter();
   @Output() cleared: EventEmitter<any> = new EventEmitter();
-  editMode: boolean = false
+  editMode = false;
   // color: string = ''
   // signaturePadOptions = { // passed through to szimek/signature_pad constructor
   //   minWidth: 1,
