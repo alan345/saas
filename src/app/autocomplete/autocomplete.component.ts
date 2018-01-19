@@ -4,6 +4,9 @@ import { CompanieService} from '../companie/companie.service';
 import { ProductService} from '../product/product.service';
 import { QuoteService} from '../quote/quote.service';
 import { TemplateQuoteService} from '../quote/templateQuote.service';
+import {Router} from '@angular/router';
+import { User } from '../user/user.model';
+import {Search} from '../shared/shared.model'
 
 // import { RightService} from '../right/right.service';
 // import { ProjectService} from '../project/project.service';
@@ -13,10 +16,7 @@ import { TemplateQuoteService} from '../quote/templateQuote.service';
 // import { CompanieDialogComponent } from '../companie/single/dialog/companieDialog.component';
 // import { ProjectDialogComponent } from '../project/single/dialog/projectDialog.component';
 
-import {Router} from '@angular/router';
-import { User } from '../user/user.model';
 // import { Quote } from '../quote/quote.model';
-import {Search} from '../shared/shared.model'
 
 
 @Component({
@@ -72,7 +72,7 @@ export class AutocompleteComponent implements OnChanges{
           if(this.arrayContent.length) {this.arrayContent.splice(0, 1)}
           this.arrayContent.push(res)
           this.autocompleteAfterNgChanges.emit(res)
-          
+
         }, error => { console.log(error); });
     if(this.typeAutocomplete ==='quote' && this.search.quoteId)
         this.quoteService.getQuote(this.search.quoteId)
@@ -101,40 +101,46 @@ export class AutocompleteComponent implements OnChanges{
           console.log(error);
         });
 
-    if(this.typeAutocomplete ==='companie')
+    if(this.typeAutocomplete ==='companie') {
       this.companieService.getCompanies(page, search)
       .subscribe( res => {
         this.loading = false
         this.fetchedData = res.data }, error => {
           this.loading = false
           console.log(error); });
+    }
 
-    if(this.typeAutocomplete ==='product')
+    if(this.typeAutocomplete ==='product') {
       this.productService.getProducts(page, search)
       .subscribe( res => {
         this.loading = false
         this.fetchedData = res.data }, error => { console.log(error); });
+    }
 
-    if(this.typeAutocomplete ==='quote')
+    if(this.typeAutocomplete ==='quote') {
       this.quoteService.getQuotes(page, search)
       .subscribe( res => {
         this.loading = false
         this.fetchedData = res.data }, error => {
           this.loading = false
           console.log(error); });
+    }
 
     // if(this.typeAutocomplete ==='project')
     //   this.projectService.getProjects(page, search)
     //   .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
 
 
-    if(this.typeAutocomplete ==='templateQuote')
+    if(this.typeAutocomplete ==='templateQuote') {
       this.templateQuoteService.getTemplateQuotes(page, search)
       .subscribe( res => {
         this.loading = false
         this.fetchedData = res.data }, error => {
           this.loading = false
-          console.log(error); });
+          console.log(error);
+        });
+
+    }
 
     // if(this.typeAutocomplete ==='right')
     //   this.rightService.getRights(page, search)
