@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 // import { SignaturePad } from '../angular2-signaturepad/signature-pad';
 import { DrawingSignature } from './drawingSignature.model';
 import { CanvasWhiteboardComponent} from 'ng2-canvas-whiteboard';

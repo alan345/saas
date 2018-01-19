@@ -2,7 +2,6 @@ import { Component, OnInit, Input, ViewChild} from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { UserCalendarService } from '../userCalendar.service';
 import { UserCalendar, SearchData } from '../userCalendar.model';
-// import { ToastsManager } from 'ng2-toastr';
 import { Search } from '../../shared/shared.model';
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,20 +10,21 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../../user/user.service';
 import { Companie } from '../../companie/companie.model';
 import { CompanieService} from '../../companie/companie.service';
-// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
 import { Quote } from '../../quote/quote.model';
+import { CalendarComponent } from 'ap-angular2-fullcalendar';
+import { UserCalendarDialogComponent } from '../single/dialog/userCalendarDialog.component';
+import { TranslateService } from '../../translate/translate.service';
+import { SearchCalendarComponent } from './search/searchCalendar.component';
+
+
+
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 // import { Product } from '../../product/product.model';
 // import { Project } from '../../project/project.model';
-
-
-import { CalendarComponent } from 'ap-angular2-fullcalendar';
-
-import { UserCalendarDialogComponent } from '../single/dialog/userCalendarDialog.component';
-import { SearchCalendarComponent } from './search/searchCalendar.component';
+// import { ToastsManager } from 'ng2-toastr';
 // import { GlobalEventsManager } from '../../globalEventsManager';
 
-import { TranslateService } from '../../translate/translate.service';
 
 
 // import * as $ from 'jquery';

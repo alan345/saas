@@ -8,13 +8,9 @@ import { QuoteService } from '../../../quote.service';
 import { ProductsDialogComponent } from '../../../../product/products/dialog/productsDialog.component';
 import { AddTextRowDialogComponent } from './addTextRow/dialog/addTextRowDialog.component';
 import { MatDialog } from '@angular/material';
-import {
-  Quote, DevisDetail, BucketProduct, StatusQuotes,
-  // PriceQuoteTaxe,
-  // ModelVATs
-} from '../../../quote.model';
+import { Quote, DevisDetail, BucketProduct, StatusQuotes } from '../../../quote.model';
 import { ToastsManager } from 'ng2-toastr';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
 import { Product } from '../../../../product/product.model';
@@ -76,7 +72,7 @@ export class AddElemComponent implements OnInit {
     //    private modalService: NgbModal,
     private toastr: ToastsManager,
     // public dialog: MatDialog,
-    private activatedRoute: ActivatedRoute,
+    // private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
     private _fb: FormBuilder,

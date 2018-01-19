@@ -1,28 +1,25 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-// import { AuthService } from '../../../auth/auth.service';
 import { QuoteService } from '../../../quote.service';
+import { DragulaService } from 'ng2-dragula';
+import { Quote, StatusQuotes } from '../../../quote.model';
+import { ToastsManager } from 'ng2-toastr';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { FormBuilder } from '@angular/forms';
+import { Product } from '../../../../product/product.model';
+
+// import { AuthService } from '../../../auth/auth.service';
 // import { TemplateQuoteService } from '../../templateQuote.service';
 
-import { DragulaService } from 'ng2-dragula';
 // import { ProductService } from '../../../product/product.service';
 // import { ProjectService} from '../../../project/project.service';
 
-import {
-  Quote, DevisDetail, BucketProduct, StatusQuotes,
-  // PriceQuoteTaxe,
-  // ModelVATs
-} from '../../../quote.model';
 // import { TemplateQuote } from '../../templateQuote.model';
 
-import { ToastsManager } from 'ng2-toastr';
 // import { MatDialog } from '@angular/material';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
-import { FormBuilder } from '@angular/forms';
 // import { UserService } from '../../../user/user.service';
 // import { DeleteDialog } from '../../../deleteDialog/deleteDialog.component';
 // import { User } from '../../../user/user.model';
-import { Product } from '../../../../product/product.model';
 // import { Project } from '../../../project/project.model';
 // import { PaiementQuote } from '../../../paiementQuote/paiementQuote.model';
 // import { PaiementQuoteDialogComponent } from '../paiementQuote/single/dialog/paiementQuoteDialog.component';
@@ -85,7 +82,7 @@ export class DesktopDetailsComponent implements OnInit {
     //    private modalService: NgbModal,
     private toastr: ToastsManager,
     // public dialog: MatDialog,
-    private activatedRoute: ActivatedRoute,
+    // private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
     private _fb: FormBuilder,

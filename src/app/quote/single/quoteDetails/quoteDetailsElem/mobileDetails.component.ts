@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Quote, DevisDetail, StatusQuotes} from '../../../quote.model';
 // import { AuthService } from '../../../auth/auth.service';
 // import { QuoteService } from '../../quote.service';
 // import { TemplateQuoteService } from '../../templateQuote.service';
@@ -8,12 +9,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // import { ProjectService} from '../../../project/project.service';
 // import { ProductsDialogComponent } from '../../../../product/products/dialog/productsDialog.component';
 
-import {
-  Quote, DevisDetail, StatusQuotes,
-  // StatusQuotesInvoice,
-  // PriceQuoteTaxe,
-  // ModelVATs
-} from '../../../quote.model';
 // import { TemplateQuote } from '../../templateQuote.model';
 
 // import { ToastsManager } from 'ng2-toastr';
@@ -44,15 +39,17 @@ import {
   styleUrls: ['../quoteDetails.component.css'],
 })
 export class MobileDetailsComponent implements OnInit {
+  @Output() calculateQuoteEmit: EventEmitter<any> = new EventEmitter();
+  @Input() fetchedQuote: Quote = new Quote();
+  statusQuotes = StatusQuotes;
+
+
   // @ViewChild(SignaturePad) signaturePad: SignaturePad;
   // @ViewChild(PaiementQuotesComponent) paiementQuotesComponent: PaiementQuotesComponent;
 
   // loading: boolean=false;
   // @Output() saved: EventEmitter<any> = new EventEmitter();
   // @Output() quoteDetailsUpdated: EventEmitter<any> = new EventEmitter();
-  @Output() calculateQuoteEmit: EventEmitter<any> = new EventEmitter();
-
-  @Input() fetchedQuote: Quote = new Quote()
   // @Input() search: Search = new Search()
   //
   // // showPaiements: boolean = false
@@ -64,7 +61,6 @@ export class MobileDetailsComponent implements OnInit {
   // imgLogoUrl: string = './assets/images/profile-placeholder.jpg'
   // imgSignatureBase64Temp = ''
   // fetchedPaiementQuotes: PaiementQuote[] = []
-  statusQuotes = StatusQuotes
 
   constructor(
     // public dialog: MatDialog,
@@ -76,11 +72,11 @@ export class MobileDetailsComponent implements OnInit {
 
   removeBucketProducts(i) {
     this.fetchedQuote.devisDetails.splice(i, 1);
-    this.calculateQuote()
+    this.calculateQuote();
   }
   addBucketProducts() {
-    const newDevisDetail = new DevisDetail()
-    this.fetchedQuote.devisDetails.push(newDevisDetail)
+    const newDevisDetail = new DevisDetail();
+    this.fetchedQuote.devisDetails.push(newDevisDetail);
   }
 
   //
@@ -267,11 +263,11 @@ export class MobileDetailsComponent implements OnInit {
   //
   // }
   calculateQuote() {
-    this.calculateQuoteEmit.emit()
+    this.calculateQuoteEmit.emit();
   }
   removeRow(i: number, j: number) {
     this.fetchedQuote.devisDetails[i].bucketProducts.splice(j, 1);
-    this.calculateQuote()
+    this.calculateQuote();
   }
 
   //
