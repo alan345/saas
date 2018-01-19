@@ -74,9 +74,7 @@ router.get('/page/:page', function(req, res, next) {
       searchQuery['ownerCompanies'] = {
         $ne: req.user.ownerCompanies
       }
-    }
-
-    if (req.query.isExternalUser === 'false') {
+    } else {
       // searchQuery['isExternalUser'] = false
       searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
@@ -96,7 +94,7 @@ router.get('/page/:page', function(req, res, next) {
     })
     searchQuery['$or'] = arrObj
   }
-
+  console.log(searchQuery)
   User.find(searchQuery)
   // .populate({ path: 'companies', model: 'Companie'})
     .populate({path: 'ownerCompanies', model: 'Companie'}).limit(itemsPerPage).skip(skip).sort(req.query.orderBy).exec(function(err, item) {
