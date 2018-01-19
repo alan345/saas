@@ -10,6 +10,7 @@ import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/c
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import 'hammerjs';
 import { ToastOptions } from 'ng2-toastr';
 import { CustomOption } from './toast-options';
 import { NavbarModule } from './nav/navbar/navbar.module';

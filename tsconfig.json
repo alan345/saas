@@ -1,6 +1,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "types": [
+      "hammerjs"
+    ],    
 //    "noUnusedLocals": true,
 //    "noUnusedParameters": true,
     "outDir": "./dist/out-tsc",

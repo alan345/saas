@@ -5,7 +5,7 @@ import {AuthService} from '../../auth/auth.service';
 import {UserAuth} from '../../auth/user.model';
 import { CustomFormControls } from '../../shared/shared.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-// import {GlobalEventsManager} from '../../globalEventsManager';
+import {GlobalEventsManager} from '../../globalEventsManager';
 
 
 @Component({
@@ -24,14 +24,17 @@ export class LoginComponent implements OnInit, AfterViewInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
-    // private globalEventsManager: GlobalEventsManager,
+    private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
-              private router: Router, private toastr: ToastsManager, private renderer: Renderer) {
+    private router: Router, private toastr: ToastsManager, private renderer: Renderer) {
   }
 
   ngOnInit() {
+    this.globalEventsManager.showNavBar(false);
+    this.globalEventsManager.showTopNavBar(false);
+
     this.activatedRoute.params.subscribe((params: Params) => {
-      if(params.lang) {
+      if (params.lang) {
         this.langParam = params.lang
         this.authService.setLangParam(params.lang)
       }

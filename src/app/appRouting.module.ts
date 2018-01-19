@@ -1,24 +1,19 @@
 import {RouterModule, Routes} from '@angular/router';
-import {ModuleWithProviders} from '@angular/core';
-//import {USER_ROUTES} from './user/user.routes';
+import { PaiementGuardService} from './companie/single/paiement/paiementGuard.service';
+import { AuthGuardService} from './auth/authguard.service';
+import { NotClientGuardService} from './auth/notClientGuard.service';
+import {ErrorPageComponent} from './errorPage/errorPage.component';
+import { NgModule } from '@angular/core';
 
+// import {AdminComponent} from './admin/admin.component';
+// import { MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
+// import {AdminGuardService} from './admin/services/adminGuard';
+// import {ModuleWithProviders} from '@angular/core';
+//import {USER_ROUTES} from './user/user.routes';
 // import {ADMIN_ROUTES} from './admin/admin.routes';
 // import {FormComponent} from './form/form.component';
 // import {UserFormsComponent} from './form/userForms.component';
 // import { UserFormsUploadAndList} from './form/userFormsUploadAndList.component';
-
-
-import { PaiementGuardService} from './companie/single/paiement/paiementGuard.service';
-import { AuthGuardService} from './auth/authguard.service';
-import { NotClientGuardService} from './auth/notClientGuard.service';
-
-// import { MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
-
-// import {AdminComponent} from './admin/admin.component';
-import {ErrorPageComponent} from './errorPage/errorPage.component';
-// import {AdminGuardService} from './admin/services/adminGuard';
-
-import { NgModule } from '@angular/core';
 
 
 
