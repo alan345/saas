@@ -5,9 +5,9 @@ import { AuthService } from '../auth/auth.service';
 @Injectable()
 export class TranslateService {
 
-	private _currentLang: string;
-	private PLACEHOLDER = '%';
-	private _defaultLang: string;
+	// private _currentLang: string;
+	// private PLACEHOLDER = '%';
+	// private _defaultLang: string;
   private _fallback: boolean;
 
 	public onLangChanged: EventEmitter<string> = new EventEmitter<string>();
