@@ -66,21 +66,25 @@ export class AutocompleteComponent implements OnChanges{
     //     this.projectService.getProject(this.search.projectId)
     //     .subscribe( res => { if(this.arrayContent.length) this.arrayContent.splice(0, 1);
     //       this.arrayContent.push(res) }, error => { console.log(error); });
-    if(this.typeAutocomplete ==='user' && this.search.userId)
-        this.userService.getUser(this.search.userId)
-        .subscribe( res => {
-          if(this.arrayContent.length) {this.arrayContent.splice(0, 1)}
-          this.arrayContent.push(res)
-          this.autocompleteAfterNgChanges.emit(res)
+    if(this.typeAutocomplete ==='user' && this.search.userId) {
+    this.userService.getUser(this.search.userId)
+    .subscribe( res => {
+      if(this.arrayContent.length) {this.arrayContent.splice(0, 1)}
+      this.arrayContent.push(res)
+      this.autocompleteAfterNgChanges.emit(res)
 
-        }, error => { console.log(error); });
-    if(this.typeAutocomplete ==='quote' && this.search.quoteId)
-        this.quoteService.getQuote(this.search.quoteId)
-        .subscribe( res => {
-          if(this.arrayContent.length) {this.arrayContent.splice(0, 1)}
-          this.arrayContent.push(res)
-          this.autocompleteAfterNgChanges.emit(res)
-        }, error => { console.log(error); });
+    }, error => { console.log(error); });
+  }
+
+
+    if(this.typeAutocomplete ==='quote' && this.search.quoteId) {
+      this.quoteService.getQuote(this.search.quoteId)
+      .subscribe( res => {
+        if(this.arrayContent.length) {this.arrayContent.splice(0, 1)}
+        this.arrayContent.push(res)
+        this.autocompleteAfterNgChanges.emit(res)
+      }, error => { console.log(error); });
+    }
 
   }
 
@@ -92,14 +96,18 @@ export class AutocompleteComponent implements OnChanges{
 
   getData(page: number, search: any) {
     this.loading = true
-    if(this.typeAutocomplete ==='user')
+    if(this.typeAutocomplete ==='user') {
       this.userService.getUsers(page, search)
       .subscribe( res => {
         this.loading = false
-        this.fetchedData = res.data }, error => {
+        if (res.query.search === search.search) {
+          this.fetchedData = res.data;
+        }
+      }, error => {
           this.loading = false
           console.log(error);
         });
+    }
 
     if(this.typeAutocomplete ==='companie') {
       this.companieService.getCompanies(page, search)

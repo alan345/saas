@@ -58,7 +58,7 @@ router.get('/page/:page', function(req, res, next) {
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
-  var limit = (itemsPerPage * pageNumber) + itemsPerPage
+  // var limit = (itemsPerPage * pageNumber) + itemsPerPage
 
   //  let parentUserToSearch = ''
   let roleToSearch = []
@@ -97,7 +97,7 @@ router.get('/page/:page', function(req, res, next) {
   console.log(searchQuery)
   User.find(searchQuery)
   // .populate({ path: 'companies', model: 'Companie'})
-    .populate({path: 'ownerCompanies', model: 'Companie'}).limit(itemsPerPage).skip(skip).sort(req.query.orderBy).exec(function(err, item) {
+  .populate({path: 'ownerCompanies', model: 'Companie'}).limit(itemsPerPage).skip(skip).sort(req.query.orderBy).exec(function(err, item) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
@@ -108,6 +108,7 @@ router.get('/page/:page', function(req, res, next) {
             currentPage: currentPage,
             itemsPerPage: itemsPerPage
           },
+          query: req.query,
           data: item
         })
       })
