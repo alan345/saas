@@ -175,6 +175,7 @@ router.get('/page/:page', function (req, res, next) {
             currentPage : currentPage,
             itemsPerPage : itemsPerPage
           },
+          query: req.query,
           data: item
         })
       })
