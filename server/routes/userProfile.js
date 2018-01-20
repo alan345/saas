@@ -13,7 +13,7 @@ var express = require('express'),
   crypto = require("crypto"),
   gm = require('gm').subClass({imageMagick: true}),
   User = require('../models/user.model'),
-  emailGenerator = require('./emailGenerator'),
+  emailGenerator = require('./emailGenerator');
   // stripe = require("stripe")("sk_test_cg4vcpE5gV1ApywsErwoWL7u");
 
 router.use('/', function(req, res, next) {

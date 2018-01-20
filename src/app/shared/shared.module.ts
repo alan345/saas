@@ -20,6 +20,7 @@ import { AddressComponent } from './address/address.component';
 // import { newObjDialogComponent } from '../nav/newObjDialog/newObjDialog.component';
 import {DeleteDialogComponent} from '../nav/deleteDialog/deleteDialog.component'
 import {AddressService} from './address/address.service'
+import {UserService} from '../user/user.service'
 
 // import { LoadingInAppComponent } from '../nav/loadingInApp/loadingInApp.component';
 // import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
@@ -80,6 +81,7 @@ import {MatSelectModule} from '@angular/material';
   ],
   providers: [
     AddressService,
+    UserService,
     // TRANSLATION_PROVIDERS,
     // TranslateService,
   ],

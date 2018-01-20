@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+// import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule} from '@angular/forms';
 import { RouterModule} from '@angular/router';
 import { PaiementQuoteDialogComponent } from './single/dialog/paiementQuoteDialog.component'
 import { MatCheckboxModule} from '@angular/material';
@@ -26,7 +26,8 @@ import {MatExpansionModule} from '@angular/material';
 import {MatRadioModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {PaiementCardModule} from '../nav/paiementCard/paiementCard.module';
-
+// import { DateAdapter, NativeDateAdapter } from '@angular/material';
+import {MatNativeDateModule} from '@angular/material';
 
 @NgModule({
   imports:      [
@@ -47,6 +48,7 @@ import {PaiementCardModule} from '../nav/paiementCard/paiementCard.module';
     MatInputModule,
     MatDatepickerModule,
     PaiementCardModule,
+    MatNativeDateModule,
     // SignaturePadModule,
     // AutocompleteComponent,
   ],

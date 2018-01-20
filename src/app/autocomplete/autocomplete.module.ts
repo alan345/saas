@@ -12,6 +12,9 @@ import {MatButtonModule} from '@angular/material';
 import {MatIconModule} from '@angular/material';
 import {LoadingInAppModule} from '../nav/loadingInApp/loadingInApp.module';
 
+import {QuoteService} from '../quote/quote.service';
+import {TemplateQuoteService} from '../quote/templateQuote.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -35,7 +38,8 @@ import {LoadingInAppModule} from '../nav/loadingInApp/loadingInApp.module';
     newObjDialogComponent,
   ],
   providers: [
-
+    QuoteService,
+    TemplateQuoteService,
   ]
 })
 export class AutocompleteModule { }

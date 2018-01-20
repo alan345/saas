@@ -20,7 +20,7 @@ import { NgModule } from '@angular/core';
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'companie', loadChildren: 'app/companie/companie.module#CompanieModule', canActivate: [AuthGuardService]},
-  {path: 'quote', loadChildren: 'app/quote/quote.module#QuoteModule'},
+  {path: 'quote', loadChildren: 'app/quote/quote.module#QuoteModule', canActivate: [AuthGuardService]},
   {path: 'paiementQuote', loadChildren: 'app/paiementQuote/paiementQuote.module#PaiementQuoteModule', canActivate: [AuthGuardService, PaiementGuardService]},
   {path: 'userCalendar', loadChildren: 'app/userCalendar/userCalendar.module#UserCalendarModule', canActivate: [AuthGuardService, PaiementGuardService]},
   {path: 'home', loadChildren: 'app/reporting/reporting.module#ReportingModule', canActivate: [AuthGuardService, NotClientGuardService]},

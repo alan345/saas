@@ -9,6 +9,7 @@ import { UserCalendarDialogComponent } from './single/dialog/userCalendarDialog.
 import { UserCalendarsComponent} from './list/userCalendars.component';
 import { SearchCalendarComponent} from './list/search/searchCalendar.component';
 
+// import { UserModule} from '../user/user.module';
 
 import { UserCalendarComponent} from './single/userCalendar.component';
 
@@ -44,6 +45,7 @@ import {MatSlideToggleModule} from '@angular/material';
     // SignaturePadModule,
     CalendarModule,
     MatSlideToggleModule,
+    // UserModule,
     // AutocompleteComponent,
   ],
   declarations: [

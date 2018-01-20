@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, RequestOptions, Http } from '@angular/http';
@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { MatSidenavModule } from '@angular/material';
 import { GlobalEventsManager } from './globalEventsManager';
 import { RouterModule } from '@angular/router';
-import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
+import {
+  // CommonModule,
+  HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
@@ -15,7 +17,7 @@ import { ToastOptions } from 'ng2-toastr';
 import { CustomOption } from './toast-options';
 import { NavbarModule } from './nav/navbar/navbar.module';
 import { SidebarModule } from './nav/sidebar/sidebar.module';
-import { UserModule } from './user/user.module';
+// import { UserModule } from './user/user.module';
 import { AppRoutingModule } from './appRouting.module';
 import { AuthGuardService } from './auth/authguard.service';
 import { NotClientGuardService } from './auth/notClientGuard.service';
@@ -42,8 +44,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ErrorPageComponent,
   ],
   imports: [
-    BrowserModule,
-    CommonModule,
+    // BrowserModule,
+    // CommonModule,
     HttpModule,
     RouterModule,
     ReactiveFormsModule,
@@ -54,7 +56,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NavbarModule,
     SidebarModule,
     MatSidenavModule,
-    UserModule,
+    // UserModule,
     LoadingInAppModule,
   ],
   exports: [],

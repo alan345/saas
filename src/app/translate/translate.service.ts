@@ -6,7 +6,7 @@ import { AuthService } from '../auth/auth.service';
 export class TranslateService {
 
 	// private _currentLang: string;
-	// private PLACEHOLDER = '%';
+	private PLACEHOLDER = '%';
 	// private _defaultLang: string;
   private _fallback: boolean;
 

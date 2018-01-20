@@ -5,6 +5,8 @@ import { RouterModule} from '@angular/router';
 
 
 // import { ProjectModule} from '../project/project.module';
+import { PaiementQuoteModule} from '../paiementQuote/paiementQuote.module';
+import { QuoteModule} from '../quote/quote.module';
 
 import { ReportingsComponent} from './reportings.component';
 // import { EditReportingComponent} from './single/editReporting.component';
@@ -41,6 +43,8 @@ import {MatCardModule} from '@angular/material';
     MatButtonToggleModule,
     MatCardModule,
     MatTabsModule,
+    PaiementQuoteModule,
+    QuoteModule,
     // AutocompleteComponent,
   ],
   declarations: [
