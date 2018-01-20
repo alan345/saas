@@ -1,7 +1,5 @@
 <div class="container">
   <app-header-title [showBack]=1 [isDialog]="isDialog" [title]="'Payment'" [icon]="'credit_card'"></app-header-title>
-
-
   <mat-accordion>
     <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
       <mat-expansion-panel-header>
@@ -12,8 +10,6 @@
           {{'Paiement' | translate}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-
-
       <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
         <!-- <mat-form-field>
           <input matInput type="text" formControlName="title" [(ngModel)]="fetchedPaiementQuote.title" placeholder="{{'Title' | translate}}">
@@ -76,7 +72,7 @@
               <option *ngFor="let n of paiementsTypes" [value]="n.value">{{n.label}}</option>
           </select> -->
 
-        <mat-radio-group [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedPaiementQuote.type">
+        <mat-radio-group *ngIf="fetchedPaiementQuote.stripe.charge.status !=='succeeded'" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedPaiementQuote.type">
           <mat-radio-button class="paiementsTypes" *ngFor="let n of paiementsTypes" [value]="n.value">{{n.label | translate}}</mat-radio-button>
           <!-- <mat-radio-button *ngIf="accountConnectStripe.id" [value]="'stripe'">{{'Card' | translate}}</mat-radio-button> -->
         </mat-radio-group>
@@ -97,9 +93,7 @@
           </mat-card>
         </div>
       </div>
-
       <mat-action-row>
-
         <button
           mat-mini-fab
           mat-mini-fab color="primary"
@@ -110,10 +104,7 @@
         <button *ngIf="fetchedPaiementQuote.type!=='stripe'" mat-mini-fab color="primary" (click)="closeDialog()">
           <mat-icon aria-label="save">check_circle</mat-icon>
         </button>
-
       </mat-action-row>
     </mat-expansion-panel>
-
   </mat-accordion>
-
 </div>

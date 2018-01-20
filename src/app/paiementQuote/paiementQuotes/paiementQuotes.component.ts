@@ -144,7 +144,8 @@ export class PaiementQuotesComponent implements OnInit, OnChanges {
       // console.log('ab')
       // if (result) {
       //   console.log('a')
-        this.getPaiementQuotes(1, this.search)
+      // console.log(this.search)
+        this.getPaiementQuotes(this.paginationData.currentPage, this.search)
         // this.onDelete(this.fetchedPaiementQuote._id).then(function(){
         //   this2.router.navigate(['paiementQuote/list']);
         // })

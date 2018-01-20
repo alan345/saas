@@ -167,3 +167,8 @@ export class Plan {
   interval = '';
   interval_count = 0;
 }
+
+export const PaiementsTypes = [
+  { label: 'Check', value: 'check' },
+  { label: 'Cash', value: 'cash' },
+]

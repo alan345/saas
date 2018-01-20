@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PaiementQuoteService } from '../paiementQuote.service';
 import { PaiementService } from '../../companie/single/paiement/paiement.service';
 import { AccountConnectStripe } from '../../companie/single/connectStripe/connectStripe.model';
-import { PaiementQuote, StripeCustomer, DataSource } from '../paiementQuote.model';
+import { PaiementQuote, StripeCustomer, DataSource, PaiementsTypes } from '../paiementQuote.model';
 import { ToastsManager } from 'ng2-toastr';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -46,10 +46,7 @@ export class EditPaiementQuoteComponent implements OnInit {
   myForm: FormGroup;
   autocompleteProduct: String = ''
   step = -1;
-  paiementsTypes = [
-    { label: 'Check', value: 'check' },
-    { label: 'Cash', value: 'cash' },
-  ]
+  paiementsTypes = PaiementsTypes;
   // arrayContentToSearch = []
   // fetchedUsers: User[] = [];
   // autocompleteUser = '';
@@ -94,6 +91,8 @@ export class EditPaiementQuoteComponent implements OnInit {
         .subscribe(res => {
           //  this.paiementsTypes.push({label: 'Stripe', value: 'stripe' })
           this.accountConnectStripe = res.customer
+          this.paiementsTypes = PaiementsTypes
+          console.log('aa')
           this.paiementsTypes.push({ label: 'Card', value: 'stripe' })
         }, error => { console.log(error) })
     })
