@@ -173,44 +173,30 @@ module.exports = {
                   <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                       <tr>
-                        <td>Bonjour ${user.profile.name} ${user.profile.lastName},</td>
+                        <td>Bonjour ${user.profile.title} ${user.profile.name} ${user.profile.lastName},</td>
                       </tr>
                       <tr>
                         <td style="padding: 15px 0 30px 0;">
                           `
                             if(type ==='quote') {
-                              html += 'Un Devis'
+                              html += 'Le devis'
                             }
                             if(type ==='invoice') {
-                              html += 'Une Facture'
+                              html += 'La facture'
                             }
 
                           html += `
-                          est dispoible dans votre compte mirabelle.
+                          de votre prestataire est disponible sur Mirabelle.
                         </td>
                       </tr>
-                      <tr>
-                        <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
-                          <a
-                            href="http://${req.headers.host}/"
-                            style="color: #ffffff; text-decoration: none;"
-                          >
-                            Voir le Document
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                        .
-                        </td>
-                      </tr>
+
                       <tr>
                         <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
                           <a
                             href="http://${req.headers.host}/#/user/reset/${token}"
                             style="color: #ffffff; text-decoration: none;"
                           >
-                            1ere connexion? Inscrivez vous
+                            Voir le Document
                           </a>
                         </td>
                       </tr>
