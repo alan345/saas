@@ -91,9 +91,9 @@ export class EditPaiementQuoteComponent implements OnInit {
         .subscribe(res => {
           //  this.paiementsTypes.push({label: 'Stripe', value: 'stripe' })
           this.accountConnectStripe = res.customer
-          this.paiementsTypes = PaiementsTypes
-          console.log('aa')
-          this.paiementsTypes.push({ label: 'Card', value: 'stripe' })
+          // this.paiementsTypes = PaiementsTypes
+          // console.log(PaiementsTypes)
+          // this.paiementsTypes.push({ label: 'Card', value: 'stripe' })
         }, error => { console.log(error) })
     })
   }
