@@ -28,7 +28,7 @@
 
 
         <div class="col-lg-12">
-          <app-autocomplete [typeAutocomplete]="'user'" [search]="{isExternalUser:false, isExternalUser:false}" [title]="'Repairer'" [singleChoice]="'true'" [arrayContent]="fetchedUserCalendar.assignedTos" (getResultAutocomplete)="selectUser($event[0])" (clearAutocomplete)="removeUser()">
+          <app-autocomplete [typeAutocomplete]="'user'" [search]="{isExternalUser:false}" [title]="'Repairer'" [singleChoice]="'true'" [arrayContent]="fetchedUserCalendar.assignedTos" (getResultAutocomplete)="selectUser($event[0])" (clearAutocomplete)="removeUser()">
           </app-autocomplete>
         </div>
 
