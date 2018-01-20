@@ -22,7 +22,7 @@ export class AuthService {
   private url = Config.backendURL;
   private isMobileSizeScreen = false;
   public token: string;
-  public langParam: string = 'fr';
+  public langParam = 'fr';
   public currentUser = {
     userId: '',
     token: '',

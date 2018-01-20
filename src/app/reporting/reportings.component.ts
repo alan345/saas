@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { PaiementQuoteService } from '../paiementQuote/paiementQuote.service';
 import { QuoteService } from '../quote/quote.service';
-import { EmptyRow } from './reporting.model'
-import { Search } from '../shared/shared.model'
+import { EmptyRow } from './reporting.model';
+import { Search } from '../shared/shared.model';
 import { TranslateService } from '../translate/translate.service';
 
 // import { PaiementQuote } from '../paiementQuote/paiementQuote.model';

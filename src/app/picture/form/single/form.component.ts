@@ -28,10 +28,10 @@ export class FormComponent implements OnInit {
   // get the Auth Token from localStorage in order to Authenticate to back end while submitting the form
   token: string = localStorage.getItem('id_token');
   angleInDegrees = 0
-  url: string = '/uploads';
+  url = '/uploads';
   maxSize: number = 50000000;
-  invalidFileSizeMessage: string = '{0}: Invalid file size, ';
-  invalidFileSizeMessageDetail: string = 'Maximum upload size is {0}.';
+  invalidFileSizeMessage = '{0}: Invalid file size, ';
+  invalidFileSizeMessageDetail = 'Maximum upload size is {0}.';
   public files: File[];
   public progress = 0;
   public submitStarted: boolean;

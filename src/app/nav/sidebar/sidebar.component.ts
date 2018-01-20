@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, ViewChild} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {Router} from '@angular/router';
 import {GlobalEventsManager} from '../../globalEventsManager';
@@ -56,7 +56,7 @@ export class SidebarComponent implements OnInit {
   }
   menuClick() {
     if (this.sidenav.mode === 'over') {
-      const this2 = this
+      // const this2 = this
       setTimeout(() => this.globalEventsManager.showNavBar(false))
     }
   }

@@ -4,9 +4,9 @@ import { PaiementQuoteService} from '../../paiementQuote/paiementQuote.service';
 import { PaiementQuote} from '../../paiementQuote/paiementQuote.model';
 import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params} from '@angular/router';
-import { Search, PaginationData} from '../../shared/shared.model'
+import { Search, PaginationData} from '../../shared/shared.model';
 import { GlobalEventsManager } from '../../globalEventsManager';
-import { PaiementQuoteDialogComponent } from '../single/dialog/paiementQuoteDialog.component'
+import { PaiementQuoteDialogComponent } from '../single/dialog/paiementQuoteDialog.component';
 // import { ToastsManager} from 'ng2-toastr';
 // import { Location} from '@angular/common';
 
@@ -24,12 +24,12 @@ export class PaiementQuotesComponent implements OnInit, OnChanges {
   @Output() getPaiementQuotesCross: EventEmitter<any> = new EventEmitter();
   // @Output() newPaiementSaved: EventEmitter<any> = new EventEmitter();
   // @Input() showCreate = true;
-  @Input() search: Search = new Search()
-  @Input() showBack: number = -1
+  @Input() search: Search = new Search();
+  @Input() showBack: number = -1;
 
   fetchedPaiementQuotes: PaiementQuote[] = [];
 
-  paginationData = new PaginationData()
+  paginationData = new PaginationData();
 
   // search = {
   //   orderBy : '',
@@ -58,17 +58,21 @@ export class PaiementQuotesComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-      if(params['isExpense']=='true') {this.search.isExpense = true} else {this.search.isExpense = false}
-        this.getPaiementQuotesInit()
+      if(params['isExpense'] === 'true') {
+        this.search.isExpense = true
+      } else {
+        this.search.isExpense = false
+      }
+      this.getPaiementQuotesInit();
     })
   }
 
 
   getPaiementQuotesInit() {
-    let this2 = this
+    const this2 = this
     setTimeout(function(){
       // this2.search.quoteId = this2.idQuote
-      this2.search.orderBy = 'name'
+      this2.search.orderBy = 'name';
       this2.getPaiementQuotes(1, this2.search)
     }, 200);
   }

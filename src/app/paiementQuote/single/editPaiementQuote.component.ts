@@ -44,7 +44,7 @@ export class EditPaiementQuoteComponent implements OnInit {
   newCard: DataSource = new DataSource()
   // fetchedUserCross: UserCross = new UserCross();
   myForm: FormGroup;
-  autocompleteProduct: String = ''
+  autocompleteProduct = ''
   step = -1;
   paiementsTypes = PaiementsTypes;
   // arrayContentToSearch = []
@@ -53,7 +53,7 @@ export class EditPaiementQuoteComponent implements OnInit {
   // autocompleteProject = '';
   // fetchedProjects: Project[] = []
   // currentUser: User = new User()
-  // imgLogoUrl: string = './assets/images/profile-placeholder.jpg'
+  // imgLogoUrl = './assets/images/profile-placeholder.jpg'
   // imgSignatureBase64Temp = ''
   // showReLoginInApp = false;
   // userAdmins : User[] = []

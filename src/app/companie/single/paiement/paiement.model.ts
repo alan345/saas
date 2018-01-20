@@ -15,7 +15,7 @@ export class Sources {
 
 export class DataSource {
   id = '';
-  object: string = 'card';
+  object = 'card';
   address_city = '';
   address_country = '';
   address_line1 = '';

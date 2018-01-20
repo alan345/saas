@@ -29,7 +29,7 @@ export class TotalComponent implements OnInit, OnChanges {
   // // autocompleteProject = '';
   // fetchedProducts: Product[] = []
 
-  // imgLogoUrl: string = './assets/images/profile-placeholder.jpg'
+  // imgLogoUrl = './assets/images/profile-placeholder.jpg'
   // imgSignatureBase64Temp = ''
   // fetchedPaiementQuotes: PaiementQuote[] = []
   statusQuotes = StatusQuotes;

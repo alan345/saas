@@ -17,7 +17,6 @@ export class PictureComponent {
   @Input() forms: Form[] = [];
   @Input() addPicture = true;
   @Input() openCameraStraight = false;
-  @Input() labelButtonAddPicture: string = 'Add Picture'
   @Input() showPagination = true;
   @Input() showPictures = true;
   @Input() singleForm = false;
@@ -27,6 +26,7 @@ export class PictureComponent {
   @Output() getPicture: EventEmitter<any> = new EventEmitter();
   @ViewChild(FormComponent) formComponent: FormComponent;
 
+  // @Input() labelButtonAddPicture = 'Add Picture';
   constructor(
     public dialog: MatDialog,
   ) {}

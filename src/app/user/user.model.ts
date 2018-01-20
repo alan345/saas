@@ -78,13 +78,13 @@ export class Profile {
   profilePicture: Form[] = [];
   colorCalendar = '';
   // fax = '';
-  title: string = 'Mr.';
-  typeClient: string = 'Individual';
+  title = 'Mr.';
+  typeClient = 'Individual';
   // statusHouse = '';
   // sourceContact = '';
   // detailHouse: DetailHouse = new DetailHouse();
   address: Address[] = [];
-  language: string = 'fr';
+  language = 'fr';
 }
 
 
@@ -108,7 +108,7 @@ export class Profile {
 //
 //
 // export class Address {
-//     nameAddress: string = 'shipping';
+//     nameAddress = 'shipping';
 //     address = '';
 //     address2 = '';
 //     city = '';

@@ -6,7 +6,7 @@ import { QuoteService} from '../quote/quote.service';
 import { TemplateQuoteService} from '../quote/templateQuote.service';
 import {Router} from '@angular/router';
 import { User } from '../user/user.model';
-import {Search} from '../shared/shared.model'
+import {Search} from '../shared/shared.model';
 
 // import { RightService} from '../right/right.service';
 // import { ProjectService} from '../project/project.service';

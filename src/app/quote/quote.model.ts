@@ -13,9 +13,9 @@ export class Quote {
   historyClients: User[] = [];
   historyClientsCross: UserCross[] = [];
   name = '';
-  statusQuote: string = 'pending';
+  statusQuote = 'pending';
   // statusQuoteString = '';
-  typeQuote: string = 'quote';
+  typeQuote = 'quote';
   quoteNumber: number;
   isSigned = false;;
   legalApprovals: string[] = []

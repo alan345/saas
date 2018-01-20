@@ -8,10 +8,10 @@ export class Companie {
   nameCompanie = '';
   // typeCompanie = '';
   isSupplier = false;
-  phoneNumber: string= '';
-  faxNumber: string= '';
-  email: string= '';
-  VAT: string= '';
+  phoneNumber = '';
+  faxNumber = '';
+  email = '';
+  VAT = '';
   modelVATs: number[] = [];
   legalApprovals: string[] = [];
   typeInterventions: string[] = [];
@@ -52,7 +52,7 @@ export class TypeUsers {
 
 export class Banck {
   serviceSelected = '';
-  stripe: Stripe = new Stripe()
+  stripe: Stripe = new Stripe();
 }
 export class Stripe {
   stripe_user_id = '';
@@ -61,23 +61,23 @@ export class Stripe {
 
 export class Rigth {
   nameRight = '';
-  permissions: Permission[] = []
+  permissions: Permission[] = [];
 }
 
 export class Permission {
   namePermission = '';
-  access: Access[] = []
+  access: Access[] = [];
 }
 
 
 
 export class Access {
-  typeAccess: string= '';
+  typeAccess = '';
 }
 
 export class PlanDetail {
-  current_period_end: Date
-  plan: string= '';
+  current_period_end: Date;
+  plan = '';
 }
 
 export class Categorie {
@@ -87,37 +87,37 @@ export class Categorie {
 
 
 export class Categorie0 {
-  categ: string= '';
+  categ = '';
   isFlagged = false;
   subCateg: Categorie1[] = []
 }
 
 export class Categorie1 {
-  categ: string= '';
+  categ = '';
   subCateg: Categorie2[] = []
 }
 
 export class Categorie2 {
-  categ: string= '';
+  categ = '';
 
 }
 
 // export class CategJson {
-//   categProduct: string= '';
-//   categProject: string= '';
+//   categProduct = '';
+//   categProject = '';
 // }
 export class Option {
   calendar: Calendar = new Calendar();
-  currency: string = '€';
+  currency = '€';
 }
 
 export class Calendar {
-  timeBegin: string = '06:00:00';
-  timeEnd: string = '19:00:00';
-  slotDuration: string = '00:30:00';
+  timeBegin = '06:00:00';
+  timeEnd = '19:00:00';
+  slotDuration = '00:30:00';
 
-  timeBeginbusinessHours: string = '10:00:00';
-  timeEndbusinessHours: string = '17:00:00';
+  timeBeginbusinessHours = '10:00:00';
+  timeEndbusinessHours = '17:00:00';
   daysToHide: number[] = [];
 }
 //

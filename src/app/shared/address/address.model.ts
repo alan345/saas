@@ -7,7 +7,7 @@ export const AddressTypes =
 
 
 export class Address {
-  nameAddress: string = 'shipping';
+  nameAddress = 'shipping';
   address = '';
   address2 = '';
   city = '';

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   myForm: FormGroup;
   email: FormControl;
   userId: string;
-  langParam: string = 'fr';
+  langParam = 'fr';
   password: FormControl;
   @ViewChild('userEmail') userEmail: ElementRef;
 

@@ -31,7 +31,7 @@ export class QuotesComponent implements OnInit, OnChanges {
   loading = false;
   paginationData = new PaginationData();
 
-  statusQuotes = StatusQuotes
+  statusQuotes = StatusQuotes;
   @Input() search = new Search();
 
   constructor(

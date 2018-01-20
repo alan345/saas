@@ -29,7 +29,7 @@ export class AppComponent implements AfterViewInit {
   isLoggedIn = false;
   @ViewChild('sidenav') public sidenav: MatSidenav;
   @ViewChild('mainScreen') elementView;
-  modeSidenav: string = 'side'
+  modeSidenav = 'side'
   widthContainer = 0;
 
   constructor(

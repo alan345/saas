@@ -46,7 +46,7 @@ export class SearchCalendarComponent implements OnInit {
   // fetchedProducts: Product[] = []
   // fetchedProjects: Project[] = []
   currentUser: User = new User()
-  // imgLogoUrl: string = './assets/images/profile-placeholder.jpg'
+  // imgLogoUrl = './assets/images/profile-placeholder.jpg'
   // imgSignatureBase64Temp = ''
   // userAdmins : User[] = []
   // userManagers : User[] = []
@@ -64,7 +64,7 @@ export class SearchCalendarComponent implements OnInit {
   // events: UserCalendar[] = []
   // events: UserCalendar[] = []
   // myForm: FormGroup;
-  // autocompleteProduct: String = ''
+  // autocompleteProduct = ''
   // fetchedUsers: User[] = [];
   // arrayContentToSearch = []
   //

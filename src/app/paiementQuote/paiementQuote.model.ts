@@ -16,7 +16,7 @@ export class PaiementQuote {
   datePaiement: Date = new Date();
   datePaiementString = '';
   amount = 0;
-  type: string = 'cash';
+  type = 'cash';
   title = '';
   isGooplusPaiement = false;
   isPaid = true;
@@ -120,7 +120,7 @@ export class Sources {
 
 export class DataSource {
   id = '';
-  object: string = 'card';
+  object = 'card';
   address_city = '';
   address_country = '';
   address_line1 = '';
