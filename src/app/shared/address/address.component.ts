@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Address, AddressTypes } from './address.model';
-import { AddressService } from './address.service'
-import { AuthService } from '../../auth/auth.service'
+import { AddressService } from './address.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-address',
@@ -10,8 +10,8 @@ import { AuthService } from '../../auth/auth.service'
 })
 export class AddressComponent implements OnInit {
 
-  @Input() addresses: Address[] = []
-  addressTypes = AddressTypes
+  @Input() addresses: Address[] = [];
+  addressTypes = AddressTypes;
 
 
   constructor(
@@ -84,12 +84,5 @@ export class AddressComponent implements OnInit {
       // console.log(this.fetchedUser.profile.address)
     }
   }
-  // selectRight(right: Right) {
-  //   this.fetchedUser.rights = [right]
-  // }
-
-  // selectOwnerCompanies(companie: Companie) {
-  //   this.fetchedUser.ownerCompanies = [companie]
-  // }
 
 }

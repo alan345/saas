@@ -111,13 +111,13 @@ export class PaiementComponent implements OnInit {
             this.stripeCust.subscriptions.data.forEach(dataSubscription => {
               this.plan = dataSubscription.plan.id
             })
-            this.loading = false
+            this.loading = false;
 
 
         },
         error => {
-          this.stripeCust = new StripeCustomer()
-          this.loading = false
+          this.stripeCust = new StripeCustomer();
+          this.loading = false;
           console.log(error)
         }
       )

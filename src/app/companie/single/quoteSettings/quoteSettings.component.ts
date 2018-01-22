@@ -31,7 +31,7 @@ import {Router} from '@angular/router';
 export class QuoteSettingsComponent implements OnInit {
   @Output() saveEmit: EventEmitter<any> = new EventEmitter();
   // @Input() showBackButton = true;
-  @Input() fetchedCompanie: Companie = new Companie()
+  @Input() fetchedCompanie: Companie = new Companie();
   showLoginInApp = false;
 
 
@@ -50,15 +50,15 @@ export class QuoteSettingsComponent implements OnInit {
   ) {}
 
   changeCurrency() {
-    this.save()
-    this.showLoginInApp = true
+    this.save();
+    this.showLoginInApp = true;
   }
   loginInAppDone(){
-    this.showLoginInApp = false
+    this.showLoginInApp = false;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
   save() {
     this.saveEmit.emit()
   }

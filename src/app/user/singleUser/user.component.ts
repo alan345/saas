@@ -1,15 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { UserService } from '../user.service';
-import { CompanieService } from '../../companie/companie.service';
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
-import { User, TypeUser } from '../user.model';
+import { User } from '../user.model';
 import { AddressTypes } from '../../shared/address/address.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DeleteDialogComponent } from '../../nav/deleteDialog/deleteDialog.component'
+import { DeleteDialogComponent } from '../../nav/deleteDialog/deleteDialog.component';
 import { Search, CustomFormControls } from '../../shared/shared.model';
+// import { CompanieService } from '../../companie/companie.service';
+// import { Location } from '@angular/common';
 // import { Right } from '../../right/right.model';
 
 // import { Companie } from '../../companie/companie.model';
@@ -31,13 +31,13 @@ import { Search, CustomFormControls } from '../../shared/shared.model';
 
 export class UserComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
-  @Input() search: Search = new Search()
+  @Input() search: Search = new Search();
   @Input() isDialog = false;
 
-  customFormControls = new CustomFormControls()
+  customFormControls = new CustomFormControls();
   loading = false;
 
-  myForm: FormGroup
+  myForm: FormGroup;
   // myForm: FormGroup = this._fb.group({
   //   email: this.customFormControls.emailFormControl,
   //   language: [''],
@@ -48,28 +48,28 @@ export class UserComponent implements OnInit {
   //   title: ['', [Validators.required, Validators.minLength(1)]],
   // })
 
-  fetchedTypeUsers = []
+  fetchedTypeUsers = [];
   autocompleteTypeUser = '';
 
   // fetchedRights: Right[] = []
   addressTypes = AddressTypes;
-  titleArray = ['Mr.', 'Mrs.']
-  languageArray = ['fr', 'en']
+  titleArray = ['Mr.', 'Mrs.'];
+  languageArray = ['fr', 'en'];
 
   // typeClientArray = ['Company', 'Individual']
   // statusHouseArray = ['Propriétaire', 'Locataire']
   // typeHouseArray = ['Pavillon', 'Immeuble']
   // accessTypeArray = ['escalier', 'ascenseur']
   // sourceContactArray = ['Adwords', 'Appel Entrant', 'Apporteur Affaire']
-  companieIndexToSelect = ''
-  typeUserDropDown = ''
-  typeUser = TypeUser
+  companieIndexToSelect = '';
+  typeUserDropDown = '';
+  // typeUser = TypeUser;
 
 
   fetchedUser: User = new User();
   currentUser: User = new User();
   showProjects = false;
-  places = []
+  places = [];
   step = -1;
 
 
@@ -78,14 +78,14 @@ export class UserComponent implements OnInit {
   constructor(
     private changeDetectionRef: ChangeDetectorRef,
     private userService: UserService,
-    // private toastr: ToastsManager,
     public dialog: MatDialog,
     private router: Router,
-    private location: Location,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     public authService: AuthService,
-    private companieService: CompanieService,
+    // private companieService: CompanieService,
+    // private toastr: ToastsManager,
+    // private location: Location,
   ) {
   }
   setStep(index: number) {

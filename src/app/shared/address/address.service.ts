@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {Response, Headers, Http, RequestOptions} from '@angular/http';
+import {Response, Http} from '@angular/http';
 import {ErrorService} from '../../errorHandler/error.service';
 
 // import {User, UserCross} from './user.model';

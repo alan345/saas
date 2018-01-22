@@ -4,7 +4,7 @@ import { Right } from '../right/right.model';
 import { Address } from '../shared/address/address.model';
 
 
-export const TypeUser = ['plombier', 'serrurier']
+// export const TypeUser = ['plombier', 'serrurier'];
 
 export class User {
   _id = '';

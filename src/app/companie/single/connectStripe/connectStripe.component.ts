@@ -11,7 +11,7 @@ import { AccountConnectStripe} from './connectStripe.model';
 })
 export class ConnectStripeComponent implements OnInit, OnChanges {
   // @Output() saved: EventEmitter<any> = new EventEmitter();
-  @Input() fetchedCompanie: Companie = new Companie()
+  @Input() fetchedCompanie: Companie = new Companie();
   accountConnectStripe: AccountConnectStripe = new AccountConnectStripe();
   loading = false;
 
@@ -30,15 +30,15 @@ export class ConnectStripeComponent implements OnInit, OnChanges {
   }
   ngOnChanges() {
     // if(this.fetchedCompanie.banck.stripe.stripe_user_id) {
-      this.loading = true
+      this.loading = true;
       this.paiementService.getUserInfosConnect()
         .subscribe(res => {
-          this.loading = false
-          this.accountConnectStripe = res.customer
+          this.loading = false;
+          this.accountConnectStripe = res.customer;
         }, error => {
-          this.loading = false
-          console.log(error)
-        })
+          this.loading = false;
+          console.log(error);
+        });
     // }
 
 
@@ -46,10 +46,10 @@ export class ConnectStripeComponent implements OnInit, OnChanges {
 
 
   deauthorizeConnect() {
-    this.loading = true
+    this.loading = true;
     this.paiementService.deauthorizeConnect()
       .subscribe(res => {
-        this.loading = false
+        this.loading = false;
         this.accountConnectStripe = new AccountConnectStripe();
       }, error => {
         this.loading = false

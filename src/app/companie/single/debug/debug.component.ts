@@ -7,7 +7,7 @@ import { Companie } from '../../companie.model';
   templateUrl: './debug.component.html',
 })
 export class DebugComponent implements OnInit {
-  @Input() fetchedCompanie: Companie = new Companie()
+  @Input() fetchedCompanie: Companie = new Companie();
 
   constructor(
     private companieService: CompanieService,
@@ -19,7 +19,7 @@ export class DebugComponent implements OnInit {
     this.companieService.sendPassword(password)
       .subscribe(
         res => {
-          console.log(res)
+          console.log(res);
           // this.fetchedCompanie = res.obj
           // this.saved.emit(res.obj)
           //  this.router.navigate(['companie/' + res.obj._id])
@@ -27,6 +27,4 @@ export class DebugComponent implements OnInit {
         error => {console.log(error)}
       )
   }
-
-
 }

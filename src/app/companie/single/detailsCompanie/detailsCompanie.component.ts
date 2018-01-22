@@ -30,7 +30,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class DetailsCompanieComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   // @Input() showBackButton = true;
-  @Input() fetchedCompanie: Companie = new Companie()
+  @Input() fetchedCompanie: Companie = new Companie();
 
   // userAdmins : User[] = []
   // userManagers : User[] = []

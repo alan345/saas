@@ -4,7 +4,7 @@ import { UserService } from '../../user.service';
 import { CompanieService } from '../../../companie/companie.service';
 import { ToastsManager } from 'ng2-toastr';
 import { MatDialog } from '@angular/material';
-import { User, TypeUser  } from '../../user.model';
+import { User } from '../../user.model';
 import { AddressTypes } from '../../../shared/address/address.model';
 import { Search, CustomFormControls } from '../../../shared/shared.model';
 import { FormGroup } from '@angular/forms';
@@ -84,7 +84,7 @@ export class DetailsUserComponent implements OnInit {
   // sourceContactArray = ['Adwords', 'Appel Entrant', 'Apporteur Affaire']
   // companieIndexToSelect = ''
   // typeUserDropDown = ''
-  typeUser = TypeUser
+  // typeUser = TypeUser
   showLoginInApp = false;
 
   @Input() fetchedUser: User = new User();

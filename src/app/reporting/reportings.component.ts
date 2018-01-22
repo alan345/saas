@@ -17,25 +17,25 @@ import { TranslateService } from '../translate/translate.service';
   styleUrls: ['./reporting.component.css'],
 })
 export class ReportingsComponent implements OnInit {
-  year: number = (new Date()).getFullYear()
-  month: number = (new Date()).getMonth()
+  year: number = (new Date()).getFullYear();
+  month: number = (new Date()).getMonth();
   ready = false;
-  statusQuote = ['signed', 'paid', 'pending', 'rejected']
+  statusQuote = ['signed', 'paid', 'pending', 'rejected'];
   emptyRowPaid = new EmptyRow();
   emptyRowPending = new EmptyRow();
   emptyRowRejected = new EmptyRow();
   emptyRowsigned = new EmptyRow();
-  graphData: EmptyRow[] = []
+  graphData: EmptyRow[] = [];
   emptyRowPaidCount = new EmptyRow();
   emptyRowPendingCount = new EmptyRow();
   emptyRowRejectedCount = new EmptyRow();
   emptyRowsignedCount = new EmptyRow();
-  graphDataCount: EmptyRow[] = []
+  graphDataCount: EmptyRow[] = [];
 
-  totalSigned = 0
-  totalPending = 0
-  totalRejected = 0
-  totalPaid = 0
+  totalSigned = 0;
+  totalPending = 0;
+  totalRejected = 0;
+  totalPaid = 0;
 
   loading = false;
   // lineChartDataGraph1 = [ new EmptyRow(), new EmptyRow()]
