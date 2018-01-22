@@ -1,7 +1,5 @@
 <div class="container" style="width: 100%">
-
   <app-header-title [showBack]=-1 [title]="'Home'" [icon]="'home'" [showBack]=false></app-header-title>
-
   <div class="row">
     <div class="col-12 ac">
       <mat-button-toggle-group>
@@ -17,16 +15,6 @@
       </mat-button-toggle-group>
     </div>
   </div>
-
-  <!-- {{emptyRowPaid|json}}
-<br>
-{{emptyRowPending|json}}
-<br>
-{{emptyRowRejected|json}}
-<br>
-{{emptyRowsigned|json}} -->
-  <!-- {{graphData|json}} -->
-
   <div class="row">
     <div *ngIf="ready" class="col-lg-6 col-12 marginTop">
       <mat-card class="ac h100">
@@ -42,14 +30,12 @@
         </mat-tab-group>
       </mat-card>
     </div>
-
     <div *ngIf="ready" class="col-lg-6 col-12 marginTop">
       <mat-card class="ac">
         <h4>{{'$ Interventions' | translate}}</h4>
         <canvas baseChart style="height: 100%;" class="h50 bgw" [colors]="lineChartColors" [datasets]="graphData" [labels]="lineChartLabels" [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="'line'"></canvas>
       </mat-card>
     </div>
-
     <div *ngIf="ready" class="col-lg-6 col-12 marginTop">
       <mat-card class="ac">
         <h4>{{'Interventions per year' | translate}}</h4>
@@ -62,31 +48,6 @@
         <canvas baseChart style="height: 100%;" class="h50 bgw" [datasets]="graphDataCount" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColorsBar" [legend]="lineChartLegend" [chartType]="'bar'"></canvas>
       </mat-card>
     </div>
-    <!--
-    <div *ngIf="lineChartDataGraph4[0].ready && lineChartDataGraph4[1].ready" class="col-lg-6 col-12 marginTop">
-      <mat-card class="ac">
-        <canvas baseChart style="height: 100%;" class="h50 bgw" [datasets]="lineChartDataGraph4" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="'line'"></canvas>
-      </mat-card>
-    </div>
-    <div *ngIf="lineChartDataGraph4[0].ready && lineChartDataGraph4[1].ready" class="col-lg-6 col-12 marginTop">
-      <mat-card class="ac">
-        <canvas baseChart style="height: 100%;" class="h50 bgw" [datasets]="lineChartDataGraph4" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="'bar'"></canvas>
-      </mat-card>
-    </div> -->
   </div>
-
-  <!-- <div class="col-12">
-      <table class="table table-responsive table-condensed  bgw">
-        <tr>
-          <th></th>
-          <th *ngFor="let label of lineChartLabels">{{label}}</th>
-        </tr>
-        <tr *ngFor="let d of lineChartDataGraph1">
-          <td>{{d.label}}</td>
-          <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
-        </tr>
-      </table>
-
-    </div> -->
 </div>
 <app-loadingInApp [loading]="loading"></app-loadingInApp>

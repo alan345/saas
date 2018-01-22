@@ -1,10 +1,6 @@
 <div class="row justify-content-center">
-
   <div class="col-lg-4 col-xs-12">
-
-
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="register-form" novalidate>
-
       <mat-card class="ac">
         <mat-card-header class="headerCardCenter">
           <mat-card-title>
@@ -13,19 +9,11 @@
             </mat-card-title>
           <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
-        <!-- <div class="row spaceBetween">
-          <img (click)="changeLang('fr')" class="pointer imgTranslate" src="./assets/images/translate/icon_fr.png">
-          <img (click)="changeLang('en')" class="pointer imgTranslate" src="./assets/images/translate/icon_us.png">
-        </div> -->
         <img mat-card-image src="/assets/images/Logo-Mirabelle.png" [routerLink]="['/']" class="logomira" alt="Bienvenue sur Mirabelle">
         <mat-card-content>
-
-
-
           <mat-form-field>
             <input matInput #userEmail formControlName="email" placeholder="Email">
           </mat-form-field>
-
           <mat-form-field>
             <input matInput type="password" formControlName="password" placeholder="{{'Password' | translate}}">
           </mat-form-field>
@@ -44,8 +32,6 @@
             <mat-form-field>
               <input matInput #nameCompanie formControlName="nameCompanie" placeholder="{{'Name of Companie' | translate}}">
             </mat-form-field>
-
-
             <mat-form-field>
               <mat-select formControlName="typeCompanie" placeholder="{{'Type Company' | translate}}">
                 <mat-option *ngFor="let typeCompanie of typesCompanie" [value]="typeCompanie">
@@ -53,23 +39,12 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
-
-
-            <!-- <mat-form-field>
-              <input matInput #typeCompanie type="typeCompanie"  placeholder="typeCompanie">
-            </mat-form-field> -->
           </div>
-
-
-
-
-
         </mat-card-content>
         <mat-card-actions>
           <button mat-raised-button type="submit" [disabled]="!myForm.valid">Ok</button>
         </mat-card-actions>
       </mat-card>
     </form>
-
   </div>
 </div>

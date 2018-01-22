@@ -2,11 +2,6 @@
   <div *ngIf="showTitle">
     <app-header-title [isDialog]="isDialog" [showBack]=-1 [title]="'Products'" (saved)="saved($event)" [search]="search" [typeObj]="'product'"></app-header-title>
   </div>
-
-  <!-- <button *ngIf="isDialog" (click)="closeDialog()" mat-mini-fab>
-    <mat-icon>close</mat-icon>
-  </button> -->
-
   <div class="row">
     <div class="col-8">
       <div class="tac" *ngIf="isDialog" >
@@ -24,7 +19,6 @@
       </button>
     </div>
   </div>
-
     <div class="d-flex flex-row">
       <div class="p-2">
         <mat-form-field>
@@ -61,10 +55,7 @@
               </div>
             </td>  -->
               <td class="centre tdunder">{{product.details.referenceName}}</td>
-
               <td class="centre tdunder hideMobile">{{product.details.description | smallText}}</td>
-
-
               <td class="centre tdunder">{{product.details.price.sellingPrice | round | currency}}</td>
               <td class="centre tdunder hideMobile">{{product.details.unit}}</td>
               <td *ngIf="customButton" class="centre tdunder">

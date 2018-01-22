@@ -23,23 +23,17 @@
           {{'Plan' | translate}}
         </mat-panel-title>
       </mat-expansion-panel-header>
-
       <div class="row ac">
         <mat-card class="col-sm-12 col-lg-6">
-
           <div>
             <h1 class="green">Offre Artisan</h1>
           </div>
           <div>
             <h5>Utilisateur unique</h5>
           </div>
-
-
           <mat-card-content>
             <h1 class="green">9 € <span class="withoutVAT">HT</span></h1>
             <h5> par mois</h5>
-
-
             <div>Gestion des contacts</div>
             <div>Devis</div>
             <div>Catalogue produit</div>
@@ -48,7 +42,6 @@
             <div>Factures</div>
             <div>Paiement en ligne</div>
             <div>Planning</div>
-
           </mat-card-content>
           <mat-card-actions>
             <!-- <button (click)="changePlan('artisan')" disabled="{{stripeCust.subscriptions.data.length !== 0}}" mat-raised-button color="primary">{{'Suscribe' | translate}}</button> -->
@@ -64,7 +57,6 @@
               mat-raised-button>{{'Suscribe' | translate}}</button>
           </mat-card-actions>
         </mat-card>
-
         <mat-card class="col-sm-12 col-lg-6">
           <div>
             <h1 class="green">Offre Équipe</h1>
@@ -72,13 +64,9 @@
           <div>
             <h5>Juqu'à 5 Utilisateurs</h5>
           </div>
-
-
           <mat-card-content>
             <h1 class="green">15 € <span class="withoutVAT">HT</span></h1>
             <h5> par mois</h5>
-
-
             <div>Gestion des contacts</div>
             <div>Devis</div>
             <div>Catalogue produit</div>
@@ -99,34 +87,10 @@
               *ngIf="plan !== 'equipe'"
               disabled="{{stripeCust.subscriptions.data.length !== 0}}"
               mat-raised-button>{{'Suscribe' | translate}}</button>
-
           </mat-card-actions>
         </mat-card>
-
       </div>
-
-      <!-- <mat-button-toggle-group disabled="{{stripeCust.subscriptions.data.length !== 0}}" [(ngModel)]="plan" (change)="changePlan()">
-        <mat-button-toggle value="silver">
-          Silver
-          <mat-icon>format_align_left</mat-icon>
-        </mat-button-toggle>
-        <mat-button-toggle value="gold">
-          Gold
-          <mat-icon>format_align_center</mat-icon>
-        </mat-button-toggle>
-        <mat-button-toggle value="platinium">
-          Platinium
-          <mat-icon>format_align_right</mat-icon>
-        </mat-button-toggle>
-      </mat-button-toggle-group> -->
-      <!-- <mat-action-row>
-        <button [disabled]="!plan" mat-mini-fab color="primary" (click)="nextStep()">
-          <mat-icon>forward</mat-icon>
-        </button>
-      </mat-action-row> -->
     </mat-expansion-panel>
-
-
     <mat-expansion-panel *ngIf="stripeCust.id && plan" [expanded]="step === 2" (opened)="setStep(2)">
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -137,8 +101,6 @@
         <div *ngIf="!stripeCust.sources.data.length">
           <app-paiement-card [newCard]="newCard"></app-paiement-card>
         </div>
-
-
         <div *ngFor="let card of stripeCust.sources.data; let i=index;">
           <div class="row">
             <div class="col-sm-12 col-lg-6">
@@ -163,8 +125,6 @@
               <mat-form-field>
                 <input matInput readonly value="{{card.address_zip}}" placeholder="address_zip">
               </mat-form-field>
-
-
             </div>
             <div class="col-sm-12 col-lg-6">
               <mat-form-field>
@@ -196,8 +156,6 @@
         <button *ngIf="stripeCust.sources.data.length" mat-button color="primary" (click)="nextStep()">{{'Next' | translate}}</button>
       </mat-action-row>
     </mat-expansion-panel>
-
-
     <mat-expansion-panel *ngIf="(stripeCust.id && stripeCust.sources.data.length && plan) || stripeCust.subscriptions.data.length" [expanded]="step === 3" (opened)="setStep(3)">
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -210,7 +168,6 @@
           <button mat-raised-button color="primary" (click)="saveSubscriptionInStripe()">{{plan | translate}}</button>
         </div>
         <div *ngFor="let sub of stripeCust.subscriptions.data">
-          <!-- <mat-icon color="primary">accessibility</mat-icon> -->
           <mat-form-field>
             <mat-icon matPrefix color="accent">done</mat-icon>
             <input matInput readonly value="{{sub.plan.id}}" placeholder="Plan">
@@ -218,26 +175,6 @@
           <mat-form-field>
             <input matInput readonly value="{{sub.plan.amount / 100 + ' ' + sub.plan.currency + ' / ' + sub.plan.interval}}" placeholder="{{'Amount' | translate}}">
           </mat-form-field>
-          <!-- <mat-form-field>
-              <input matInput readonly value="{{sub.plan.created | timestampToDate | date: 'dd/MM/yyyy HH:mm'}}" placeholder="Created">
-            </mat-form-field> -->
-          <!-- <mat-form-field>
-            <input matInput readonly value="{{sub.plan.interval_count}}" placeholder="interval_count">
-          </mat-form-field> -->
-
-          <!-- <mat-form-field>
-              <input matInput readonly value="{{sub.id}}" placeholder="id">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput readonly value="{{sub.created | timestampToDate | date: 'dd/MM/yyyy HH:mm'}}" placeholder="created">
-            </mat-form-field> -->
-          <!-- <mat-form-field>
-            <input matInput readonly value="{{sub.current_period_start | timestampToDate | date: 'dd/MM/yyyy HH:mm'}}" placeholder="current_period_start">
-          </mat-form-field> -->
-          <!-- <mat-form-field>
-            <input matInput readonly value="{{sub.current_period_end | timestampToDate | date: 'dd/MM/yyyy HH:mm'}}" placeholder="current_period_end">
-          </mat-form-field> -->
-          <!-- <button mat-button color="warn" (click)="deleteSubInStripe(sub.id)">deleteSubInStripe</button> -->
           <button mat-raised-button color="warn" (click)="unscribeMode = true">{{'I want to unscribe' | translate}}</button>
           <mat-form-field *ngIf="unscribeMode">
             <textarea [(ngModel)]="reasonToUnscribe" matInput placeholder="{{'Why?' | translate}}" matTextareaAutosize matAutosizeMinRows="2"
@@ -246,13 +183,7 @@
           <button *ngIf="unscribeMode" [disabled]="reasonToUnscribe.length < 20" mat-raised-button color="warn" (click)="deleteSubInStripe(sub.id)">{{'Ok' | translate}}</button>
         </div>
       </div>
-      <!-- <mat-action-row>
-          <button mat-button color="warn" (click)="prevStep()">Previous</button>
-          <button mat-button color="primary" (click)="nextStep()">End</button>
-        </mat-action-row> -->
     </mat-expansion-panel>
-
-
     <mat-expansion-panel *ngIf="showReLoginInApp" [expanded]="step === 4" (opened)="setStep(4)">
       <mat-expansion-panel-header>
         {{'Password Confirmation' | translate}}
@@ -260,6 +191,5 @@
       {{'Confirm your password:' | translate}}
       <app-loginInApp (loginInAppDone)="loginInAppDone()"></app-loginInApp>
     </mat-expansion-panel>
-
   </mat-accordion>
   <app-loadingInApp [loading]="loading"></app-loadingInApp>

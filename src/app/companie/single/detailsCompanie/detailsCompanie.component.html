@@ -11,30 +11,10 @@
       <mat-form-field>
         <input matInput type="text" formControlName="phoneNumber" [(ngModel)]="fetchedCompanie.phoneNumber" placeholder="{{'Phone number' | translate}}">
       </mat-form-field>
-      <!-- <mat-form-field>
-        <input matInput type="text" formControlName="faxNumber" [(ngModel)]="fetchedCompanie.faxNumber" placeholder="Numéro de Fax">
-      </mat-form-field> -->
-
     </div>
     <div class="col-12 col-lg-6">
-
       <app-address [addresses]="fetchedCompanie.address"></app-address>
-
-      <!-- <button type="button" class="btn btn-primary btn-sm" (click)="newAddress()">{{'New Address' | translate}}</button> -->
     </div>
-    <!-- <div class="col-12 col-lg-6">
-      <h5>{{'Divers' | translate}}</h5>
-      <mat-form-field>
-        <input matInput type="text" formControlName="VAT" [(ngModel)]="fetchedCompanie.VAT" required minlength="5" placeholder="Numéro de TVA">
-      </mat-form-field>
-    </div> -->
   </div>
-  <!-- <div class="valid-edit row col-12">
-    <button type="submit" class="valid">
-          {{'Save' | translate}}
-        </button>
-    <button *ngIf="fetchedCompanie._id && !isMyCompanie()" type="button" class="false" (click)="onDelete(fetchedCompanie._id)">
-          {{'Delete' | translate}}
-      </button>
-  </div> -->
+=
 </form>

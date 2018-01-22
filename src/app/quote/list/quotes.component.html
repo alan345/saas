@@ -1,14 +1,4 @@
 <div class="container">
-  <!-- <div class="d-flex flex-row">
-    <div class="p-2">
-      <h4 *ngIf="search.typeQuote ==='quote'"> {{'Interventions' | translate}}
-        <app-new-obj-dialog
-          *ngIf="createNewButton"
-          [search]="search" (saved)="saved($event)" [typeObj]="'quote'">
-        </app-new-obj-dialog>
-      </h4>
-    </div>
-  </div> -->
   <app-header-title [showBack]="showBack" [createNewButton]="createNewButton" [title]="'Interventions'" (saved)="saved($event)" [search]="search" [typeObj]="'quote'"></app-header-title>
   <div>
     <div *ngIf="showSearch" class="d-flex flex-row">
@@ -18,26 +8,22 @@
         </mat-form-field>
       </div>
     </div>
-
     <div class="row" *ngIf="fetchedQuotes.length">
       <div class="col-lg-12">
         <table class="table table-hover">
           <thead>
             <tr>
-              <!-- <th class="centre tdunder">{{'Type' | translate}}</th> -->
               <th class="centre tdunder hideMobile">
                 {{'Number Id' | translate}}
                 <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'quoteNumber'"></app-sort>
               </th>
               <th class="centre tdunder hideMobile">{{'Client' | translate}}</th>
               <th class="centre tdunder">{{'Name' | translate}}
-
                 <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'name'"></app-sort>
               </th>
               <th class="centre tdunder hideMobile">{{'Date' | translate}}
                 <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'detail.dateQuote.issueDate'"></app-sort>
               </th>
-
               <th class="centre tdunder">{{'Price' | translate}}
                 <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'priceQuote.priceGlobalWithDiscount'"></app-sort>
               </th>
@@ -54,9 +40,6 @@
           </thead>
           <tbody class="clienttbl">
             <tr *ngFor="let quote of fetchedQuotes" routerLinkActive="active">
-              <!-- <td class="centre tdunder">
-              {{quote.typeQuote | translate}}
-            </td> -->
               <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">
                 {{quote.quoteNumber}}
               </td>
@@ -76,11 +59,9 @@
               </td>
               <td class="centre tdunder hideMobile">
                   <app-invoice-action-button [fetchedQuote]="quote" [typeQuote]="'invoice'" [showLabel]=false></app-invoice-action-button>
-                  <!-- <app-invoice-action-button [fetchedQuote]="quote" [typeQuote]="'quote'" [showLabel]=false>></app-invoice-action-button> -->
               </td>
               <td class="centre tdunder hideMobile">
                   <app-invoice-action-button [fetchedQuote]="quote" [typeQuote]="'quote'" [showLabel]=false></app-invoice-action-button>
-                  <!-- <app-invoice-action-button [fetchedQuote]="quote" [typeQuote]="'quote'" [showLabel]=false>></app-invoice-action-button> -->
               </td>
             </tr>
           </tbody>

@@ -5,9 +5,7 @@
   <div *ngIf="accountConnectStripe.id">
     <br>
     <mat-icon color="accent" class="bigIcon">cloud_done</mat-icon>
-    <!-- Account linked under ID: {{accountConnectStripe.id}} -->
     <br>
-
     <button mat-raised-button color="warn" (click)="deauthorizeConnect()">{{'Disconnect' | translate}}</button>
   </div>
 </div>
