@@ -1,6 +1,6 @@
 // import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
 import { HttpModule, RequestOptions, Http } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MatSidenavModule } from '@angular/material';
@@ -33,9 +33,9 @@ registerLocaleData(localeFr, 'fr');
 // import { ErrorComponent } from './errorHandler/error.component';
 // import { AutocompleteComponent } from './autocomplete/autocomplete.component'
 
-export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig({}), http, options);
-}
+// export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+//   return new AuthHttp(new AuthConfig({}), http, options);
+// }
 
 @NgModule({
   declarations: [
@@ -48,11 +48,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     // CommonModule,
     HttpModule,
     RouterModule,
-    ReactiveFormsModule,
+    // ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastModule.forRoot(),
-    FormsModule,
+    // FormsModule,
     NavbarModule,
     SidebarModule,
     MatSidenavModule,
@@ -74,11 +74,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     Error2Service,
     PaiementGuardService,
     GlobalEventsManager,
-    {
-      provide: AuthHttp,
-      useFactory: authHttpServiceFactory,
-      deps: [Http, RequestOptions]
-    },
+    // {
+    //   provide: AuthHttp,
+    //   useFactory: authHttpServiceFactory,
+    //   deps: [Http, RequestOptions]
+    // },
     { provide: ToastOptions, useClass: CustomOption },
   ],
   entryComponents: [],

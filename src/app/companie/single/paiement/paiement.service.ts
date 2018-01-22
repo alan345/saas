@@ -145,18 +145,32 @@ export class PaiementService {
           });
       }
 
-      deleteSub(subId){
-        let headers = new Headers({'Content-Type': 'application/json'});
+      // deleteSub(subId, reasonToUnscribe: string) {
+      //   let headers = new Headers({'Content-Type': 'application/json'});
+      //   headers.append('Authorization', '' + this.authService.currentUser.token);
+      //   return this.http.delete(this.url + 'paiement/deleteSub/' + subId, {headers: headers})
+      //     .map((response: Response) => {
+      //       return response.json();
+      //     })
+      //     .catch((error: Response) => {
+      //       this.errorService.handleError(error.json());
+      //       return Observable.throw(error.json());
+      //     });
+      // }
+
+      deleteSub(subId, reasonToUnscribe: string) {
+        const body = JSON.stringify({reasonToUnscribe: reasonToUnscribe, subId: subId});
+        const headers = new Headers({'Content-Type': 'application/json'});
         headers.append('Authorization', '' + this.authService.currentUser.token);
-        return this.http.delete(this.url + 'paiement/deleteSub/' + subId, {headers: headers})
-          .map((response: Response) => {
-            return response.json();
-          })
+        return this.http.post(this.url + 'paiement/deleteSub/', body, {headers: headers})
+          .map(response => response.json())
           .catch((error: Response) => {
             this.errorService.handleError(error.json());
             return Observable.throw(error.json());
           });
       }
+
+
       deleteCard(cardId){
         let headers = new Headers({'Content-Type': 'application/json'});
         headers.append('Authorization', '' + this.authService.currentUser.token);

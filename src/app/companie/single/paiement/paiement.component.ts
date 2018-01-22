@@ -30,7 +30,9 @@ export class PaiementComponent implements OnInit {
   // maxPictureToShow=3;
   // instapic=1;
   approveTnC = false;
+  unscribeMode = false;
   plan = '';
+  reasonToUnscribe = '';
   loading = false;
   // companies: Companie[] = [];
   // isEditMode = false;
@@ -202,9 +204,9 @@ export class PaiementComponent implements OnInit {
   }
 
 
-  deleteSubInStripe(subId){
+  deleteSubInStripe(subId) {
     this.loading = true
-    this.paiementService.deleteSub(subId)
+    this.paiementService.deleteSub(subId, this.reasonToUnscribe)
       .subscribe(
         res => {
           // this.userService.cleanCurrentUserInSession()

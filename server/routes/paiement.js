@@ -3,7 +3,8 @@ var express = require('express'),
   config = require('../config/config'),
   User = require('../models/user.model'),
   Companie = require('../models/companie.model'),
-  PaiementQuote = require('../models/paiementQuote.model'),
+  emailGenerator = require('./emailGenerator.js'),
+  // PaiementQuote = require('../models/paiementQuote.model'),
   // fs      = require('fs'),
   jwt = require('jsonwebtoken'),
   stripe = require("stripe")(config.stripe.client_secret);
@@ -189,10 +190,13 @@ router.post('/saveSubscriptionInStripe/', function(req, res, next) {
 })
 
 
-router.delete('/deleteSub/:idSub', function(req, res, next) {
-  stripe.subscriptions.del(req.params.idSub, function(err, subscription) {
+
+router.post('/deleteSub/', function(req, res, next) {
+  console.log(req.body)
+  stripe.subscriptions.del(req.body.subId, function (err, subscription) {
     if (subscription) {
       detetePlanDetailsInDB(req.user.ownerCompanies[0]).then(item => {
+        emailGenerator.sendUnscribeMailToGooplus(req.body.reasonToUnscribe)
         return res.status(200).json({obj: item})
       }).catch(err => {
         return res.status(404).json({title: 'Error', error: err});

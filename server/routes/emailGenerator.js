@@ -116,6 +116,59 @@ module.exports = {
 
 
   },
+  sendUnscribeMailToGooplus (reasonToUnscribe) {
+    var html = `
+          <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+              <title>Email</title>
+              <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></link>
+            </head>
+            <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
+              <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc;">
+                <tr>
+                  <td align="center" bgcolor="#ff4351" height="150">
+                    <img
+                      src="http://mirabelle.io/wp-content/uploads/2018/01/Logo-mail.png"
+                      alt="Email de la part de Mirabelle" style="display: block; color: #ffffff;"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td style="padding: 15px 0 30px 0;">
+                          DESINSCRIPTION. RAISON: ${reasonToUnscribe}
+                        </td>
+                      </tr>
+
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </body>
+          </html>
+    `
+    var mailer = nodemailer.createTransport(transportOptions);
+
+    var mailOptions = {
+      to: 'hello@mirabelle.io',
+      from: 'hello@mirabelle.io',
+      subject: 'Bienvenue sur Mirabelle!',
+      html: html
+    };
+    mailer.sendMail(mailOptions, function(err) {
+      // console.log('info', 'Un message a été envoyé à ' + user.email + ' avec de plus amples informations.');
+      // return res.status(200).json({
+      //   message: 'Succès'
+      // })
+    });
+
+
+  },
   sendQuoteByEmailToClient (req, res, next, type) {
     return new Promise(function(resolve, reject) {
       Quote.findById({_id: req.params.quoteId})

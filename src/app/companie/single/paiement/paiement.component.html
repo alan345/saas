@@ -198,7 +198,7 @@
     </mat-expansion-panel>
 
 
-    <mat-expansion-panel *ngIf="stripeCust.id && stripeCust.sources.data.length && plan" [expanded]="step === 3" (opened)="setStep(3)">
+    <mat-expansion-panel *ngIf="(stripeCust.id && stripeCust.sources.data.length && plan) || stripeCust.subscriptions.data.length" [expanded]="step === 3" (opened)="setStep(3)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{'Subscription' | translate}}
@@ -216,7 +216,7 @@
             <input matInput readonly value="{{sub.plan.id}}" placeholder="Plan">
           </mat-form-field>
           <mat-form-field>
-            <input matInput readonly value="{{sub.plan.amount / 100 + ' ' + sub.plan.currency + ' / ' + sub.plan.interval}} " placeholder="Amount">
+            <input matInput readonly value="{{sub.plan.amount / 100 + ' ' + sub.plan.currency + ' / ' + sub.plan.interval}}" placeholder="{{'Amount' | translate}}">
           </mat-form-field>
           <!-- <mat-form-field>
               <input matInput readonly value="{{sub.plan.created | timestampToDate | date: 'dd/MM/yyyy HH:mm'}}" placeholder="Created">
@@ -238,7 +238,12 @@
             <input matInput readonly value="{{sub.current_period_end | timestampToDate | date: 'dd/MM/yyyy HH:mm'}}" placeholder="current_period_end">
           </mat-form-field> -->
           <!-- <button mat-button color="warn" (click)="deleteSubInStripe(sub.id)">deleteSubInStripe</button> -->
-          <button mat-raised-button color="warn" (click)="deleteSubInStripe(sub.id)">{{'I want to unscribe' | translate}}</button>
+          <button mat-raised-button color="warn" (click)="unscribeMode = true">{{'I want to unscribe' | translate}}</button>
+          <mat-form-field *ngIf="unscribeMode">
+            <textarea [(ngModel)]="reasonToUnscribe" matInput placeholder="{{'Why?' | translate}}" matTextareaAutosize matAutosizeMinRows="2"
+                      matAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+          <button *ngIf="unscribeMode" [disabled]="reasonToUnscribe.length < 20" mat-raised-button color="warn" (click)="deleteSubInStripe(sub.id)">{{'Ok' | translate}}</button>
         </div>
       </div>
       <!-- <mat-action-row>
