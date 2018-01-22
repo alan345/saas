@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+import { Component, OnInit, Input, OnChanges} from '@angular/core';
 import { PaiementService} from '../paiement/paiement.service';
 import { Companie } from '../../companie.model';
-// import { ToastsManager } from 'ng2-toastr';
 import { Location } from '@angular/common';
-import { AccountConnectStripe} from './connectStripe.model'
+import { AccountConnectStripe} from './connectStripe.model';
+// import { ToastsManager } from 'ng2-toastr';
 
 @Component({
   selector: 'app-connect-stripe',
@@ -20,7 +20,7 @@ export class ConnectStripeComponent implements OnInit, OnChanges {
     private paiementService: PaiementService,
     private location: Location,
   ) { }
-  
+
 
   ngOnInit() {
     // this.paiementService.getUserInfosConnect()

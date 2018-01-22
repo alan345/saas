@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {QuoteService} from '../../quote.service';
 import {Quote} from '../../quote.model';
 import {ToastsManager} from 'ng2-toastr';

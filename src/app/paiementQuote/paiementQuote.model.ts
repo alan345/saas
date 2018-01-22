@@ -1,9 +1,9 @@
-// import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
-// import { Product } from '../product/product.model';
-// import { Project } from '../project/project.model';
 import { Companie } from '../companie/companie.model';
 import { Quote } from '../quote/quote.model';
+// import { Form } from '../picture/form/form.model';
+// import { Product } from '../product/product.model';
+// import { Project } from '../project/project.model';
 
 
 export class PaiementQuote {

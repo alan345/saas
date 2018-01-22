@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-import { DrawingSignatureComponent } from './drawingSignature.component'
+import { DrawingSignatureComponent } from './drawingSignature.component';
 import { FormsModule } from '@angular/forms';
 import { SharedSmallModule } from '../../../shared/sharedSmall.module';
+import {SharedModule } from '../../../shared/shared.module';
+import {CanvasWhiteboardModule} from 'ng2-canvas-whiteboard';
+// import { CommonModule } from '@angular/common';
 // import { MatSliderModule} from '@angular/material';
 // import { MatSlideToggleModule} from '@angular/material';
 // import { SignaturePadModule } from '../angular2-signaturepad';
 
 // import { UserModule} from '../user/user.module'
 // import {NewUserComponent} from '../user/singleUser/newUser.component'
-import {SharedModule } from '../../../shared/shared.module';
 // import { newObjDialogComponent } from './newObjDialog/newObjDialog.component';
 
 // import { FormService} from './form/form.service';
@@ -25,7 +26,6 @@ import {SharedModule } from '../../../shared/shared.module';
 // import { MatTabsModule} from '@angular/material';
 
 
-import {CanvasWhiteboardModule} from 'ng2-canvas-whiteboard';
 
 
 @NgModule({

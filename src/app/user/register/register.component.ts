@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   myForm: FormGroup;
   email: FormControl;
   password: FormControl;
-  typesCompanie: string[] = ['Plumber', 'Locksmith', 'Electrician', 'Electrician', 'Gardener', 'Glazier', 'Services', 'Other']
+  typesCompanie: string[] = ['Plumber', 'Locksmith', 'Electrician', 'Electrician', 'Gardener', 'Glazier', 'Services', 'Other'];
 
 
   constructor(

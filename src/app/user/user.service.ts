@@ -3,16 +3,14 @@ import {Observable} from 'rxjs/Observable';
 import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
 import {User, UserCross} from './user.model';
-import {Companie} from '../companie/companie.model';
 import {ToastsManager} from 'ng2-toastr';
-
-
-// import { map } from 'rxjs/operators';
-
 import {newPassword} from './user.model';
 import {AuthService} from '../auth/auth.service';
 import { Config } from '../shared/config.model';
 
+
+// import { map } from 'rxjs/operators';
+// import {Companie} from '../companie/companie.model';
 
 
 

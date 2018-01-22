@@ -5,12 +5,8 @@ import { Location } from '@angular/common';
 import { FormBuilder} from '@angular/forms';
 // import {AuthService} from '../../auth/auth.service';
 // import {UserService} from '../../user/user.service';
-
-
 // import {Address} from '../../shared/address/address.model';
-
 // import {ToastsManager} from 'ng2-toastr';
-
 // import {MatDialog } from '@angular/material';
 // import { Params } from '@angular/router';
 

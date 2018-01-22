@@ -20,7 +20,7 @@ import { GlobalEventsManager } from '../../globalEventsManager';
 export class AdminUsersComponent implements OnInit {
   fetchedUsers: User[] = [];
   loading = false;
-  search: Search = new Search()
+  search: Search = new Search();
   createNewTeam = false;
   // {
   //   orderBy : '',

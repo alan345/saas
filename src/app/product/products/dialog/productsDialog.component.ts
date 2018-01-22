@@ -1,4 +1,4 @@
-import { Component, ViewChild, EventEmitter } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { MatDialogRef} from '@angular/material';
 import { ProductsComponent } from '../products.component';
 
@@ -17,7 +17,7 @@ export class ProductsDialogComponent {
   constructor(public dialogRef: MatDialogRef<ProductsComponent>) {}
 
   closeDialog() {
-    this.dialogRef.close()
+    this.dialogRef.close();
   }
   saved(data) {
     this.dialogRef.close(data)

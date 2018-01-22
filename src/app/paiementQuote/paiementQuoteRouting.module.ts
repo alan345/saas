@@ -1,9 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { EditPaiementQuoteComponent} from './single/editPaiementQuote.component';
-
-// import { AdminGuardService} from '../admin/services/adminGuard';
 
 import { PaiementQuotesComponent} from './paiementQuotes/paiementQuotes.component';
 
@@ -11,6 +8,9 @@ import { PaiementQuotesComponent} from './paiementQuotes/paiementQuotes.componen
 import { PaiementGuardService} from '../companie/single/paiement/paiementGuard.service';
 import { AuthGuardService} from '../auth/authguard.service';
 
+// import { EditPaiementQuoteComponent} from './single/editPaiementQuote.component';
+
+// import { AdminGuardService} from '../admin/services/adminGuard';
 
 
 export const routes: Routes = [

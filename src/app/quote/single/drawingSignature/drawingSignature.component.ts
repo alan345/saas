@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
-// import { SignaturePad } from '../angular2-signaturepad/signature-pad';
 import { DrawingSignature } from './drawingSignature.model';
 import { CanvasWhiteboardComponent} from 'ng2-canvas-whiteboard';
+// import { SignaturePad } from '../angular2-signaturepad/signature-pad';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class DrawingSignatureComponent implements OnInit {
   @ViewChild('canvasWhiteboard') canvasWhiteboard: CanvasWhiteboardComponent;
 
   // @ViewChild('signaturePadClass') elementView: ElementRef;
-  imgSignatureBase64Temp: string[] = []
+  imgSignatureBase64Temp: string[] = [];
   drawing: DrawingSignature = new DrawingSignature();
   // @Input() base64 = '';
   // @Output() saved: EventEmitter<any> = new EventEmitter();

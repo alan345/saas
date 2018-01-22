@@ -1,10 +1,10 @@
 import {Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+import { Search} from '../../shared/shared.model';
+import { GlobalEventsManager } from '../../globalEventsManager';
 // import {AuthService} from '../../auth/auth.service';
 // import { Location } from '@angular/common';
 // import { Router} from '@angular/router';
 // import { TranslateService } from '../../translate/translate.service';
-import { Search} from '../../shared/shared.model';
-import { GlobalEventsManager } from '../../globalEventsManager';
 
 @Component({
   selector: 'app-header-title',

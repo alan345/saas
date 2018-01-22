@@ -1,8 +1,8 @@
 import { Injectable} from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate, Router} from '@angular/router';
-import { Observable} from 'rxjs';
+import {Observable} from 'rxjs/Observable';
 import { ToastsManager} from 'ng2-toastr';
-import { AuthService} from '../../../auth/auth.service'
+import { AuthService} from '../../../auth/auth.service';
 // import { User } from '../../user/user.model'
 
 
