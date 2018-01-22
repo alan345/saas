@@ -2,15 +2,14 @@ import { Component, OnInit, Input} from '@angular/core';
 import { AuthService} from '../../../auth/auth.service';
 import { UserService} from '../../../user/user.service';
 import { PaiementService} from './paiement.service';
-
 import { ToastsManager} from 'ng2-toastr';
 import { Router} from '@angular/router';
 import { Location } from '@angular/common';
-// import { User } from '../../../user//user.model';
 import { Quote } from '../../../quote/quote.model';
 import { StripeCustomer, DataSource } from './paiement.model';
 import { Companie } from '../../../companie/companie.model';
 import { FormBuilder} from '@angular/forms';
+// import { User } from '../../../user//user.model';
 
 
 
@@ -23,25 +22,24 @@ import { FormBuilder} from '@angular/forms';
 
 
 export class PaiementComponent implements OnInit {
-  @Input() fetchedCompanie: Companie = new Companie()
-  //fetchedUser = new User()
-  //fetchedUser : User;
-  // isUserBelongToHQ=false
-  // maxPictureToShow=3;
-  // instapic=1;
+  @Input() fetchedCompanie: Companie = new Companie();
   approveTnC = false;
   unscribeMode = false;
   plan = '';
   reasonToUnscribe = '';
   loading = false;
+  showReLoginInApp = false;
+  newCard: DataSource = new DataSource();
+  stripeCust: StripeCustomer = new StripeCustomer();
+  quotes: Quote[] = [];
+  //fetchedUser = new User()
+  //fetchedUser : User;
+  // isUserBelongToHQ=false
+  // maxPictureToShow=3;
+  // instapic=1;
   // companies: Companie[] = [];
   // isEditMode = false;
-  showReLoginInApp = false;
-  newCard: DataSource = new DataSource()
   // fetchedUser : User = new User()
-  stripeCust: StripeCustomer = new StripeCustomer()
-
-  quotes: Quote[] = []
   // public myForm: FormGroup;
 
   constructor(
@@ -116,8 +114,6 @@ export class PaiementComponent implements OnInit {
             this.loading = false
 
 
-          // }
-
         },
         error => {
           this.stripeCust = new StripeCustomer()
@@ -126,10 +122,6 @@ export class PaiementComponent implements OnInit {
         }
       )
   }
-
-  // selectQuote(quote){
-  //   this.quotes = [quote]
-  // }
 
 
   deleteCustInStripe() {
@@ -232,80 +224,12 @@ export class PaiementComponent implements OnInit {
         res => {
           // this.userService.cleanCurrentUserInSession()
           this.toastr.success('Great!');
-          this.getStripeCust()
+          this.getStripeCust();
         },
         error => {
           console.log(error);
         }
       );
-
   }
-
-
-  //
-  //
-  //
-  //
-  //
-  // getUser(id: string) {
-  //   this.userService.getUser(id)
-  //     .subscribe(
-  //       res => { this.fetchedUser = res },
-  //       error => { console.log(error) }
-  //     )
-  // }
-
-
-
-
-  //
-  // goBack() {
-  //   this.location.back();
-  // }
-  //
-
-
-
-
-
-
-  // save() {
-  //   // this.isEditMode = false
-  //   this.userService.updateUser(this.fetchedUser)
-  //     .subscribe(
-  //       res => {
-  //         this.authService.successNotif(res.message)
-  //       },
-  //       error => {console.log(error)}
-  //     )
-  // }
-
-
-
-  //
-  // isAdmin() {
-  //   return this.authService.isAdmin();
-  // }
-  //
-  // isMyProfile() {
-  //   if(this.fetchedUser._id === this.authService.currentUser.userId)
-  //     return true
-  //   return false
-  // }
-
-
-  // onDelete(id: string) {
-  //   this.userService.deleteUser(id)
-  //     .subscribe(
-  //       res => {
-  //         this.authService.successNotif(res.message);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
-
-
 
 }
