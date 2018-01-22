@@ -84,8 +84,8 @@ export class QuoteInfoComponent implements OnInit {
       quoteNumber: [''],
       statusQuote: [''],
       issueDate: [''],
-      currency: ['', [Validators.required, Validators.minLength(1)]],
-      quoteRef: ['', [Validators.required, Validators.minLength(1)]],
+      // currency: ['', [Validators.required, Validators.minLength(1)]],
+      // quoteRef: ['', [Validators.required, Validators.minLength(1)]],
     })
 
     // this.authService.getCurrentUser().ownerCompanies.forEach(companie => {

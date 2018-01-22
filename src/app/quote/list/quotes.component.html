@@ -52,7 +52,7 @@
               <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">{{quote.name | mediumText}}</td>
               <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">{{quote.detail.dateQuote.issueDate | date:'longDate' }}</td>
               <td class="centre tdunder" (click)="navigateToQuote(quote)">
-                {{quote.priceQuote.priceGlobalWithDiscount | round | currency}}
+                {{quote.priceQuote.priceGlobalWithDiscount | round | currency:quote.detail.currency}}
               </td>
               <td class="centre tdunder" (click)="navigateToQuote(quote)">
                 <app-quote-status [showSingleSelected]=true [fetchedQuote]="quote"></app-quote-status>

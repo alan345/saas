@@ -2,19 +2,21 @@
   <div *ngIf="showTitle">
     <app-header-title [isDialog]="isDialog" [showBack]=-1 [title]="'Products'" (saved)="saved($event)" [search]="search" [typeObj]="'product'"></app-header-title>
   </div>
-  <div class="row">
-    <div class="col-8">
-      <div class="tac" *ngIf="isDialog" >
-        <div>
-          <h5>Nb de produits : <b>{{listProductsTempToAdd.length}}</b></h5>
+  <div *ngIf="isDialog && listProductsTempToAdd.length" class="row">
+    <div class="col-4 tac">
+      <mat-icon>shopping_basket</mat-icon>
+        <div class="dataCart">
+          <b>{{listProductsTempToAdd.length}}</b>
         </div>
-        <div>
-          <h5>Montant : <b>{{valueTempProduct | currency}}</b></h5>
-        </div>
+    </div>
+    <div class="col-4 tac">
+      <mat-icon>account_balance</mat-icon>
+      <div class="dataCart">
+        <b>{{valueTempProduct | currency}}</b>
       </div>
     </div>
     <div class="col-2">
-      <button *ngIf="isDialog" (click)="closeDialog()" mat-raised-button color="primary">
+      <button (click)="closeDialog()" mat-raised-button color="primary">
         <mat-icon>done</mat-icon>
       </button>
     </div>

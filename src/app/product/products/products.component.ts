@@ -23,7 +23,7 @@ import { AuthService} from '../../auth/auth.service';
     trigger('hideShowAnimator', [
         state('true' , style({ backgroundColor: '#6be576' })),
         state('false', style({ backgroundColor: 'white' })),
-        transition('0 => 1', animate('.3s')),
+        transition('0 => 1', animate('.2s')),
         transition('1 => 0', animate('.7s'))
     ])
 ]

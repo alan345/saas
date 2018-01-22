@@ -498,12 +498,12 @@ module.exports = {
       <td class="col-2 elem">
         <b>`
         html += Math.round(item.priceQuote.priceQuoteWithoutTaxes)
-
-        item.ownerCompanies.forEach(companie => {
-          if (companie.option.currency) {
-            html += companie.option.currency
-          }
-        })
+        html += item.detail.currency
+        // item.ownerCompanies.forEach(companie => {
+        //   if (companie.option.currency) {
+        //     html += companie.option.currency
+        //   }
+        // })
         html += `
         </b>
       </td>
@@ -522,12 +522,12 @@ module.exports = {
     <td class="col-2 elem">
       <b>`
         html += Math.round(item.priceQuote.priceGlobalWithDiscount)
-
-        item.ownerCompanies.forEach(companie => {
-          if (companie.option.currency) {
-            html += companie.option.currency
-          }
-        })
+        html += item.detail.currency
+        // item.ownerCompanies.forEach(companie => {
+        //   if (companie.option.currency) {
+        //     html += companie.option.currency
+        //   }
+        // })
         html += `
       </b>
     </td>
@@ -543,11 +543,12 @@ module.exports = {
     <td class="col-2 elem">
       <b>`
         html += Math.round(item.priceQuote.priceGlobalWithTaxesWithDiscount)
-        item.ownerCompanies.forEach(companie => {
-          if (companie.option.currency) {
-            html += companie.option.currency
-          }
-        })
+        html += item.detail.currency
+        // item.ownerCompanies.forEach(companie => {
+        //   if (companie.option.currency) {
+        //     html += companie.option.currency
+        //   }
+        // })
         html += `
       </b>
     </td>

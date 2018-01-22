@@ -61,7 +61,7 @@ export class SidebarComponent implements OnInit {
     }
   }
   ngOnInit() {
-    console.log(this.authService.getCurrentUser())
+    // console.log(this.authService.getCurrentUser())
     if (this.authService.isLoggedIn()) {
       this.globalEventsManager.showNavBar(true);
       this.showNavBar = true;

@@ -147,9 +147,9 @@
         [search]="{userId: search.userId, isExpense:search.isExpense, quoteId:fetchedQuote._id}">
       </app-paiementQuotes>
       <mat-card>
-        {{'Paiements' | translate}}: {{fetchedQuote.priceQuote.totalPaiementAmount | round | currency}}
+        {{'Paiements' | translate}}: {{fetchedQuote.priceQuote.totalPaiementAmount | round | currency:fetchedQuote.detail.currency}}
         <br>
-        {{'Outstanding balance' | translate}}: {{fetchedQuote.priceQuote.outstandingBalance | round | currency}}
+        {{'Outstanding balance' | translate}}: {{fetchedQuote.priceQuote.outstandingBalance | round | currency:fetchedQuote.detail.currency}}
       </mat-card>
       <mat-action-row>
         <app-actionButtons [fetchedQuote]="fetchedQuote" [showDeleteButton]=false (nextStep)="nextStep()">

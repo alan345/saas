@@ -63,7 +63,7 @@ export class QuoteComponent implements OnInit {
 
   nextStep() {
     this.step++;
-    this.save()
+    this.save();
 
   }
   clearDrawing() {
@@ -130,6 +130,12 @@ export class QuoteComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => { this.step = 0});
     this.getMyCompanie()
+
+    this.authService.getCurrentUser().ownerCompanies.forEach((companie: Companie) => {
+      this.fetchedQuote.detail.currency = companie.option.currency;
+    })
+
+
     this.activatedRoute.params.subscribe((params: Params) => {
       if (params['idQuote']) {
         this.search.quoteId = params['idQuote']

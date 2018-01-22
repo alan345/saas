@@ -29,7 +29,7 @@
               </textarea>
               </mat-form-field>
             </div>
-            
+
             <div *ngIf="bucketProduct.typeRow=='product'" class="col-6">
               <app-autocomplete [typeAutocomplete]="'product'"
                 [canDelete]="fetchedQuote.statusQuote === 'pending'"
@@ -65,7 +65,7 @@
             </div>
             <div class="col-3">
               <mat-form-field>
-                <input matInput disabled value="{{fetchedQuote.devisDetails[i].bucketProducts[j].priceWithQuantityWithDiscount | round | currency}}" placeholder="{{'Total' | translate}}">
+                <input matInput disabled value="{{fetchedQuote.devisDetails[i].bucketProducts[j].priceWithQuantityWithDiscount | round | currency:fetchedQuote.detail.currency}}" placeholder="{{'Total' | translate}}">
               </mat-form-field>
             </div>
           </div>

@@ -17,20 +17,21 @@ export class CurrencyPipe implements PipeTransform {
   ) {
   }
 
-  transform (input:number) {
-    let currency = '';
-    let returnValue = ''; + input
-    this.authService.getCurrentUser().ownerCompanies.forEach(companie => {
-      currency = companie.option.currency
-    })
-
-    if(currency === '$') {
+  transform (input: number, currency: string) {
+    // let currency = '';
+    let returnValue = '';
+    if (!currency) {
+      this.authService.getCurrentUser().ownerCompanies.forEach(companie => {
+        currency = companie.option.currency
+      })
+    }
+    if (currency === '$') {
       returnValue = '$' + input
-    }
-    if(currency === '€') {
+    } else if(currency === '€') {
       returnValue =  input + ' €'
+    } else {
+      returnValue =  input + ' ' + currency
     }
-
     return returnValue
   }
 }
