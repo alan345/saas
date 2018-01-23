@@ -53,7 +53,7 @@ export class UserCalendarsComponent implements OnInit {
   currentUser: User = new User()
   readyCalendar = false;
   loading = false;
-  showCustomerData = false;
+  showCustomerData = true;
   searchData: SearchData = new SearchData()
   // search = {
   //   typeUser: '',
