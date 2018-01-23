@@ -156,8 +156,8 @@ router.get('/page/:page', function(req, res, next) {
 
   var startDate = new Date(JSON.parse(req.query.startDate))
   var endDate = new Date(JSON.parse(req.query.endDate))
-  startDate = startDate.setDate(startDate.getDate() - 2 )
-  endDate = endDate.setDate(endDate.getDate() + 2 )
+  startDate = startDate.setDate(startDate.getDate() - 2)
+  endDate = endDate.setDate(endDate.getDate() + 2)
 
   let searchQuery = {
     start: {

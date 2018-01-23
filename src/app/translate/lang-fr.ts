@@ -57,7 +57,6 @@ export const LANG_FR_TRANS = {
     'Confirm your password:': 'Confirmation du mot de passe',
     'Month': 'Mois',
     'Disconnect': 'Déconnexion',
-    'Year': 'Année',
     'Plumber': 'Plombier',
     'Locksmith': 'Serrurier',
     'Electrician': 'Électricien',
