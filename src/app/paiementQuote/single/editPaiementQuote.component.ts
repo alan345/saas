@@ -15,6 +15,7 @@ import { Product } from '../../product/product.model';
 import { Search } from '../../shared/shared.model';
 import { MatDialog } from '@angular/material';
 import {AuthService} from '../../auth/auth.service';
+import { Companie } from '../../companie/companie.model';
 // import { Address, AddressTypes } from '../../shared/address/address.model';
 // import { Location } from '@angular/common';
 // import {ProductService} from '../../product/product.service';
@@ -104,6 +105,9 @@ export class EditPaiementQuoteComponent implements OnInit {
   }
   ngOnInit() {
 
+    this.authService.getCurrentUser().ownerCompanies.forEach((companie: Companie) => {
+      this.fetchedPaiementQuote.currency = companie.option.currency;
+    })
     setTimeout(() => { this.step = 0 });
     this.myForm = this._fb.group({
       amount: [''],

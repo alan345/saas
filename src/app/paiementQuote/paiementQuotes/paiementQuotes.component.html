@@ -37,7 +37,7 @@
               </div>
             </td>
             <td class="centre tdunder hideMobile">{{paiementQuote.datePaiement | date:'longDate' }}</td>
-            <td class="centre tdunder">{{paiementQuote.amount | round | currency}}</td>
+            <td class="centre tdunder">{{paiementQuote.amount | round | currency:paiementQuote.currency}}</td>
           </tr>
         </tbody>
       </table>

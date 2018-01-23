@@ -17,6 +17,7 @@ export class PaiementQuote {
   datePaiementString = '';
   amount = 0;
   type = 'cash';
+  currency = '';
   title = '';
   isGooplusPaiement = false;
   isPaid = true;

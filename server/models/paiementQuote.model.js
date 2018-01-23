@@ -16,6 +16,7 @@ var paiementQuote = new Schema({
     amount: {type: Number},
     isPaid: {type: Boolean, default: [false]},
     isGooplusPaiement: {type: Boolean, default: [false]},
+    currency: {type: String, default: ['']},
     type: {type: String, default: ['']},
     title: {type: String, default: ['']},
     isExpense: {type: Boolean, default: [false]},
