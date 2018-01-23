@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { QuoteService } from '../../../quote.service';
 import { DragulaService } from 'ng2-dragula';
 import { Quote, StatusQuotes } from '../../../quote.model';
-import { ToastsManager } from 'ng2-toastr';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
 import { Product } from '../../../../product/product.model';
+// import { ToastsManager } from 'ng2-toastr';
 
 // import { AuthService } from '../../../auth/auth.service';
 // import { TemplateQuoteService } from '../../templateQuote.service';
@@ -38,17 +38,17 @@ import { Product } from '../../../../product/product.model';
   templateUrl: './desktopDetails.component.html',
   styleUrls: ['../quoteDetails.component.css'],
 })
-export class DesktopDetailsComponent implements OnInit {
+export class DesktopDetailsComponent implements OnInit, OnDestroy {
+  @Output() calculateQuoteEmit: EventEmitter<any> = new EventEmitter();
+  @Input() fetchedQuote: Quote = new Quote()
+  statusQuotes = StatusQuotes;
+  // @Input() search: Search = new Search()
   // @ViewChild(SignaturePad) signaturePad: SignaturePad;
   // @ViewChild(PaiementQuotesComponent) paiementQuotesComponent: PaiementQuotesComponent;
-
+  // public many: Array<string> = ['The', 'possibilities', 'are', 'endless!'];
   // loading: boolean=false;
   // @Output() saved: EventEmitter<any> = new EventEmitter();
   // @Output() quoteDetailsUpdated: EventEmitter<any> = new EventEmitter();
-  @Output() calculateQuoteEmit: EventEmitter<any> = new EventEmitter();
-
-  @Input() fetchedQuote: Quote = new Quote()
-  // @Input() search: Search = new Search()
   //
   // // showPaiements = false;
   // // fetchedQuote: Quote = new Quote()
@@ -59,7 +59,6 @@ export class DesktopDetailsComponent implements OnInit {
   // imgLogoUrl = './assets/images/profile-placeholder.jpg'
   // imgSignatureBase64Temp = ''
   // fetchedPaiementQuotes: PaiementQuote[] = []
-  statusQuotes = StatusQuotes
 
 
   // public editorOptions = {
@@ -75,28 +74,31 @@ export class DesktopDetailsComponent implements OnInit {
 
   constructor(
     private quoteService: QuoteService,
+    private router: Router,
+    private location: Location,
+    private _fb: FormBuilder,
+    private dragulaService: DragulaService,
+    // private toastr: ToastsManager,
+    // public authService: AuthService,
     // private templateQuoteService: TemplateQuoteService,
     // private projectService: ProjectService,
     // private userService: UserService,
     // private productService: ProductService,
     //    private modalService: NgbModal,
-    private toastr: ToastsManager,
     // public dialog: MatDialog,
     // private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private location: Location,
-    private _fb: FormBuilder,
-    // public authService: AuthService,
-    private dragulaService: DragulaService,
     // private translateService: TranslateService,
   ) {
 
-
     dragulaService.setOptions('third-bag', {
       moves: function(el, container, handle) {
-        return (handle.className === 'fa fa-arrows handle' || handle.className === 'btn btn-sm handle');
+        return (handle.className === 'mat-icon material-icons');
       }
     });
+  }
+
+  ngOnInit() {
+
   }
   ngOnDestroy() {
     this.dragulaService.destroy('third-bag');
@@ -106,6 +108,29 @@ export class DesktopDetailsComponent implements OnInit {
 
   removeBucketProducts(i) {
     this.fetchedQuote.devisDetails.splice(i, 1);
+    this.calculateQuote()
+  }
+  selectProduct(product: Product, i, j) {
+
+    this.fetchedQuote.devisDetails[i].bucketProducts[j].productInit = [product]
+    this.fetchedQuote.devisDetails[i].bucketProducts[j].vat = product.details.price.vat
+    this.fetchedQuote.devisDetails[i].bucketProducts[j].priceWithoutTaxes = product.details.price.sellingPrice
+    this.fetchedQuote.devisDetails[i].bucketProducts[j].priceWithTaxes = 0
+    this.fetchedQuote.devisDetails[i].bucketProducts[j].priceWithTaxesWithQuantity = 0
+    this.fetchedQuote.devisDetails[i].bucketProducts[j].priceWithQuantity = 0
+    this.fetchedQuote.devisDetails[i].bucketProducts[j].quantity = 1
+    this.fetchedQuote.devisDetails[i].bucketProducts[j].discount = 0
+
+    // this.autocompleteProduct = ''
+
+    // this.fetchedQuote.devisDetails[i].bucketProducts.push(bucketProduct)
+    this.calculateQuote()
+  }
+  calculateQuote() {
+    this.calculateQuoteEmit.emit()
+  }
+  removeRow(i: number, j: number) {
+    this.fetchedQuote.devisDetails[i].bucketProducts.splice(j, 1);
     this.calculateQuote()
   }
   // addBucketProducts() {
@@ -122,24 +147,7 @@ export class DesktopDetailsComponent implements OnInit {
   //
   //   this.calculateQuote()
   // }
-  selectProduct(product: Product, i, j) {
 
-    // let bucketProduct: BucketProduct = new BucketProduct()
-
-      this.fetchedQuote.devisDetails[i].bucketProducts[j].productInit = [product],
-      this.fetchedQuote.devisDetails[i].bucketProducts[j].vat = product.details.price.vat,
-      this.fetchedQuote.devisDetails[i].bucketProducts[j].priceWithoutTaxes = product.details.price.sellingPrice,
-      this.fetchedQuote.devisDetails[i].bucketProducts[j].priceWithTaxes = 0,
-      this.fetchedQuote.devisDetails[i].bucketProducts[j].priceWithTaxesWithQuantity = 0,
-      this.fetchedQuote.devisDetails[i].bucketProducts[j].priceWithQuantity = 0,
-      this.fetchedQuote.devisDetails[i].bucketProducts[j].quantity = 1,
-      this.fetchedQuote.devisDetails[i].bucketProducts[j].discount = 0,
-
-      // this.autocompleteProduct = ''
-
-      // this.fetchedQuote.devisDetails[i].bucketProducts.push(bucketProduct)
-      this.calculateQuote()
-  }
   // onEditorCreated(quill) {
   // }
   //
@@ -261,13 +269,7 @@ export class DesktopDetailsComponent implements OnInit {
   //   }, 20)
   //
   // }
-  calculateQuote() {
-    this.calculateQuoteEmit.emit()
-  }
-  removeRow(i: number, j: number) {
-    this.fetchedQuote.devisDetails[i].bucketProducts.splice(j, 1);
-    this.calculateQuote()
-  }
+
 
   //
   // addRow(typeRow) {
@@ -306,9 +308,6 @@ export class DesktopDetailsComponent implements OnInit {
 
 
 
-  ngOnInit() {
-
-  }
 
 
 

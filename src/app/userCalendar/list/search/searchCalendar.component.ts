@@ -1,23 +1,21 @@
-import {Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, Injectable, NgModule} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../../auth/auth.service';
 import {UserCalendarService} from '../../userCalendar.service';
-
-import {UserCalendar, SearchData} from '../../userCalendar.model';
-
+import {SearchData} from '../../userCalendar.model';
 import {MatDialog } from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-// import { FormBuilder, FormGroup} from '@angular/forms';
 import { UserService} from '../../../user/user.service';
+import { User } from '../../../user/user.model';
 //
 // import { DeleteDialog } from '../../../deleteDialog/deleteDialog.component';
-import { User } from '../../../user/user.model';
+// import { FormBuilder, FormGroup} from '@angular/forms';
 // import { Quote } from '../../quote/quote.model';
 // import { Product } from '../../product/product.model';
 // import { Project } from '../../project/project.model';
 // import { ProjectService} from '../../../project/project.service';
 
-import {CalendarComponent} from 'ap-angular2-fullcalendar';
+// import {CalendarComponent} from 'ap-angular2-fullcalendar';
 // import {ToastsManager} from 'ng2-toastr';
 // import {Search} from '../../../shared/shared.model'
 // import { UserCalendarDialogComponent } from '../single/dialog/userCalendarDialog.component';
@@ -31,6 +29,8 @@ import {CalendarComponent} from 'ap-angular2-fullcalendar';
 })
 export class SearchCalendarComponent implements OnInit {
   @Output() getUserCalendarBySearch: EventEmitter<any> = new EventEmitter();
+  currentUser: User = new User();
+  searchData: SearchData = new SearchData();
 
   // @Output() newUserCalendarSaved: EventEmitter<any> = new EventEmitter();
   // @Input() showHeader = true;
@@ -45,7 +45,6 @@ export class SearchCalendarComponent implements OnInit {
   // autocompleteProject = '';
   // fetchedProducts: Product[] = []
   // fetchedProjects: Project[] = []
-  currentUser: User = new User()
   // imgLogoUrl = './assets/images/profile-placeholder.jpg'
   // imgSignatureBase64Temp = ''
   // userAdmins : User[] = []
@@ -74,7 +73,6 @@ export class SearchCalendarComponent implements OnInit {
   // fetchedProjectSearchs: Project[] = [];
   // typeUsers = ['plombier', 'electricien']
 
-  searchData: SearchData = new SearchData()
 
 
   constructor(

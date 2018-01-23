@@ -10,8 +10,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../../user/user.service';
 import { Companie } from '../../companie/companie.model';
 import { CompanieService} from '../../companie/companie.service';
-import { User } from '../../user/user.model';
-import { Quote } from '../../quote/quote.model';
 import { CalendarComponent } from 'ap-angular2-fullcalendar';
 import { UserCalendarDialogComponent } from '../single/dialog/userCalendarDialog.component';
 import { TranslateService } from '../../translate/translate.service';
@@ -19,6 +17,8 @@ import { SearchCalendarComponent } from './search/searchCalendar.component';
 
 
 
+// import { User } from '../../user/user.model';
+// import { Quote } from '../../quote/quote.model';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 // import { Product } from '../../product/product.model';
 // import { Project } from '../../project/project.model';
@@ -37,7 +37,7 @@ import { SearchCalendarComponent } from './search/searchCalendar.component';
 export class UserCalendarsComponent implements OnInit {
   // @Output() newUserCalendarSaved: EventEmitter<any> = new EventEmitter();
   // @Input() showHeader = true;
-  @Input() fetchedQuote: Quote = new Quote()
+  // @Input() fetchedQuote: Quote = new Quote()
 
   // @ViewChild('myCal', { read: ElementRef }) myCal: ElementRef;
   @ViewChild(CalendarComponent) myCalendar: CalendarComponent;
@@ -50,7 +50,7 @@ export class UserCalendarsComponent implements OnInit {
   isSearchInitReady = false;
   fetchedUserCalendar: UserCalendar = new UserCalendar()
 
-  currentUser: User = new User()
+  // currentUser: User = new User()
   readyCalendar = false;
   loading = false;
   showCustomerData = true;
@@ -213,7 +213,6 @@ export class UserCalendarsComponent implements OnInit {
   }
 
   getUserCalendarBySearch(searchData: SearchData) {
-    // console.log(searchData)
     this.searchData = searchData
     this.isSearchInitReady = true
     this.resetSearchGetUserCalendars()
@@ -222,6 +221,7 @@ export class UserCalendarsComponent implements OnInit {
     // this.search.typeUser = this.searchData.typeUser
     // this.search.userId = ''
     // this.search.projectSearch = ''
+    this.search.userId = '';
     this.searchData.fetchedUserSearchs.forEach(fetchedUserSearch => {
       this.search.userId = fetchedUserSearch._id
     });
