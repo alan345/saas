@@ -165,15 +165,15 @@ export class UserCalendarsComponent implements OnInit {
       header: {
         left: '',
         center: '',
-        right: 'prev,today,next month,agendaWeek,listWeek'
+        right: 'prev,today,next month,agendaWeek,listYear'
       },
 
       buttonText: {
         today:    this.translateService.instant('⇔'),
-        month:    this.translateService.instant('month'),
-        week:     this.translateService.instant('week'),
-        day:      this.translateService.instant('day'),
-        list:     this.translateService.instant('list'),
+        month:    this.translateService.instant('Month'),
+        week:     this.translateService.instant('Week'),
+        // day:      this.translateService.instant('Day'),
+        list:     this.translateService.instant('Year'),
       },
       defaultView: 'agendaWeek',
       editable: true,

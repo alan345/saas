@@ -9,7 +9,7 @@ var express = require('express'),
   nameObject = 'userCalendar'
 
 // this process does not hang the nodejs server on error
-process.on('uncaughtException', function(err) {
+process.on('uncaughtException', function (err) {
   console.log(err)
 })
 
@@ -62,7 +62,7 @@ router.use('/', function(req, res, next) {
 })
 
 //update
-router.put('/:id', function(req, res, next) {
+router.put('/:id', function (req, res, next) {
   // console.log(req.user.ownerCompanies)
   // if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
   //   return res.status(404).json({
@@ -76,7 +76,6 @@ router.put('/:id', function(req, res, next) {
     if (err) {
       return res.status(404).json({message: '', err: err})
     } else {
-
       item.title = req.body.title,
       item.url = req.body.url,
       item.start = req.body.start,

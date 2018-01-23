@@ -21,9 +21,14 @@
       </mat-slide-toggle>
     </div>
     <div *ngIf="search.clientId" class="col-12">
+
+      {{'Global view' | translate}}
       <mat-slide-toggle [(ngModel)]="showCustomerData" (change)="resetSearchGetUserCalendars()">
-        <div>{{'Client Calendar' | translate}}</div>
-      </mat-slide-toggle>
+        </mat-slide-toggle>
+        {{'Client view' | translate}}
+
+
+
     </div>
     <angular2-fullcalendar *ngIf="readyCalendar" #myCal [options]="calendarOptions" (initialized)="onCalendarInit($event)">
     </angular2-fullcalendar>
