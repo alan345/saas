@@ -119,6 +119,7 @@ width: 500px;
 .pointer {cursor: pointer; }
 
 .spaceBetween {
+  display: flex;
   justify-content: space-between!important;
 }
 

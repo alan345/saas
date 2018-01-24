@@ -360,7 +360,7 @@ export class AuthService {
     //gooplus
     //location.reload();
 
-    this.toastr.info('You have been logged out');
+    this.toastr.info('Ok!');
   }
 
   // check if the user is logged in or not, if token is expired, token is deleted from localstorage

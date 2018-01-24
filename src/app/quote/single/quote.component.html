@@ -19,6 +19,7 @@
         [fetchedQuote]="fetchedQuote" (save)="save()" (quoteStatusChangedEmit)="save()"></app-quoteInfo>
       <mat-action-row *ngIf="fetchedQuote.statusQuote === 'pending'">
         <app-actionButtons
+          class="width100perc"
           *ngIf="fetchedQuote.statusQuote === 'pending'"
           (nextStep)="nextStep()" [isDialog]="isDialog"
           [fetchedQuote]="fetchedQuote" (closeDialog)="closeDialog()" (saveEmmit)="save()">

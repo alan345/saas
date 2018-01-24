@@ -13,14 +13,8 @@
       <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
         <div class="row">
           <div class="col-12 col-lg-6">
-            <app-autocomplete class="mb8 bn" [canDelete]=true
-              [typeAutocomplete]="'user'" [search]="search"
-              [canDelete]="true" [title]="'Customer'"
-              [singleChoice]="true"
-              [arrayContent]="fetchedPaiementQuote.userDebiteds"
-              (clearAutocomplete)="clearAutocompleteClient()"
-              (getResultAutocomplete)="selectUserDebited($event[0])"
-              (autocompleteAfterNgChanges)="autocompleteAfterNgChangesUser($event)">
+            <app-autocomplete class="mb8 bn" [canDelete]=true [typeAutocomplete]="'user'" [search]="search" [canDelete]="true" [title]="'Customer'" [singleChoice]="true" [arrayContent]="fetchedPaiementQuote.userDebiteds" (clearAutocomplete)="clearAutocompleteClient()"
+              (getResultAutocomplete)="selectUserDebited($event[0])" (autocompleteAfterNgChanges)="autocompleteAfterNgChangesUser($event)">
             </app-autocomplete>
           </div>
           <div class="col-12 col-lg-6">
@@ -43,12 +37,14 @@
         </div>
       </form>
       <mat-action-row>
-        <button *ngIf="fetchedPaiementQuote._id" mat-mini-fab color="warn" (click)="openDialogDelete()">
-          <mat-icon aria-label="delete">delete</mat-icon>
-        </button>
-        <button mat-mini-fab color="primary" (click)="nextStep()">
-          <mat-icon aria-label="Next">forward</mat-icon>
-        </button>
+        <div class="spaceBetween width100perc">
+          <button *ngIf="fetchedPaiementQuote._id" mat-mini-fab color="warn" (click)="openDialogDelete()">
+            <mat-icon aria-label="delete">delete</mat-icon>
+          </button>
+            <button mat-mini-fab color="primary" (click)="nextStep()">
+            <mat-icon aria-label="Next">forward</mat-icon>
+          </button>
+        </div>
       </mat-action-row>
     </mat-expansion-panel>
     <mat-expansion-panel *ngIf="fetchedPaiementQuote._id && fetchedPaiementQuote.amount" [expanded]="step === 1" (opened)="setStep(1)">
@@ -62,7 +58,8 @@
       </mat-expansion-panel-header>
       <div *ngIf="fetchedPaiementQuote.isPaid">
         <mat-radio-group *ngIf="fetchedPaiementQuote.stripe.charge.status !=='succeeded'" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedPaiementQuote.type">
-          <mat-radio-button class="paiementsTypes" *ngFor="let n of paiementsTypes" [value]="n.value">{{n.label | translate}}</mat-radio-button><mat-radio-button *ngIf="accountConnectStripe.id" [value]="'stripe'">{{'Card' | translate}}</mat-radio-button>
+          <mat-radio-button class="paiementsTypes" *ngFor="let n of paiementsTypes" [value]="n.value">{{n.label | translate}}</mat-radio-button>
+          <mat-radio-button *ngIf="accountConnectStripe.id" [value]="'stripe'">{{'Card' | translate}}</mat-radio-button>
         </mat-radio-group>
         <div *ngIf="fetchedPaiementQuote.type=='stripe' && fetchedPaiementQuote._id">
           <mat-card *ngIf="fetchedPaiementQuote.stripe.charge.status !=='succeeded'">
@@ -76,11 +73,7 @@
         </div>
       </div>
       <mat-action-row>
-        <button
-          mat-mini-fab
-          mat-mini-fab color="primary"
-          *ngIf="fetchedPaiementQuote.type==='stripe' && fetchedPaiementQuote.stripe.charge.status !=='succeeded'"
-          (click)="payByCardConnect()">
+        <button mat-mini-fab mat-mini-fab color="primary" *ngIf="fetchedPaiementQuote.type==='stripe' && fetchedPaiementQuote.stripe.charge.status !=='succeeded'" (click)="payByCardConnect()">
           <mat-icon>credit_card</mat-icon>
         </button>
         <button *ngIf="fetchedPaiementQuote.type!=='stripe'" mat-mini-fab color="primary" (click)="closeDialog()">

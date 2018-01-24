@@ -16,22 +16,22 @@
           {{'User' | translate}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <app-details-user [customFormControls]="customFormControls" [myForm]="myForm" (save)="save()"[fetchedUser]="fetchedUser"></app-details-user>
+      <app-details-user [customFormControls]="customFormControls" [myForm]="myForm" (save)="save()" [fetchedUser]="fetchedUser"></app-details-user>
       <mat-action-row>
-        <div *ngIf="fetchedUser._id">
-          <button *ngIf="!isUserIsMyself()" mat-mini-fab color="warn" (click)="openDialogDelete()">
-            <mat-icon aria-label="Clear">clear</mat-icon>
+        <div class="spaceBetween width100perc">
+          <div *ngIf="fetchedUser._id">
+            <button *ngIf="!isUserIsMyself()" mat-mini-fab color="warn" (click)="openDialogDelete()">
+            <mat-icon>delete</mat-icon>
           </button>
-        </div>
-        <button *ngIf="step === 0" [disabled]="!myForm.valid" mat-mini-fab color="primary" (click)="saveAndNextStep()">
+          </div>
+          <button *ngIf="step === 0" [disabled]="!myForm.valid" mat-mini-fab color="primary" (click)="saveAndNextStep()">
           <mat-icon aria-label="Next">forward</mat-icon>
         </button>
+        </div>
       </mat-action-row>
     </mat-expansion-panel>
 
-    <mat-expansion-panel
-      *ngIf="authService.showObjHTML('user', 'readCross') && fetchedUser._id"
-      [expanded]="step === 1" (opened)="setStep(1)">
+    <mat-expansion-panel *ngIf="authService.showObjHTML('user', 'readCross') && fetchedUser._id" [expanded]="step === 1" (opened)="setStep(1)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <mat-icon>assignment_ind</mat-icon>
@@ -55,8 +55,7 @@
       <app-quotes *ngIf="step === 2" [showBack]=0 (savedEmit)="savedEmitExternElement()" [search]="{userId: fetchedUser._id, typeQuote: 'quote'}"></app-quotes>
     </mat-expansion-panel>
 
-    <mat-expansion-panel
-      *ngIf="authService.showObjHTML('paiementQuote', 'read') && fetchedUser._id && fetchedUser.isExternalUser && !search.isFromAutocomplete" [expanded]="step === 3" (opened)="setStep(3)">
+    <mat-expansion-panel *ngIf="authService.showObjHTML('paiementQuote', 'read') && fetchedUser._id && fetchedUser.isExternalUser && !search.isFromAutocomplete" [expanded]="step === 3" (opened)="setStep(3)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <mat-icon>credit_card</mat-icon>
@@ -68,8 +67,7 @@
       <app-paiementQuotes *ngIf="step === 3" [showBack]=0 (savedEmit)="savedEmitExternElement()" [search]="{userId: fetchedUser._id}"></app-paiementQuotes>
     </mat-expansion-panel>
 
-    <mat-expansion-panel
-      *ngIf="authService.showObjHTML('userCalendar', 'read') && fetchedUser._id && fetchedUser.isExternalUser && !search.isFromAutocomplete" [expanded]="step === 4" (opened)="setStep(4)">
+    <mat-expansion-panel *ngIf="authService.showObjHTML('userCalendar', 'read') && fetchedUser._id && fetchedUser.isExternalUser && !search.isFromAutocomplete" [expanded]="step === 4" (opened)="setStep(4)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <mat-icon>event_available</mat-icon>
