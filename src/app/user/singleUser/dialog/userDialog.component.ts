@@ -18,7 +18,7 @@ export class UserDialogComponent{
     public dialogRef: MatDialogRef<UserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    console.log(data.search)
+    // console.log(data.search)
     this.search = data.search
   }
   saved(data) {
