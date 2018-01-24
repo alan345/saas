@@ -110,13 +110,15 @@
       <img style="width: 100%;" *ngIf="fetchedQuote.statusQuote !== 'pending'" [src]="'./uploads/signature/' + fetchedQuote.drawingSignature.namePicture">
 
       <mat-action-row *ngIf="fetchedQuote.statusQuote === 'pending'">
-        <button mat-mini-fab color="warn" (click)="clearDrawing()">
-          <mat-icon aria-label="clear">clear</mat-icon>
-        </button>
+        <div class="spaceBetween width100perc">
+          <button mat-mini-fab color="warn" (click)="clearDrawing()">
+            <mat-icon aria-label="clear">clear</mat-icon>
+          </button>
 
-        <button mat-mini-fab color="primary" (click)="saveSignature()">
-          <mat-icon aria-label="clear">forward</mat-icon>
-        </button>
+          <button mat-mini-fab color="primary" (click)="saveSignature()">
+            <mat-icon aria-label="clear">forward</mat-icon>
+          </button>
+        </div>
 
         <!-- <app-actionButtons
           *ngIf="fetchedQuote.statusQuote === 'pending'"
