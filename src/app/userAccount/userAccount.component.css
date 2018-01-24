@@ -9,6 +9,9 @@
 	padding:2px 15px;
 }
 
+.logomira {
+  cursor:pointer;
+}
 .selected a{
 	cursor:pointer;
 	font-weight:bold;
