@@ -13,6 +13,9 @@ import {UserService} from '../user/user.service';
 import {SharedSmallModule} from './sharedSmall.module';
 import {MatRadioModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
 
 // import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService }   from '../translate';

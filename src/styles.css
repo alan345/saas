@@ -505,6 +505,7 @@ body {
   /*background-color: #fff;*/
   background-color: #fafafa;
   margin: 0;
+  overscroll-behavior-y: contain;
 }
 
 

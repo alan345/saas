@@ -24,9 +24,7 @@ import { Error2Service } from './errorHandler/error2.service';
 import { ErrorPageComponent } from './errorPage/errorPage.component';
 import { PaiementGuardService } from './companie/single/paiement/paiementGuard.service';
 import { LoadingInAppModule } from './nav/loadingInApp/loadingInApp.module';
-import { registerLocaleData } from '@angular/common';
-import localeFr from '@angular/common/locales/fr';
-registerLocaleData(localeFr, 'fr');
+
 // import { BrowserModule } from '@angular/platform-browser';
 // import { FormsModule } from '@angular/forms';
 // import { AuthHttp, AuthConfig } from 'angular2-jwt';
