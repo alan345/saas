@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule} from '@angular/forms';
-import { UserRouting } from './userRouting.module';
+import { UserAccountRouting } from './userAccountRouting.module';
 import { QuoteModule} from '../quote/quote.module';
 import { PaiementQuoteModule} from '../paiementQuote/paiementQuote.module';
 import { UserCalendarModule} from '../userCalendar/userCalendar.module';
-import { UserDialogComponent } from './singleUser/dialog/userDialog.component';
-import { DetailsUserComponent } from './singleUser/detailsUser/detailsUser.component';
-import { UserCrossComponent } from './singleUser/userCross/userCross.component';
-// import { RegisterComponent} from './register/register.component';
-import { UserComponent} from './singleUser/user.component';
-import { ChangePasswordComponent } from './singleUser/changePassword/changePassword.component';
-// import { ResetPasswordComponent} from './accountRecover/resetPassword.component';
-// import { ForgetPasswordComponent} from './accountRecover/forgetPassword.component';
-import { UserService} from './user.service';
-// import { LoginComponent} from './login/login.component';
-import { AdminUsersComponent } from './users/adminUsers.component';
+// import { UserDialogComponent } from './singleUser/dialog/userDialog.component';
+// import { DetailsUserComponent } from './singleUser/detailsUser/detailsUser.component';
+// import { UserCrossComponent } from './singleUser/userCross/userCross.component';
+import { RegisterComponent} from './register/register.component';
+// import { UserComponent} from './singleUser/user.component';
+// import { ChangePasswordComponent } from './singleUser/changePassword/changePassword.component';
+import { ResetPasswordComponent} from './accountRecover/resetPassword.component';
+import { ForgetPasswordComponent} from './accountRecover/forgetPassword.component';
+// import { UserService} from './user.service';
+import { LoginComponent} from './login/login.component';
+// import { AdminUsersComponent } from './users/adminUsers.component';
 import {SharedModule } from '../shared/shared.module';
 import {MatExpansionModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
@@ -56,7 +56,7 @@ import {MatCheckboxModule} from '@angular/material';
 @NgModule({
   imports:      [
 
-    UserRouting,
+    UserAccountRouting,
     // CommonModule,
     // FormsModule,
     // MaterialModule,
@@ -82,28 +82,28 @@ import {MatCheckboxModule} from '@angular/material';
 //    UserWhereDialogComponent,
 
     // AutocompleteComponent,
-    UserComponent,
-    UserDialogComponent,
-    DetailsUserComponent,
-    UserCrossComponent,
+    // UserComponent,
+    // UserDialogComponent,
+    // DetailsUserComponent,
+    // UserCrossComponent,
     // SingleUserComponent,
     // AddNoteComponent,
     // ChooseDateComponent,
     // UserPicturesComponent,
 
 
-    AdminUsersComponent,
-    // LoginComponent,
-    // ResetPasswordComponent,
-    // ForgetPasswordComponent,
+    // AdminUsersComponent,
+    LoginComponent,
+    ResetPasswordComponent,
+    ForgetPasswordComponent,
 
     // UserProfileComponent,
     // PaiementComponent,
     // UserProfilePicturesComponent,
     // UserProfileSettingsComponent,
-    ChangePasswordComponent,
+    // ChangePasswordComponent,
 
-    // RegisterComponent,
+    RegisterComponent,
     // PaiementPipe,
 
 
@@ -116,13 +116,13 @@ import {MatCheckboxModule} from '@angular/material';
   providers:    [
     // ProfileService,
 
-    UserService,
+    // UserService,
     // PaiementService,
   ],
   entryComponents: [
-    UserDialogComponent
+    // UserDialogComponent
   //  UserDeleteDialog,
 //    UserWhereDialogComponent,
   ]
 })
-export class UserModule { }
+export class UserAccountModule { }

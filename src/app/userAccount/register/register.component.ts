@@ -2,13 +2,13 @@ import {Component, OnInit, Renderer, ViewChild, ElementRef, AfterViewInit} from 
 import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import {ToastsManager} from 'ng2-toastr';
 import {AuthService} from '../../auth/auth.service';
-import {UserRegister} from '../user.model';
+import {UserRegister} from '../userAccount.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['../user.component.css']
+  styleUrls: ['../userAccount.component.css']
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
   @ViewChild('userEmail') userEmail: ElementRef;

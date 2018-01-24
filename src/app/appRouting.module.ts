@@ -26,6 +26,7 @@ export const routes: Routes = [
   {path: 'home', loadChildren: 'app/reporting/reporting.module#ReportingModule', canActivate: [AuthGuardService, NotClientGuardService]},
   {path: 'product', loadChildren: 'app/product/product.module#ProductModule', canActivate: [AuthGuardService, PaiementGuardService]},
   {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
+  {path: 'userAccount', loadChildren: 'app/userAccount/userAccount.module#UserAccountModule'},
   {path: '404', component: ErrorPageComponent},
   {path: '**', redirectTo: '404'}
 

@@ -1,13 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-// import {LoginComponent} from './login/login.component';
-// import {RegisterComponent} from './register/register.component';
-// import {ResetPasswordComponent} from './accountRecover/resetPassword.component';
-// import {ForgetPasswordComponent} from './accountRecover/forgetPassword.component';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {ResetPasswordComponent} from './accountRecover/resetPassword.component';
+import {ForgetPasswordComponent} from './accountRecover/forgetPassword.component';
 import {AuthGuardService} from '../auth/authguard.service';
-import {ChangePasswordComponent} from './singleUser/changePassword/changePassword.component';
-import { UserComponent} from './singleUser/user.component';
-import { AdminUsersComponent } from './users/adminUsers.component';
+// import {ChangePasswordComponent} from './singleUser/changePassword/changePassword.component';
+// import { UserComponent} from './singleUser/user.component';
+// import { AdminUsersComponent } from './users/adminUsers.component';
 
 //import {UserFormsComponent} from '../form/userForms.component';
 // import {AppComponent} from '../app.component';
@@ -26,15 +26,15 @@ import { AdminUsersComponent } from './users/adminUsers.component';
 
 export const routes: Routes = [
 
-  // {path: '', component: LoginComponent},
-  {path: 'newuser', component: UserComponent, canActivate: [AuthGuardService]},
-  // {path: 'login', component: LoginComponent},
-  // {path: 'register', component: RegisterComponent},
-  // {path: 'reset', component: ForgetPasswordComponent},
-  // {path: 'reset/:token', component: ResetPasswordComponent},
-  {path: 'profile/password', component: ChangePasswordComponent, canActivate: [AuthGuardService]},
-  {path: ':id', component: UserComponent, canActivate: [AuthGuardService]},
-  {path: 'list/:isExternalUser', component: AdminUsersComponent, canActivate: [AuthGuardService]},
+  {path: '', component: LoginComponent},
+  // {path: 'newuser', component: UserComponent, canActivate: [AuthGuardService]},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'reset', component: ForgetPasswordComponent},
+  {path: 'reset/:token', component: ResetPasswordComponent},
+  // {path: 'profile/password', component: ChangePasswordComponent, canActivate: [AuthGuardService]},
+  // {path: ':id', component: UserComponent, canActivate: [AuthGuardService]},
+  // {path: 'list/:isExternalUser', component: AdminUsersComponent, canActivate: [AuthGuardService]},
 
 
 
@@ -59,4 +59,4 @@ export const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UserRouting {}
+export class UserAccountRouting {}

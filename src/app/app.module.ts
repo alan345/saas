@@ -9,7 +9,6 @@ import {
   HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
-import 'hammerjs';
 import { ToastOptions } from 'ng2-toastr';
 import { CustomOption } from './toast-options';
 import { NavbarModule } from './nav/navbar/navbar.module';
@@ -23,7 +22,8 @@ import { ErrorService } from './errorHandler/error.service';
 import { Error2Service } from './errorHandler/error2.service';
 import { ErrorPageComponent } from './errorPage/errorPage.component';
 import { PaiementGuardService } from './companie/single/paiement/paiementGuard.service';
-import { LoadingInAppModule } from './nav/loadingInApp/loadingInApp.module';
+// import { LoadingInAppModule } from './nav/loadingInApp/loadingInApp.module';
+// import 'hammerjs';
 
 // import { BrowserModule } from '@angular/platform-browser';
 // import { FormsModule } from '@angular/forms';
@@ -55,7 +55,7 @@ import { LoadingInAppModule } from './nav/loadingInApp/loadingInApp.module';
     SidebarModule,
     MatSidenavModule,
     UserModule,
-    LoadingInAppModule,
+    // LoadingInAppModule,
   ],
   exports: [],
   providers: [

@@ -11,7 +11,7 @@ import {GlobalEventsManager} from '../../globalEventsManager';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['../user.component.css']
+  styleUrls: ['../userAccount.component.css']
 })
 export class LoginComponent implements OnInit, AfterViewInit {
   myForm: FormGroup;
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     }
   }
   changeLang(lang: string) {
-    this.router.navigate(['/user/login', {lang: lang}]);
+    this.router.navigate(['/userAccount/login', {lang: lang}]);
   }
   ngAfterViewInit() {
     setTimeout(() => {

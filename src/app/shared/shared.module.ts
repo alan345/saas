@@ -16,6 +16,7 @@ import {MatSelectModule} from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr, 'fr');
+import 'hammerjs';
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
 
 // import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService }   from '../translate';
