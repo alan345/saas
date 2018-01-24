@@ -108,7 +108,6 @@
         (updated)="drawingSignatureUpdated($event)">
       </app-drawing-signature>
       <img style="width: 100%;" *ngIf="fetchedQuote.statusQuote !== 'pending'" [src]="'./uploads/signature/' + fetchedQuote.drawingSignature.namePicture">
-
       <mat-action-row *ngIf="fetchedQuote.statusQuote === 'pending'">
         <div class="spaceBetween width100perc">
           <button mat-mini-fab color="warn" (click)="clearDrawing()">
