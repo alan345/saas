@@ -28,6 +28,12 @@
       </mat-select>
     </mat-form-field>
     <app-loginInApp style="width:100%;" *ngIf="showLoginInApp" (loginInAppDone)="showLoginInApp=false"></app-loginInApp>
+  </div>
+  <div class="row">
+    <app-autocomplete [title]="'Right'" [typeAutocomplete]="'right'" [arrayContent]="fetchedUser.rights">
+    </app-autocomplete>
+  </div>
+  <div class="row">
     <div *ngIf="authService.showObjHTML('userCalendar', 'read')">
       <div *ngIf="!fetchedUser.isExternalUser">
         <label>{{'Calendar Color' | translate}}</label>

@@ -13,6 +13,7 @@ export const LANG_FR_TRANS = {
     'Move Event': 'Déplacer rendez-vous',
     'check': 'chèque',
     'Week': 'Semaine',
+    'Right': 'Droit',
     'Year': 'Année',
     'Email already exists': 'Email existe déjà',
     'Cash': 'Espèce',

@@ -22,7 +22,7 @@
           <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div>
           <!-- <div *ngIf="typeAutocomplete=='project'">{{data.details.name}}</div> -->
           <div *ngIf="typeAutocomplete=='product'">{{data.details.referenceName}}</div>
-          <!-- <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div> -->
+          <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div>
           <div *ngIf="typeAutocomplete=='templateQuote'">{{data.nameTemplate}}</div>
         </td>
         <td class="tdbtn2">
@@ -48,7 +48,7 @@
             <input *ngIf="typeAutocomplete=='quote'" readonly placeholder="{{title | translate}}" matInput type="text" value="{{data.name}}">
             <!-- <input *ngIf="typeAutocomplete=='project'" readonly placeholder="{{title}}" matInput type="text" value="{{data.details.name}}"> -->
             <input *ngIf="typeAutocomplete=='product'" readonly placeholder="{{title | translate}}" matInput type="text" value="{{data.details.referenceName}}">
-            <!-- <input *ngIf="typeAutocomplete=='right'" readonly placeholder="{{title}}" matInput type="text" value="{{data.detailRight.nameRight}}"> -->
+            <input *ngIf="typeAutocomplete=='right'" readonly placeholder="{{title}}" matInput type="text" value="{{data.detailRight.nameRight}}">
 
 
             <button matSuffix mat-icon-button *ngIf="enableLink" (click)="linkToObject(data)">

@@ -49,28 +49,57 @@ module.exports = {
 
   },
 
-  isCurentUserHasAccess(user, nameObject, typeAccess) {
+  isCurentUserHasAccess (user, nameObject, typeAccess) {
     // console.log(user, nameObject, typeAccess)
     // console.log(user.rights)
     // if (!user.rights.length)
     //   return true
 
-// doc.rightsInApp.push(shared.getRight(doc))
+    // doc.rightsInApp.push(shared.getRight(doc))
     // let rights = JSON.parse(JSON.stringify(user))
     // console.log(rights)
-    let permissionBool = false
-
     // rights.forEach(right => {
     // console.log(this.getRight(user))
-      this.getRight(user).detailRight.permissions.forEach(permission => {
-        if (permission.namePermission === nameObject)
-          permission.access.forEach(singleAccess => {
-            if (singleAccess.typeAccess === typeAccess)
-              permissionBool = true
-          })
+
+      // let permissionBool = false
+      // this.getRight(user).detailRight.permissions.forEach(permission => {
+      //   if (permission.namePermission === nameObject)
+      //     permission.access.forEach(singleAccess => {
+      //       if (singleAccess.typeAccess === typeAccess)
+      //         permissionBool = true
+      //     })
+      //   })
+      //   return permissionBool
+      user.rightsInApp.push(this.getRight(user))
+
+
+      let rightToUse = {}
+      if (user.rights.length) {
+        rightToUse = user.rights
+      } else {
+        rightToUse = user.rightsInApp
+      }
+
+      return rightToUse.some(right => {
+        return right.detailRight.permissions.some(permission => {
+          if (permission.namePermission === nameObject) {
+            return permission.access.some(access => {
+              return access.typeAccess === typeAccess;
+            })
+          }
         })
-    // })
-    return permissionBool
+      })
+
+      // return this.getRight(user).detailRight.permissions.some(permission => {
+      //   if (permission.namePermission === nameObject) {
+      //     return permission.access.some(access => {
+      //       return access.typeAccess === typeAccess
+      //     })
+      //   }
+      // })
+
+
+
   },
 
   // postNotification(req, typeObject) {

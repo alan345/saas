@@ -27,6 +27,7 @@ export const routes: Routes = [
   {path: 'product', loadChildren: 'app/product/product.module#ProductModule', canActivate: [AuthGuardService, PaiementGuardService]},
   {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
   {path: 'userAccount', loadChildren: 'app/userAccount/userAccount.module#UserAccountModule'},
+  {path: 'right', loadChildren: 'app/right/right.module#RightModule', canActivate: [AuthGuardService, PaiementGuardService]},
   {path: '404', component: ErrorPageComponent},
   {path: '**', redirectTo: '404'}
 
@@ -36,7 +37,6 @@ export const routes: Routes = [
   // {path: 'userCalendar', loadChildren: 'app/userCalendar/userCalendar.module#UserCalendarModule', canActivate: [AuthGuardService, PaiementGuardService]},
   // {path: 'chat', loadChildren: 'app/chat/chat.module#ChatModule', canActivate: [AuthGuardService, PaiementGuardService]},
   // {path: 'project', loadChildren: 'app/project/project.module#ProjectModule', canActivate: [AuthGuardService, PaiementGuardService]},
-  // {path: 'right', loadChildren: 'app/right/right.module#RightModule', canActivate: [AuthGuardService, PaiementGuardService]},
   // {path: 'task', loadChildren: 'app/task/task.module#TaskModule', canActivate: [AuthGuardService, PaiementGuardService]},
   // {path: 'notification', loadChildren: 'app/notification/notification.module#NotificationModule', canActivate: [AuthGuardService, PaiementGuardService]},
 

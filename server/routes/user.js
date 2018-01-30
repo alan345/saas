@@ -62,8 +62,6 @@ router.post('/register', function(req, res, next) {
 
 // user login
 router.post('/login', function(req, res, next) {
-
-
   User
   .findOne({email: req.body.email.toLowerCase()})
   .populate({path: 'ownerCompanies', model: 'Companie'})
@@ -103,7 +101,7 @@ router.post('/login', function(req, res, next) {
     // console.log('popopopopop')
     // console.log(doc)
     return res.status(200).json({
-      message: 'Login Successfull', token: token, userId: doc._id,
+      message: 'Login Successfull', token: token, userId: doc._id
       // user: doc
     })
   })

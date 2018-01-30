@@ -7,8 +7,8 @@ import { TemplateQuoteService} from '../quote/templateQuote.service';
 import {Router} from '@angular/router';
 import { User } from '../user/user.model';
 import {Search} from '../shared/shared.model';
+import { RightService} from '../right/right.service';
 
-// import { RightService} from '../right/right.service';
 // import { ProjectService} from '../project/project.service';
 // import {MatDialog} from '@angular/material';
 
@@ -54,7 +54,7 @@ export class AutocompleteComponent implements OnChanges{
     private quoteService: QuoteService,
     // private projectService: ProjectService,
     private templateQuoteService: TemplateQuoteService,
-    // private rightService: RightService,
+    private rightService: RightService,
     private router: Router,
   ) {
 
@@ -143,16 +143,23 @@ export class AutocompleteComponent implements OnChanges{
       this.templateQuoteService.getTemplateQuotes(page, search)
       .subscribe( res => {
         this.loading = false
-        this.fetchedData = res.data }, error => {
+        this.fetchedData = res.data
+      }, error => {
           this.loading = false
           console.log(error);
         });
 
     }
 
-    // if(this.typeAutocomplete ==='right')
-    //   this.rightService.getRights(page, search)
-    //   .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
+    if(this.typeAutocomplete ==='right') {
+      this.rightService.getRights(page, search)
+      .subscribe( res => {
+        this.loading = false
+        this.fetchedData = res.data
+      }, error => {
+        console.log(error);
+      });
+    }
 
   }
 

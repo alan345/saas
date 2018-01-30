@@ -218,11 +218,19 @@ export class AuthService {
   isCurrentUserHasCompanie() {
     // console.log(this.user)
     // let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;
-    if (this.user.ownerCompanies.length)
+    if (this.user.ownerCompanies.length) {
       return true
+    }
     return false
   }
 
+  getRightsToUse() {
+    if (this.user.rights.length) {
+      return this.user.rights
+    } else {
+      return this.user.rightsInApp
+    }
+  }
 
   isCurentUserHasAccess(nameObject, typeAccess) {
 
@@ -240,17 +248,26 @@ export class AuthService {
     //       })
     //   })
     // })
+    // console.log(this.user)
+    // let rightsInAppCheck: any
+    let rightToUse: any
+    if (this.user.rights.length) {
+      rightToUse = this.user.rights
+    } else {
+      rightToUse = this.user.rightsInApp
+    }
 
-    let rightsInAppCheck = this.user.rightsInApp.some(right => {
+    return rightToUse.some(right => {
       return right.detailRight.permissions.some(permission => {
-        if (permission.namePermission === nameObject)
+        if (permission.namePermission === nameObject) {
           return permission.access.some(access => {
-            return access.typeAccess === typeAccess
+            return access.typeAccess === typeAccess;
           })
+        }
       })
     })
 
-    return rightsInAppCheck
+    // return rightsInAppCheck
 
 
   }
@@ -262,13 +279,11 @@ export class AuthService {
     // console.log(this.isCurrentUserHasCompanie())
 
     if (this.user.isExternalUser) {
-      if (
-        this.isCurentUserHasAccess(nameObject, typeAccess)
-      ) {
+      if ( this.isCurentUserHasAccess(nameObject, typeAccess)) {
         return true
       }
     } else {
-      if(nameObject === 'settings' && typeAccess ==='read') {
+      if (nameObject === 'settings' && typeAccess === 'read') {
         return true;
       }
       if (

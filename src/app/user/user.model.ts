@@ -18,7 +18,7 @@ export class User {
   isAdmin = false;
   typeUsers = '';
   forms: Form[] = [];
-  // rights: Right[] = []
+  rights: Right[] = []
   rightsInApp: Right[] = []
   profile: Profile = new Profile();
   password = '';
