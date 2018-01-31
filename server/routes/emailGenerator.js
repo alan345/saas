@@ -246,7 +246,7 @@ module.exports = {
                       <tr>
                         <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
                           <a
-                            href="http://${req.headers.host}/#/user/reset/${token}"
+                            href="http://${req.headers.host}/#/userAccount/reset/${token}"
                             style="color: #ffffff; text-decoration: none;"
                           >
                             Voir le Document
@@ -548,7 +548,7 @@ module.exports = {
                       <tr>
                         <td align="center" style="background-color: #fff; padding: 10px 15px;">
                           <a
-                            href="http://${req.headers.host}/#/user/reset/${token}"
+                            href="http://${req.headers.host}/#/userAccount/reset/${token}"
                             style="background-color: #ff4351; padding: 10px 15px; border: none; outline: none; color: #ffffff; text-decoration: none;"
                           >
                             Réinitialiser le mot de passe
@@ -557,7 +557,7 @@ module.exports = {
                       </tr>
                       <tr>
                         <td style="padding: 15px 0 30px 0;">
-                          Lien direct : http://${req.headers.host}/#/user/reset/${token}<br>
+                          Lien direct : http://${req.headers.host}/#/userAccount/reset/${token}<br>
                           Le lien sera valide pendant une heure. Si vous n'avez pas demandé de réinitialisation de mot de passe, merci d'ignorer cet email.
                         </td>
                       </tr>
@@ -645,7 +645,7 @@ module.exports = {
                     <tr>
                       <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
                         <a
-                          href="http://${req.headers.host}/#/user/reset/${token}"
+                          href="http://${req.headers.host}/#/userAccount/reset/${token}"
                           style="color: #ffffff; text-decoration: none;"
                         >
                           Accepter l'invitation

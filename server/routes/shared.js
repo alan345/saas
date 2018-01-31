@@ -1,64 +1,73 @@
 var Notification = require('../models/notification.model'),
-    User = require('../models/user.model'),
-    TypeRights = require('../models/typeRights.const')
-
+  User = require('../models/user.model'),
+  TypeRights = require('../models/typeRights.const')
 
 module.exports = {
 
-  getRight (user) {
+  getRight(user) {
     // console.log(user)
-
 
     let rightToReturn = {}
     if (user.rights.length) {
-        rightToReturn = user.rights[0]
+      rightToReturn = user.rights[0]
     } else {
 
+      let typesRightToUse = []
+      // console.log(user)
 
-        let typesRightToUse = []
-        // console.log(user)
+      if (user.isExternalUser) {
+        typesRightToUse = TypeRights.externalUserRights
+      } else {
+        // console.log('aa')
+        // console.log(TypeRights.newInternalUserRights)
+        // typesRightToUse = TypeRights.newInternalUserRights
+      }
+      user.ownerCompanies.forEach(companie => {
+        if (companie.planDetail.plan === 'gold')
+          typesRightToUse = TypeRights.gold
+        if (companie.planDetail.plan === 'equipe')
+          typesRightToUse = TypeRights.gold
+        if (companie.planDetail.plan === 'silver')
+          typesRightToUse = TypeRights.silver
+        if (companie.planDetail.plan === 'artisan')
+          typesRightToUse = TypeRights.silver
+        if (companie.planDetail.plan === '')
+          typesRightToUse = TypeRights.default
+      })
 
-        if (user.isExternalUser) {
-          typesRightToUse = TypeRights.externalUserRights
-        } else {
-          // console.log('aa')
-          // console.log(TypeRights.newInternalUserRights)
-          // typesRightToUse = TypeRights.newInternalUserRights
+      var permissionGooplus = []
+      typesRightToUse.forEach(typesRight => {
+        let newPermission = {
+          namePermission: typesRight.value,
+          access: []
         }
-        user.ownerCompanies.forEach(companie => {
-          if(companie.planDetail.plan === 'gold') typesRightToUse = TypeRights.gold
-          if(companie.planDetail.plan === 'equipe') typesRightToUse = TypeRights.gold
-          if(companie.planDetail.plan === 'silver') typesRightToUse = TypeRights.silver
-          if(companie.planDetail.plan === 'artisan') typesRightToUse = TypeRights.silver
-          if(companie.planDetail.plan === '') typesRightToUse = TypeRights.default
-        })
-
-        var permissionGooplus = []
-        typesRightToUse.forEach(typesRight => {
-          let newPermission = {
-            namePermission: typesRight.value,
-            access: []
+        typesRight.typeAccess.forEach(typeAccessSingle => {
+          let newAccess = {
+            typeAccess: typeAccessSingle.value
           }
-          typesRight.typeAccess.forEach(typeAccessSingle => {
-            let newAccess = {
-              typeAccess: typeAccessSingle.value
-            }
-            newPermission.access.push(newAccess)
-          })
-          permissionGooplus.push(newPermission)
+          newPermission.access.push(newAccess)
         })
-        rightToReturn = {
-          detailRight: {
-            nameRight: '',
-            permissions: permissionGooplus
-          }
+        permissionGooplus.push(newPermission)
+      })
+      rightToReturn = {
+        detailRight: {
+          nameRight: '',
+          permissions: permissionGooplus
         }
       }
-      
+    }
+    // if (user.isAdminOfHisCompanie) {
+    //   var index = rightToReturn.detailRight.permissions.findIndex(x => x.namePermission === 'right')
+    //   if (index === -1) {
+    //     rightToReturn.detailRight.permissions.push({
+    //       namePermission: 'right',
+    //       access: [{typeAccess: 'read'}, {typeAccess: 'write'}]
+    //     })
+    //   }
+    // }
 
-      return rightToReturn;
+    return rightToReturn;
   },
-
   isCurentUserHasAccess (user, nameObject, typeAccess) {
     // console.log(user, nameObject, typeAccess)
     // console.log(user.rights)
@@ -71,54 +80,50 @@ module.exports = {
     // rights.forEach(right => {
     // console.log(this.getRight(user))
 
-      // let permissionBool = false
-      // this.getRight(user).detailRight.permissions.forEach(permission => {
-      //   if (permission.namePermission === nameObject)
-      //     permission.access.forEach(singleAccess => {
-      //       if (singleAccess.typeAccess === typeAccess)
-      //         permissionBool = true
-      //     })
-      //   })
-      //   return permissionBool
+    // let permissionBool = false
+    // this.getRight(user).detailRight.permissions.forEach(permission => {
+    //   if (permission.namePermission === nameObject)
+    //     permission.access.forEach(singleAccess => {
+    //       if (singleAccess.typeAccess === typeAccess)
+    //         permissionBool = true
+    //     })
+    //   })
+    //   return permissionBool
 
+    // console.log(this.getRight(user))
+    // console.log('ppppp')
+    user.rightsInApp.push(this.getRight(user))
 
-      // console.log(this.getRight(user))
-      // console.log('ppppp')
-      user.rightsInApp.push(this.getRight(user))
-
-
-      // let rightToUse = {}
-      // if (user.rights.length) {
-      //   rightToUse = user.rights
-      // } else {
-      //   rightToUse = user.rightsInApp
-      // }
-      // console.log(user.rightsInApp)
-      return user.rightsInApp.some(right => {
-        console.log(right)
-        return right.detailRight.permissions.some(permission => {
-          if (permission.namePermission === nameObject) {
-            return permission.access.some(access => {
-              return access.typeAccess === typeAccess;
-            })
-          }
-        })
+    // let rightToUse = {}
+    // if (user.rights.length) {
+    //   rightToUse = user.rights
+    // } else {
+    //   rightToUse = user.rightsInApp
+    // }
+    // console.log(user.rightsInApp)
+    return user.rightsInApp.some(right => {
+      // console.log(right)
+      return right.detailRight.permissions.some(permission => {
+        if (permission.namePermission === nameObject) {
+          return permission.access.some(access => {
+            return access.typeAccess === typeAccess;
+          })
+        }
       })
+    })
 
-      // return this.getRight(user).detailRight.permissions.some(permission => {
-      //   if (permission.namePermission === nameObject) {
-      //     return permission.access.some(access => {
-      //       return access.typeAccess === typeAccess
-      //     })
-      //   }
-      // })
-
-
+    // return this.getRight(user).detailRight.permissions.some(permission => {
+    //   if (permission.namePermission === nameObject) {
+    //     return permission.access.some(access => {
+    //       return access.typeAccess === typeAccess
+    //     })
+    //   }
+    // })
 
   },
 
   // postNotification(req, typeObject) {
-  //   //init new notification
+  //   init new notification
   //   return new Promise((resolve, reject) => {
   //     var notification = new Notification()
   //     notification.ownerCompanies = req.user.ownerCompanies
@@ -131,15 +136,15 @@ module.exports = {
   //     User.find(searchQuery).populate({path: 'rights', model: 'Right'}).exec(function(err, item) {
   //       if (err) {
   //         reject(err)
-  //         // return res.status(404).json({message: 'No results', err: err})
+  //          return res.status(404).json({message: 'No results', err: err})
   //       } else {
-  //         // add users with the 'notification right'
+  //          add users with the 'notification right'
   //         item.forEach(user => {
   //           if (shared.isCurentUserHasAccess(user, typeObject, 'notification')) {
   //             notification.users.push(user)
   //           }
   //         })
-  //         // add user owner of typeObject
+  //          add user owner of typeObject
   //         if (typeObject === 'quote') {
   //           req.body.projects.forEach(project => {
   //             project.assignedTos.forEach(user => {
@@ -153,21 +158,21 @@ module.exports = {
   //           })
   //         }
   //
-  //         //remove duplicate
+  //         remove duplicate
   //         notification.users = Array.from(new Set(JSON.parse(JSON.stringify(notification.users))))
   //
-  //         // save in DB
+  //          save in DB
   //         notification.save(function(err, result2) {
   //           if (err) {
-  //             // console.log(err)
-  //             // return res.status(403).json({
-  //             //   title: 'There was an issue',
-  //             //   error: {
-  //             //     message: 'Error'
-  //             //   }
-  //             // })
+  //              console.log(err)
+  //              return res.status(403).json({
+  //                title: 'There was an issue',
+  //                error: {
+  //                  message: 'Error'
+  //                }
+  //              })
   //           }
-  //           // res.status(200).json({message: 'Ok', obj: 'ok'})
+  //            res.status(200).json({message: 'Ok', obj: 'ok'})
   //           resolve(result2)
   //         })
   //

@@ -123,14 +123,7 @@ function getUser(req, res, next, id) {
   searchQuery['_id'] = id
 
   User.findOne(searchQuery).populate({path: 'forms', model: 'Form'}).populate({path: 'rights', model: 'Right'}).populate({path: 'salesMan', model: 'User'}).populate({path: 'ownerCompanies', model: 'Companie'}).populate({path: 'profile.profilePicture', model: 'Form'})
-  // .populate({
-  //     path: 'companies',
-  //     model: 'Companie',
-  //     populate: {
-  //       path: 'forms',
-  //       model: 'Form'
-  //     }
-  //   })
+
     .exec(function(err, user) {
     if (err) {
       return res.status(403).json({title: 'There was a problem', error: err});
@@ -397,10 +390,33 @@ router.post('/', function(req, res, next) {
             if (err) {
               return res.status(403).json({title: 'There was an issue', error: err});
             }
-            res.status(200).json({message: 'Registration Successfull', obj: user})
             if (!req.body.isExternalUser) {
               emailGenerator.sendEmailToUserToJoinCompanie(req, user)
             }
+
+
+
+                    User.findById(user._id)
+                    .populate({path: 'forms', model: 'Form'})
+                    .populate({path: 'rights', model: 'Right'})
+                    .populate({path: 'ownerCompanies', model: 'Companie'})
+                    .populate({path: 'profile.profilePicture', model: 'Form'})
+                      .exec(function(err, user) {
+                      if (err) {
+                        return res.status(403).json({title: 'There was a problem', error: err});
+                      }
+                      if (!user) {
+                        return res.status(404).json({
+                          title: 'No form found',
+                          error: {
+                            message: 'Item not found!'
+                          }
+                        });
+                      }
+                      res.status(200).json({message: 'Registration Successfull', obj: user})
+                    })
+
+
           })
       // })
 

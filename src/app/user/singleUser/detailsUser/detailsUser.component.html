@@ -29,7 +29,7 @@
     </mat-form-field>
     <app-loginInApp style="width:100%;" *ngIf="showLoginInApp" (loginInAppDone)="showLoginInApp=false"></app-loginInApp>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="authService.showObjHTML('right', 'read') && !fetchedUser.isExternalUser && !fetchedUser.isAdminOfHisCompanie">
     <app-autocomplete [title]="'Right'" [typeAutocomplete]="'right'" [arrayContent]="fetchedUser.rights">
     </app-autocomplete>
   </div>
