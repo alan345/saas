@@ -5,14 +5,14 @@
     <input type="text" class="form-control" placeholder="Name Right Profile" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedRight.detailRight.nameRight">
     <button type="button" mat-button class="btn btn-success" (click)="addRight(1,0,0,0)">
       <mat-icon>add</mat-icon>
-      {{'Add Type' | translate}}
+      {{'Add a type of right' | translate}}
     </button>
     <div class="categ1" *ngFor="let permission of fetchedRight.detailRight.permissions; let j = index;">
       <table>
         <tr>
           <td class="tdbtn1">
             <select class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedRight.detailRight.permissions[j].namePermission">
-            <option *ngFor="let n of typesRights" [attr.value]="n.namePermission">{{n.namePermission}}</option>
+            <option *ngFor="let n of typesRights" [attr.value]="n.namePermission">{{n.namePermission | translate}}</option>
           </select>
           </td>
           <td class="tdbtn7">
@@ -38,7 +38,7 @@
 
 
                   <select class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedRight.detailRight.permissions[j].access[k].typeAccess">
-                    <option *ngFor="let n of typesRight.access" [attr.value]="n.typeAccess">{{n.typeAccess}}</option>
+                    <option *ngFor="let n of typesRight.access" [attr.value]="n.typeAccess">{{n.typeAccess | translate}}</option>
 
                     <!-- <option [attr.value]="'read'">{{'Read' | translate}}</option>
                     <option [attr.value]="'write'">{{'write' | translate}}</option>

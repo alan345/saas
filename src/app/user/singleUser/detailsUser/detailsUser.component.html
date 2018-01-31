@@ -3,6 +3,10 @@
     <app-autocomplete [title]="'Entreprise(ONLY ADMIN CAN SEE)'" [singleChoice]="'true'" [typeAutocomplete]="'companie'" [arrayContent]="fetchedUser.ownerCompanies">
     </app-autocomplete>
   </div>
+  <div *ngIf="fetchedUser.isAdminOfHisCompanie" class="row">
+    <mat-icon>star_rate</mat-icon> {{'Main user' | translate}}
+  </div>
+  <br><br>
   <div class="row">
     <mat-radio-group [(ngModel)]="fetchedUser.profile.title" formControlName="title">
       <mat-radio-button *ngFor="let n of titleArray" [value]="n">{{ n | translate}}</mat-radio-button>
@@ -30,8 +34,9 @@
     <app-loginInApp style="width:100%;" *ngIf="showLoginInApp" (loginInAppDone)="showLoginInApp=false"></app-loginInApp>
   </div>
   <div class="row" *ngIf="authService.showObjHTML('right', 'read') && !fetchedUser.isExternalUser && !fetchedUser.isAdminOfHisCompanie">
-    <app-autocomplete [title]="'Right'" [typeAutocomplete]="'right'" [arrayContent]="fetchedUser.rights">
+    <app-autocomplete [title]="'Right'" (getResultAutocomplete)="getResultAutocompleteRights()" (clearAutocomplete)="clearAutocompleteRight()" [typeAutocomplete]="'right'" [arrayContent]="fetchedUser.rights">
     </app-autocomplete>
+    <app-loginInApp *ngIf="showLoginInApp" (loginInAppDone)="loginInAppDone()"></app-loginInApp>
   </div>
   <div class="row">
     <div *ngIf="authService.showObjHTML('userCalendar', 'read')">

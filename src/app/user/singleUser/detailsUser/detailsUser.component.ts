@@ -111,6 +111,17 @@ export class DetailsUserComponent implements OnInit {
     this.save.emit()
     this.showLoginInApp = true
   }
+  clearAutocompleteRight() {
+    this.save.emit()
+    this.showLoginInApp = true    
+  }
+  getResultAutocompleteRights() {
+    this.save.emit()
+    this.showLoginInApp = true
+  }
+  loginInAppDone() {
+    this.showLoginInApp = false
+  }
   // selectCity(i, city: string) {
   //   this.fetchedUser.profile.address[i].city = city
   //   this.fetchedUser.profile.address[i].cities = []
