@@ -4,12 +4,9 @@
     <div class="input-group mb8">
       <mat-form-field>
         <input matInput [readonly]="readonly" type="text" autocomplete="off" name="Search" placeholder="🔎 {{ title | translate}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
-          <app-new-obj-dialog
-            (cliked)="newObjDialogClicked()"
-            matSuffix
-            *ngIf="canCreateNewObj && !readonly && (typeAutocomplete=='user' || typeAutocomplete=='companie' || typeAutocomplete=='project' || typeAutocomplete=='product')"
-            (saved)="saved($event)"
-            [search]="search" [typeObj]="typeAutocomplete"></app-new-obj-dialog>
+        <app-new-obj-dialog (cliked)="newObjDialogClicked()" matSuffix *ngIf="canCreateNewObj && !readonly && (typeAutocomplete=='user' || typeAutocomplete=='companie' || typeAutocomplete=='project' || typeAutocomplete=='product')" (saved)="saved($event)" [search]="search"
+          [typeObj]="typeAutocomplete">
+        </app-new-obj-dialog>
       </mat-form-field>
     </div>
   </div>

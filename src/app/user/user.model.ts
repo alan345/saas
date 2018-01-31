@@ -11,7 +11,7 @@ export class User {
   canBeSeenByCompanies: Companie[] = [];
   ownerCompanies: Companie[] = [];
   dateSeeLatestNotif: Date= new Date()
-  // isAdminOfHisCompanie = false;
+  isAdminOfHisCompanie = false;
   isExternalUser = true;
   email = '';
   // role: string[] = [];
