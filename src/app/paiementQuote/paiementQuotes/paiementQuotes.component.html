@@ -25,7 +25,9 @@
         </thead>
         <tbody class="clienttbl">
           <tr *ngFor="let paiementQuote of fetchedPaiementQuotes" (click)="openDialogPaiement(paiementQuote._id)" routerLinkActive="active">
-            <td class="centre tdunder hideMobile">{{paiementQuote.type}}</td>
+            <td class="centre tdunder hideMobile">
+              {{paiementQuote.type | translate}}
+            </td>
             <td class="centre tdunder hideMobile">
               <div *ngFor="let quote of paiementQuote.quotes">
                   {{quote.name}}

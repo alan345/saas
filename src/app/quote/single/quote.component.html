@@ -18,12 +18,14 @@
         [(myCompanie)] = "myCompanie"
         [fetchedQuote]="fetchedQuote" (save)="save()" (quoteStatusChangedEmit)="save()"></app-quoteInfo>
       <mat-action-row *ngIf="fetchedQuote.statusQuote === 'pending'">
-        <app-actionButtons
-          class="width100perc"
-          *ngIf="fetchedQuote.statusQuote === 'pending'"
-          (nextStep)="nextStep()" [isDialog]="isDialog"
-          [fetchedQuote]="fetchedQuote" (closeDialog)="closeDialog()" (saveEmmit)="save()">
-        </app-actionButtons>
+        <div class="width100perc">
+          <app-actionButtons
+            class="width100perc"
+            *ngIf="fetchedQuote.statusQuote === 'pending'"
+            (nextStep)="nextStep()" [isDialog]="isDialog"
+            [fetchedQuote]="fetchedQuote" (closeDialog)="closeDialog()" (saveEmmit)="save()">
+          </app-actionButtons>
+        </div>
       </mat-action-row>
     </mat-expansion-panel>
 

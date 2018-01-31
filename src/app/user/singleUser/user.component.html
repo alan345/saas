@@ -19,10 +19,10 @@
       <app-details-user [customFormControls]="customFormControls" [myForm]="myForm" (save)="save()" [fetchedUser]="fetchedUser"></app-details-user>
       <mat-action-row>
         <div class="spaceBetween width100perc">
-          <div *ngIf="fetchedUser._id">
-            <button *ngIf="!isUserIsMyself()" mat-mini-fab color="warn" (click)="openDialogDelete()">
-            <mat-icon>delete</mat-icon>
-          </button>
+          <div>
+            <button *ngIf="!isUserIsMyself() && fetchedUser._id" mat-mini-fab color="warn" (click)="openDialogDelete()">
+              <mat-icon>delete</mat-icon>
+            </button>
           </div>
           <button *ngIf="step === 0" [disabled]="!myForm.valid" mat-mini-fab color="primary" (click)="saveAndNextStep()">
           <mat-icon aria-label="Next">forward</mat-icon>

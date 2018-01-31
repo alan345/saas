@@ -10,13 +10,13 @@
           {{'Product' | translate}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-
       <div *ngIf="itemSteps.length">
         <div>{{'Category' | translate}}</div>
-
-        <div><button (click)="changeCascade(i, -1, -1)" *ngFor="let itemStep of itemSteps;let i=index;" type="button" class="prodbtn" [ngClass]="{'prodbtnsel': i==selectedIndex0, '': i!=selectedIndex0}">
+        <div>
+          <button (click)="changeCascade(i, -1, -1)" *ngFor="let itemStep of itemSteps;let i=index;" type="button" class="prodbtn" [ngClass]="{'prodbtnsel': i==selectedIndex0, '': i!=selectedIndex0}">
           {{itemStep.categ}}
-        </button></div>
+        </button>
+      </div>
 
         <br>
         <div *ngIf="selectedIndex0>=0 && itemSteps[selectedIndex0].subCateg.length">
@@ -62,9 +62,11 @@
         </div>
         <mat-action-row>
           <div class="spaceBetween width100perc">
-            <button *ngIf="fetchedProduct._id" mat-mini-fab color="warn" (click)="openDialogDelete()">
-              <mat-icon aria-label="Next">delete</mat-icon>
-            </button>
+            <div>
+              <button *ngIf="fetchedProduct._id" mat-mini-fab color="warn" (click)="openDialogDelete()">
+                <mat-icon aria-label="Next">delete</mat-icon>
+              </button>
+            </div>
             <button mat-mini-fab color="primary" (click)="saveAndNextStep()">
               <mat-icon aria-label="Next">forward</mat-icon>
             </button>

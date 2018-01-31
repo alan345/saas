@@ -1,9 +1,11 @@
 <div class="spaceBetween">
   <!-- <button *ngIf="isDialog" mat-raised-button color="accent" (click)="close()" class="btn valid">{{'Close' | translate}}</button> -->
   <!-- <button (click)="save()" mat-raised-button color="primary">{{'Save' | translate}}</button> -->
-  <button *ngIf="fetchedQuote._id && showDeleteButton" mat-mini-fab color="warn" (click)="openDialogDelete()">
-    <mat-icon>delete</mat-icon>
-  </button>
+  <div>
+    <button *ngIf="fetchedQuote._id && showDeleteButton" mat-mini-fab color="warn" (click)="openDialogDelete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
   <!-- <button *ngIf="showDLQuoteButton" mat-mini-fab color="primary" (click)="downloadPDF()">
     <mat-icon aria-label="picture_as_pdf">picture_as_pdf</mat-icon>
   </button> -->

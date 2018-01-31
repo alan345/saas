@@ -17,6 +17,7 @@ export const LANG_FR_TRANS = {
     'Year': 'Année',
     'Email already exists': 'Email existe déjà',
     'Cash': 'Espèce',
+    'cash': 'Espèce',
     'Load Template': 'Charger un modèle',
     'Save Template': 'Sauvegarder le modèle',
     'Client Calendar': 'Calendrier du client',
