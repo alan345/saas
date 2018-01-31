@@ -81,7 +81,7 @@
     <mat-expansion-panel
       (click)="menuClick()"
       class="noOutline"
-      *ngIf="authService.showObjHTML('paiementQuote', 'read')"
+      *ngIf="authService.showObjHTML('product', 'read')"
       [routerLink]="['/product']" routerLinkActive="active"
       hideToggle="true">
       <mat-expansion-panel-header>
@@ -108,6 +108,11 @@
           *ngIf="authService.showObjHTML('settings', 'read')"
           [routerLink]="['/companie/mine']"
           routerLinkActive="active">{{'Settings'|translate}}</a>
+        <a class="nav-link"
+          (click)="menuClick()"
+          *ngIf="authService.showObjHTML('right', 'read')"
+          [routerLink]="['/right']"
+          routerLinkActive="active">{{'Rights'|translate}}</a>
         <a *ngIf="authService.showObjHTML('user', 'read')"
           (click)="menuClick()"
           class="nav-link" [routerLink]="['/user/list/false']" routerLinkActive="active">{{'Team'|translate}}</a>

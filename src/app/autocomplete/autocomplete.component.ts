@@ -66,7 +66,7 @@ export class AutocompleteComponent implements OnChanges{
     //     this.projectService.getProject(this.search.projectId)
     //     .subscribe( res => { if(this.arrayContent.length) this.arrayContent.splice(0, 1);
     //       this.arrayContent.push(res) }, error => { console.log(error); });
-    if(this.typeAutocomplete ==='user' && this.search.userId) {
+    if(this.typeAutocomplete === 'user' && this.search.userId) {
     this.userService.getUser(this.search.userId)
     .subscribe( res => {
       if(this.arrayContent.length) {this.arrayContent.splice(0, 1)}
@@ -77,7 +77,7 @@ export class AutocompleteComponent implements OnChanges{
   }
 
 
-    if(this.typeAutocomplete ==='quote' && this.search.quoteId) {
+    if(this.typeAutocomplete === 'quote' && this.search.quoteId) {
       this.quoteService.getQuote(this.search.quoteId)
       .subscribe( res => {
         if(this.arrayContent.length) {this.arrayContent.splice(0, 1)}
@@ -109,7 +109,7 @@ export class AutocompleteComponent implements OnChanges{
         });
     }
 
-    if(this.typeAutocomplete ==='companie') {
+    if(this.typeAutocomplete === 'companie') {
       this.companieService.getCompanies(page, search)
       .subscribe( res => {
         this.loading = false
@@ -118,14 +118,14 @@ export class AutocompleteComponent implements OnChanges{
           console.log(error); });
     }
 
-    if(this.typeAutocomplete ==='product') {
+    if(this.typeAutocomplete === 'product') {
       this.productService.getProducts(page, search)
       .subscribe( res => {
         this.loading = false
         this.fetchedData = res.data }, error => { console.log(error); });
     }
 
-    if(this.typeAutocomplete ==='quote') {
+    if(this.typeAutocomplete === 'quote') {
       this.quoteService.getQuotes(page, search)
       .subscribe( res => {
         this.loading = false
@@ -139,7 +139,7 @@ export class AutocompleteComponent implements OnChanges{
     //   .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
 
 
-    if(this.typeAutocomplete ==='templateQuote') {
+    if(this.typeAutocomplete === 'templateQuote') {
       this.templateQuoteService.getTemplateQuotes(page, search)
       .subscribe( res => {
         this.loading = false
@@ -151,12 +151,13 @@ export class AutocompleteComponent implements OnChanges{
 
     }
 
-    if(this.typeAutocomplete ==='right') {
+    if(this.typeAutocomplete === 'right') {
       this.rightService.getRights(page, search)
       .subscribe( res => {
         this.loading = false
         this.fetchedData = res.data
       }, error => {
+        this.loading = false
         console.log(error);
       });
     }

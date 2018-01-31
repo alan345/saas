@@ -8,7 +8,7 @@ var userCross = new Schema({
     ownerCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
 
     // companies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
-    // isAdminOfHisCompanie:{type: Boolean, default: [false]},
+    // isAdminOfHisCompanie:{type: Boolean, default: false},
 
     users: [{type: Schema.Types.ObjectId, ref: 'User'}],
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],

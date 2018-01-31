@@ -2,20 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {RightService} from '../right.service';
 import {UserService} from '../../user/user.service';
-
-
-
-import {Right, Permission, Access, TypeRights} from '../right.model';
-
+import {Right, Permission, Access} from '../right.model';
 import {ToastsManager} from 'ng2-toastr';
-
-import {MatDialog } from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
+// import {MatDialog } from '@angular/material';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
-import { User } from '../../user/user.model';
+// import { User } from '../../user/user.model';
 
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 
@@ -25,32 +20,30 @@ import { User } from '../../user/user.model';
   styleUrls: ['../right.component.css'],
 })
 export class RightComponent implements OnInit {
-  fetchedRight: Right = new Right()
-
-  // userAdmins : User[] = []
-  // userManagers : User[] = []
-  // userClients : User[] = []
-  // usersSalesRep : User[] = []
-  // userStylists : User[] = []
+  fetchedRight: Right = new Right();
   myForm: FormGroup;
   seeRights = false;
   seeCategProject = false;
   seeCategProduct = false;
-  typesRights = TypeRights;
+  typesRights: Permission[] = [];
+
   constructor(
     private rightService: RightService,
-//    private modalService: NgbModal,
     private toastr: ToastsManager,
-    public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
     private _fb: FormBuilder,
-    private authService:AuthService,
-    private userService:UserService
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
+    this.authService.getRightsToUse().forEach(right => {
+      // this.typesRights = [...right.detailRight.permissions]
+      this.typesRights = right.detailRight.permissions
+      // console.log(this.typesRights)
+    })
     this.myForm = this._fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       phoneNumber: ['', [Validators.required, Validators.minLength(2)]],
@@ -73,7 +66,7 @@ export class RightComponent implements OnInit {
       _users: this._fb.array([])
     })
 
-    this.getCurrentUser()
+    // this.getCurrentUser()
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id']) {
         if(params['id'] === 'mine') {
@@ -85,26 +78,34 @@ export class RightComponent implements OnInit {
     })
   }
   setAllRights() {
-    this.fetchedRight.detailRight.permissions = []
-    this.typesRights.forEach(typesRight => {
-      let newPermission = new Permission()
-      newPermission.namePermission = typesRight.value
-      typesRight.typeAccess.forEach(typeAccessSingle => {
-        let newAccess = new Access()
-        newAccess.typeAccess = typeAccessSingle.value
-        newPermission.access.push(newAccess)
-      })
-      this.fetchedRight.detailRight.permissions.push(newPermission)
-    })
+    this.fetchedRight.detailRight.permissions = [...this.typesRights]
+    // this.fetchedRight.detailRight.permissions = []
+    // console.log(this.typesRights)
+    // console.log(this.authService.getRightsToUse())
 
-    console.log(this.fetchedRight.detailRight.permissions)
+    // this.typesRights.forEach(typesRight => {
+    //   let newPermission = new Permission()
+    //   newPermission.namePermission = typesRight.value
+    //   typesRight.typeAccess.forEach(typeAccessSingle => {
+    //     let newAccess = new Access()
+    //     newAccess.typeAccess = typeAccessSingle.value
+    //     newPermission.access.push(newAccess)
+    //   })
+    //   this.fetchedRight.detailRight.permissions.push(newPermission)
+    // })
+    //
+    // console.log(this.fetchedRight.detailRight.permissions)
   }
   removeRight(level, index1, index2, index3) {
     // console.log(level)
-      if(level === 2)
+    // console.log(this.authService.getRightsToUse())
+      if(level === 2) {
         this.fetchedRight.detailRight.permissions.splice(index2, 1)
-      if(level === 3)
+      }
+      if(level === 3) {
         this.fetchedRight.detailRight.permissions[index2].access.splice(index3, 1)
+      }
+        // console.log(this.authService.getRightsToUse())
       // if(level === 3)
         // this.fetchedRight.detailRight[index1].permissions[index1].access.splice(index2, 1)
       // if(level === 3)
@@ -112,14 +113,13 @@ export class RightComponent implements OnInit {
   }
   addRight(level, index1, index2, index3) {
 
-      if(level === 1){
-        let newRight = new Permission()
-        this.fetchedRight.detailRight.permissions.unshift(newRight)
+      if(level === 1) {
+        // let newRight =
+        this.fetchedRight.detailRight.permissions.unshift(new Permission())
       }
-      if(level === 2){
-
-        let newRight = new Access()
-        this.fetchedRight.detailRight.permissions[index2].access.unshift(newRight)
+      if(level === 2) {
+        // let newRight = new Access()
+        this.fetchedRight.detailRight.permissions[index2].access.unshift(new Access())
       }
   }
 
@@ -142,14 +142,14 @@ export class RightComponent implements OnInit {
 
 
 
-  fetchedCurrentUser: User = new User()
-  getCurrentUser() {
-    this.userService.getUser('')
-      .subscribe(
-        res => { this.fetchedCurrentUser = res },
-        error => { console.log(error) }
-      )
-  }
+  // fetchedCurrentUser: User = new User()
+  // getCurrentUser() {
+  //   this.userService.getUser('')
+  //     .subscribe(
+  //       res => { this.fetchedCurrentUser = res },
+  //       error => { console.log(error) }
+  //     )
+  // }
 
 
 

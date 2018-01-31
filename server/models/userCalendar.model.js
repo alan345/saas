@@ -12,7 +12,7 @@ var userCalendar = new Schema({
       url:{type: String, default: ['']},
       start:{type: Date},
       end:{type: Date},
-      draggable: {type: Boolean, default: [true] },
+      draggable: {type: Boolean, default: true },
       // projects: [{type: Schema.Types.ObjectId, ref: 'Project'}],
       clients: [{type: Schema.Types.ObjectId, ref: 'User'}],
       assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
@@ -24,8 +24,8 @@ var userCalendar = new Schema({
       //   secondary: {type: String, default: ['#FAE3E3']},
       // },
       // resizable:{
-      //   beforeStart:  {type: Boolean, default: [true] },
-      //   afterEnd:  {type: Boolean, default: [true] },
+      //   beforeStart:  {type: Boolean, default: true },
+      //   afterEnd:  {type: Boolean, default: true },
       // }
 
   },

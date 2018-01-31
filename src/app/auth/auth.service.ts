@@ -250,14 +250,16 @@ export class AuthService {
     // })
     // console.log(this.user)
     // let rightsInAppCheck: any
-    let rightToUse: any
-    if (this.user.rights.length) {
-      rightToUse = this.user.rights
-    } else {
-      rightToUse = this.user.rightsInApp
-    }
 
-    return rightToUse.some(right => {
+
+    // let rightToUse: any
+    // if (this.user.rights.length) {
+    //   rightToUse = this.user.rights
+    // } else {
+    //   rightToUse = this.user.rightsInApp
+    // }
+    // console.log(this.user.rightsInApp)
+    return this.user.rightsInApp.some(right => {
       return right.detailRight.permissions.some(permission => {
         if (permission.namePermission === nameObject) {
           return permission.access.some(access => {

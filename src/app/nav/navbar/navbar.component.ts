@@ -74,7 +74,7 @@ export class NavbarComponent implements OnInit {
   }
 
   goBack() {
-    console.log(this.location)
+    // console.log(this.location)
     this.location.back();
   }
 

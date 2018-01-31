@@ -1,7 +1,6 @@
 
 export class Right {
   _id = '';
-
   detailRight: DetailRight = new DetailRight()
 }
 
@@ -22,7 +21,7 @@ export const TypeRights = [
   // {name : 'Project', value: 'project', typeAccess:
   //   [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
   {name : 'Product', value: 'product', typeAccess:
-    [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+    [{value:'read', name:'Read'},{value:'write', name:'Write'}]},
   {name : 'Quote', value: 'quote', typeAccess:
     [
       {value:'read',name:'Read'},

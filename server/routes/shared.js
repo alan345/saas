@@ -7,6 +7,14 @@ module.exports = {
 
   getRight (user) {
     // console.log(user)
+
+
+    let rightToReturn = {}
+    if (user.rights.length) {
+        rightToReturn = user.rights[0]
+    } else {
+
+
         let typesRightToUse = []
         // console.log(user)
 
@@ -39,14 +47,16 @@ module.exports = {
           })
           permissionGooplus.push(newPermission)
         })
-        let rightToReturn = {
+        rightToReturn = {
           detailRight: {
             nameRight: '',
             permissions: permissionGooplus
           }
         }
-        return rightToReturn
+      }
+      
 
+      return rightToReturn;
   },
 
   isCurentUserHasAccess (user, nameObject, typeAccess) {
@@ -70,17 +80,22 @@ module.exports = {
       //     })
       //   })
       //   return permissionBool
+
+
+      // console.log(this.getRight(user))
+      // console.log('ppppp')
       user.rightsInApp.push(this.getRight(user))
 
 
-      let rightToUse = {}
-      if (user.rights.length) {
-        rightToUse = user.rights
-      } else {
-        rightToUse = user.rightsInApp
-      }
-
-      return rightToUse.some(right => {
+      // let rightToUse = {}
+      // if (user.rights.length) {
+      //   rightToUse = user.rights
+      // } else {
+      //   rightToUse = user.rightsInApp
+      // }
+      // console.log(user.rightsInApp)
+      return user.rightsInApp.some(right => {
+        console.log(right)
         return right.detailRight.permissions.some(permission => {
           if (permission.namePermission === nameObject) {
             return permission.access.some(access => {

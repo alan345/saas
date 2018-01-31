@@ -17,7 +17,7 @@ var companie = new Schema({
       }
     },
     planDetail:{
-      plan:{type: String, default: ['']},
+      plan: {type: String, default: ['']},
       current_period_end:{type: Date}
     },
 
@@ -70,7 +70,7 @@ var companie = new Schema({
     nameCompanie: {type: String, default: ['']},
     typeCompanie: {type: String, default: ['']},
     // typeCompanie: {type: String, default: ['salon']},
-    // isSupplier: {type: Boolean, default: [false]},
+    // isSupplier: {type: Boolean, default: false},
     //users : [{type: Schema.Types.ObjectId, ref: 'User'}],
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
     // categJson: {
@@ -81,7 +81,7 @@ var companie = new Schema({
     categories: {
       categProduct:[{
         categ: {type: String, default: ['']},
-        isFlagged: {type: Boolean, default: [false]},
+        isFlagged: {type: Boolean, default: false},
         subCateg:[{
           categ: {type: String, default: ['']},
           subCateg:[{
@@ -91,7 +91,7 @@ var companie = new Schema({
       }],
       // categProject:[{
       //   categ: {type: String, default: ['']},
-      //   isFlagged: {type: Boolean, default: [false]},
+      //   isFlagged: {type: Boolean, default: false},
       //   subCateg:[{
       //     categ: {type: String, default: ['']},
       //     subCateg:[{

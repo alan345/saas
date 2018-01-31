@@ -16,8 +16,8 @@ var quote = new Schema({
       // ownerCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
       // canBeSeenByCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
       // companies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
-      // isAdminOfHisCompanie:{type: Boolean, default: [false]},
-      // isExternalUser:{type: Boolean, default: [false]},
+      // isAdminOfHisCompanie:{type: Boolean, default: false},
+      // isExternalUser:{type: Boolean, default: false},
       // dateSeeLatestNotif: {type: Date, default: [Date()]},
       email: {type: String},
       // password: {type: String, required: true},
@@ -69,7 +69,7 @@ var quote = new Schema({
       // ownerCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
 
       // companies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
-      // isAdminOfHisCompanie:{type: Boolean, default: [false]},
+      // isAdminOfHisCompanie:{type: Boolean, default: false},
 
       // users: [{type: Schema.Types.ObjectId, ref: 'User'}],
       // forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
@@ -127,7 +127,7 @@ var quote = new Schema({
     //   users:[{type: Schema.Types.ObjectId, ref: 'User'}],
     // },
     drawingSignature:{
-      // isSigned:{type: Boolean, default: [false]},
+      // isSigned:{type: Boolean, default: false},
       dateSignature: {type: Date, default: [Date()]},
       namePicture:{type: String, default: ['']},
       // backgroundForms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
@@ -188,7 +188,7 @@ var quote = new Schema({
       // paiementQuote: {type: Number, default: 0},
     },
     // signature:{
-    //   isSigned:{type: Boolean, default: [false]},
+    //   isSigned:{type: Boolean, default: false},
     //   base64:{type: String, default: ['']},
     //   dateSignature:{type: Date},
     //   users:[{type: Schema.Types.ObjectId, ref: 'User'}],

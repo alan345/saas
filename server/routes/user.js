@@ -36,9 +36,9 @@ router.post('/register', function(req, res, next) {
       password: passwordHash.generate(req.body.password),
       profile: req.body.profile,
       ownerCompanies: CompanieResult._id,
-      isExternalUser: false
+      isExternalUser: false,
+      isAdminOfHisCompanie: true
       // companies: result._id,
-      // isAdminOfHisCompanie: true,
     });
     user.save(function(err, userResult) {
       if (err) {

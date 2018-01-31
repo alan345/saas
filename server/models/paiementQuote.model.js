@@ -14,12 +14,12 @@ var paiementQuote = new Schema({
     projects: [{type: Schema.Types.ObjectId, ref: 'Project'}],
     datePaiement: {type: Date},
     amount: {type: Number},
-    isPaid: {type: Boolean, default: [false]},
-    isGooplusPaiement: {type: Boolean, default: [false]},
+    isPaid: {type: Boolean, default: false},
+    isGooplusPaiement: {type: Boolean, default: false},
     currency: {type: String, default: ['']},
     type: {type: String, default: ['']},
     title: {type: String, default: ['']},
-    isExpense: {type: Boolean, default: [false]},
+    isExpense: {type: Boolean, default: false},
     stripe: {
       charge:{
         balance_transaction: {type: String, default: ['']},
@@ -53,7 +53,7 @@ var paiementQuote = new Schema({
 
       },
       cusId: {type: String, default: ['']},
-      isSubscription:{type: Boolean, default: [false]},
+      isSubscription:{type: Boolean, default: false},
       planDetail:{
         plan:{type: String, default: ['']},
         current_period_end:{type: Date}

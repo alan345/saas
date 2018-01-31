@@ -50,21 +50,34 @@ export class Stock {
   quantity = 0;
 }
 
+export class SubCateg2 {
+  categ = '';
+}
+export class SubCateg {
+  categ = '';
+  subCateg: SubCateg2[] = []
+}
 
-export const ItemSteps =
-[
-  {
-    'categ':'',
-    'subCateg': [
-      {
-        'categ':'',
-        'subCateg': [
-          {categ: ''},
-        ]
-      }
-    ]
-  }
-]
+export class ItemStepClass {
+  categ = '';
+  subCateg: SubCateg[] = []
+}
+
+
+// export const ItemSteps =
+// [
+//   {
+//     'categ':'',
+//     'subCateg': [
+//       {
+//         'categ':'',
+//         'subCateg': [
+//           {categ: ''},
+//         ]
+//       }
+//     ]
+//   }
+// ]
 //
 // [
 //   {

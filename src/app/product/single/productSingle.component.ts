@@ -3,7 +3,7 @@ import { ProductService} from '../product.service';
 import { ToastsManager} from 'ng2-toastr';
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Product, ItemSteps } from '../product.model';
+import { Product, ItemStepClass } from '../product.model';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DeleteDialogComponent } from '../../nav/deleteDialog/deleteDialog.component';
 import { ModelVATs } from '../../quote/quote.model';
@@ -37,7 +37,7 @@ export class ProductSingleComponent implements OnInit {
   // categ1 = '';
   // categ2 = '';
   // categ3 = '';
-  itemSteps = ItemSteps;
+  itemSteps: ItemStepClass[] = [];
   step = -1;
 
   VATs = ModelVATs;
@@ -50,8 +50,6 @@ export class ProductSingleComponent implements OnInit {
   public myForm: FormGroup;
 
   constructor(
-    // private userService: UserService,
-    // private sanitizer: DomSanitizer,
     private productService: ProductService,
     private toastr: ToastsManager,
     public dialog: MatDialog,
@@ -59,8 +57,10 @@ export class ProductSingleComponent implements OnInit {
     private companieService: CompanieService,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
-    // private companieService: CompanieService,
     private authService: AuthService,
+    // private userService: UserService,
+    // private sanitizer: DomSanitizer,
+    // private companieService: CompanieService,
   ) {
   }
 
