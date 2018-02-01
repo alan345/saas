@@ -33,24 +33,24 @@ module.exports = {
             data =`
               L'acceptation du présent devis vaut acceptation de la réalisation et des conditions générales de ventes.
 
-              Plus Web Agency SAS au capital de 1.200€ - N°Siret : 833 299 662 00019, immatriculée au RCS de Bourg-en-Bresse, domiciliée au 171 rue des Eycherolles, 29 le Riondel, 01210 ORNEX, représentée par Monsieur Guillaume Morelle en sa qualité de Président.
+              [ENTREPRISE] SAS au capital de [XX €] - N°Siret : [XX], immatriculée au RCS de [Ville], domiciliée au [Aresse], représentée par Monsieur [XX] en sa qualité de Président.
 
-              Règlement par chèque à l'ordre de GooPlus
+              Règlement par chèque à l'ordre de [ENTREPRISE]
               Règlement par virement :
-              IBAN : FR76 1009 6180 4100 0680 4100 0656 3620 218
-              BIC : CMCIFRPP
+              IBAN : [XX]
+              BIC : [XX]
             `
             item.quoteSettings.legalNotice = data
 
             data =`
-              L'acceptation du présent devis vaut acceptation de la réalisation et des conditions générales de ventes.
+              L'acceptation de la présente facture vaut acceptation de la réalisation et des conditions générales de ventes.
 
-              Plus Web Agency SAS au capital de 1.200€ - N°Siret : 833 299 662 00019, immatriculée au RCS de Bourg-en-Bresse, domiciliée au 171 rue des Eycherolles, 29 le Riondel, 01210 ORNEX, représentée par Monsieur Guillaume Morelle en sa qualité de Président.
+              [ENTREPRISE] SAS au capital de [XX €] - N°Siret : [XX], immatriculée au RCS de [Ville], domiciliée au [Aresse], représentée par Monsieur [XX] en sa qualité de Président.
 
               Règlement par chèque à l'ordre de GooPlus
               Règlement par virement :
-              IBAN : FR76 1009 6180 4100 0680 4100 0656 3620 218
-              BIC : CMCIFRPP
+              IBAN : [XX]
+              BIC : [XX]
             `
             item.quoteSettings.legalNoticeInvoice = data
 
