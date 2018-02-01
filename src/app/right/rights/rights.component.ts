@@ -17,7 +17,7 @@ import { GlobalEventsManager } from '../../globalEventsManager';
 })
 export class RightsComponent implements OnInit {
   fetchedRights: Right[] = [];
-  loading = false
+  loading = false;
   paginationData = {
     currentPage: 1,
     itemsPerPage: 0,

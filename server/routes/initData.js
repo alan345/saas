@@ -33,7 +33,7 @@ module.exports = {
             data =`
               L'acceptation du présent devis vaut acceptation de la réalisation et des conditions générales de ventes.
 
-              [ENTREPRISE] SAS au capital de [XX €] - N°Siret : [XX], immatriculée au RCS de [Ville], domiciliée au [Aresse], représentée par Monsieur [XX] en sa qualité de Président.
+              [ENTREPRISE] SAS au capital de [XX €] - N°Siret : [XX], immatriculée au RCS de [Ville], domiciliée au [Adresse], représentée par Monsieur [XX] en sa qualité de Président.
 
               Règlement par chèque à l'ordre de [ENTREPRISE]
               Règlement par virement :
@@ -45,7 +45,7 @@ module.exports = {
             data =`
               L'acceptation de la présente facture vaut acceptation de la réalisation et des conditions générales de ventes.
 
-              [ENTREPRISE] SAS au capital de [XX €] - N°Siret : [XX], immatriculée au RCS de [Ville], domiciliée au [Aresse], représentée par Monsieur [XX] en sa qualité de Président.
+              [ENTREPRISE] SAS au capital de [XX €] - N°Siret : [XX], immatriculée au RCS de [Ville], domiciliée au [Adresse], représentée par Monsieur [XX] en sa qualité de Président.
 
               Règlement par chèque à l'ordre de GooPlus
               Règlement par virement :
