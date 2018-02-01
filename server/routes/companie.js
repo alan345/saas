@@ -9,7 +9,8 @@ var express = require('express'),
     // mongoose                = require('mongoose'),
     // Schema                  = mongoose.Schema,
     shared = require('./shared.js'),
-    nameObject = 'companie'
+    nameObject = 'companie';
+    
 
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function (err) {
