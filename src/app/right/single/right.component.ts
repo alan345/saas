@@ -23,9 +23,10 @@ export class RightComponent implements OnInit {
   fetchedRight: Right = new Right();
   myForm: FormGroup;
   seeRights = false;
-  seeCategProject = false;
-  seeCategProduct = false;
+  // seeCategProject = false;
+  // seeCategProduct = false;
   typesRights: Permission[] = [];
+  loading = false;
 
   constructor(
     private rightService: RightService,
@@ -159,16 +160,19 @@ export class RightComponent implements OnInit {
 
 
   save() {
+    this.loading = true;
 
     //this.fetchedRight.categJson.categProduct = JSON.stringify(JSON.parse(this.fetchedRight.categJson.categProduct))
     if(this.fetchedRight._id) {
       this.rightService.updateRight(this.fetchedRight)
         .subscribe(
           res => {
-            this.authService.successNotif(res.message)
+            this.authService.successNotif(res.message);
+            this.loading = false;
           //  this.router.navigate(['right/' + this.fetchedRight._id])
           },
           error => {
+            this.loading = false;
             this.toastr.error('error!', error)
           }
         )
@@ -176,11 +180,15 @@ export class RightComponent implements OnInit {
       this.rightService.saveRight(this.fetchedRight)
         .subscribe(
           res => {
+            this.loading = false;
             this.authService.successNotif(res.message)
             this.fetchedRight = res.obj
             //  this.router.navigate(['right/' + res.obj._id])
           },
-          error => {console.log(error)}
+          error => {
+            this.loading = false;
+            console.log(error)
+          }
         )
     }
   }
@@ -235,12 +243,15 @@ export class RightComponent implements OnInit {
 
 
   getRight(id: string) {
+    this.loading = true;
     this.rightService.getRight(id, {})
       .subscribe(
         res => {
+          this.loading = false;
           this.fetchedRight = res
         },
         error => {
+          this.loading = false;
           console.log(error);
         }
       )

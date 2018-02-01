@@ -18,8 +18,8 @@ export class RightService {
   private url = Config.backendURL;
 //  private token: string = localStorage.getItem('id_token');
 //  private userId: string = localStorage.getItem('userId');
-  private rightsForCurrentUser: Right[] = [];
-  private singleRight = Object;
+  // private rightsForCurrentUser: Right[] = [];
+  // private singleRight = Object;
 
   constructor(
     private http: Http,

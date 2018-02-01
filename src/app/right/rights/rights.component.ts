@@ -17,7 +17,7 @@ import { GlobalEventsManager } from '../../globalEventsManager';
 })
 export class RightsComponent implements OnInit {
   fetchedRights: Right[] = [];
-
+  loading = false
   paginationData = {
     currentPage: 1,
     itemsPerPage: 0,
@@ -50,9 +50,9 @@ export class RightsComponent implements OnInit {
 
   }
 
-  goBack() {
-    this.location.back();
-  }
+  // goBack() {
+  //   this.location.back();
+  // }
 
   // searchInput() {
   //   this.getRights(this.paginationData.currentPage, this.search)
@@ -64,14 +64,17 @@ export class RightsComponent implements OnInit {
   // }
 
   onDelete(id: string) {
+    this.loading = true;
     this.rightService.deleteRight(id)
       .subscribe(
         res => {
           this.authService.successNotif(res.message);
           console.log(res);
+          this.loading = false;
         },
         error => {
           console.log(error);
+          this.loading = false;
         }
       );
   }
@@ -90,9 +93,11 @@ export class RightsComponent implements OnInit {
 
 
   getRights(page: number, search: any) {
+    this.loading = true;
     this.rightService.getRights(page, search)
       .subscribe(
         res => {
+          this.loading = false;
           this.paginationData = res.paginationData;
           this.fetchedRights =  res.data
           this.globalEventsManager.isLoadding(false);

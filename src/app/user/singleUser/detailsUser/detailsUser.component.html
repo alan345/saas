@@ -36,7 +36,7 @@
   <div class="row" *ngIf="authService.showObjHTML('right', 'read') && !fetchedUser.isExternalUser && !fetchedUser.isAdminOfHisCompanie">
     <app-autocomplete [title]="'Right'" (getResultAutocomplete)="getResultAutocompleteRights()" (clearAutocomplete)="clearAutocompleteRight()" [typeAutocomplete]="'right'" [arrayContent]="fetchedUser.rights">
     </app-autocomplete>
-    <app-loginInApp *ngIf="showLoginInApp" (loginInAppDone)="loginInAppDone()"></app-loginInApp>
+    <app-loginInApp *ngIf="showLoginInApp" [infoOnly]=true (loginInAppDone)="loginInAppDone()"></app-loginInApp>
   </div>
   <div class="row">
     <div *ngIf="authService.showObjHTML('userCalendar', 'read')">

@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import { Location } from '@angular/common';
 import { Router} from '@angular/router';
@@ -12,6 +12,7 @@ import { ToastsManager} from 'ng2-toastr';
 })
 export class LoginInAppComponent implements OnInit {
   @Output() loginInAppDone: EventEmitter<any> = new EventEmitter();
+  @Input() infoOnly = false;
   loading = false;
   constructor(
     private authService: AuthService,
