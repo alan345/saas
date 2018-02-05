@@ -47,7 +47,7 @@ module.exports = {
 
               [ENTREPRISE] SAS au capital de [XX €] - N°Siret : [XX], immatriculée au RCS de [Ville], domiciliée au [Adresse], représentée par Monsieur [XX] en sa qualité de Président.
 
-              Règlement par chèque à l'ordre de GooPlus
+              Règlement par chèque à l'ordre de 
               Règlement par virement :
               IBAN : [XX]
               BIC : [XX]
