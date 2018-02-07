@@ -2,6 +2,11 @@
 
 /*ALAN: Signature*/
 
+.mat-radio-label { 
+    padding-right: 15px;
+}
+
+
 
 .fermerbtn {
     font-size: 13px;
