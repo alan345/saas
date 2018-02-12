@@ -96,6 +96,7 @@ export const LANG_FR_TRANS = {
     'Accountancy': 'Comptabilité',
     'Payments': 'Paiements',
     'Payment': 'Paiement',
+    'Online payment': 'Paiement en ligne',
     'I approve the': 'Je valide les',
     'Expenses': 'Dépenses',
     'Expense': 'Dépense',
