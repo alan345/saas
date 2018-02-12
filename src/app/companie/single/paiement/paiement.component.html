@@ -181,7 +181,9 @@
           <button mat-raised-button color="warn" (click)="unscribeMode = true">{{'I want to unscribe' | translate}}</button>
           <mat-form-field *ngIf="unscribeMode">
             <textarea [(ngModel)]="reasonToUnscribe" matInput placeholder="{{'Why?' | translate}}" matTextareaAutosize matAutosizeMinRows="2"
-                      matAutosizeMaxRows="5"></textarea>
+                      matAutosizeMaxRows="5">
+            </textarea>
+            <mat-hint align="end">{{reasonToUnscribe.length}} > 20</mat-hint>
           </mat-form-field>
           <button *ngIf="unscribeMode" [disabled]="reasonToUnscribe.length < 20" mat-raised-button color="warn" (click)="deleteSubInStripe(sub.id)">{{'Ok' | translate}}</button>
         </div>
