@@ -92,7 +92,8 @@ router.use('/', function(req, res, next) {
 //                 );
 //           })
 //
-// })
+// }
+
 
 router.get('/goToLinkAuthorizeConnect', function(req, res, next) {
   let url = 'https://connect.stripe.com/oauth/authorize?locale=fr&response_type=code&client_id=' + config.stripe.connect.client_id + '&scope=read_only&redirect_uri=https://' + req.headers.host + '/%23/companie/mine'
