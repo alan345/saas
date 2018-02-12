@@ -113,7 +113,7 @@ export class DetailsUserComponent implements OnInit {
   }
   clearAutocompleteRight() {
     this.save.emit()
-    this.showLoginInApp = true    
+    this.showLoginInApp = true
   }
   getResultAutocompleteRights() {
     this.save.emit()
@@ -340,8 +340,9 @@ export class DetailsUserComponent implements OnInit {
   // }
 
   isUserIsMyself() {
-    if (this.currentUser._id === this.fetchedUser._id)
+    if (this.authService.getCurrentUser()._id === this.fetchedUser._id) {
       return true
+    }
     return false
   }
 

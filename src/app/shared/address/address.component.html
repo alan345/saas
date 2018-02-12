@@ -1,9 +1,9 @@
 <h5>{{'Address' | translate}}</h5>
-<button mat-raised-button (click)="newAddress()">
+<button *ngIf="!isMyCompanie" mat-raised-button (click)="newAddress()">
   <mat-icon>add</mat-icon> {{'New Address' | translate}}
 </button>
 <div *ngFor="let singleAddresss of addresses; let i = index;" class="form-control">
-  <div class="alright">
+  <div *ngIf="!isMyCompanie" class="alright">
     <button mat-icon-button (click)="moveAddress(i, -1)">
       <mat-icon>arrow_upward</mat-icon>
     </button>
@@ -14,7 +14,7 @@
       <mat-icon>clear</mat-icon>
     </button>
   </div>
-  <div>
+  <div *ngIf="!isMyCompanie">
     <mat-form-field>
       <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="addresses[i].nameAddress">
         <mat-option *ngFor="let n of addressTypes" [value]="n.value">{{n.label | translate}}</mat-option>

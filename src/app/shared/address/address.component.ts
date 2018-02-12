@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, OnChanges, Input} from '@angular/core';
 import { Address, AddressTypes } from './address.model';
 import { AddressService } from './address.service';
 import { AuthService } from '../../auth/auth.service';
@@ -8,9 +8,10 @@ import { AuthService } from '../../auth/auth.service';
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.css']
 })
-export class AddressComponent implements OnInit {
+export class AddressComponent implements OnInit, OnChanges {
 
   @Input() addresses: Address[] = [];
+  @Input() isMyCompanie = false;
   addressTypes = AddressTypes;
 
 
@@ -19,7 +20,13 @@ export class AddressComponent implements OnInit {
     private authService: AuthService,
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {}
+  ngOnChanges() {
+    if (!this.addresses.length) {
+      const newAddress = new Address();
+      this.addresses.push(newAddress);
+    }
+  }
 
 
   newAddress() {
@@ -32,6 +39,7 @@ export class AddressComponent implements OnInit {
 
     this.addresses.push(newAddress)
   }
+
 
   selectCity(i, city: string) {
     this.addresses[i].city = city

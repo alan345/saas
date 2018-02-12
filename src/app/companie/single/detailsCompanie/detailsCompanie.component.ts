@@ -62,6 +62,14 @@ export class DetailsCompanieComponent implements OnInit {
     // private paiementService: PaiementService,
   ) {}
 
+  isMyCompanie() {
+    const currentUser = this.authService.getCurrentUser();
+    return currentUser.ownerCompanies.some(obj => {
+      return obj._id === this.fetchedCompanie._id;
+    });
+  }
+
+
   ngOnInit() {
     // this.getStripeAccountDetails()
     this.myForm = this._fb.group({

@@ -1,8 +1,8 @@
 
 export const AddressTypes =
   [
-    { value: 'shipping', label: 'Shipping' },
     { value: 'billing', label: 'Billing' },
+    { value: 'shipping', label: 'Shipping' },
   ]
 
 
