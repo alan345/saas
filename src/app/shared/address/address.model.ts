@@ -5,7 +5,6 @@ export const AddressTypes =
     { value: 'shipping', label: 'Shipping' },
   ]
 
-
 export class Address {
   nameAddress = 'billing';
   address = '';
