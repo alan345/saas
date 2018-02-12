@@ -98,6 +98,9 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <div *ngIf="step === 2">
+        <h4>{{'No commitment!' | translate}}</h4>
+        <h5>{{'You can unsubscribe anytime. No transaction will be completed until the end of your trial period, in 30 days.' | translate}}</h5>
+        <br>
         <div *ngIf="!stripeCust.sources.data.length">
           <app-paiement-card [newCard]="newCard"></app-paiement-card>
         </div>

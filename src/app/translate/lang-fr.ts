@@ -64,6 +64,8 @@ export const LANG_FR_TRANS = {
     'Password Confirmation': 'Mot de passe',
     'Confirm your password:': 'Confirmation du mot de passe',
     'Month': 'Mois',
+    'No commitment!': 'Aucun engagement!',
+    'You can unsubscribe anytime. No transaction will be completed until the end of your trial period, in 30 days.': 'Vous pouvez vous désinscrire à tout moment. Aucun prélèvement ne sera effecuté avant la fin de votre periode d\'essai, dans 30 jours.',
     'Disconnect': 'Déconnexion',
     'Plumber': 'Plombier',
     'Locksmith': 'Serrurier',
