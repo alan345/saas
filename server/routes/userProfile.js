@@ -13,6 +13,7 @@ var express = require('express'),
   crypto = require("crypto"),
   gm = require('gm').subClass({imageMagick: true}),
   User = require('../models/user.model'),
+  shared = require('./shared.js'),
   emailGenerator = require('./emailGenerator');
   // stripe = require("stripe")("sk_test_cg4vcpE5gV1ApywsErwoWL7u");
 
@@ -31,7 +32,13 @@ router.use('/', function(req, res, next) {
       });
     }
     if (decoded) {
-      User.findById(decoded.user._id, function(err, doc) {
+      User
+      .findById(decoded.user._id)
+      .populate({ path: 'rights', model: 'Right'})
+      .populate({ path: 'ownerCompanies', model: 'Companie'})
+      // .populate({ path: 'rights', model: 'Right'})
+      .populate({ path: 'ownerCompanies', model: 'Companie'})
+      .exec(function(err, doc) {
         if (err) {
           return res.status(500).json({title: 'Fetching user failed', message: 'Fetching user failed', err: err});
         }
@@ -67,8 +74,11 @@ router.get('/page/:page', function(req, res, next) {
   if (req.query.isAdmin === 'true' && req.user.isAdmin === true) {
     // admin data
   } else {
-
+    // client
     if (req.query.isExternalUser === 'true') {
+      if (shared.isCurentUserHasAccess(req.user, 'client', 'onlyMine')) {
+        searchQuery['createdByUser'] = mongoose.Types.ObjectId(req.user._id)
+      }
       // searchQuery['isExternalUser'] = true
       searchQuery['canBeSeenByCompanies'] = req.user.ownerCompanies
       searchQuery['ownerCompanies'] = {
@@ -94,7 +104,7 @@ router.get('/page/:page', function(req, res, next) {
     })
     searchQuery['$or'] = arrObj
   }
-  console.log(searchQuery)
+  // console.log(searchQuery)
   User.find(searchQuery)
   // .populate({ path: 'companies', model: 'Companie'})
   .populate({path: 'ownerCompanies', model: 'Companie'}).limit(itemsPerPage).skip(skip).sort(req.query.orderBy).exec(function(err, item) {
@@ -372,7 +382,7 @@ router.post('/', function(req, res, next) {
         req.body.canBeSeenByCompanies = req.user.ownerCompanies
       }
 
-
+      req.body.createdByUser = req.user
       // var companie = new Companie()
       // companie.save(function(err, CompanieResult) {
       //   if (err) {

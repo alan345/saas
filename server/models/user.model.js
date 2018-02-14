@@ -6,6 +6,7 @@ var mongoose                = require('mongoose'),
 
 var user = new Schema({
     ownerCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
+    createdByUser: [{type: Schema.Types.ObjectId, ref: 'User'}],
     canBeSeenByCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
     // companies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
     isAdminOfHisCompanie: {type: Boolean, default: false},

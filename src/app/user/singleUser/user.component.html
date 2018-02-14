@@ -31,7 +31,7 @@
       </mat-action-row>
     </mat-expansion-panel>
 
-    <mat-expansion-panel *ngIf="authService.showObjHTML('user', 'readCross') && fetchedUser._id" [expanded]="step === 1" (opened)="setStep(1)">
+    <mat-expansion-panel *ngIf="authService.showObjHTML('user', 'read') && fetchedUser._id" [expanded]="step === 1" (opened)="setStep(1)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <mat-icon>assignment_ind</mat-icon>

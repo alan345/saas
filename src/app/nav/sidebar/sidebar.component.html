@@ -20,7 +20,7 @@
     </mat-expansion-panel>
     <mat-expansion-panel
       class="noOutline"
-      *ngIf="authService.showObjHTML('user', 'read')"
+      *ngIf="authService.showObjHTML('client', 'read')"
       (click)="menuClick()"
       [routerLink]="['/user/list/true']" routerLinkActive="active"
       hideToggle="true">

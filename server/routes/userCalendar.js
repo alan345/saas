@@ -29,7 +29,10 @@ router.use('/', function(req, res, next) {
       })
     }
     if (decoded) {
-      User.findById(decoded.user._id)
+      User
+      .findById(decoded.user._id)
+      .populate({ path: 'rights', model: 'Right'})
+      .populate({ path: 'ownerCompanies', model: 'Companie'})
       // .populate({ path: 'rights', model: 'Right'})
       .populate({ path: 'ownerCompanies', model: 'Companie'})
       .exec(function(err, doc) {
@@ -167,6 +170,11 @@ router.get('/page/:page', function(req, res, next) {
       "$lt": endDate
     }
   }
+
+  if (shared.isCurentUserHasAccess(req.user, 'userCalendar', 'onlyMine')) {
+    searchQuery['assignedTos'] = mongoose.Types.ObjectId(req.user._id)
+  }
+
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
   // if (req.query.typeUser)

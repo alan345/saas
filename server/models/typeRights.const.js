@@ -22,6 +22,11 @@ let defaultValue = [
   [{value:'read',name:'Read'},{value:'write',name:'Write'}]},
 {name : 'User', value: 'user', typeAccess:
   [{value:'read',name:'Read'},{value:'write', name:'Write'}, {value:'create1',name:'Create1'}, {value:'readCross',name:'ReadCross'}]},
+{name : 'Client', value: 'client', typeAccess:[
+  {value:'read', name:'Read'},
+  {value:'write', name:'Write'},
+  {value:'onlyMine', name:'Only Mine'},
+]},
 {name : 'Paiement', value: 'paiementQuote', typeAccess:
   [
     {value:'read',name:'Read'},
@@ -29,8 +34,11 @@ let defaultValue = [
   ]},
 // {name : 'Task', value: 'task', typeAccess:
 //   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
-{name : 'userCalendar', value: 'userCalendar', typeAccess:
-  [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+{name : 'userCalendar', value: 'userCalendar', typeAccess:[
+  {value:'read',name:'Read'},
+  {value:'write', name:'Write'},
+  {value:'onlyMine', name:'Only Mine'},
+  ]},
 // {name : 'Plan', value: 'plan', typeAccess:
 //   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
 {name : 'Right', value: 'right', typeAccess:
@@ -61,8 +69,15 @@ let goldValue = [
   ]},
 {name : 'Companie', value: 'companie', typeAccess:
   [{value:'read',name:'Read'},{value:'write',name:'Write'}]},
-{name : 'User', value: 'user', typeAccess:
-  [{value:'read',name:'Read'},{value:'write', name:'Write'},{value:'create5',name:'Create5'}, {value:'readCross',name:'ReadCross'}]},
+{name : 'User', value: 'user', typeAccess:[
+  {value:'read',name:'Read'},
+  {value:'write', name:'Write'},
+]},
+{name : 'Client', value: 'client', typeAccess:[
+  {value:'read', name:'Read'},
+  {value:'write', name:'Write'},
+  {value:'onlyMine', name:'Only Mine'},
+]},
 {name : 'Paiement', value: 'paiementQuote', typeAccess:
   [
     {value:'read',name:'Read'},
@@ -70,8 +85,11 @@ let goldValue = [
   ]},
 // {name : 'Task', value: 'task', typeAccess:
 //   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
-{name : 'userCalendar', value: 'userCalendar', typeAccess:
-  [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
+{name : 'userCalendar', value: 'userCalendar', typeAccess:[
+  {value: 'read', name: 'Read'},
+  {value: 'write', name: 'Write'},
+  {value: 'onlyMine', name: 'Only Mine'},
+]},
 // {name : 'Plan', value: 'plan', typeAccess:
 //   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
 {name : 'Right', value: 'right', typeAccess:
