@@ -29,7 +29,7 @@ var sslOptions = {
   key: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_private_key.key', 'utf8'),
   cert: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_ssl_certificate.cer', 'utf8'),
   ca: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_ssl_certificate_INTERMEDIATE.cer', 'utf8'),
-  requestCert: true,
+  requestCert: false,
   rejectUnauthorized: false
 };
 // console.log(sslOptions)
