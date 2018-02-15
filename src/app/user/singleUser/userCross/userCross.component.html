@@ -20,7 +20,7 @@
       </mat-form-field>
     </div>
     <div class="col-sm-12 col-lg-6 col-lg-4">
-      <app-address [addresses]="fetchedUserCross.profile.address"></app-address>
+      <app-address [isSingleAddress]="!fetchedUser.isExternalUser" [addresses]="fetchedUserCross.profile.address"></app-address>
     </div>
     <div class="col-sm-12 col-lg-6 col-lg-4">
       <h5>{{'Divers' | translate}}</h5>

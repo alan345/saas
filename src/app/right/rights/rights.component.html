@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="d-flex flex-row">
+  <div class="row">
     <div class="p-2">
       <h4> {{'Rights' | translate}}</h4>
     </div>
@@ -7,7 +7,7 @@
       <app-new-obj-dialog icone="fa fa-plus-square fa-2x ml" [search]="search" (saved)="saved($event)" [typeObj]="'right'"></app-new-obj-dialog>
     </div>
   </div>
-  <div class="d-flex flex-row">
+  <div class="row">
     <div class="p-2">
       <input class="form-control margebasse col-lg-12" type="text" name="Search" placeholder="Rechercher" [(ngModel)]="search.search" (ngModelChange)="searchRights()">
     </div>

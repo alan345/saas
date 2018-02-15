@@ -11,7 +11,7 @@ import { AuthService } from '../../auth/auth.service';
 export class AddressComponent implements OnInit, OnChanges {
 
   @Input() addresses: Address[] = [];
-  @Input() isMyCompanie = false;
+  @Input() isSingleAddress = false;
   addressTypes = AddressTypes;
 
 
