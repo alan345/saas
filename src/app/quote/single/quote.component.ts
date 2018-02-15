@@ -23,27 +23,24 @@ export class QuoteComponent implements OnInit {
   loading = false;
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Output() close: EventEmitter<any> = new EventEmitter();
-  @Input() search: Search = new Search()
+  @Input() search: Search = new Search();
   @Input() isDialog = false;
+
+  fetchedPaiementQuotes: PaiementQuote[] = [];
+  fetchedQuote: Quote = new Quote();
+  signatureBase64Temp = '';
+  step = -1;
+  myCompanie: Companie = new Companie();
+  VATs = ModelVATs;
   // @ViewChild(SignaturePad) signaturePad: SignaturePad;
   // @ViewChild(PaiementQuotesComponent) paiementQuotesComponent: PaiementQuotesComponent;
   // @ViewChild(ActionButtonsComponent) actionButtonsComponent: ActionButtonsComponent
-
-  fetchedPaiementQuotes: PaiementQuote[] = []
   // showPaiements = false;
-  fetchedQuote: Quote = new Quote()
   // totalPaiementAmount = 0;
-  signatureBase64Temp = '';
-  step = -1;
-  myCompanie: Companie = new Companie()
 
 
-  VATs = ModelVATs
 
 
-  setStep(index: number) {
-    this.step = index;
-  }
 
   constructor(
     private quoteService: QuoteService,
@@ -59,7 +56,69 @@ export class QuoteComponent implements OnInit {
   ) {
   }
 
+  ngOnInit() {
+    setTimeout(() => { this.step = 0});
+    this.getMyCompanie()
 
+    this.authService.getCurrentUser().ownerCompanies.forEach((companie: Companie) => {
+      this.fetchedQuote.detail.currency = companie.option.currency;
+    })
+
+
+    this.activatedRoute.params.subscribe((params: Params) => {
+      if (params['idQuote']) {
+        this.search.quoteId = params['idQuote']
+        this.getQuote(params['idQuote']).then(quote => {
+        }).catch(err => {
+          console.log(err)
+        })
+      } else {
+        this.getMaxQuoteNumber()
+        if (params['userId']) {
+          this.search.userId = params['userId']
+        }
+        if (params['assignedToId']) {
+          this.search.assignedToId = params['assignedToId']
+        }
+      }
+      // else if (params['parentQuoteId']) {
+      //   // this.getQuote(params['parentQuoteId']).then((parentQuote: Quote) => {
+      //   //   this.search.parentQuoteId = params['parentQuoteId']
+      //   //   this.fetchedQuote._id = ''
+      //   //   this.fetchedQuote.typeQuote = 'invoice'
+      //   //   this.fetchedQuote.drawingSignature.isSigned = false
+      //   //   this.fetchedQuote.quoteNumber = null
+      //   //   this.getMaxQuoteNumber()
+      //   // })
+      // }
+
+    })
+
+
+
+    // if (this.search.parentQuoteId) {
+    //   this.getQuote(this.search.parentQuoteId).then((parentQuote: Quote) => {
+    //     this.fetchedQuote._id = ''
+    //     this.fetchedQuote.typeQuote = 'invoice'
+    //     this.fetchedQuote.quoteNumber = null
+    //     this.getMaxQuoteNumber()
+    //
+    //   })
+    // } else {
+    //   // this.fetchedQuote.typeQuote = this.search.typeQuote
+    //   this.activatedRoute.params.subscribe((params: Params) => {
+    //     if (params['idQuote']) {
+    //       this.search.quoteId = params['idQuote']
+    //       this.getQuote(params['idQuote'])
+    //     } else {
+    //       this.getMaxQuoteNumber()
+    //     }
+    //   })
+    // }
+  }
+  setStep(index: number) {
+    this.step = index;
+  }
 
   nextStep() {
     this.step++;
@@ -127,63 +186,6 @@ export class QuoteComponent implements OnInit {
       )
   }
 
-  ngOnInit() {
-    setTimeout(() => { this.step = 0});
-    this.getMyCompanie()
-
-    this.authService.getCurrentUser().ownerCompanies.forEach((companie: Companie) => {
-      this.fetchedQuote.detail.currency = companie.option.currency;
-    })
-
-
-    this.activatedRoute.params.subscribe((params: Params) => {
-      if (params['idQuote']) {
-        this.search.quoteId = params['idQuote']
-        this.getQuote(params['idQuote']).then(quote => {
-        }).catch(err => {
-          console.log(err)
-        })
-      } else {
-        this.getMaxQuoteNumber()
-        if (params['userId']) {
-          this.search.userId = params['userId']
-        }
-      }
-      // else if (params['parentQuoteId']) {
-      //   // this.getQuote(params['parentQuoteId']).then((parentQuote: Quote) => {
-      //   //   this.search.parentQuoteId = params['parentQuoteId']
-      //   //   this.fetchedQuote._id = ''
-      //   //   this.fetchedQuote.typeQuote = 'invoice'
-      //   //   this.fetchedQuote.drawingSignature.isSigned = false
-      //   //   this.fetchedQuote.quoteNumber = null
-      //   //   this.getMaxQuoteNumber()
-      //   // })
-      // }
-
-    })
-
-
-
-    // if (this.search.parentQuoteId) {
-    //   this.getQuote(this.search.parentQuoteId).then((parentQuote: Quote) => {
-    //     this.fetchedQuote._id = ''
-    //     this.fetchedQuote.typeQuote = 'invoice'
-    //     this.fetchedQuote.quoteNumber = null
-    //     this.getMaxQuoteNumber()
-    //
-    //   })
-    // } else {
-    //   // this.fetchedQuote.typeQuote = this.search.typeQuote
-    //   this.activatedRoute.params.subscribe((params: Params) => {
-    //     if (params['idQuote']) {
-    //       this.search.quoteId = params['idQuote']
-    //       this.getQuote(params['idQuote'])
-    //     } else {
-    //       this.getMaxQuoteNumber()
-    //     }
-    //   })
-    // }
-  }
 
   drawingSignatureUpdated(result) {
     // this.fetchedQuote.drawingSignature.isSigned = true

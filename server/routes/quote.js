@@ -151,11 +151,6 @@ router.get('/maxQuoteNumber', function (req, res, next) {
 
 function getQuote (idQuote, req) {
   return new Promise(function (resolve, reject) {
-
-
-
-
-
     let searchQuery = {}
 
     // let arrObj2 = []
@@ -190,6 +185,7 @@ function getQuote (idQuote, req) {
           // .populate({path: 'companieClients', model: 'Companie'})
           // .populate({path: 'signature.users', model: 'User'})
           .populate({path: 'clients', model: 'User'})
+          .populate({path: 'assignedTos', model: 'User'})
           // .populate({path: 'parentQuotes', model: 'Quote'})
           // .populate({path: 'drawing.backgroundForms', model: 'Form'})
           .populate({path: 'forms', model: 'Form'})
@@ -447,7 +443,7 @@ router.post('/', function(req, res, next) {
   req.body.ownerCompanies = req.user.ownerCompanies
   req.body.historyClients = req.body.clients
   // req.body.historyClientsCross = req.body.historyClientsCross
-
+  req.body.assignedTos = req.user
 
   if(req.body.clients.length) {
     userCross.getUserCross(req.user, req.body.clients[0]._id).then(userCrossSingle => {
@@ -588,6 +584,10 @@ router.get('/page/:page', function(req, res, next) {
     searchQuery['clients'] = mongoose.Types.ObjectId(req.query.userId)
   }
 
+
+  if (!shared.isCurentUserHasAccess(req.user, 'quote', 'seeAll')) {
+    searchQuery['assignedTos'] = mongoose.Types.ObjectId(req.user._id)
+  }
 
   // if (req.query.parentQuoteId)
   //   searchQuery['parentQuotes'] = mongoose.Types.ObjectId(req.query.parentQuoteId)

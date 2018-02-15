@@ -171,7 +171,7 @@ router.get('/page/:page', function(req, res, next) {
     }
   }
 
-  if (shared.isCurentUserHasAccess(req.user, 'userCalendar', 'onlyMine')) {
+  if (!shared.isCurentUserHasAccess(req.user, 'userCalendar', 'seeAll')) {
     searchQuery['assignedTos'] = mongoose.Types.ObjectId(req.user._id)
   }
 
@@ -199,7 +199,7 @@ router.get('/page/:page', function(req, res, next) {
 
   // if (req.query.search)
   //   searchQuery['name'] = new RegExp(req.query.search, 'i')
-
+  console.log(searchQuery)
 
   UserCalendar
   .find(searchQuery)

@@ -10,6 +10,7 @@ import { DrawingSignature } from './single/drawingSignature/drawingSignature.mod
 export class Quote {
   _id = '';
   clients: User[] = [];
+  assignedTos: User[] = [];
   historyClients: User[] = [];
   historyClientsCross: UserCross[] = [];
   name = '';

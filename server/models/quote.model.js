@@ -12,6 +12,7 @@ var quote = new Schema({
 
     // ownerQuotes: [{type: Schema.Types.ObjectId, ref: 'User'}],
     clients: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
     historyClients: [{
       // ownerCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
       // canBeSeenByCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],

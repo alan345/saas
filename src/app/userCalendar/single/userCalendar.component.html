@@ -72,7 +72,9 @@
       <a href="https://www.google.com/maps/dir/destination={{address.address}} {{address.address2}} {{address.zip}} {{address.city}} {{address.state}} {{address.country}}"><mat-icon>map</mat-icon></a>
     </div> -->
     <div *ngFor="let client of fetchedUserCalendar.clients" class="ac">
-      <app-new-obj-dialog (cliked)="newInterventionCLicked()" [icon]="'build'" [title]="'Create new Intervention'" [search]="{userId: client._id}" [typeObj]="'quote'"></app-new-obj-dialog>
+      <div *ngFor="let assignedTo of fetchedUserCalendar.assignedTos">
+        <app-new-obj-dialog (cliked)="newInterventionCLicked()" [icon]="'build'" [title]="'Create new Intervention'" [search]="{userId: client._id, assignedToId: assignedTo._id}" [typeObj]="'quote'"></app-new-obj-dialog>
+      </div>
     </div>
     <mat-action-row>
       <div class="spaceBetween width100perc">

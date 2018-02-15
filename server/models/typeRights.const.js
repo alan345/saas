@@ -6,16 +6,17 @@ let defaultValue = [
 {name : 'Product', value: 'product', typeAccess:
   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
 {name : 'Settings', value: 'settings', typeAccess: [{value:'read',name:'Read'}]},
-{name : 'Quote', value: 'quote', typeAccess:
-  [
-    {value:'read',name:'Read'},
-    {value:'write', name:'Write'},
-    // {value:'notification', name:'Get notification'},
-    {value:'signature', name:'Signature'},
-    {value:'drawing', name:'Drawing'},
-    // {value:'comment', name:'Comment'},
-    {value:'template', name:'Template'},
-  ]},
+{name : 'Quote', value: 'quote', typeAccess:[
+  {value: 'read', name: 'Read'},
+  {value: 'write', name: 'Write'},
+  // {value:'notification', name:'Get notification'},
+  {value: 'signature', name: 'Signature'},
+  {value: 'drawing', name: 'Drawing'},
+  // {value:'comment', name:'Comment'},
+  {value: 'template', name: 'Template'},
+  {value: 'template', name: 'Template'},
+  {value: 'seeAll', name: 'See All, not Only My Clients'}
+]},
 // {name : 'Reporting', value: 'reporting', typeAccess:
 //   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
 {name : 'Companie', value: 'companie', typeAccess:
@@ -25,7 +26,7 @@ let defaultValue = [
 {name : 'Client', value: 'client', typeAccess:[
   {value:'read', name:'Read'},
   {value:'write', name:'Write'},
-  {value:'onlyMine', name:'Only Mine'},
+  {value:'seeAll', name:'seel all, not only Mine'},
 ]},
 {name : 'Paiement', value: 'paiementQuote', typeAccess:
   [
@@ -37,7 +38,7 @@ let defaultValue = [
 {name : 'userCalendar', value: 'userCalendar', typeAccess:[
   {value:'read',name:'Read'},
   {value:'write', name:'Write'},
-  {value:'onlyMine', name:'Only Mine'},
+  {value:'seeAll', name:'See All, not only Mine'},
   ]},
 // {name : 'Plan', value: 'plan', typeAccess:
 //   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},
@@ -66,6 +67,7 @@ let goldValue = [
     {value:'drawing', name:'Drawing'},
     // {value:'comment', name:'Comment'},
     {value:'template', name:'Template'},
+    {value: 'seeAll', name: 'See all, not Only My Clients'}
   ]},
 {name : 'Companie', value: 'companie', typeAccess:
   [{value:'read',name:'Read'},{value:'write',name:'Write'}]},
@@ -76,7 +78,7 @@ let goldValue = [
 {name : 'Client', value: 'client', typeAccess:[
   {value:'read', name:'Read'},
   {value:'write', name:'Write'},
-  {value:'onlyMine', name:'Only Mine'},
+  {value:'seeAll', name:'seel all, not Only Mine'},
 ]},
 {name : 'Paiement', value: 'paiementQuote', typeAccess:
   [
@@ -88,7 +90,7 @@ let goldValue = [
 {name : 'userCalendar', value: 'userCalendar', typeAccess:[
   {value: 'read', name: 'Read'},
   {value: 'write', name: 'Write'},
-  {value: 'onlyMine', name: 'Only Mine'},
+  {value: 'seeAll', name: 'See all, not Only Mine'},
 ]},
 // {name : 'Plan', value: 'plan', typeAccess:
 //   [{value:'read',name:'Read'},{value:'write', name:'Write'}]},

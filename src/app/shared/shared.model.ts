@@ -13,7 +13,7 @@ export class Search {
   paiementQuoteId = '';
   endDate: Date = new Date();
   startDate: Date = new Date();
-  // assignedToId = '';
+  assignedToId = '';
   projectId = '';
   // parentQuoteId = '';
   isExternalUser = true;
