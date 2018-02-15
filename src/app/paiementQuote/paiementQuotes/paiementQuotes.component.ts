@@ -18,19 +18,19 @@ import { PaiementQuoteDialogComponent } from '../single/dialog/paiementQuoteDial
   styleUrls: ['../paiementQuote.component.css'],
 })
 export class PaiementQuotesComponent implements OnInit, OnChanges {
-  // @Input() userId = '';
-  // @Input() idQuote = '';
-  // @Input() showHeader = true;
   @Output() getPaiementQuotesCross: EventEmitter<any> = new EventEmitter();
-  // @Output() newPaiementSaved: EventEmitter<any> = new EventEmitter();
-  // @Input() showCreate = true;
   @Input() search: Search = new Search();
   @Input() showBack: number = -1;
-
+  loading = false;
   fetchedPaiementQuotes: PaiementQuote[] = [];
 
   paginationData = new PaginationData();
 
+  // @Input() userId = '';
+  // @Input() idQuote = '';
+  // @Input() showHeader = true;
+  // @Output() newPaiementSaved: EventEmitter<any> = new EventEmitter();
+  // @Input() showCreate = true;
   // search = {
   //   orderBy : '',
   //   search: '',
@@ -114,16 +114,17 @@ export class PaiementQuotesComponent implements OnInit, OnChanges {
 
 
   getPaiementQuotes(page: number, search: any) {
-    this.globalEventsManager.isLoadding(true);
+    this.loading = true;
     this.paiementQuoteService.getPaiementQuotes(page, search)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
           this.fetchedPaiementQuotes =  res.data
-          this.globalEventsManager.isLoadding(false);
+          this.loading = false;
           this.getPaiementQuotesCross.emit(this.fetchedPaiementQuotes)
         },
         error => {
+          this.loading = false;
           console.log(error);
         }
       );

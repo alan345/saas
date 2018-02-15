@@ -14,7 +14,6 @@ let defaultValue = [
   {value: 'drawing', name: 'Drawing'},
   // {value:'comment', name:'Comment'},
   {value: 'template', name: 'Template'},
-  {value: 'template', name: 'Template'},
   {value: 'seeAll', name: 'See All, not Only My Clients'}
 ]},
 // {name : 'Reporting', value: 'reporting', typeAccess:
