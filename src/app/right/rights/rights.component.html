@@ -1,6 +1,5 @@
 <div class="container">
-  <app-header-title [isDialog]="isDialog" [showBack]=-1 [title]="'Rights'" (saved)="saved($event)" [search]="search" [typeObj]="'right'"></app-header-title>
-
+  <app-header-title [isDialog]=false [showBack]=-1 [title]="'Rights'" (saved)="saved($event)" [search]="search" [typeObj]="'right'"></app-header-title>
   <div class="row">
     <div class="p-2">
       <input class="form-control margebasse col-lg-12" type="text" name="Search" placeholder="Rechercher" [(ngModel)]="search.search" (ngModelChange)="searchRights()">
