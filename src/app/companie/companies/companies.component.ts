@@ -42,15 +42,15 @@ export class CompaniesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.search.orderBy = 'name'
-    this.getPage(1)
+    this.search.orderBy = 'name';
+    this.getPage(1);
   }
   getPage(page: number) {
 
     this.getCompanies(page, this.search);
   }
   saved(result) {
-    this.getCompanies(this.paginationData.currentPage, this.search)
+    this.getCompanies(this.paginationData.currentPage, this.search);
   }
   // openDialog() {
   // }
@@ -60,16 +60,16 @@ export class CompaniesComponent implements OnInit {
   // }
 
   searchInput() {
-    this.getCompanies(this.paginationData.currentPage, this.search)
+    this.getCompanies(this.paginationData.currentPage, this.search);
   }
 
   orderBy(orderBy: string) {
     this.search.orderBy = orderBy
-    this.getCompanies(this.paginationData.currentPage, this.search)
+    this.getCompanies(this.paginationData.currentPage, this.search);
   }
 
   onDelete(id: string) {
-    this.companieService.deleteCompanie(id)
+    this.companieService.deleteCompanie(id);
       .subscribe(
         res => {
           this.authService.successNotif(res.message);
@@ -83,7 +83,7 @@ export class CompaniesComponent implements OnInit {
 
 
   searchCompanies() {
-    this.getCompanies(1, this.search)
+    this.getCompanies(1, this.search);
   }
 
 
@@ -92,7 +92,7 @@ export class CompaniesComponent implements OnInit {
 
   getCompanies(page: number, search: any) {
     this.globalEventsManager.isLoadding(true);
-    this.companieService.getCompanies(page, search)
+    this.companieService.getCompanies(page, search);
       .subscribe(
         res => {
         //  console.log("companies");

@@ -34,20 +34,20 @@ import { Companie } from '../../companie/companie.model';
 export class EditPaiementQuoteComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Output() close: EventEmitter<any> = new EventEmitter();
-  @Input() fetchedQuotes: Quote[] = []
-  @Input() search: Search = new Search()
+  @Input() fetchedQuotes: Quote[] = [];
+  @Input() search: Search = new Search();
   @Input() isDialog = false;
   showPaiements = false;
-  fetchedPaiementQuote: PaiementQuote = new PaiementQuote()
-  fetchedProducts: Product[] = []
-  stripeCust: StripeCustomer = new StripeCustomer()
+  fetchedPaiementQuote: PaiementQuote = new PaiementQuote();
+  fetchedProducts: Product[] = [];
+  stripeCust: StripeCustomer = new StripeCustomer();
   accountConnectStripe: AccountConnectStripe = new AccountConnectStripe();
-  newCard: DataSource = new DataSource()
-  // fetchedUserCross: UserCross = new UserCross();
+  newCard: DataSource = new DataSource();
   myForm: FormGroup;
-  autocompleteProduct = ''
+  autocompleteProduct = '';
   step = -1;
   paiementsTypes = PaiementsTypes;
+  // fetchedUserCross: UserCross = new UserCross();
   // arrayContentToSearch = []
   // fetchedUsers: User[] = [];
   // autocompleteUser = '';

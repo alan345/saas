@@ -3,9 +3,12 @@
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div class="row">
       <div class="col-12">
-        <mat-form-field>
-          <input matInput type="text" placeholder="{{'Right name' | translate}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedRight.detailRight.nameRight">
-        </mat-form-field>
+        <mat-card>
+          <mat-form-field>
+            <input matInput type="text" placeholder="{{'Right name' | translate}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedRight.detailRight.nameRight">
+          </mat-form-field>
+        </mat-card>
+        <br>
         <button type="button" mat-button color="primary" (click)="addRight(1,0,0,0)">
           <mat-icon>add</mat-icon>
           {{'Add a type of right' | translate}}
@@ -19,7 +22,7 @@
           <mat-icon>clear</mat-icon>
           {{'Clear all Rights' | translate}}
         </button>
-
+        <mat-card>
         <div class="categ1" *ngFor="let permission of fetchedRight.detailRight.permissions; let j = index;">
           <table>
             <tr>
@@ -77,16 +80,16 @@
           </div>
 
         </div>
-
+      </mat-card>
         <!-- </div> -->
 
 
         <div class="valid-edit">
-          <button type="submit" mat-button color="primary">
-            {{'Save' | translate}}
+          <button type="submit" mat-raised-button color="primary">
+            <mat-icon>save</mat-icon>
           </button>
-          <button *ngIf="fetchedRight._id" type="button" mat-button color="warn" (click)="onDelete(fetchedRight._id)">
-            {{'Delete' | translate}}
+          <button *ngIf="fetchedRight._id" type="button" mat-raised-button color="warn" (click)="onDelete(fetchedRight._id)">
+            <mat-icon>clear</mat-icon>
           </button>
         </div>
         <div class="clearfix"></div>
