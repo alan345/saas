@@ -67,18 +67,20 @@ export class QuoteComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if (params['idQuote']) {
-        this.search.quoteId = params['idQuote']
+        this.search.quoteId = params['idQuote'];
         this.getQuote(params['idQuote']).then(quote => {
         }).catch(err => {
-          console.log(err)
+          console.log(err);
         })
       } else {
-        this.getMaxQuoteNumber()
+        this.getMaxQuoteNumber();
         if (params['userId']) {
-          this.search.userId = params['userId']
+          this.search.userId = params['userId'];
         }
         if (params['assignedToId']) {
-          this.search.assignedToId = params['assignedToId']
+          this.search.assignedToId = params['assignedToId'];
+        } else {
+          this.search.assignedToId = this.authService.getCurrentUser()._id;
         }
       }
       // else if (params['parentQuoteId']) {
