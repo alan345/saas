@@ -64,12 +64,12 @@ export class CompaniesComponent implements OnInit {
   }
 
   orderBy(orderBy: string) {
-    this.search.orderBy = orderBy
+    this.search.orderBy = orderBy;
     this.getCompanies(this.paginationData.currentPage, this.search);
   }
 
   onDelete(id: string) {
-    this.companieService.deleteCompanie(id);
+    this.companieService.deleteCompanie(id)
       .subscribe(
         res => {
           this.authService.successNotif(res.message);
@@ -92,7 +92,7 @@ export class CompaniesComponent implements OnInit {
 
   getCompanies(page: number, search: any) {
     this.globalEventsManager.isLoadding(true);
-    this.companieService.getCompanies(page, search);
+    this.companieService.getCompanies(page, search)
       .subscribe(
         res => {
         //  console.log("companies");
