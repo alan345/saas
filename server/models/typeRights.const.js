@@ -21,7 +21,7 @@ let defaultValue = [
 {name : 'Companie', value: 'companie', typeAccess:
   [{value:'read',name:'Read'},{value:'write',name:'Write'}]},
 {name : 'User', value: 'user', typeAccess:
-  [{value:'read',name:'Read'},{value:'write', name:'Write'}, {value:'create1',name:'Create1'}, {value:'readCross',name:'ReadCross'}]},
+  [{value:'read',name:'Read'},{value:'write', name:'Write'}, {value:'create1',name:'Create1'}]},
 {name : 'Client', value: 'client', typeAccess:[
   {value:'read', name:'Read'},
   {value:'write', name:'Write'},

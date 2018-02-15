@@ -76,7 +76,7 @@ router.get('/page/:page', function(req, res, next) {
   } else {
     // client
     if (req.query.isExternalUser === 'true') {
-      if (shared.isCurentUserHasAccess(req.user, 'client', 'onlyMine')) {
+      if (!shared.isCurentUserHasAccess(req.user, 'client', 'seeAll')) {
         searchQuery['createdByUser'] = mongoose.Types.ObjectId(req.user._id)
       }
       // searchQuery['isExternalUser'] = true
