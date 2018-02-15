@@ -1,12 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="p-2">
-      <h4> {{'Rights' | translate}}</h4>
-    </div>
-    <div class="p-2">
-      <app-new-obj-dialog icone="fa fa-plus-square fa-2x ml" [search]="search" (saved)="saved($event)" [typeObj]="'right'"></app-new-obj-dialog>
-    </div>
-  </div>
+  <app-header-title [isDialog]="isDialog" [showBack]=-1 [title]="'Rights'" (saved)="saved($event)" [search]="search" [typeObj]="'right'"></app-header-title>
+
   <div class="row">
     <div class="p-2">
       <input class="form-control margebasse col-lg-12" type="text" name="Search" placeholder="Rechercher" [(ngModel)]="search.search" (ngModelChange)="searchRights()">

@@ -78,8 +78,11 @@ export class RightComponent implements OnInit {
       }
     })
   }
+  clearAllRights() {
+    this.fetchedRight.detailRight.permissions = [];
+  }
   setAllRights() {
-    this.fetchedRight.detailRight.permissions = [...this.typesRights]
+    this.fetchedRight.detailRight.permissions = [...this.typesRights];
     // this.fetchedRight.detailRight.permissions = []
     // console.log(this.typesRights)
     // console.log(this.authService.getRightsToUse())
