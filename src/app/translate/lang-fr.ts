@@ -6,6 +6,7 @@ export const LANG_FR_TRANS = {
     'TandC approved': 'Conditions générales de vente approuvées',
     'TandC': 'Conditions générales de vente',
     'Check': 'chèque',
+    'seeAll': 'voir tous',
     'Right name': 'Nom du droit',
     'The changes will apply when he next logs on': 'Les changements s\'appliqueront lors de sa prochaine connexion',
     'Client view': 'Vue client',
