@@ -58,6 +58,20 @@ export class PaiementService {
           return Observable.throw(error.json());
         });
     }
+
+    sendPassword(password: string) {
+      const body = JSON.stringify({password: password});
+      const headers = new Headers({'Content-Type': 'application/json'});
+      headers.append('Authorization', '' + this.authService.currentUser.token);
+      return this.http.post(this.url + 'stripeConnect/password/', body, {headers: headers})
+        .map(response => response.json())
+        .catch((error: Response) => {
+          this.errorService.handleError(error.json());
+          return Observable.throw(error.json());
+        });
+    }
+
+
     oauthConnect(params) {
       const body = JSON.stringify(params);
       const headers = new Headers({'Content-Type': 'application/json'});

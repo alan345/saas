@@ -14,17 +14,17 @@ export class DebugComponent implements OnInit {
   ) { }
 
   ngOnInit() {}
-  sendPassword(password: string) {
-    // console.log(password)
-    this.companieService.sendPassword(password)
-      .subscribe(
-        res => {
-          console.log(res);
-          // this.fetchedCompanie = res.obj
-          // this.saved.emit(res.obj)
-          //  this.router.navigate(['companie/' + res.obj._id])
-        },
-        error => {console.log(error)}
-      )
-  }
+  // sendPassword(password: string) {
+  //   // console.log(password)
+  //   this.companieService.sendPassword(password)
+  //     .subscribe(
+  //       res => {
+  //         console.log(res);
+  //         // this.fetchedCompanie = res.obj
+  //         // this.saved.emit(res.obj)
+  //         //  this.router.navigate(['companie/' + res.obj._id])
+  //       },
+  //       error => {console.log(error)}
+  //     )
+  // }
 }

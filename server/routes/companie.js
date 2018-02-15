@@ -10,7 +10,7 @@ var express = require('express'),
     // Schema                  = mongoose.Schema,
     shared = require('./shared.js'),
     nameObject = 'companie';
-    
+
 
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function (err) {
@@ -132,65 +132,65 @@ router.put('/:id', function (req, res, next) {
 
 
 
-
-router.post('/password', function (req, res, next) {
-  // console.log(req.body.password)
-
-  if(req.body.password !== config.passwordFree30days) {
-    return res.status(404).json({
-      message: 'WRONG PASSWORD',
-      err: 'WRONG PASSWORD'
-    })
-  }
-
-  req.user.ownerCompanies.forEach(companie => {
-    Companie.findById(({_id: companie._id}), function (err, item) {
-      if (err) {
-        return res.status(404).json({
-          message: err,
-          err: err
-        })
-      }
-
-      var newDate = new Date();
-      newDate.setDate(newDate.getDate() + 30);
-      item.planDetail.current_period_end = newDate
-      item.planDetail.plan = 'gold'
-      item.banck.stripe.stripe_user_id_gooplus = 'cus_passwordFree30days'
-      item.save(function (err, result) {
-        if (err) {
-          return res.status(404).json({
-            message: 'There was an error, please try again',
-            err: err
-          });
-        }
-        res.status(201).json({
-          message: '',
-          obj: result
-        });
-      });
-    })
-  })
-
-  //
-  // var companie = new Companie(req.body);
-  //
-  // companie.canBeSeenByCompanies = req.user.ownerCompanies
-  //
-  //
-  // companie.save(function (err, result) {
-  //   if (err) {
-  //     return res.status(403).json({
-  //       title: 'There was an issue',
-  //       error: {message: 'The email you entered already exists'}
-  //     });
-  //   }
-  //   res.status(200).json({
-  //     message: 'Registration Successfull',
-  //     obj: result
-  //   })
-  // })
-});
+//
+// router.post('/password', function (req, res, next) {
+//   // console.log(req.body.password)
+//
+//   if(req.body.password !== config.passwordFree30days) {
+//     return res.status(404).json({
+//       message: 'WRONG PASSWORD',
+//       err: 'WRONG PASSWORD'
+//     })
+//   }
+//
+//   req.user.ownerCompanies.forEach(companie => {
+//     Companie.findById(({_id: companie._id}), function (err, item) {
+//       if (err) {
+//         return res.status(404).json({
+//           message: err,
+//           err: err
+//         })
+//       }
+//
+//       var newDate = new Date();
+//       newDate.setDate(newDate.getDate() + 30);
+//       item.planDetail.current_period_end = newDate
+//       item.planDetail.plan = 'gold'
+//       item.banck.stripe.stripe_user_id_gooplus = 'cus_passwordFree30days'
+//       item.save(function (err, result) {
+//         if (err) {
+//           return res.status(404).json({
+//             message: 'There was an error, please try again',
+//             err: err
+//           });
+//         }
+//         res.status(201).json({
+//           message: '',
+//           obj: result
+//         });
+//       });
+//     })
+//   })
+//
+//   //
+//   // var companie = new Companie(req.body);
+//   //
+//   // companie.canBeSeenByCompanies = req.user.ownerCompanies
+//   //
+//   //
+//   // companie.save(function (err, result) {
+//   //   if (err) {
+//   //     return res.status(403).json({
+//   //       title: 'There was an issue',
+//   //       error: {message: 'The email you entered already exists'}
+//   //     });
+//   //   }
+//   //   res.status(200).json({
+//   //     message: 'Registration Successfull',
+//   //     obj: result
+//   //   })
+//   // })
+// });
 
 
 router.post('/', function (req, res, next) {

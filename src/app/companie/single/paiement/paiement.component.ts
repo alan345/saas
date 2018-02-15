@@ -32,6 +32,7 @@ export class PaiementComponent implements OnInit {
   newCard: DataSource = new DataSource();
   stripeCust: StripeCustomer = new StripeCustomer();
   quotes: Quote[] = [];
+  passwordIsGood = false;
   //fetchedUser = new User()
   //fetchedUser : User;
   // isUserBelongToHQ=false
@@ -80,7 +81,27 @@ export class PaiementComponent implements OnInit {
     this.router.navigate(['companie/mine'], { queryParams: { debug: true } });
   }
 
-
+  sendPassword(password: string) {
+    // console.log(password)
+    this.loading = true;
+    this.paiementService.sendPassword(password)
+      .subscribe(
+        res => {
+          this.toastr.success('')
+          this.nextStep()
+          this.loading = false;
+          this.passwordIsGood = true
+          // this.fetchedCompanie = res.obj
+          // this.saved.emit(res.obj)
+          //  this.router.navigate(['companie/' + res.obj._id])
+        },
+        error => {
+          this.loading = false;
+          // this.toastr.error(error.message)
+          console.log(error)
+        }
+      )
+  }
 
 
   nextStep() {
