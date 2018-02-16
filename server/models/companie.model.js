@@ -10,15 +10,16 @@ var companie = new Schema({
     canBeSeenByCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
     banck: {
       // serviceSelected:{type: String, default: ['']},
-      stripe:{
-        stripe_user_id:{type: String, default: ['']},
+      stripe: {
+        stripe_user_id: {type: String, default: ['']},
         stripe_user_id_gooplus:{type: String, default: ['']},
         // secretKey:{type: String, default: ['']},
       }
     },
-    planDetail:{
+    planDetail: {
       plan: {type: String, default: ['']},
-      current_period_end:{type: Date}
+      current_period_end:{type: Date},
+      promoCode: {type: String, default: ['']},
     },
 
 
