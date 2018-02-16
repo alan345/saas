@@ -303,46 +303,63 @@ function getStripeCust (companieId) {
         return;
       }
       // console.log(companie.banck.stripe.stripe_user_id_gooplus)
-      console.log('a')
+
       if (!companie.banck.stripe.stripe_user_id_gooplus) {
         reject(new Error({title: 'No data', error: 'noData'}))
         detetePlanDetailsInDB(companie._id)
-        console.log('b')
         return;
         // return res.status(404).json({title: 'No data', error: 'noData'});
       }
-      if (companie.banck.stripe.stripe_user_id_gooplus === 'cus_passwordFree30days') {
-        reject(new Error({title: 'cus_passwordFree30days', error: 'cus_passwordFree30days'}))
-        // console.log('bcc')
-        // console.log(companie.planDetail)
-        return;
-      }
-      console.log('p')
+      // if (companie.banck.stripe.stripe_user_id_gooplus === 'cus_passwordFree30days') {
+      //   reject(new Error({title: 'cus_passwordFree30days', error: 'cus_passwordFree30days'}))
+      //   // console.log('bcc')
+      //   // console.log(companie.planDetail)
+      //   return;
+      // }
+      // console.log('p')
       stripe.customers.retrieve(companie.banck.stripe.stripe_user_id_gooplus, function (err, customer) {
         if (err) {
-          reject(err)
-          detetePlanDetailsInDB(companie._id)
-          console.log('d')
-          return;
+          detetePlanDetailsInDB(companie._id).then(_=> {
+            console.log('err1')
+            reject(err)
+            // return;
+          })
+
           // return res.status(404).json({title: 'No data in stripe', error: 'noData'});
         } else {
+          console.log(customer)
+          console.log(typeof customer.deleted)
           if (customer.deleted) {
-            detetePlanDetailsInDB(companie._id)
-            console.log('e')
-            reject(new Error({title: 'Deleted', error: customer}))
-            return;
+            detetePlanDetailsInDB(companie._id).then(_=> {
+              console.log('user existed but deleted')
+              reject('')
+              // return;
+            })
             // return res.status(404).json({title: 'Deleted', error: customer});
           }
-          if(!customer.subscriptions.data.length) {
-            console.log('f')
-            detetePlanDetailsInDB(companie._id)
+
+
+          if(!customer.subscriptions) {
+            detetePlanDetailsInDB(companie._id).then(_=> {
+              console.log('no sub in stripe')
+              resolve(customer)
+              // return;
+            })
+          } else if(!customer.subscriptions.data.length) {
+            detetePlanDetailsInDB(companie._id).then(_=> {
+              console.log('no sub in stripe2')
+              resolve(customer)
+              // return;
+            })
+          } else {
+            customer.subscriptions.data.forEach(subscription => {
+              savePlanDetailsInDB(companieId, subscription).then(_=> {
+                console.log('sub founded in stripe')
+                resolve(customer)
+                // return;
+              })
+            })
           }
-          customer.subscriptions.data.forEach(subscription => {
-            savePlanDetailsInDB(companieId, subscription)
-            console.log('g')
-          })
-          resolve(customer)
-          console.log('h')
           // return res.status(200).json({customer: customer})
         }
       })
@@ -373,7 +390,7 @@ function savePlanDetailsInDB (companieId, subscription) {
       current_period_end: subscription.current_period_end * 1000,
       plan: subscription.plan.id
     }
-    console.log(planDetail)
+    // console.log(planDetail)
     // req.user.ownerCompanies.forEach(companieSingle => {
       Companie.update({
         _id: companieId

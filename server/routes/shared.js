@@ -1,13 +1,17 @@
 var Notification = require('../models/notification.model'),
   User = require('../models/user.model'),
+  Companie = require('../models/companie.model'),
   TypeRights = require('../models/typeRights.const')
 
 module.exports = {
 
   getRight (user) {
-    // console.log(user)
+    console.log('getRight')
 
+    // console.log(user)
+    // console.log('ppppp', this.isCurrentUserIsInSubPeriod(user))
     let rightToReturn = {}
+
     if (user.rights.length) {
       rightToReturn = user.rights[0]
     } else {
@@ -23,17 +27,32 @@ module.exports = {
         // typesRightToUse = TypeRights.newInternalUserRights
       }
       user.ownerCompanies.forEach(companie => {
-        if (companie.planDetail.plan === 'gold')
+        if (companie.planDetail.plan === 'gold') {
           typesRightToUse = TypeRights.gold
-        if (companie.planDetail.plan === 'equipe')
+        }
+        if (companie.planDetail.plan === 'equipe') {
           typesRightToUse = TypeRights.gold
-        if (companie.planDetail.plan === 'silver')
+        }
+        if (companie.planDetail.plan === 'silver') {
           typesRightToUse = TypeRights.silver
-        if (companie.planDetail.plan === 'artisan')
+        }
+        if (companie.planDetail.plan === 'artisan') {
           typesRightToUse = TypeRights.silver
-        if (companie.planDetail.plan === '')
+        }
+        if (companie.planDetail.plan === '') {
           typesRightToUse = TypeRights.default
+        }
+
+        // console.log('aa')
+        // console.log(this.isInSubPeriod(companie._id))
+        //
+        // console.log('aa')
+
+        if (!this.isInSubPeriod(companie)) {
+          typesRightToUse = TypeRights.newInternalUserRights
+        }
       })
+
 
       var permissionGooplus = []
       typesRightToUse.forEach(typesRight => {
@@ -68,7 +87,15 @@ module.exports = {
 
     return rightToReturn;
   },
+  isInSubPeriod (companie) {
+    if (companie.planDetail.current_period_end && companie.planDetail.current_period_end > new Date()) {
+      return true
+    } else {
+      return false
+    }
+  },
   isCurentUserHasAccess (user, nameObject, typeAccess) {
+    console.log('isCurentUserHasAccess')
     // console.log(user, nameObject, typeAccess)
     // console.log(user.rights)
     // if (!user.rights.length)

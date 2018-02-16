@@ -89,22 +89,50 @@ router.post('/login', function(req, res, next) {
     }
 
     paiement.getStripeCust(doc.ownerCompanies[0]).then(data => {
+      console.log('User founded in stripe_')
       console.log(data)
+
+      returnDataForLogin(doc, res)
     }).catch(err => {
-      console.log(err)
+      console.log('No Data In Stripe_')
+      returnDataForLogin(doc, res)
+      // console.log(err)
     })
-    doc.rightsInApp.push(shared.getRight(doc))
+
+  })
+});
+
+function returnDataForLogin(user, res) {
+  console.log('returnDataForLogin')
+
+  User
+  .findById(user._id)
+  .populate({path: 'ownerCompanies', model: 'Companie'})
+  .exec(function(err, doc) {
+    if (err) {
+      return res.status(403).json({title: 'There was a problem', error: err});
+    }
+    if (!doc) {
+      return res.status(403).json({
+        title: 'Wrong Email or Password',
+        error: {
+          message: 'Please check if your password or email are correct'
+        }
+      })
+    }
+
+    const newRight = shared.getRight(doc)
+    user.rightsInApp.push(newRight)
 
     var token = jwt.sign({
-      user: doc
+      user: user
     }, config.secret, {expiresIn: config.jwtExpire});
-    // console.log('popopopopop')
-    // console.log(doc)
+
     return res.status(200).json({
-      message: 'Login Successfull', token: token, userId: doc._id
+      message: 'Login Successfull', token: token, userId: user._id
       // user: doc
     })
   })
-});
+}
 
 module.exports = router;

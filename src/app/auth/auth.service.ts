@@ -92,6 +92,7 @@ export class AuthService {
           this.token = token
           this.currentUser = currentUser
           this.user = this.jwtHelper.decodeToken(token).user
+          console.log(this.user)
           if (!this.isMobileSizeScreen) {
             setTimeout(() => this.globalEventsManager.showNavBar(true), 700)
           }
@@ -106,7 +107,7 @@ export class AuthService {
         // this.userId = userId
         //
         //
-        //console.log(response)
+
         return response.json()
       })
       .catch((error: Response) => {
