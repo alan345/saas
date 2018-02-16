@@ -11,7 +11,7 @@
     <app-invoice-action-button [fetchedQuote]="fetchedQuote" [typeQuote]="'quote'"></app-invoice-action-button>
     <div *ngFor="let client of fetchedQuote.clients">
       <button mat-raised-button color="primary" (click)="sendQuoteByEmailToClient()">
-        <mat-icon class="red" aria-label="Email">email</mat-icon>
+        <mat-icon aria-label="Email">email</mat-icon>
       </button>
       {{'Send by Email:' | translate}} {{client.email}}
     </div>

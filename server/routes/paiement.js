@@ -226,15 +226,13 @@ router.post('/password', function (req, res, next) {
         item.planDetail.promoCode = req.body.password
         item.save(function (err, result) {
           if (err) { console.log(err) }
-          console.log(result)
+          res.status(201).json({
+            message: 'ok',
+            obj: 'password OK'
+          })
         })
       })
     })
-
-    res.status(201).json({
-      message: 'ok',
-      obj: 'password OK'
-    });
   }
 
   // req.user.ownerCompanies.forEach(companie => {
