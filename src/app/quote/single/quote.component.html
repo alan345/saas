@@ -164,8 +164,8 @@
 
     <mat-expansion-panel *ngIf="
       fetchedQuote._id &&
-      fetchedQuote.statusQuote !=='pending' &&
-      fetchedQuote.statusQuote !=='rejected'"
+      fetchedQuote.priceQuote.priceGlobalWithDiscount
+      "
       [expanded]="step === 5"
       (opened)="setStep(5)">
       <mat-expansion-panel-header>
