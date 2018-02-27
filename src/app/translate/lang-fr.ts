@@ -11,7 +11,7 @@ export const LANG_FR_TRANS = {
     'The changes will apply after the next log in': 'Les changements s\'appliqueront lors de la prochaine connexion',
     'Client view': 'Vue client',
     'Global view': 'Vue globale',
-    'Why?': 'Dites nous Pourquoi ?',
+    'Why?': 'Afin d\'améliorer Mirabelle, nous aimerions connaitre les raisons de votre désengagement.',
     'Edit Event': 'Editer rendez-vous',
     'Move Event': 'Déplacer rendez-vous',
     'check': 'chèque',
