@@ -38,6 +38,7 @@
               </th>
             </tr>
           </thead>
+          
           <tbody class="clienttbl">
             <tr *ngFor="let quote of fetchedQuotes" routerLinkActive="active">
               <td class="centre tdunder hideMobile" (click)="navigateToQuote(quote)">
