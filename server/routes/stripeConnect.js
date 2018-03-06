@@ -359,6 +359,8 @@ function getInfoUserConnect (companieId) {
           if (customer.deleted) {
             reject(new Error({title: 'Deleted', error: customer}))
           }
+          console.log('customer')
+          console.log(customer)
           resolve(customer)
         }
       });
