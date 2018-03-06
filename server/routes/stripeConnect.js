@@ -322,6 +322,7 @@ router.post('/oauthConnect/', function(req, res, next) {
 })
 
 router.get('/getUserInfosConnect', function(req, res, next) {
+  console.log('getUserInfosConnect')
   getInfoUserConnect(req.user.ownerCompanies[0]).then(customer => {
     return res.status(200).json({customer: customer})
   }).catch(err => {
@@ -338,11 +339,15 @@ router.get('/getUserInfosConnect/:companieId', function(req, res, next) {
 
 
 function getInfoUserConnect (companieId) {
+  console.log('getUserInfosConnect2')
   return new Promise(function(resolve, reject) {
     Companie.findById((companieId), function(err, companie) {
+      console.log('getUserInfosConnect3')
       if (!companie.banck.stripe.stripe_user_id) {
         reject(new Error({title: 'No data', error: 'noData'}))
       }
+      console.log('popo')
+      console.log(companie.banck.stripe)
       stripe.accounts.retrieve(companie.banck.stripe.stripe_user_id, function(err, customer) {
         if (err) {
           reject(new Error({title: 'No data in stripe', error: 'noData'}));
