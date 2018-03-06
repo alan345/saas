@@ -324,8 +324,12 @@ router.post('/oauthConnect/', function(req, res, next) {
 router.get('/getUserInfosConnect', function(req, res, next) {
   console.log('getUserInfosConnect')
   getInfoUserConnect(req.user.ownerCompanies[0]).then(customer => {
+    console.log('popo')
+    console.log(customer)
     return res.status(200).json({customer: customer})
   }).catch(err => {
+    console.log('popo')
+    console.log(err)
     return res.status(404).json(err);
   })
 })
@@ -355,7 +359,6 @@ function getInfoUserConnect (companieId) {
           if (customer.deleted) {
             reject(new Error({title: 'Deleted', error: customer}))
           }
-          console.log(customer)
           resolve(customer)
         }
       });
