@@ -49,6 +49,8 @@ module.exports = {
         // console.log('aa')
 
         if (!this.isInSubPeriod(companie)) {
+          // console.log('!isInSubPeriod')
+          // typesRightToUse = TypeRights.gold
           typesRightToUse = TypeRights.newInternalUserRights
         }
       })

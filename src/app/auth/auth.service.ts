@@ -291,7 +291,7 @@ export class AuthService {
       }
       if (
         this.isCurentUserHasAccess(nameObject, typeAccess)
-        && this.isCurrentUserIsInSubPeriod()
+        // && this.isCurrentUserIsInSubPeriod()
         // && this.isCurrentUserHasCompanie()
       ) {
         return true
