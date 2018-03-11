@@ -218,10 +218,12 @@ export class AuthService {
     return itemFounded
   }
   getPlanDetail() {
+    let itemFounded = '';
     this.user.ownerCompanies.forEach(companie => {
-      return companie.planDetail.plan
+      console.log(companie.planDetail.plan)
+      itemFounded = companie.planDetail.plan
     })
-    return ''
+    return itemFounded
 
   }
   isCurrentUserHasCompanie() {
