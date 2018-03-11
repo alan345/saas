@@ -121,9 +121,11 @@ export class AdminUsersComponent implements OnInit {
         }
       );
   }
+  
 
   checkIfCanCreateNewTeamUser() {
     this.createNewTeam = false
+    console.log(this.authService.getPlanDetail() )
     if (this.authService.getPlanDetail() === 'equipe' || this.authService.getPlanDetail() === 'gratuit') {
         if(this.fetchedUsers.length < 5) {
           this.createNewTeam = true;
