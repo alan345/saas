@@ -39,6 +39,9 @@ module.exports = {
         if (companie.planDetail.plan === 'artisan') {
           typesRightToUse = TypeRights.silver
         }
+        if (companie.planDetail.plan === 'gratuit') {
+          typesRightToUse = TypeRights.gold
+        }
         if (companie.planDetail.plan === '') {
           typesRightToUse = TypeRights.default
         }

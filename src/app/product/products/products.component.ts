@@ -56,10 +56,10 @@ export class ProductsComponent implements OnInit {
     private toastr: ToastsManager,
     private router: Router,
     private globalEventsManager: GlobalEventsManager,
+    private authService: AuthService,
     // private sanitizer: DomSanitizer,
     // public dialog: MatDialog,
     // private location: Location,
-    private authService: AuthService,
     // private userService: UserService,
     // private translateService: TranslateService,
   ) {

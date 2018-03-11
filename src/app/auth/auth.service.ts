@@ -208,10 +208,11 @@ export class AuthService {
     // console.log(this.user)
     // return true
 
-    let itemFounded = false
+    let itemFounded = false;
     this.user.ownerCompanies.forEach(companie => {
-      if (new Date(companie.planDetail.current_period_end) > new Date())
-        itemFounded = true
+      if (new Date(companie.planDetail.current_period_end) > new Date()) {
+        itemFounded = true;
+      }
     });
 
     return itemFounded
@@ -291,7 +292,7 @@ export class AuthService {
       }
       if (
         this.isCurentUserHasAccess(nameObject, typeAccess)
-        // && this.isCurrentUserIsInSubPeriod()
+        && this.isCurrentUserIsInSubPeriod()
         // && this.isCurrentUserHasCompanie()
       ) {
         return true
