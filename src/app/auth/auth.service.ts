@@ -217,6 +217,13 @@ export class AuthService {
 
     return itemFounded
   }
+  getPlanDetail() {
+    this.user.ownerCompanies.forEach(companie => {
+      return companie.planDetail.plan
+    })
+    return ''
+
+  }
   isCurrentUserHasCompanie() {
     // console.log(this.user)
     // let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;

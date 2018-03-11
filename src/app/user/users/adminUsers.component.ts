@@ -124,24 +124,29 @@ export class AdminUsersComponent implements OnInit {
 
   checkIfCanCreateNewTeamUser() {
     this.createNewTeam = false
-    this.authService.getCurrentUser().rightsInApp.forEach(rightInApp => {
-      rightInApp.detailRight.permissions.forEach(permission => {
-        if (permission.namePermission === 'user') {
-          permission.access.forEach(singleAccess => {
-            if (singleAccess.typeAccess === 'create5') {
-              if(this.fetchedUsers.length < 5) {
-                this.createNewTeam = true
-              }
-            }
-            if (singleAccess.typeAccess === 'create1') {
-              if(this.fetchedUsers.length < 1) {
-                this.createNewTeam = true
-              }
-            }
-          })
+    if (this.authService.getPlanDetail() === 'equipe' || this.authService.getPlanDetail() === 'gratuit') {
+        if(this.fetchedUsers.length < 5) {
+          this.createNewTeam = true;
         }
-      })
-    })
+    }
+    // this.authService.getCurrentUser().rightsInApp.forEach(rightInApp => {
+    //   rightInApp.detailRight.permissions.forEach(permission => {
+    //     if (permission.namePermission === 'user') {
+    //       permission.access.forEach(singleAccess => {
+    //         if (singleAccess.typeAccess === 'create5') {
+    //           if(this.fetchedUsers.length < 5) {
+    //             this.createNewTeam = true
+    //           }
+    //         }
+    //         if (singleAccess.typeAccess === 'create1') {
+    //           if(this.fetchedUsers.length < 1) {
+    //             this.createNewTeam = true
+    //           }
+    //         }
+    //       })
+    //     }
+    //   })
+    // })
   }
 
 
