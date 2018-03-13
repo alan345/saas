@@ -108,6 +108,7 @@ function returnDataForLogin(user, res) {
   User
   .findById(user._id)
   .populate({path: 'ownerCompanies', model: 'Companie'})
+  .populate({path: 'rights', model: 'Right'})
   .exec(function(err, doc) {
     if (err) {
       return res.status(403).json({title: 'There was a problem', error: err});
