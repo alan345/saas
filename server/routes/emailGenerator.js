@@ -87,7 +87,7 @@ module.exports = {
                         <a href="https://www.mirabelle.io/" style="text-decoration: none;">Site Web Mirabelle</a>
                       </td>
                       <td style="padding: 15px 15px 15px 15px;">
-                        <a href="mailto:hello@mirabelle.io?Subject=false%reset" style="text-decoration: none;">Nous contacter</a>
+                        <a href="mailto:hello@mirabelle.io?Subject=Bonjour_Mirabelle.io" style="text-decoration: none;">Nous contacter</a>
                       </td>
                      </tr>
                     </table>
