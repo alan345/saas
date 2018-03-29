@@ -261,6 +261,7 @@ export class PaiementComponent implements OnInit, OnChanges {
           this.showReLoginInApp = true
           this.plan = ''
           this.loading = false
+          this.authService.logout()
           // this.getStripeCust()
           // location.reload();
         },
