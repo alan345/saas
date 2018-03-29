@@ -74,8 +74,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
           //console.log(data)
           // if the user credentials are correct, set the localStorage token and userId,
           // we need these info in order to do stuff later when the user is signed in and verified
-          localStorage.setItem('id_token', data.token);
-          localStorage.setItem('token', data.token);
+          // localStorage.setItem('id_token', data.token);
+          // localStorage.setItem('token', data.token);
           //localStorage.setItem('userId', data.userId);
           // navigate user to index page of our app
           // console.log(data.token)

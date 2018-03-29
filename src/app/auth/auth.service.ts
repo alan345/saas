@@ -71,8 +71,56 @@ export class AuthService {
       });
   }
 
+
+
+  refreshUserMyselfToken() {
+    const headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.currentUser.token);
+    return this.http.get(this.url + 'user/refreshUserMyselfToken', {headers: headers})
+      .map((response: Response) => {
+        const token = response.json() && response.json().token;
+        const userId = response.json() && response.json().userId;
+        // let user = response.json() && response.json().user;
+        if (token) {
+
+          const currentUser = {
+            userId: userId,
+            token: token,
+            // user: user
+          }
+
+
+          this.token = token
+          this.currentUser = currentUser
+          this.user = this.jwtHelper.decodeToken(token).user
+          console.log(this.user)
+          if (!this.isMobileSizeScreen) {
+            setTimeout(() => this.globalEventsManager.showNavBar(true), 700)
+          }
+          //  console.log(this.currentUser)
+          // console.log(this.user)
+          localStorage.setItem('currentUser', JSON.stringify(currentUser))
+          localStorage.setItem('id_token', token);
+          localStorage.setItem('token', token);
+        }
+
+        // let id_token = response.json() && response.json().token;
+        // let userId = response.json() && response.json().userId;
+        // this.id_token = id_token
+        // this.userId = userId
+        //
+        //
+
+        return response.json()
+      })
+      .catch((error: Response) => {
+        this.error2Service.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
   // sending request to back end to login the user
   signin(user: UserAuth) {
+
     const body = JSON.stringify(user);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http.post(this.url + 'user/login', body, { headers: headers })
@@ -99,6 +147,8 @@ export class AuthService {
           //  console.log(this.currentUser)
           // console.log(this.user)
           localStorage.setItem('currentUser', JSON.stringify(currentUser))
+          localStorage.setItem('id_token', token);
+          localStorage.setItem('token', token);
         }
 
         // let id_token = response.json() && response.json().token;

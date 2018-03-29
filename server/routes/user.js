@@ -20,6 +20,7 @@ var express = require('express'),
 
 
 
+
 router.post('/register', function(req, res, next) {
 
   var companie = new Companie()
@@ -60,6 +61,59 @@ router.post('/register', function(req, res, next) {
 
 });
 
+
+router.get('/refreshUserMyselfToken', function(req, res, next) {
+  var token = req.headers['authorization']
+  jwt.verify(token, config.secret, function (err, decoded) {
+    if (err) {
+      return res.status(401).json({
+        message: 'Authentication failed',
+        error: err
+      })
+    }
+    if (!decoded) {
+      return res.status(404).json({
+        title: 'Authentication Failed',
+        error: {message: 'Authentication failed, malformed jwt'}
+      })
+    }
+    if (decoded) {
+
+
+
+      User
+      .findById(decoded.user._id)
+      .populate({path: 'ownerCompanies', model: 'Companie'})
+      .populate({path: 'rights', model: 'Right'})
+      .exec(function(err, doc) {
+
+        if (err) {
+          return res.status(403).json({title: 'There was a problem', error: err});
+        }
+        if (!doc) {
+          return res.status(403).json({
+            title: 'Wrong Email or Password',
+            error: {
+              message: 'Please check if your password or email are correct'
+            }
+          })
+        }
+
+        paiement.getStripeCust(doc.ownerCompanies[0]).then(data => {
+          console.log('User founded in stripe_')
+          console.log(data)
+
+          returnDataForLogin(doc, res)
+        }).catch(err => {
+          console.log('No Data In Stripe_')
+          returnDataForLogin(doc, res)
+          // console.log(err)
+        })
+
+      })
+    }
+  })
+})
 // user login
 router.post('/login', function(req, res, next) {
   User

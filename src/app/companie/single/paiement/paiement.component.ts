@@ -115,6 +115,9 @@ export class PaiementComponent implements OnInit, OnChanges {
   nextStep() {
     this.step++;
   }
+  goToStep(n) {
+    this.step = n
+  }
 
   prevStep() {
     this.step--;
@@ -169,7 +172,7 @@ export class PaiementComponent implements OnInit, OnChanges {
         error => { console.log(error); }
       );
   }
-  saveCustInStripe(){
+  saveCustInStripe() {
     this.loading = true
     this.paiementService.saveCustInStripe()
       .subscribe(
@@ -178,7 +181,11 @@ export class PaiementComponent implements OnInit, OnChanges {
           this.toastr.success('Great!')
           this.stripeCust = res.customer
           // console.log(res);
-          this.nextStep()
+          if(this.params.type === 'firstRegister') {
+            this.goToStep(3)
+          } else {
+            this.nextStep()
+          }
           this.loading = false
         },
         error => { console.log(error); }
@@ -217,12 +224,26 @@ export class PaiementComponent implements OnInit, OnChanges {
           this.showReLoginInApp = true
           this.nextStep()
           this.loading = false
+          this.refreshUserMyselfToken()
+          this.router.navigate(['/']);
         },
         error => {
           this.loading = false
           console.log(error);
         }
       );
+  }
+
+  refreshUserMyselfToken() {
+    this.authService.refreshUserMyselfToken()
+      .subscribe(
+        res => {
+          console.log(res)
+        },
+        error => {
+          console.log(error);
+        }
+      )
   }
 
 
