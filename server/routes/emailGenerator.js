@@ -109,9 +109,9 @@ module.exports = {
     };
     mailer.sendMail(mailOptions, function(err) {
       console.log('info', 'Un message a été envoyé à ' + user.email + ' avec de plus amples informations.');
-      return res.status(200).json({
-        message: 'Succès'
-      })
+      // return res.status(200).json({
+      //   message: 'Succès'
+      // })
     });
 
 
