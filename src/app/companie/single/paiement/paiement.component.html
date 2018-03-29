@@ -190,7 +190,8 @@
       </mat-expansion-panel-header>
       <div>
         <div *ngIf="!stripeCust.subscriptions.data.length">
-          {{'I confirm to suscribe to the plan:' | translate}}
+          <span *ngIf="params.type !=='firstRegister'">{{'I confirm to suscribe to the plan:' | translate}}</span>
+          <span *ngIf="params.type ==='firstRegister'">Je confirme choisir pendant 30 jours gratuitement le plan : </span>
           <button mat-raised-button color="primary" (click)="saveSubscriptionInStripe()">{{plan | translate}}</button>
         </div>
         <div *ngFor="let sub of stripeCust.subscriptions.data">
