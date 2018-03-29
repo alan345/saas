@@ -10,7 +10,7 @@
           {{'Companie' | translate}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <app-detailsCompanie [fetchedCompanie]="fetchedCompanie"></app-detailsCompanie>
+      <app-detailsCompanie [params]="params" [fetchedCompanie]="fetchedCompanie"></app-detailsCompanie>
       <mat-action-row>
         <button *ngIf="fetchedCompanie._id && !isMyCompanie()" mat-mini-fab color="warn" (click)="openDialogDelete()">
           <mat-icon aria-label="Clear">clear</mat-icon>

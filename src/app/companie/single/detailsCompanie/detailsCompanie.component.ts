@@ -31,6 +31,7 @@ export class DetailsCompanieComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   // @Input() showBackButton = true;
   @Input() fetchedCompanie: Companie = new Companie();
+  @Input() params: any;
 
   // userAdmins : User[] = []
   // userManagers : User[] = []
@@ -67,6 +68,9 @@ export class DetailsCompanieComponent implements OnInit {
     return currentUser.ownerCompanies.some(obj => {
       return obj._id === this.fetchedCompanie._id;
     });
+  }
+  showOnlySingleAddress() {
+    return this.isMyCompanie() || this.params.type === 'firstRegister';
   }
 
 

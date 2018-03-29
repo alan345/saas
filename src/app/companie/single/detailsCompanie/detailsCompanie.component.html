@@ -13,7 +13,7 @@
       </mat-form-field>
     </div>
     <div class="col-12 col-lg-6">
-      <app-address [isSingleAddress]="isMyCompanie()" [addresses]="fetchedCompanie.address"></app-address>
+      <app-address [isSingleAddress]="showOnlySingleAddress()" [addresses]="fetchedCompanie.address"></app-address>
     </div>
   </div>
 </form>
