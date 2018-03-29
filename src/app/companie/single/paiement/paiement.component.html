@@ -1,3 +1,4 @@
+
 <mat-card-content>
   <mat-accordion class="example-headers-align">
     <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
@@ -17,13 +18,17 @@
         <mat-icon color="accent">done</mat-icon> {{'TandC approved' | translate}}
       </div>
     </mat-expansion-panel>
-    <mat-expansion-panel *ngIf="stripeCust.id" [expanded]="step === 1" (opened)="setStep(1)">
+    <mat-expansion-panel *ngIf="stripeCust.id && params.type !=='firstRegister'" [expanded]="step === 1" (opened)="setStep(1)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{'Plan' | translate}}
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <div class="row ac">
+      <div class="row">
+        <div class="tac width100perc">
+          <h5>{{'No commitment!' | translate}} <br>{{'You can unsubscribe anytime.' | translate}}</h5>
+        </div>
+        <br>
         <mat-card class="col-sm-12 col-lg-6">
           <div>
             <h1 class="green">Offre Artisan</h1>
@@ -34,14 +39,14 @@
           <mat-card-content>
             <h1 class="green">9 € <span class="withoutVAT">HT</span></h1>
             <h5> par mois</h5>
-            <div>Gestion des contacts</div>
+            <!-- <div>Gestion des contacts</div>
             <div>Devis</div>
             <div>Catalogue produit</div>
             <div>Signature électronique</div>
             <div>Prise de photos</div>
             <div>Factures</div>
             <div>Paiement en ligne</div>
-            <div>Planning</div>
+            <div>Planning</div> -->
           </mat-card-content>
           <mat-card-actions>
             <!-- <button (click)="changePlan('artisan')" disabled="{{stripeCust.subscriptions.data.length !== 0}}" mat-raised-button color="primary">{{'Suscribe' | translate}}</button> -->
@@ -67,14 +72,14 @@
           <mat-card-content>
             <h1 class="green">15 € <span class="withoutVAT">HT</span></h1>
             <h5> par mois</h5>
-            <div>Gestion des contacts</div>
+            <!-- <div>Gestion des contacts</div>
             <div>Devis</div>
             <div>Catalogue produit</div>
             <div>Signature électronique</div>
             <div>Prise de photos</div>
             <div>Factures</div>
             <div>Paiement en ligne</div>
-            <div>Planning</div>
+            <div>Planning</div> -->
           </mat-card-content>
           <mat-card-actions>
             <button
@@ -91,7 +96,7 @@
         </mat-card>
       </div>
     </mat-expansion-panel>
-    <mat-expansion-panel *ngIf="stripeCust.id && plan" [expanded]="step === 2" (opened)="setStep(2)">
+    <mat-expansion-panel *ngIf="stripeCust.id && plan && params.type !=='firstRegister'" [expanded]="step === 2" (opened)="setStep(2)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{'Card' | translate}}
@@ -103,9 +108,6 @@
         <mat-tab-group>
           <mat-tab label="{{'Card' | translate}}">
 
-            <h4>{{'No commitment!' | translate}}</h4>
-            <h5>{{'You can unsubscribe anytime.' | translate}}</h5>
-            <br>
             <div *ngIf="!stripeCust.sources.data.length">
               <app-paiement-card [newCard]="newCard"></app-paiement-card>
             </div>

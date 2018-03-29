@@ -31,6 +31,7 @@ export class CompanieComponent implements OnInit {
   step = -1;
   debugMode = false;
   loading = false;
+  params:any
   // userAdmins : User[] = []
   // userManagers : User[] = []
   // userClients : User[] = []
@@ -67,6 +68,10 @@ export class CompanieComponent implements OnInit {
 
 
   ngOnInit() {
+
+    this.activatedRoute.queryParamMap.subscribe((params: Params)  => {
+      this.params = params.params
+    })
     setTimeout(() => { this.step = 0});
     // if (!this.authService.isCurrentUserIsInSubPeriod()) {
     //   this.step = 1;

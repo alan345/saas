@@ -1,9 +1,9 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, OnChanges} from '@angular/core';
 import { AuthService} from '../../../auth/auth.service';
 import { UserService} from '../../../user/user.service';
 import { PaiementService} from './paiement.service';
 import { ToastsManager} from 'ng2-toastr';
-import { Router} from '@angular/router';
+import { Router, ActivatedRoute, Params} from '@angular/router';
 import { Location } from '@angular/common';
 import { Quote } from '../../../quote/quote.model';
 import { StripeCustomer, DataSource } from './paiement.model';
@@ -21,8 +21,10 @@ import { FormBuilder} from '@angular/forms';
 })
 
 
-export class PaiementComponent implements OnInit {
+export class PaiementComponent implements OnInit, OnChanges {
   @Input() fetchedCompanie: Companie = new Companie();
+  @Input() params: any;
+
   approveTnC = false;
   unscribeMode = false;
   plan = '';
@@ -49,13 +51,19 @@ export class PaiementComponent implements OnInit {
     private toastr: ToastsManager,
     private router: Router,
     private location: Location,
-    // private activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     private authService: AuthService
   ) {}
 
   step = 0;
+  ngOnChanges() {
+    if(this.params.type === 'firstRegister') {
+      this.plan = 'artisan'
+      this.passwordIsGood = true
 
+    }
+  }
   changePlan(plan: string) {
     this.plan = plan
     this.nextStep()
@@ -113,6 +121,7 @@ export class PaiementComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.getStripeCust();
   }
   loginInAppDone() {

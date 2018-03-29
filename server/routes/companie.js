@@ -52,12 +52,12 @@ router.use('/', function (req, res, next) {
           })
         }
 
-        if(!shared.isCurentUserHasAccess(doc, nameObject, 'read')) {
-          return res.status(404).json({
-            title: 'No rights',
-            error: {message: 'No rights'}
-          })
-        }
+        // if(!shared.isCurentUserHasAccess(doc, nameObject, 'read')) {
+        //   return res.status(404).json({
+        //     title: 'No rights',
+        //     error: {message: 'No rights'}
+        //   })
+        // }
 
         if (doc) {
           req.user = doc;
@@ -71,12 +71,12 @@ router.use('/', function (req, res, next) {
 
 router.put('/:id', function (req, res, next) {
 
-  if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
-    return res.status(404).json({
-      title: 'No rights',
-      error: {message: 'No rights'}
-    })
-  }
+  // if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
+  //   return res.status(404).json({
+  //     title: 'No rights',
+  //     error: {message: 'No rights'}
+  //   })
+  // }
 
   Companie.findById(({_id: req.params.id}), function (err, item) {
     if (err) {
@@ -194,12 +194,12 @@ router.put('/:id', function (req, res, next) {
 
 
 router.post('/', function (req, res, next) {
-  if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
-    return res.status(404).json({
-      title: 'No rights',
-      error: {message: 'No rights'}
-    })
-  }
+  // if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
+  //   return res.status(404).json({
+  //     title: 'No rights',
+  //     error: {message: 'No rights'}
+  //   })
+  // }
 
   var companie = new Companie(req.body);
   //push

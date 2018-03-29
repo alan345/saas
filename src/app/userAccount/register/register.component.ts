@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   myForm: FormGroup;
   email: FormControl;
   password: FormControl;
-  typesCompanie: string[] = ['Plumber', 'Locksmith', 'Electrician', 'Electrician', 'Gardener', 'Glazier', 'Services', 'Other'];
+  typesCompanie: string[] = ['Plumber', 'Locksmith', 'Electrician', 'Gardener', 'Glazier', 'Services', 'Other'];
 
 
   constructor(
@@ -96,7 +96,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         this.toastr.success('Great!');
         localStorage.setItem('id_token', data.token);
         localStorage.setItem('token', data.token);
-        this.router.navigate(['/companie/mine']);
+        this.router.navigate(['/companie/mine'], {queryParams: {type: 'firstRegister'}});
+        // this.router.navigate(['companie/mine'], { queryParams: { debug: true } });
         // this.loginInAppDone.emit(data.token)
         // location.reload();
       },
