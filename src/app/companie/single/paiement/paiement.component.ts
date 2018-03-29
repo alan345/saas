@@ -225,7 +225,8 @@ export class PaiementComponent implements OnInit, OnChanges {
           this.nextStep()
           this.loading = false
           this.refreshUserMyselfToken()
-          this.router.navigate(['/']);
+          // this.router.navigate(['/']);
+          window.location.reload();
         },
         error => {
           this.loading = false
