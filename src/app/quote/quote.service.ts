@@ -272,16 +272,16 @@ export class QuoteService {
         return Observable.throw(error.json());
       });
   }
-  updateLog(quote: Quote, log: Log) {
-    const body = JSON.stringify(log);
-    const headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.put(this.url + 'quote/' + quote._id + '/log', body, {headers: headers})
-      .map(response => response.json())
-      .catch((error: Response) => {
-        this.errorService.handleError(error.json());
-        return Observable.throw(error.json());
-      });
-  }
+  // updateLog(quote: Quote, log: Log) {
+  //   const body = JSON.stringify(log);
+  //   const headers = new Headers({'Content-Type': 'application/json'});
+  //   headers.append('Authorization', '' + this.authService.currentUser.token);
+  //   return this.http.put(this.url + 'quote/' + quote._id + '/log', body, {headers: headers})
+  //     .map(response => response.json())
+  //     .catch((error: Response) => {
+  //       this.errorService.handleError(error.json());
+  //       return Observable.throw(error.json());
+  //     });
+  // }
 
 }

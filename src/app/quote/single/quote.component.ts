@@ -205,20 +205,23 @@ export class QuoteComponent implements OnInit {
   //   this.fetchedQuote.drawing.base64 = result
   //   // this.actionButtonsComponent.save()
   // }
+  // newQuoteLog(message: string) {
+  //   const log = new Log()
+  //   log.message = message;
+  //
+  //   this.quoteService.updateLog(this.fetchedQuote, log)
+  //     .subscribe(
+  //     res => {
+  //       this.fetchedQuote = res.obj
+  //     },
+  //     error => { console.log(error) }
+  //     )
+  // }
 
   saveSignature() {
-    this.fetchedQuote.statusQuote = 'signed'
+    this.fetchedQuote.statusQuote = 'signed';
+    // this.newQuoteLog('signed');
 
-    const log = new Log()
-    log.message = 'Signed';
-
-    this.quoteService.updateLog(this.fetchedQuote, log)
-      .subscribe(
-      res => {
-        this.fetchedQuote = res.obj
-      },
-      error => { console.log(error) }
-      )
 
     if (this.fetchedQuote.drawingSignature.base64Temp) {
       this.fetchedQuote.drawingSignature.base64 = this.fetchedQuote.drawingSignature.base64Temp
@@ -236,6 +239,11 @@ export class QuoteComponent implements OnInit {
         )
   }
 
+  quoteStatusChanged() {
+    this.fetchedQuote.reasonToUpdate = `Status changed to ${this.fetchedQuote.statusQuote}`
+    // this.newQuoteLog()
+    this.save()
+  }
 
   savedQuote(result) {
     this.getQuote(result.obj._id)
@@ -248,14 +256,14 @@ export class QuoteComponent implements OnInit {
     this.fetchedQuote.priceQuote.totalPaiementAmount = 0
     this.fetchedPaiementQuotes = event
     this.fetchedPaiementQuotes.forEach(paiement => {
-      console.log(paiement)
+
       if(paiement.isCreditNote) {
         this.fetchedQuote.priceQuote.totalPaiementAmount -= paiement.amount
       } else {
         this.fetchedQuote.priceQuote.totalPaiementAmount += paiement.amount
       }
     })
-    console.log(this.fetchedQuote.priceQuote.totalPaiementAmount)
+
     this.fetchedQuote.priceQuote.
     outstandingBalance = this.fetchedQuote
     .priceQuote.priceGlobalWithTaxesWithDiscount * 1 - this.fetchedQuote.

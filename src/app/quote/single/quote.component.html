@@ -16,7 +16,7 @@
       <app-quoteInfo
         [search]="search"
         [(myCompanie)] = "myCompanie"
-        [fetchedQuote]="fetchedQuote" (save)="save()" (quoteStatusChangedEmit)="save()"></app-quoteInfo>
+        [fetchedQuote]="fetchedQuote" (save)="save()" (quoteStatusChangedEmit)="quoteStatusChanged()"></app-quoteInfo>
       <mat-action-row *ngIf="fetchedQuote.statusQuote === 'pending'">
         <div class="width100perc">
           <app-actionButtons

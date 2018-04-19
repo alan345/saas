@@ -297,7 +297,14 @@ router.put('/:id', function(req, res, next) {
     // item.historyClients = req.body.clients
     // item.historyClientsCross = req.body.clientsCross
 
-
+    if (req.body.reasonToUpdate) {
+      const log = {
+        date: new Date(),
+        message: req.body.reasonToUpdate,
+        user: req.user
+      }
+      quote.logs.push(log)
+    }
     quote.clients = req.body.clients
     quote.historyClients = req.body.historyClients
     quote.name = req.body.name
@@ -402,17 +409,25 @@ router.put('/:id/signature', function(req, res, next) {
       // require('fs').writeFile('./server/uploads/signature/' + namePicture, base64Data, 'base64', function(err) {
       require('fs').writeFile(path.join(__dirname, '../..', 'server/uploads/signature/' + namePicture), base64Data, 'base64', function(err) {
 
-
-
-
-
-
         if(err) {
           console.log(err);
         }
 
         drawingSignature.namePicture = namePicture
         item.drawingSignature = drawingSignature
+
+
+        const log = {
+          date: new Date(),
+          message: 'Signed',
+          user: req.user
+        }
+        item.logs.push(log)
+
+
+
+
+
 
         saveQuote(item, req).then(quote => {
           res.status(200).json({message: 'Registration Successfull', obj: quote})
@@ -432,40 +447,40 @@ router.put('/:id/signature', function(req, res, next) {
 });
 
 
-
-router.put('/:id/log', function(req, res, next) {
-  // if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write'))
-  //   return res.status(404).json({
-  //     title: 'No rights',
-  //     error: {
-  //       message: 'No rights'
-  //     }
-  //   })
-
-  Quote.findById(({_id: req.params.id}), function(err, item) {
-    if (err) {
-      return res.status(404).json({message: '', err: err})
-    }
-
-    const log = {
-      date: new Date(),
-      message: req.body.message,
-      user: req.user
-    }
-
-
-
-
-    item.logs.push(log)
-
-    saveQuote(item, req).then(quote => {
-      res.status(200).json({message: 'Registration Successfull', obj: quote})
-    }).catch(err => {
-      return res.status(403).json(err);
-    })
-  })
-
-})
+//
+// router.put('/:id/log', function(req, res, next) {
+//   // if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write'))
+//   //   return res.status(404).json({
+//   //     title: 'No rights',
+//   //     error: {
+//   //       message: 'No rights'
+//   //     }
+//   //   })
+//
+//   Quote.findById(({_id: req.params.id}), function(err, item) {
+//     if (err) {
+//       return res.status(404).json({message: '', err: err})
+//     }
+//
+//     const log = {
+//       date: new Date(),
+//       message: req.body.message,
+//       user: req.user
+//     }
+//
+//
+//
+//
+//     item.logs.push(log)
+//
+//     saveQuote(item, req).then(quote => {
+//       res.status(200).json({message: 'Registration Successfull', obj: quote})
+//     }).catch(err => {
+//       return res.status(403).json(err);
+//     })
+//   })
+//
+// })
 
 
 router.post('/', function(req, res, next) {
@@ -488,6 +503,14 @@ router.post('/', function(req, res, next) {
   req.body.historyClients = req.body.clients
   // req.body.historyClientsCross = req.body.historyClientsCross
   req.body.assignedTos = req.user
+
+  const log = {
+    date: new Date(),
+    message: 'Created',
+    user: req.user
+  }
+  req.body.logs.push(log)
+
 
   if(req.body.clients.length) {
     userCross.getUserCross(req.user, req.body.clients[0]._id).then(userCrossSingle => {

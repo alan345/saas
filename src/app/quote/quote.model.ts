@@ -8,6 +8,7 @@ import { DrawingSignature } from './single/drawingSignature/drawingSignature.mod
 
 
 export class Quote {
+  reasonToUpdate= '';
   _id = '';
   clients: User[] = [];
   assignedTos: User[] = [];
