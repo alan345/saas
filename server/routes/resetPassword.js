@@ -8,7 +8,7 @@ var express = require('express'),
     emailGenerator      = require('./emailGenerator'),
     config = require('../config/config');
 
-var User = require('../models/user.model');
+var User = require('../models/user.model').User;
 
 
  // getting token from email and checking if it's valid

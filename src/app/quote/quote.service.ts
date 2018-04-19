@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Response, Headers, Http, RequestOptions, ResponseContentType} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
-import {Quote} from './quote.model';
+import {Quote, Log} from './quote.model';
 import {ToastsManager} from 'ng2-toastr';
 import { AuthService } from '../auth/auth.service';
 import { Config } from '../shared/config.model';
@@ -266,6 +266,17 @@ export class QuoteService {
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.put(this.url + 'quote/' + quote._id + '/signature', body, {headers: headers})
+      .map(response => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+  updateLog(quote: Quote, log: Log) {
+    const body = JSON.stringify(quote);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    return this.http.put(this.url + 'quote/' + quote._id + '/log', body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());

@@ -1,7 +1,7 @@
 var express = require('express'),
     router  = express.Router(),
     config  = require('../config/config'),
-    User    = require('../models/user.model'),
+    User = require('../models/user.model').User,
     Companie    = require('../models/companie.model'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),

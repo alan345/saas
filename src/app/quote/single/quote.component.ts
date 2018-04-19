@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { QuoteService } from '../quote.service';
-import { Quote, PriceQuoteTaxe, ModelVATs } from '../quote.model';
+import { Quote, PriceQuoteTaxe, ModelVATs, Log} from '../quote.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Search } from '../../shared/shared.model';
 import { PaiementQuote } from '../../paiementQuote/paiementQuote.model';
@@ -208,7 +208,19 @@ export class QuoteComponent implements OnInit {
 
   saveSignature() {
     this.fetchedQuote.statusQuote = 'signed'
-    if(this.fetchedQuote.drawingSignature.base64Temp) {
+
+    const log = new Log()
+    log.message = 'Sggned';
+
+    this.quoteService.updateLog(this.fetchedQuote, log)
+      .subscribe(
+      res => {
+        this.fetchedQuote = res.obj
+      },
+      error => { console.log(error) }
+      )
+
+    if (this.fetchedQuote.drawingSignature.base64Temp) {
       this.fetchedQuote.drawingSignature.base64 = this.fetchedQuote.drawingSignature.base64Temp
     }
 

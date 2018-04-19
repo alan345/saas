@@ -7,7 +7,7 @@ var express     = require('express'),
     emailGenerator      = require('./emailGenerator'),
     config      = require('../config/config');
 
-var User = require('../models/user.model');
+var User = require('../models/user.model').User;
 
 
 // requesting password reset and setting the fields resetPasswordToken to a newly generated token

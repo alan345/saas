@@ -2,7 +2,7 @@ import { Form } from '../picture/form/form.model';
 import { User, UserCross } from '../user/user.model';
 import { Product } from '../product/product.model';
 // import { Project } from '../project/project.model';
-import { Companie } from '../companie/companie.model';
+// import { Companie } from '../companie/companie.model';
 // import { Drawing } from './single/drawing/drawing.model';
 import { DrawingSignature } from './single/drawingSignature/drawingSignature.model';
 
@@ -33,10 +33,14 @@ export class Quote {
   detail: Detail = new Detail();
   // drawing: Drawing = new Drawing();
   drawingSignature: DrawingSignature = new DrawingSignature();
-
-
+  logs: Log[] = []
 }
 
+export class Log {
+  date: Date = new Date();
+  message = '';
+  user: User = new User();
+}
 export class Detail {
   currency = '';
   quoteRef = '';

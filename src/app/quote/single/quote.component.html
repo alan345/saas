@@ -198,6 +198,20 @@
     </mat-expansion-panel>
 
 
+    <mat-expansion-panel *ngIf="fetchedQuote._id"
+      [expanded]="step === 6" (opened)="setStep(6)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>assignment_turned_in</mat-icon>
+        </mat-panel-title>
+        <mat-panel-description>
+          {{'Historic' | translate}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-historicLog [fetchedQuote]="fetchedQuote"></app-historicLog>
+    </mat-expansion-panel>
+
+
 
     <!-- <mat-expansion-panel *ngIf="authService.showObjHTML('quote', 'comment') && fetchedQuote._id" [expanded]="step === 7" (opened)="setStep(7)">
       <mat-expansion-panel-header>

@@ -11,6 +11,7 @@ import {MatDialogModule} from '@angular/material';
 
 
 import { QuotesComponent} from './list/quotes.component';
+import { HistoricLogComponent} from './single/historicLog/historicLog.component';
 import { QuoteComponent} from './single/quote.component';
 import { ActionButtonsComponent} from './single/actionButtons/actionButtons.component';
 import { QuoteInfoComponent} from './single/quoteInfo/quoteInfo.component';
@@ -107,6 +108,7 @@ import {MatRadioModule} from '@angular/material';
   declarations: [
     QuotesComponent,
     QuoteComponent,
+    HistoricLogComponent,
     // SignatureComponent,
     QuoteDetailsComponent,
     MobileDetailsComponent,

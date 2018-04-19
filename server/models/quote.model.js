@@ -3,6 +3,8 @@ var mongoose                = require('mongoose'),
     //Product                    = require('../models/product.model'),
   //  Form                    = require('../models/form.model'),
     User                    = require('../models/user.model'),
+    user = require('../models/user.model').user,
+    User = require('../models/user.model').User,
     mongooseUniqueValidator = require('mongoose-unique-validator');
 
 var quote = new Schema({
@@ -104,6 +106,11 @@ var quote = new Schema({
           country : {type: String, default: ['']},
         }],
       }
+    }],
+    logs: [{
+      date: {type: Date, default: [Date()]},
+      message: {type: Date, default: [Date()]},
+      user: user,
     }],
     legalApprovals: [{type: String, default: ['']}],
     typeIntervention: {type: String, default: ['']},
