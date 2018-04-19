@@ -1,7 +1,7 @@
 <div class="container">
   <app-header-title
     [showBack]="showBack"
-    [title]="search.isCreditNote ? 'Credit note' : 'Payments' " (saved)="saved($event)"
+    [title]="search.isCreditNote ? 'Credit notes' : 'Payments' " (saved)="saved($event)"
     [search]="{userId: search.userId, quoteId: search.quoteId, isCreditNote: search.isCreditNote}"
     [typeObj]="'paiementQuote'"></app-header-title>
   <div class="row">
