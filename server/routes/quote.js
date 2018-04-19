@@ -1,7 +1,7 @@
 var express = require('express'),
   router = express.Router(),
   config = require('../config/config'),
-  User = require('../models/user.model').User
+  User = require('../models/user.model').User,
   Quote = require('../models/quote.model'),
   Companie = require('../models/companie.model'),
   path    = require('path'),
@@ -431,8 +431,9 @@ router.put('/:id/signature', function(req, res, next) {
   })
 });
 
-//update
-router.put('/:id/updateLog', function(req, res, next) {
+
+
+router.put('/:id/log', function(req, res, next) {
   // if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write'))
   //   return res.status(404).json({
   //     title: 'No rights',
@@ -446,26 +447,26 @@ router.put('/:id/updateLog', function(req, res, next) {
       return res.status(404).json({message: '', err: err})
     }
 
-
     const log = {
       date: new Date(),
-      message: 'alan',
-      users: req.user
+      message: req.body.message,
+      user: req.user
     }
 
 
-        drawingSignature.namePicture = namePicture
-        item.drawingSignature = drawingSignature
 
-        saveQuote(item, req).then(quote => {
-          res.status(200).json({message: 'Registration Successfull', obj: quote})
-        }).catch(err => {
-          return res.status(403).json(err);
-        })
-      });
 
+    item.logs.push(log)
+
+    saveQuote(item, req).then(quote => {
+      res.status(200).json({message: 'Registration Successfull', obj: quote})
+    }).catch(err => {
+      return res.status(403).json(err);
+    })
   })
-});
+
+})
+
 
 router.post('/', function(req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {

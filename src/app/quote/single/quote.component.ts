@@ -210,7 +210,7 @@ export class QuoteComponent implements OnInit {
     this.fetchedQuote.statusQuote = 'signed'
 
     const log = new Log()
-    log.message = 'Sggned';
+    log.message = 'Signed';
 
     this.quoteService.updateLog(this.fetchedQuote, log)
       .subscribe(

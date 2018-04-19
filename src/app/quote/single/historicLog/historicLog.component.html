@@ -1,3 +1,4 @@
-<div *ngFor="let log of fetchedQuote.logs">
-  {{log|json}}
-</div>
+
+<mat-card *ngFor="let log of fetchedQuote.logs">
+  <mat-icon>done</mat-icon>{{log.message}} by {{log.user.profile.name}} on {{log.date | date:'shortDate'}}
+</mat-card>

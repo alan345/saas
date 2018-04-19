@@ -5,6 +5,7 @@ var mongoose                = require('mongoose'),
     User                    = require('../models/user.model'),
     user = require('../models/user.model').user,
     User = require('../models/user.model').User,
+    userLight = require('../models/user.model').userLight,
     mongooseUniqueValidator = require('mongoose-unique-validator');
 
 var quote = new Schema({
@@ -109,8 +110,8 @@ var quote = new Schema({
     }],
     logs: [{
       date: {type: Date, default: [Date()]},
-      message: {type: Date, default: [Date()]},
-      user: user,
+      message: {type: String, default: ['']},
+      user: userLight,
     }],
     legalApprovals: [{type: String, default: ['']}],
     typeIntervention: {type: String, default: ['']},

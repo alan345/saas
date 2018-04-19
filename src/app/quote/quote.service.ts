@@ -273,7 +273,7 @@ export class QuoteService {
       });
   }
   updateLog(quote: Quote, log: Log) {
-    const body = JSON.stringify(quote);
+    const body = JSON.stringify(log);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.put(this.url + 'quote/' + quote._id + '/log', body, {headers: headers})
