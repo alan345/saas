@@ -8,10 +8,10 @@ import { Quote } from '../quote/quote.model';
 
 export class PaiementQuote {
   _id = '';
-  ownerCompanies: Companie[] = []
-  quotes: Quote[] = []
-  createdBy: User[] = []
-  userDebiteds: User[] = []
+  ownerCompanies: Companie[] = [];
+  quotes: Quote[] = [];
+  createdBy: User[] = [];
+  userDebiteds: User[] = [];
   // projects: Project[] = []
   datePaiement: Date = new Date();
   datePaiementString = '';
@@ -22,8 +22,9 @@ export class PaiementQuote {
   isGooplusPaiement = false;
   isPaid = true;
   isExpense = false;
+  isCreditNote = false;
   editModeDate = false;
-  stripe: Stripe = new Stripe()
+  stripe: Stripe = new Stripe();
 }
 export class Stripe {
   cusId = '';

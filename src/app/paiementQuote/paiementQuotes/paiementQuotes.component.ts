@@ -26,17 +26,6 @@ export class PaiementQuotesComponent implements OnInit, OnChanges {
 
   paginationData = new PaginationData();
 
-  // @Input() userId = '';
-  // @Input() idQuote = '';
-  // @Input() showHeader = true;
-  // @Output() newPaiementSaved: EventEmitter<any> = new EventEmitter();
-  // @Input() showCreate = true;
-  // search = {
-  //   orderBy : '',
-  //   search: '',
-  //   idQuote:'',
-  //   isExpense: false
-  // };
 
   constructor(
     private paiementQuoteService: PaiementQuoteService,
@@ -57,14 +46,17 @@ export class PaiementQuotesComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      if(params['isExpense'] === 'true') {
-        this.search.isExpense = true
-      } else {
-        this.search.isExpense = false
-      }
-      this.getPaiementQuotesInit();
-    })
+
+    if (this.search.useSearchUrl) {
+      this.activatedRoute.params.subscribe((params: Params) => {
+        if (params['isCreditNote'] === 'true') {
+          this.search.isCreditNote = true;
+        } else {
+          this.search.isCreditNote = false;
+        }
+        this.getPaiementQuotesInit();
+      })
+    }
   }
 
 

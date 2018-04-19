@@ -1,11 +1,15 @@
 <div class="container">
-  <app-header-title [showBack]="showBack" [title]="'Payments'" (saved)="saved($event)" [search]="{userId: search.userId, quoteId: search.quoteId}" [typeObj]="'paiementQuote'"></app-header-title>
+  <app-header-title
+    [showBack]="showBack"
+    [title]="search.isCreditNote ? 'Credit note' : 'Payments' " (saved)="saved($event)"
+    [search]="{userId: search.userId, quoteId: search.quoteId, isCreditNote: search.isCreditNote}"
+    [typeObj]="'paiementQuote'"></app-header-title>
   <div class="row">
     <div class="col-lg-12">
       <table class="table table-hover">
         <thead>
           <tr>
-            <th class="centre tdunder hideMobile">
+            <th *ngIf="!search.isCreditNote" class="centre tdunder hideMobile">
               {{'Type' | translate}}
               <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'type'"></app-sort>
             </th>
@@ -25,7 +29,7 @@
         </thead>
         <tbody class="clienttbl">
           <tr *ngFor="let paiementQuote of fetchedPaiementQuotes" (click)="openDialogPaiement(paiementQuote._id)" routerLinkActive="active">
-            <td class="centre tdunder hideMobile">
+            <td *ngIf="!search.isCreditNote" class="centre tdunder hideMobile">
               {{paiementQuote.type | translate}}
             </td>
             <td class="centre tdunder hideMobile">

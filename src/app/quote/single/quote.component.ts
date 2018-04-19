@@ -30,6 +30,7 @@ export class QuoteComponent implements OnInit {
   fetchedQuote: Quote = new Quote();
   signatureBase64Temp = '';
   step = -1;
+  recalculate = true;
   myCompanie: Companie = new Companie();
   VATs = ModelVATs;
   // @ViewChild(SignaturePad) signaturePad: SignaturePad;
@@ -55,7 +56,12 @@ export class QuoteComponent implements OnInit {
     // private translateService: TranslateService,
   ) {
   }
-
+  onReCalculate() {
+    this.recalculate = false
+    setTimeout(() => {
+      this.recalculate = true
+    }, 200)
+  }
   ngOnInit() {
     setTimeout(() => { this.step = 0});
     this.getMyCompanie()
@@ -230,9 +236,14 @@ export class QuoteComponent implements OnInit {
     this.fetchedQuote.priceQuote.totalPaiementAmount = 0
     this.fetchedPaiementQuotes = event
     this.fetchedPaiementQuotes.forEach(paiement => {
-      this.fetchedQuote.priceQuote.totalPaiementAmount += paiement.amount
+      console.log(paiement)
+      if(paiement.isCreditNote) {
+        this.fetchedQuote.priceQuote.totalPaiementAmount -= paiement.amount
+      } else {
+        this.fetchedQuote.priceQuote.totalPaiementAmount += paiement.amount
+      }
     })
-
+    console.log(this.fetchedQuote.priceQuote.totalPaiementAmount)
     this.fetchedQuote.priceQuote.
     outstandingBalance = this.fetchedQuote
     .priceQuote.priceGlobalWithTaxesWithDiscount * 1 - this.fetchedQuote.

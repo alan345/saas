@@ -269,7 +269,7 @@ export class AuthService {
   getPlanDetail() {
     let itemFounded = '';
     this.user.ownerCompanies.forEach(companie => {
-      console.log(companie.planDetail.plan)
+      // console.log(companie.planDetail.plan)
       itemFounded = companie.planDetail.plan
     })
     return itemFounded

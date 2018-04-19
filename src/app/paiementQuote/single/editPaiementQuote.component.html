@@ -1,5 +1,6 @@
 <div class="container">
-  <app-header-title [showBack]=1 [isDialog]="isDialog" [title]="'Payment'" [icon]="'credit_card'"></app-header-title>
+  <app-header-title *ngIf="!search.isCreditNote" [showBack]=1 [isDialog]="isDialog" [title]="'Payment'" [icon]="'credit_card'"></app-header-title>
+  <app-header-title *ngIf="search.isCreditNote" [showBack]=1 [isDialog]="isDialog" [title]="'Credit note'" [icon]="'credit_card'"></app-header-title>
   <mat-accordion>
     <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
       <mat-expansion-panel-header>
@@ -7,7 +8,12 @@
           <mat-icon>attach_money</mat-icon>
         </mat-panel-title>
         <mat-panel-description>
-          {{'Paiement' | translate}}
+          <div *ngIf="search.isCreditNote">
+            {{'Credit note' | translate}}
+          </div>
+          <div *ngIf="!search.isCreditNote">
+            {{'Paiement' | translate}}
+          </div>
         </mat-panel-description>
       </mat-expansion-panel-header>
       <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
@@ -49,7 +55,9 @@
         </div>
       </mat-action-row>
     </mat-expansion-panel>
-    <mat-expansion-panel *ngIf="fetchedPaiementQuote._id && fetchedPaiementQuote.amount" [expanded]="step === 1" (opened)="setStep(1)">
+    <mat-expansion-panel
+      *ngIf="fetchedPaiementQuote._id && fetchedPaiementQuote.amount && !fetchedPaiementQuote.isCreditNote"
+      [expanded]="step === 1" (opened)="setStep(1)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <mat-icon>credit_card</mat-icon>

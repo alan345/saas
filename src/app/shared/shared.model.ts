@@ -17,7 +17,9 @@ export class Search {
   projectId = '';
   // parentQuoteId = '';
   isExternalUser = true;
+  isCreditNote = false;
   isExpense = false;
+  useSearchUrl = true;
   typeQuote = '';
   year = 0;
   isFromAutocomplete = false;

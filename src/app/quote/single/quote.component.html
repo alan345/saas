@@ -147,9 +147,24 @@
       </mat-expansion-panel-header>
       <app-paiementQuotes
         [showBack]=0 *ngIf="step === 4"
-        (getPaiementQuotesCross)="getPaiementQuotes($event)"
-        [search]="{userId: search.userId, isExpense:search.isExpense, quoteId:fetchedQuote._id}">
+        (getPaiementQuotesCross)="onReCalculate()"
+        [search]="{userId: search.userId,  isCreditNote:false, useSearchUrl:false, quoteId:fetchedQuote._id}">
       </app-paiementQuotes>
+
+      <app-paiementQuotes
+        [showBack]=0 *ngIf="step === 4"
+        (getPaiementQuotesCross)="onReCalculate()"
+        [search]="{userId: search.userId, isCreditNote:true, useSearchUrl:false, quoteId:fetchedQuote._id}">
+      </app-paiementQuotes>
+
+      <div *ngIf="recalculate" [hidden]="true">
+        <app-paiementQuotes
+          [showBack]=0 *ngIf="step === 4"
+          (getPaiementQuotesCross)="getPaiementQuotes($event)"
+          [search]="{userId: search.userId, quoteId:fetchedQuote._id}">
+        </app-paiementQuotes>
+      </div>
+
       <mat-card>
         {{'Paiements' | translate}}: {{fetchedQuote.priceQuote.totalPaiementAmount | round | currency:fetchedQuote.detail.currency}}
         <br>
@@ -162,12 +177,15 @@
     </mat-expansion-panel>
 
 
+
+
+
+
     <mat-expansion-panel *ngIf="
       fetchedQuote._id &&
       fetchedQuote.priceQuote.priceGlobalWithDiscount
       "
-      [expanded]="step === 5"
-      (opened)="setStep(5)">
+      [expanded]="step === 5" (opened)="setStep(5)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <mat-icon>assignment_turned_in</mat-icon>

@@ -1,10 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-
-
 import { PaiementQuotesComponent} from './paiementQuotes/paiementQuotes.component';
-
-
 import { PaiementGuardService} from '../companie/single/paiement/paiementGuard.service';
 import { AuthGuardService} from '../auth/authguard.service';
 
@@ -23,8 +19,7 @@ export const routes: Routes = [
   // {path: ':id', component: PaiementQuoteDetailComponent, canActivate: [AuthGuardService, PaiementGuardService]},
   // {path: 'public/:idPaiementQuote', component: EditPaiementQuoteComponent},
   // {path: ':isExpense/:isGooplusPaiement', component: PaiementQuotesComponent, canActivate: [AuthGuardService, PaiementGuardService]},
-  {path: ':isExpense', component: PaiementQuotesComponent, canActivate: [AuthGuardService, PaiementGuardService]},
-
+  {path: ':isExpense/:isCreditNote', component: PaiementQuotesComponent, canActivate: [AuthGuardService, PaiementGuardService]},
 ];
 
 

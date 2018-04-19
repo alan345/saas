@@ -105,6 +105,7 @@ export class EditPaiementQuoteComponent implements OnInit {
   }
   ngOnInit() {
 
+    this.fetchedPaiementQuote.isCreditNote = this.search.isCreditNote;
     this.authService.getCurrentUser().ownerCompanies.forEach((companie: Companie) => {
       this.fetchedPaiementQuote.currency = companie.option.currency;
     })
@@ -227,7 +228,7 @@ export class EditPaiementQuoteComponent implements OnInit {
       this.toastr.error('Error!', 'User is mandatory')
       return;
     }
-    let this2 = this
+    const this2 = this
     return new Promise(function(resolve, reject) {
       // this2.fetchedPaiementQuote
       // .datePaiement = this2.authService

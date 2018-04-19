@@ -81,30 +81,28 @@ router.put('/:id', function (req, res, next) {
       })
     } else {
       //console.log(req.body)
-        item.quotes = req.body.quotes
-        item.amount = req.body.amount
-        item.type = req.body.type
-        item.datePaiement = req.body.datePaiement
-        item.userDebiteds = req.body.userDebiteds
-        item.projects = req.body.projects
-        item.isPaid = req.body.isPaid
-        item.title = req.body.title
+      item.quotes = req.body.quotes
+      item.amount = req.body.amount
+      item.type = req.body.type
+      item.datePaiement = req.body.datePaiement
+      item.userDebiteds = req.body.userDebiteds
+      item.projects = req.body.projects
+      item.isPaid = req.body.isPaid
+      item.title = req.body.title
 
 
-
-
-        item.save(function (err, result) {
-          if (err) {
-            return res.status(404).json({
-              message: 'There was an error, please try again',
-              err: err
-            })
-          }
-          res.status(201).json({
-            message: 'Updated successfully',
-            obj: result
+      item.save(function (err, result) {
+        if (err) {
+          return res.status(404).json({
+            message: 'There was an error, please try again',
+            err: err
           })
+        }
+        res.status(201).json({
+          message: 'Updated successfully',
+          obj: result
         })
+      })
 
     }
   })
@@ -170,8 +168,15 @@ router.get('/page/:page', function (req, res, next) {
 
 // console.log(req.query.orderBy)
   searchQuery['isExpense'] = false
-  if(req.query.isExpense === 'true')
+  if (req.query.isExpense === 'true') {
     searchQuery['isExpense'] = true
+  }
+  if (req.query.isCreditNote === 'true') {
+    searchQuery['isCreditNote'] = true
+  }
+  if (req.query.isCreditNote === 'false') {
+    searchQuery['isCreditNote'] = false
+  }
 
   PaiementQuote
   .find(searchQuery)

@@ -67,7 +67,8 @@
       (click)="menuClick()"
       class="noOutline"
       *ngIf="authService.showObjHTML('paiementQuote', 'read')"
-      [routerLink]="['/paiementQuote/list']" routerLinkActive="active"
+      [routerLink]="['/paiementQuote/list/false']"
+      routerLinkActive="active"
       hideToggle="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -75,6 +76,22 @@
         </mat-panel-title>
         <mat-panel-description>
           {{'Paiements'|translate}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <mat-expansion-panel
+      (click)="menuClick()"
+      class="noOutline"
+      *ngIf="authService.showObjHTML('paiementQuote', 'read')"
+      [routerLink]="['/paiementQuote/list/true']"
+      routerLinkActive="active"
+      hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>money_off</mat-icon>
+        </mat-panel-title>
+        <mat-panel-description>
+          {{'Credit note'|translate}}
         </mat-panel-description>
       </mat-expansion-panel-header>
     </mat-expansion-panel>
