@@ -299,28 +299,14 @@ router.put('/:id', function(req, res, next) {
     // item.historyClientsCross = req.body.clientsCross
 
     if (req.body.reasonToUpdate) {
-
-
-        var notification = new Notification()
-        notification.ownerCompanies = req.user.ownerCompanies
-        notification.date = new Date()
-        notification.message = req.body.reasonToUpdate
-        notification.user = req.user
-        notification.quotes = quote._id
-
-        notification.save()
-      // const log = {
-      //   date: new Date(),
-      //   message: req.body.reasonToUpdate,
-      //   user: req.user
-      // }
-      // quote.logs.unshift(log)
+      var notification = new Notification()
+      notification.ownerCompanies = req.user.ownerCompanies
+      notification.date = new Date()
+      notification.message = req.body.reasonToUpdate
+      notification.user = req.user
+      notification.quotes = quote._id
+      notification.save()
     }
-
-
-
-
-
 
 
     quote.clients = req.body.clients
@@ -358,37 +344,37 @@ router.put('/:id', function(req, res, next) {
 
 
 
-      //  quote.ownerCompanies = req.user.ownerCompanies
-      quote.historyClients = req.body.clients
-      quote.historyClientsCross = []
-       // req.body.historyClientsCross = req.body.historyClientsCross
+    //  quote.ownerCompanies = req.user.ownerCompanies
+    quote.historyClients = req.body.clients
+    quote.historyClientsCross = []
+     // req.body.historyClientsCross = req.body.historyClientsCross
 
-      //  var quote = new Quote(req.body);
+    //  var quote = new Quote(req.body);
 
-       if(req.body.clients.length) {
-         userCross.getUserCross(req.user, req.body.clients[0]._id).then(userCrossSingle => {
-           quote.historyClientsCross = userCrossSingle
-           saveQuote(quote, req).then(quote => {
-             res.status(200).json({message: 'Registration Successfull', obj: quote})
-           }).catch(err => {
-             console.log(err)
-             return res.status(403).json(err);
-           })
-         }).catch(err => {
-           console.log(err)
-            saveQuote(quote, req).then(quote => {
-              res.status(200).json({message: 'Registration Successfull', obj: quote})
-            }).catch(err => {
-              return res.status(403).json(err);
-            })
-         })
-       } else {
-         saveQuote(quote, req).then(quote => {
-           res.status(200).json({message: 'Registration Successfull', obj: quote})
-         }).catch(err => {
-           return res.status(403).json(err);
-         })
-       }
+    if(req.body.clients.length) {
+      userCross.getUserCross(req.user, req.body.clients[0]._id).then(userCrossSingle => {
+        quote.historyClientsCross = userCrossSingle
+        saveQuote(quote, req).then(quote => {
+          res.status(200).json({message: 'Registration Successfull', obj: quote})
+        }).catch(err => {
+          console.log(err)
+          return res.status(403).json(err);
+        })
+      }).catch(err => {
+       console.log(err)
+        saveQuote(quote, req).then(quote => {
+          res.status(200).json({message: 'Registration Successfull', obj: quote})
+        }).catch(err => {
+          return res.status(403).json(err);
+        })
+     })
+    } else {
+     saveQuote(quote, req).then(quote => {
+       res.status(200).json({message: 'Registration Successfull', obj: quote})
+     }).catch(err => {
+       return res.status(403).json(err);
+     })
+    }
     //  saveQuote(item).then(quote => {
     //    res.status(200).json({message: 'Update Successfull', obj: quote})
     //  }).catch(err => {
@@ -433,35 +419,33 @@ router.put('/:id/signature', function(req, res, next) {
       });
     }
 
-        // drawingSignature.namePicture = namePicture
-        // drawingSignature.comment = req.body.drawingSignature.comment
-        // drawingSignature.isSigned = req.body.drawingSignature.isSigned
+    // drawingSignature.namePicture = namePicture
+    // drawingSignature.comment = req.body.drawingSignature.comment
+    // drawingSignature.isSigned = req.body.drawingSignature.isSigned
 
-        item.statusQuote = 'signed'
+    item.statusQuote = 'signed'
 
-        item.drawingSignature.comment = req.body.drawingSignature.comment
-        item.drawingSignature.isSigned = req.body.drawingSignature.isSigned
-        item.drawingSignature.isSignedWihtoutSignature = req.body.drawingSignature.isSignedWihtoutSignature
-        item.drawingSignature.dateSignature = new Date()
-        item.drawingSignature.users = [req.user]
-
-
-        // const drawingSignature = {
-        //   dateSignature: new Date(),
-        //   namePicture: '',
-        //   users: [req.user]
-        // }
+    item.drawingSignature.comment = req.body.drawingSignature.comment
+    item.drawingSignature.isSigned = req.body.drawingSignature.isSigned
+    item.drawingSignature.isSignedWihtoutSignature = req.body.drawingSignature.isSignedWihtoutSignature
+    item.drawingSignature.dateSignature = new Date()
+    item.drawingSignature.users = [req.user]
 
 
-
-        const log = {
-          date: new Date(),
-          message: 'Signed',
-          user: req.user
-        }
-        item.logs.unshift(log)
+    // const drawingSignature = {
+    //   dateSignature: new Date(),
+    //   namePicture: '',
+    //   users: [req.user]
+    // }
 
 
+    var notification = new Notification()
+    notification.ownerCompanies = req.user.ownerCompanies
+    notification.date = new Date()
+    notification.message = 'Signed'
+    notification.user = req.user
+    notification.quotes = item._id
+    notification.save()
 
 
 
@@ -534,12 +518,9 @@ router.post('/', function(req, res, next) {
   // req.body.historyClientsCross = req.body.historyClientsCross
   req.body.assignedTos = req.user
 
-  const log = {
-    date: new Date(),
-    message: 'Created',
-    user: req.user
-  }
-  req.body.logs.unshift(log)
+
+
+
 
 
   if(req.body.clients.length) {
@@ -560,6 +541,17 @@ router.post('/', function(req, res, next) {
     }).catch(err => {
       var quote = new Quote(req.body);
       saveQuote(quote, req).then(quote => {
+
+
+      var notification = new Notification()
+      notification.ownerCompanies = req.user.ownerCompanies
+      notification.date = new Date()
+      notification.message = 'Created'
+      notification.user = req.user
+      notification.quotes = quote._id
+      notification.save()
+
+
         res.status(200).json({message: 'Registration Successfull', obj: quote})
       }).catch(err => {
         console.log('aa')

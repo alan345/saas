@@ -2,6 +2,7 @@ var express = require('express'),
     router  = express.Router(),
     config  = require('../config/config'),
     User = require('../models/user.model').User,
+    Notification = require('../models/notification.model'),
     PaiementQuote    = require('../models/paiementQuote.model'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),
@@ -132,6 +133,26 @@ router.post('/', function (req, res, next) {
         error: {message: 'Error'}
       })
     }
+
+
+    let type = ''
+    if (result.isCreditNote) {
+      type = 'Credit note'
+    } else {
+      type = 'Paiement'
+    }
+
+    var notification = new Notification()
+    notification.ownerCompanies = req.user.ownerCompanies
+    notification.date = new Date()
+    notification.message = `New ${type} created`
+    notification.amount = paiementQuote.amount
+    notification.currency = paiementQuote.currency
+    notification.user = req.user
+    notification.quotes = result.quotes
+    notification.save()
+
+
     res.status(200).json({
       message: 'Registration Successfull',
       obj: result

@@ -1,4 +1,3 @@
-import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
 // import { Project } from '../project/project.model';
 
@@ -7,11 +6,13 @@ import { UserCalendar } from '../userCalendar/userCalendar.model';
 
 
 export class Notification {
-  _id: string = '';
-  isRead: boolean = false;
-  quotes: Quote[] = []
-  userCalendars: UserCalendar[] = []
+  _id = '';
+  currency = '';
+  isRead = false;
+  quotes: Quote[] = [];
+  userCalendars: UserCalendar[] = [];
   users: User[] = []
-  typeObject: string = '';
-  nameNotification: string = '';
+  typeObject = '';
+  nameNotification = '';
+  amount = 0;
 }

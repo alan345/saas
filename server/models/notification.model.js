@@ -13,10 +13,12 @@ var notification = new Schema({
     // userCalendars: [{type: Schema.Types.ObjectId, ref: 'UserCalendar'}],
     // user : userLight,
     isRead: {type: Boolean, default: false},
+    amount: {type: Number, default: 0},
     // name: {type: String, default: ['']},
     // typeObject: {type: String, default: ['']},
     date: {type: Date, default: [Date()]},
     message: {type: String, default: ['']},
+    currency: {type: String, default: ['']},
     user: userLight,
 
 
