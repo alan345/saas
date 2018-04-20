@@ -22,7 +22,8 @@ export class DrawingSignatureComponent implements OnInit {
   drawing: DrawingSignature = new DrawingSignature();
   // @Input() base64 = '';
   // @Output() saved: EventEmitter<any> = new EventEmitter();
-  @Output() updated: EventEmitter<any> = new EventEmitter();
+  // @Output() updated: EventEmitter<any> = new EventEmitter();
+  @Output() updateSignatureEvent: EventEmitter<any> = new EventEmitter();
   @Output() cleared: EventEmitter<any> = new EventEmitter();
   editMode = false;
   // color = '';
@@ -53,10 +54,17 @@ export class DrawingSignatureComponent implements OnInit {
     xhr.send();
   }
 
+  updateSignature() {
+    console.log('aa')
+    this.updateSignatureEvent.emit(this.drawing)
+  }
 
 
   sendBatchUpdate(result) {
-      this.updated.emit(this.canvasWhiteboard.generateCanvasDataUrl())
+    console.log('aa')
+      this.drawing.base64Temp = this.canvasWhiteboard.generateCanvasDataUrl()
+      this.updateSignature()
+      // this.updated.emit(this.canvasWhiteboard.generateCanvasDataUrl())
   }
   ngOnInit() {
     // this.changeColor('#757575')
@@ -91,7 +99,7 @@ export class DrawingSignatureComponent implements OnInit {
 
   }
   changeSlider() {
-    this.drawing.base64 = this.canvasWhiteboard.generateCanvasDataUrl()
+    this.drawing.base64Temp = this.canvasWhiteboard.generateCanvasDataUrl()
     // console.log(this.drawing.base64)
     this.canvasWhiteboard.toggleShouldDraw();
     // console.log('aa')
@@ -112,7 +120,7 @@ export class DrawingSignatureComponent implements OnInit {
   clearDrawing() {
     // this.signaturePad.clear();
     this.canvasWhiteboard.clearCanvas();
-    this.drawing.base64 = ''
+    this.drawing.base64Temp = ''
     this.cleared.emit()
   }
   // redoVersion() {

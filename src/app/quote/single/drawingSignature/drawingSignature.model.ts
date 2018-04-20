@@ -8,5 +8,8 @@ export class DrawingSignature {
   base64Temp = '';
   dateDrawing: Date = new Date()
   users: User[] = [];
+  isSigned = false;
+  isSignedWihtoutSignature = false;
+  comment = '';
   // backgroundForms: Form[] = []
 }

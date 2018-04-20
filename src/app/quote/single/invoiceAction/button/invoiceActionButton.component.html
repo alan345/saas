@@ -1,20 +1,25 @@
-<div *ngIf="
+
+  <div *ngIf="
   fetchedQuote._id &&
+  fetchedQuote.statusQuote !=='rejected' &&
   fetchedQuote.statusQuote !=='pending' &&
-  fetchedQuote.statusQuote !=='rejected'">
-  <div *ngIf="typeQuote === 'invoice'">
+  typeQuote === 'invoice'
+  ">
     <button mat-button color="primary" (click)="downloadInvoicePDF()">
       <mat-icon aria-label="PDF">picture_as_pdf</mat-icon>
     </button>
     <div *ngIf="showLabel"> {{'Download PDF' | translate}}</div>
   </div>
-  <div *ngIf="typeQuote === 'quote'">
+  <div *ngIf="
+    fetchedQuote._id &&
+    typeQuote === 'quote'
+  ">
     <button mat-button color="primary" (click)="downloadPDF()">
       <mat-icon color="accent" aria-label="PDF">picture_as_pdf</mat-icon>
     </button>
     <div *ngIf="showLabel"> {{'Download PDF' | translate}}</div>
   </div>
-</div>
+
 
 
 <app-loadingInApp [loading]="loading"></app-loadingInApp>

@@ -26,9 +26,51 @@ export class QuoteStatusComponent {
       return true;
     }
 
-    if (n.indexStatus === 'pending' && (this.fetchedQuote.statusQuote === 'signed' || this.fetchedQuote.statusQuote === 'paid')) {
+    if (
+      n.indexStatus === 'pending' &&
+      (this.fetchedQuote.statusQuote === 'signed' || this.fetchedQuote.statusQuote === 'paid')
+    ) {
         return true;
     }
+
+    if (
+      n.indexStatus === 'paid' &&
+      (this.fetchedQuote.statusQuote === 'pending')
+    ) {
+        return true;
+    }
+    // if (
+    //   n.indexStatus === 'rejected' &&
+    //   (this.fetchedQuote.statusQuote === 'signed')
+    // ) {
+    //     return true;
+    // }
+    //
+    // if (
+    //   n.indexStatus === 'signed' &&
+    //   (this.fetchedQuote.statusQuote === 'paid')
+    // ) {
+    //     return true;
+    // }
+    //
+    // if (
+    //   n.indexStatus === 'rejected' &&
+    //   (this.fetchedQuote.statusQuote === 'paid')
+    // ) {
+    //     return true;
+    // }
+    // if (
+    //   n.indexStatus === 'rejected' &&
+    //   (this.fetchedQuote.statusQuote === 'paid')
+    // ) {
+    //     return true;
+    // }
+
+    // if (
+    //   n.indexStatus === 'paid'
+    // ) {
+    //     return true;
+    // }
     return false;
   }
   // ngOnChanges() {

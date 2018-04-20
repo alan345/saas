@@ -194,12 +194,18 @@ export class QuoteComponent implements OnInit {
       )
   }
 
+  //
+  // drawingSignatureUpdated(result) {
+  //   // this.fetchedQuote.drawingSignature.isSigned = true
+  //   this.fetchedQuote.drawingSignature.base64Temp = result
+  //
+  //   // this.actionButtonsComponent.save()
+  // }
 
-  drawingSignatureUpdated(result) {
-    // this.fetchedQuote.drawingSignature.isSigned = true
-    this.fetchedQuote.drawingSignature.base64Temp = result
 
-    // this.actionButtonsComponent.save()
+  updateSignature(result) {
+    this.fetchedQuote.drawingSignature = result
+    console.log(this.fetchedQuote.drawingSignature)
   }
   // drawingUpdated(result) {
   //   this.fetchedQuote.drawing.base64 = result
@@ -220,10 +226,14 @@ export class QuoteComponent implements OnInit {
 
   saveSignature() {
     this.fetchedQuote.statusQuote = 'signed';
+    this.fetchedQuote.drawingSignature.isSigned = true;
     // this.newQuoteLog('signed');
 
-
-    if (this.fetchedQuote.drawingSignature.base64Temp) {
+    console.log(this.fetchedQuote.drawingSignature.isSignedWihtoutSignature)
+    if (
+      this.fetchedQuote.drawingSignature.base64Temp &&
+      !this.fetchedQuote.drawingSignature.isSignedWihtoutSignature
+    ) {
       this.fetchedQuote.drawingSignature.base64 = this.fetchedQuote.drawingSignature.base64Temp
     }
 
@@ -285,11 +295,11 @@ export class QuoteComponent implements OnInit {
     ) {
       this.fetchedQuote.statusQuote = 'paid';
     } else {
-      if (this.fetchedQuote.drawingSignature.namePicture) {
-        this.fetchedQuote.statusQuote = 'signed';
-      } else {
-        this.fetchedQuote.statusQuote = 'pending';
-      }
+      // if (this.fetchedQuote.drawingSignature.namePicture) {
+      //   this.fetchedQuote.statusQuote = 'signed';
+      // } else {
+      //   this.fetchedQuote.statusQuote = 'pending';
+      // }
     }
     this.save()
 

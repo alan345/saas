@@ -397,24 +397,43 @@ router.put('/:id/signature', function(req, res, next) {
     }
 
 
-    const drawingSignature = {
-      dateSignature: new Date(),
-      namePicture: '',
-      users: [req.user]
-    }
+    // const drawingSignature = {
+    //   dateSignature: new Date(),
+    //   namePicture: '',
+    //   users: [req.user]
+    // }
+    item.drawingSignature.namePicture = ''
     if (req.body.drawingSignature.base64) {
-      item.statusQuote = 'signed'
       var base64Data = req.body.drawingSignature.base64.replace(/^data:image\/png;base64,/, '');
       const namePicture = item._id + '_' + new Date().getTime() + '.png'
+      item.drawingSignature.namePicture = namePicture
       // require('fs').writeFile('./server/uploads/signature/' + namePicture, base64Data, 'base64', function(err) {
       require('fs').writeFile(path.join(__dirname, '../..', 'server/uploads/signature/' + namePicture), base64Data, 'base64', function(err) {
-
         if(err) {
           console.log(err);
         }
+      });
+    }
 
-        drawingSignature.namePicture = namePicture
-        item.drawingSignature = drawingSignature
+        // drawingSignature.namePicture = namePicture
+        // drawingSignature.comment = req.body.drawingSignature.comment
+        // drawingSignature.isSigned = req.body.drawingSignature.isSigned
+
+        item.statusQuote = 'signed'
+
+        item.drawingSignature.comment = req.body.drawingSignature.comment
+        item.drawingSignature.isSigned = req.body.drawingSignature.isSigned
+        item.drawingSignature.isSignedWihtoutSignature = req.body.drawingSignature.isSignedWihtoutSignature
+        item.drawingSignature.dateSignature = new Date()
+        item.drawingSignature.users = [req.user]
+
+
+        // const drawingSignature = {
+        //   dateSignature: new Date(),
+        //   namePicture: '',
+        //   users: [req.user]
+        // }
+
 
 
         const log = {
@@ -434,15 +453,8 @@ router.put('/:id/signature', function(req, res, next) {
         }).catch(err => {
           return res.status(403).json(err);
         })
-      });
-    } else {
-      item.statusQuote = 'pending'
-      saveQuote(item, req).then(quote => {
-        res.status(200).json({message: 'Registration Successfull', obj: quote})
-      }).catch(err => {
-        return res.status(403).json(err);
-      })
-    }
+
+
   })
 });
 

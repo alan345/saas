@@ -138,7 +138,10 @@ var quote = new Schema({
     drawingSignature:{
       // isSigned:{type: Boolean, default: false},
       dateSignature: {type: Date, default: [Date()]},
-      namePicture:{type: String, default: ['']},
+      namePicture: {type: String, default: ['']},
+      comment: {type: String, default: ['']},
+      isSigned: {type: Boolean, default: false},
+      isSignedWihtoutSignature: {type: Boolean, default: false},
       // backgroundForms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
       // dateDrawing:{type: Date},
       users:[{type: Schema.Types.ObjectId, ref: 'User'}],

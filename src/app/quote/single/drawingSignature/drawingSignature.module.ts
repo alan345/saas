@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedSmallModule } from '../../../shared/sharedSmall.module';
 import {SharedModule } from '../../../shared/shared.module';
 import {CanvasWhiteboardModule} from 'ng2-canvas-whiteboard';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 // import { CommonModule } from '@angular/common';
 // import { MatSliderModule} from '@angular/material';
 // import { MatSlideToggleModule} from '@angular/material';
@@ -38,6 +39,7 @@ import {CanvasWhiteboardModule} from 'ng2-canvas-whiteboard';
     // SignaturePadModule,
     SharedModule,
     CanvasWhiteboardModule,
+    MatCheckboxModule,
     // UserModule,
     // MaterialModule,
     // MatTabsModule,

@@ -19,12 +19,12 @@
   </div>
 </div> -->
 
-<div class="aroundSignature ac">
+<div *ngIf="!drawing.isSignedWihtoutSignature" class="aroundSignature ac">
   <canvas-whiteboard #canvasWhiteboard
     [drawButtonEnabled]="false"
     [aspectRatio]="0.9"
     [strokeColor]="'#757575'"
-    [imageUrl]="drawing.base64"
+    [imageUrl]="drawing.base64Temp"
     [drawButtonClass]="'drawButtonClass'"
     [drawButtonText]="'Draw'"
     [clearButtonClass]="'clearButtonClass'"
@@ -41,4 +41,16 @@
     [batchUpdateTimeoutDuration]="500"
     (onBatchUpdate)="sendBatchUpdate($event)">
   </canvas-whiteboard>
+
 </div>
+<mat-checkbox
+  (change)="updateSignature()"
+  [(ngModel)]="drawing.isSignedWihtoutSignature">
+  {{'Quote accepted without signature' | translate}}
+</mat-checkbox>
+
+<mat-form-field *ngIf="drawing.isSignedWihtoutSignature">
+  <textarea matInput
+    [(ngModel)]="drawing.comment"
+    placeholder="{{'Leave a comment' | translate}}"></textarea>
+</mat-form-field>
