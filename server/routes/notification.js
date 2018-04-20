@@ -53,41 +53,6 @@ router.use('/', function (req, res, next) {
 
 
 
-//update
-router.put('/:id', function (req, res, next) {
-  Notification.findById(({_id: req.params.id}), function (err, item) {
-    if (err) {
-      return res.status(404).json({
-        message: '',
-        err: err
-      })
-    } else {
-
-        item.projects = req.body.projects
-        item.quotes = req.body.quotes
-        item.tasks = req.body.tasks
-        item.userCalendars = req.body.userCalendars
-        item.users = req.body.users
-        item.isRead = req.body.isRead
-        item.nameNotification = req.body.nameNotification
-
-
-        item.save(function (err, result) {
-          if (err) {
-            return res.status(404).json({
-              message: 'There was an error, please try again',
-              err: err
-            })
-          }
-          res.status(201).json({
-            message: 'Updated successfully',
-            obj: result
-          })
-        })
-
-    }
-  })
-})
 
 router.post('/', function (req, res, next) {
   if(!req.user.ownerCompanies.length) {
@@ -118,8 +83,6 @@ router.post('/', function (req, res, next) {
 
 
 
-
-// get all forms from database
 router.get('/page/:page', function (req, res, next) {
   var itemsPerPage = 15
   var currentPage = Number(req.params.page)
@@ -134,109 +97,152 @@ router.get('/page/:page', function (req, res, next) {
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
 
-  if(req.query.search)
-    searchQuery['detailNotification.nameNotification'] = new RegExp(req.query.search, 'i')
+  if (req.query.quoteId) {
+    searchQuery['quotes'] = req.query.quoteId
+  }
+  // if(req.query.search) {
+  //   searchQuery['detailNotification.nameNotification'] = new RegExp(req.query.search, 'i')
+  // }
 
 
 
   Notification
-  .find(searchQuery)
-  .sort('-createdAt')
-  .limit(itemsPerPage)
-  .skip(skip)
-  .exec(function (err, item) {
-    if (err) {
-      return res.status(404).json({
-        message: 'No results',
-        err: err
-      })
-    } else {
-      Notification
-      .find(searchQuery)
-      .count()
-      .exec(function (err, count) {
-
-
-        item.forEach((notif, i) => {
-          // console.log(req.user.dateSeeLatestNotif, notif.createdAt)
-          if(req.user.dateSeeLatestNotif > notif.createdAt) {
-            item[i].isRead = true
-          }
-        })
-        res.status(200).json({
-          paginationData : {
-            totalItems: count,
-            currentPage : currentPage,
-            itemsPerPage : itemsPerPage
-          },
-          data: item
-        })
-      })
-    }
-  })
-})
-
-
-
-
-// getting user forms to display them on front end
-router.get('/:id', function (req, res, next) {
-  Notification
-  .findById({_id: req.params.id})
-  .populate({path: 'projects', model: 'Project'})
-  .populate({path: 'quotes', model: 'Quote'})
-  .populate({path: 'tasks', model: 'Task'})
-  .populate({path: 'users', model: 'User'})
-  .populate({path: 'userCalendars', model: 'UserCalendar'})
-  .exec(function (err, item) {
-    if (err) {
-      return res.status(404).json({
-        message: '',
-        err: err
-      })
-    } else {
-      res.status(200).json({
-        message: 'Success',
-        item: item
-      })
-    }
-  })
-})
-
-
-
-
-
-router.delete('/:id', function (req, res, next) {
-  Notification.findById((req.params.id), function (err, item) {
-    if (err) {
-      return res.status(500).json({
-        message: 'An error occured',
-        err: err
-      })
-    }
-    if (!item) {
-      return res.status(404).json({
-        title: 'No form found',
-        error: {message: 'Form not found!'}
-      })
-    }
-
-    // deleting the form from the database
-    item.remove(function (err, result) {
+    .find(searchQuery)
+    .sort('-createdAt')
+    .limit(itemsPerPage)
+    .skip(skip)
+    .exec(function (err, item) {
       if (err) {
-        return res.status(500).json({
-          title: 'An error occured',
-          error: err
+        return res.status(404).json({
+          message: 'No results',
+          err: err
         })
+      } else {
+        Notification
+          .find(searchQuery)
+          .count()
+          .exec(function (err, count) {
+
+
+            // item.forEach((notif, i) => {
+            //   // console.log(req.user.dateSeeLatestNotif, notif.createdAt)
+            //   if(req.user.dateSeeLatestNotif > notif.createdAt) {
+            //     item[i].isRead = true
+            //   }
+            // })
+            res.status(200).json({
+              paginationData : {
+                totalItems: count,
+                currentPage : currentPage,
+                itemsPerPage : itemsPerPage
+              },
+              data: item
+            })
+          })
       }
-      res.status(200).json({
-        message: 'Item is deleted',
-        obj: result
-      })
     })
-  })
 })
+
+
+//
+// //update
+// router.put('/:id', function (req, res, next) {
+//   Notification.findById(({_id: req.params.id}), function (err, item) {
+//     if (err) {
+//       return res.status(404).json({
+//         message: '',
+//         err: err
+//       })
+//     } else {
+//
+//         item.projects = req.body.projects
+//         item.quotes = req.body.quotes
+//         item.tasks = req.body.tasks
+//         item.userCalendars = req.body.userCalendars
+//         item.users = req.body.users
+//         item.isRead = req.body.isRead
+//         item.nameNotification = req.body.nameNotification
+//
+//
+//         item.save(function (err, result) {
+//           if (err) {
+//             return res.status(404).json({
+//               message: 'There was an error, please try again',
+//               err: err
+//             })
+//           }
+//           res.status(201).json({
+//             message: 'Updated successfully',
+//             obj: result
+//           })
+//         })
+//
+//     }
+//   })
+// })
+
+
+//
+//
+//
+// // getting user forms to display them on front end
+// router.get('/:id', function (req, res, next) {
+//   Notification
+//   .findById({_id: req.params.id})
+//   .populate({path: 'projects', model: 'Project'})
+//   .populate({path: 'quotes', model: 'Quote'})
+//   .populate({path: 'tasks', model: 'Task'})
+//   .populate({path: 'users', model: 'User'})
+//   .populate({path: 'userCalendars', model: 'UserCalendar'})
+//   .exec(function (err, item) {
+//     if (err) {
+//       return res.status(404).json({
+//         message: '',
+//         err: err
+//       })
+//     } else {
+//       res.status(200).json({
+//         message: 'Success',
+//         item: item
+//       })
+//     }
+//   })
+// })
+//
+//
+//
+//
+//
+// router.delete('/:id', function (req, res, next) {
+//   Notification.findById((req.params.id), function (err, item) {
+//     if (err) {
+//       return res.status(500).json({
+//         message: 'An error occured',
+//         err: err
+//       })
+//     }
+//     if (!item) {
+//       return res.status(404).json({
+//         title: 'No form found',
+//         error: {message: 'Form not found!'}
+//       })
+//     }
+//
+//     // deleting the form from the database
+//     item.remove(function (err, result) {
+//       if (err) {
+//         return res.status(500).json({
+//           title: 'An error occured',
+//           error: err
+//         })
+//       }
+//       res.status(200).json({
+//         message: 'Item is deleted',
+//         obj: result
+//       })
+//     })
+//   })
+// })
 
 
 

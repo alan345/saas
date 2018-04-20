@@ -1,4 +1,0 @@
-
-<mat-card *ngFor="let log of fetchedQuote.logs">
-  <mat-icon>done</mat-icon>{{log.message | translate}} {{'by' | translate}} {{log.user.profile.name}} {{'on'| translate}} {{log.date | date:'shortDate'}}
-</mat-card>

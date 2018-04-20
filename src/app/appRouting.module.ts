@@ -28,6 +28,7 @@ export const routes: Routes = [
   {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
   {path: 'userAccount', loadChildren: 'app/userAccount/userAccount.module#UserAccountModule'},
   {path: 'right', loadChildren: 'app/right/right.module#RightModule', canActivate: [AuthGuardService, PaiementGuardService]},
+  {path: 'notification', loadChildren: 'app/notification/notification.module#NotificationModule', canActivate: [AuthGuardService, PaiementGuardService]},
   {path: '404', component: ErrorPageComponent},
   {path: '**', redirectTo: '404'}
 
@@ -38,7 +39,6 @@ export const routes: Routes = [
   // {path: 'chat', loadChildren: 'app/chat/chat.module#ChatModule', canActivate: [AuthGuardService, PaiementGuardService]},
   // {path: 'project', loadChildren: 'app/project/project.module#ProjectModule', canActivate: [AuthGuardService, PaiementGuardService]},
   // {path: 'task', loadChildren: 'app/task/task.module#TaskModule', canActivate: [AuthGuardService, PaiementGuardService]},
-  // {path: 'notification', loadChildren: 'app/notification/notification.module#NotificationModule', canActivate: [AuthGuardService, PaiementGuardService]},
 
   // {path: 'form', component: FormComponent, canActivate: [AuthGuardService]},
   // {path: 'userForms', component: UserFormsUploadAndList, canActivate: [AuthGuardService]},

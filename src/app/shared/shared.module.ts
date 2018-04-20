@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AutocompleteModule } from '../autocomplete/autocomplete.module';
-import {PictureModule} from '../picture/picture.module';
+import { PictureModule} from '../picture/picture.module';
 import { HeaderTitleComponent } from '../nav/headerTitle/headerTitle.component';
 import { TranslateModule} from '../translate/translate.module';
 import { SortComponent } from './sort/sort.component';
@@ -45,6 +45,7 @@ import 'hammerjs';
     MatSelectModule,
 
 
+
   ],
   declarations: [
     SortComponent,
@@ -70,6 +71,7 @@ import 'hammerjs';
     // HeaderComponent,
     SortComponent,
     AddressComponent,
+
     // newObjDialogComponent,
     // LoadingComponent,
     // LoadingInAppComponent,

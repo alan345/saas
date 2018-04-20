@@ -212,7 +212,11 @@
           {{'Historic' | translate}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <app-historicLog [fetchedQuote]="fetchedQuote"></app-historicLog>
+      <app-notifications
+        *ngIf="step === 6"
+        [search]="{quoteId: fetchedQuote._id}"
+
+        ></app-notifications>
     </mat-expansion-panel>
 
 

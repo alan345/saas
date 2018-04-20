@@ -7,11 +7,11 @@ import {MatDialogModule} from '@angular/material';
 // import { ProjectModule} from '../project/project.module';
 
 // import { QuoteDialogComponent } from './single/dialog/quoteDialog.component';
-
+import { NotificationModule} from '../notification/notification.module';
 
 
 import { QuotesComponent} from './list/quotes.component';
-import { HistoricLogComponent} from './single/historicLog/historicLog.component';
+
 import { ImageSignatureComponent} from './single/imageSignature/imageSignature.component';
 import { QuoteComponent} from './single/quote.component';
 import { ActionButtonsComponent} from './single/actionButtons/actionButtons.component';
@@ -35,7 +35,7 @@ import { QuoteService} from './quote.service';
 import { TemplateQuoteService} from './templateQuote.service';
 import { QuoteRouting} from './quoteRouting.module';
 // import { MaterialModule } from '@angular/material';
-import {MatCardModule} from '@angular/material';
+import { MatCardModule} from '@angular/material';
 import { ProductModule } from '../product/product.module';
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
 
@@ -84,6 +84,7 @@ import {MatRadioModule} from '@angular/material';
     // SignaturePadModule,
     PaiementQuoteModule,
     MatDialogModule,
+    NotificationModule,
 
 
     // MatFormFieldModule,
@@ -109,7 +110,6 @@ import {MatRadioModule} from '@angular/material';
   declarations: [
     QuotesComponent,
     QuoteComponent,
-    HistoricLogComponent,
     ImageSignatureComponent,
     // SignatureComponent,
     QuoteDetailsComponent,

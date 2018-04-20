@@ -3,6 +3,7 @@ var express = require('express'),
   config = require('../config/config'),
   User = require('../models/user.model').User,
   Quote = require('../models/quote.model'),
+  Notification = require('../models/notification.model'),
   Companie = require('../models/companie.model'),
   path    = require('path'),
   // nodemailer = require('nodemailer'),
@@ -298,13 +299,30 @@ router.put('/:id', function(req, res, next) {
     // item.historyClientsCross = req.body.clientsCross
 
     if (req.body.reasonToUpdate) {
-      const log = {
-        date: new Date(),
-        message: req.body.reasonToUpdate,
-        user: req.user
-      }
-      quote.logs.unshift(log)
+
+
+        var notification = new Notification()
+        notification.ownerCompanies = req.user.ownerCompanies
+        notification.date = new Date()
+        notification.message = req.body.reasonToUpdate
+        notification.user = req.user
+        notification.quotes = quote._id
+
+        notification.save()
+      // const log = {
+      //   date: new Date(),
+      //   message: req.body.reasonToUpdate,
+      //   user: req.user
+      // }
+      // quote.logs.unshift(log)
     }
+
+
+
+
+
+
+
     quote.clients = req.body.clients
     quote.historyClients = req.body.historyClients
     quote.name = req.body.name

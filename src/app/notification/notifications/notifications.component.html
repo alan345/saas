@@ -1,0 +1,11 @@
+
+<mat-card *ngFor="let notification of fetchedNotifications">
+  <mat-icon>done</mat-icon>{{notification.message | translate}} {{'by' | translate}} {{notification.user.profile.name}} {{'on'| translate}} {{notification.date | date:'shortDate'}}
+</mat-card>
+
+
+
+<mat-paginator *ngIf="paginationData.totalItems>paginationData.itemsPerPage" [length]="paginationData.totalItems" [pageIndex]="paginationData.currentPage-1" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
+</mat-paginator>
+
+<app-loadingInApp [loading]="loading"></app-loadingInApp>

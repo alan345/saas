@@ -2,17 +2,22 @@ var mongoose                = require('mongoose'),
     Schema                  = mongoose.Schema,
     mongooseUniqueValidator = require('mongoose-unique-validator');
 
+// var user = require('../models/user.model').user;
+// var User = require('../models/user.model').User;
+var userLight = require('../models/user.model').userLight;
+
 var notification = new Schema({
   //  _id: String,
     ownerCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
-    projects: [{type: Schema.Types.ObjectId, ref: 'Project'}],
     quotes: [{type: Schema.Types.ObjectId, ref: 'Quote'}],
-    tasks: [{type: Schema.Types.ObjectId, ref: 'Task'}],
-    userCalendars: [{type: Schema.Types.ObjectId, ref: 'UserCalendar'}],
-    users : [{type: Schema.Types.ObjectId, ref: 'User'}],
+    // userCalendars: [{type: Schema.Types.ObjectId, ref: 'UserCalendar'}],
+    // user : userLight,
     isRead: {type: Boolean, default: false},
-    nameNotification: {type: String, default: ['']},
-    typeObject: {type: String, default: ['']},
+    // name: {type: String, default: ['']},
+    // typeObject: {type: String, default: ['']},
+    date: {type: Date, default: [Date()]},
+    message: {type: String, default: ['']},
+    user: userLight,
 
 
   },
