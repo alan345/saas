@@ -9,7 +9,14 @@
       <mat-icon aria-label="PDF">picture_as_pdf</mat-icon>
     </button>
     <div *ngIf="showLabel"> {{'Download PDF' | translate}}</div>
+    <div *ngFor="let client of fetchedQuote.clients">
+      <button mat-raised-button color="primary" (click)="sendInvoiceByEmailToClient()">
+      <mat-icon aria-label="Email">email</mat-icon>
+    </button> {{'Send by Email:' | translate}} {{client.email}}
+    </div>    
   </div>
+
+
   <div *ngIf="
     fetchedQuote._id &&
     typeQuote === 'quote'
@@ -18,6 +25,13 @@
       <mat-icon color="accent" aria-label="PDF">picture_as_pdf</mat-icon>
     </button>
     <div *ngIf="showLabel"> {{'Download PDF' | translate}}</div>
+
+    <div *ngFor="let client of fetchedQuote.clients">
+      <button mat-raised-button color="primary" (click)="sendQuoteByEmailToClient()">
+        <mat-icon aria-label="Email">email</mat-icon>
+      </button>
+      {{'Send by Email:' | translate}} {{client.email}}
+    </div>
   </div>
 
 
