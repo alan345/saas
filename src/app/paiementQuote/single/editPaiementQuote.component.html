@@ -49,8 +49,11 @@
               <mat-icon aria-label="delete">delete</mat-icon>
             </button>
           </div>
-          <button mat-mini-fab color="primary" (click)="nextStep()">
+          <button *ngIf="!fetchedPaiementQuote.isCreditNote" mat-mini-fab color="primary" (click)="nextStep()">
             <mat-icon aria-label="Next">forward</mat-icon>
+          </button>
+          <button *ngIf="fetchedPaiementQuote.isCreditNote" mat-mini-fab color="primary" (click)="closeDialog()">
+            <mat-icon aria-label="save">check_circle</mat-icon>
           </button>
         </div>
       </mat-action-row>

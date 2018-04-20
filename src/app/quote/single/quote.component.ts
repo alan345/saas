@@ -269,15 +269,31 @@ export class QuoteComponent implements OnInit {
     .priceQuote.priceGlobalWithTaxesWithDiscount * 1 - this.fetchedQuote.
     priceQuote.totalPaiementAmount * 1
 
-    if(
-      this.fetchedQuote.priceQuote.totalPaiementAmount >= this.fetchedQuote.priceQuote.priceGlobalWithTaxesWithDiscount &&
-      this.fetchedQuote.priceQuote.priceQuoteWithoutTaxes &&
-      this.fetchedQuote.statusQuote !== 'paid' ) {
-        this.fetchedQuote.statusQuote = 'paid'
-    }
-    this.save()
+    this.statusAnalysis();
+    // this.save()
   }
 
+  statusAnalysis() {
+    if (this.fetchedQuote.statusQuote === 'rejected') {
+      return;
+    }
+
+    if (
+      this.fetchedQuote.priceQuote.totalPaiementAmount >= this.fetchedQuote.priceQuote.priceGlobalWithTaxesWithDiscount &&
+      this.fetchedQuote.priceQuote.priceQuoteWithoutTaxes &&
+      this.fetchedQuote.statusQuote !== 'paid'
+    ) {
+      this.fetchedQuote.statusQuote = 'paid';
+    } else {
+      if (this.fetchedQuote.drawingSignature.namePicture) {
+        this.fetchedQuote.statusQuote = 'signed';
+      } else {
+        this.fetchedQuote.statusQuote = 'pending';
+      }
+    }
+    this.save()
+
+  }
   save() {
     if(!this.fetchedQuote.clients.length) {
       this.toastr.error('Error!', 'Select a client!')
