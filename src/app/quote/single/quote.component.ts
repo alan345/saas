@@ -260,7 +260,7 @@ export class QuoteComponent implements OnInit {
 
   getPaiementQuotes(event) {
     // console.log(event)
-    let totalPaiementAmountInit = this.fetchedQuote.priceQuote.totalPaiementAmount
+    // let totalPaiementAmountInit = this.fetchedQuote.priceQuote.totalPaiementAmount
     this.fetchedQuote.priceQuote.totalPaiementAmount = 0
     this.fetchedPaiementQuotes = event
     this.fetchedPaiementQuotes.forEach(paiement => {
@@ -276,12 +276,12 @@ export class QuoteComponent implements OnInit {
     outstandingBalance = this.fetchedQuote
     .priceQuote.priceGlobalWithTaxesWithDiscount * 1 - this.fetchedQuote.
     priceQuote.totalPaiementAmount * 1
-    if (this.fetchedQuote.priceQuote.totalPaiementAmount !== totalPaiementAmountInit) {
-      this.fetchedQuote.reasonToUpdate = `
-        Amout changed from ${totalPaiementAmountInit}
-        to ${this.fetchedQuote.priceQuote.totalPaiementAmount}
-      `
-    }
+    // if (this.fetchedQuote.priceQuote.totalPaiementAmount !== totalPaiementAmountInit) {
+    //   this.fetchedQuote.reasonToUpdate = `
+    //     Amout changed from ${totalPaiementAmountInit}
+    //     to ${this.fetchedQuote.priceQuote.totalPaiementAmount}
+    //   `
+    // }
     this.statusAnalysis();
     // this.save()
   }
