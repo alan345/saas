@@ -204,8 +204,7 @@ export class QuoteComponent implements OnInit {
 
 
   updateSignature(result) {
-    this.fetchedQuote.drawingSignature = result
-    console.log(this.fetchedQuote.drawingSignature)
+    this.fetchedQuote.drawingSignature = result;
   }
   // drawingUpdated(result) {
   //   this.fetchedQuote.drawing.base64 = result
@@ -229,7 +228,7 @@ export class QuoteComponent implements OnInit {
     this.fetchedQuote.drawingSignature.isSigned = true;
     // this.newQuoteLog('signed');
 
-    console.log(this.fetchedQuote.drawingSignature.isSignedWihtoutSignature)
+    // console.log(this.fetchedQuote.drawingSignature.isSignedWihtoutSignature)
     if (
       this.fetchedQuote.drawingSignature.base64Temp &&
       !this.fetchedQuote.drawingSignature.isSignedWihtoutSignature
@@ -258,16 +257,15 @@ export class QuoteComponent implements OnInit {
   savedQuote(result) {
     this.getQuote(result.obj._id)
   }
-  quoteDetailsUpdated() {
 
-  }
   getPaiementQuotes(event) {
     // console.log(event)
+    let totalPaiementAmountInit = this.fetchedQuote.priceQuote.totalPaiementAmount
     this.fetchedQuote.priceQuote.totalPaiementAmount = 0
     this.fetchedPaiementQuotes = event
     this.fetchedPaiementQuotes.forEach(paiement => {
 
-      if(paiement.isCreditNote) {
+      if (paiement.isCreditNote) {
         this.fetchedQuote.priceQuote.totalPaiementAmount -= paiement.amount
       } else {
         this.fetchedQuote.priceQuote.totalPaiementAmount += paiement.amount
@@ -278,7 +276,12 @@ export class QuoteComponent implements OnInit {
     outstandingBalance = this.fetchedQuote
     .priceQuote.priceGlobalWithTaxesWithDiscount * 1 - this.fetchedQuote.
     priceQuote.totalPaiementAmount * 1
-
+    if (this.fetchedQuote.priceQuote.totalPaiementAmount !== totalPaiementAmountInit) {
+      this.fetchedQuote.reasonToUpdate = `
+        Amout changed from ${totalPaiementAmountInit}
+        to ${this.fetchedQuote.priceQuote.totalPaiementAmount}
+      `
+    }
     this.statusAnalysis();
     // this.save()
   }
