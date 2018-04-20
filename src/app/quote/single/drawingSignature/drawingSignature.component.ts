@@ -55,13 +55,11 @@ export class DrawingSignatureComponent implements OnInit {
   }
 
   updateSignature() {
-    console.log('aa')
     this.updateSignatureEvent.emit(this.drawing)
   }
 
 
   sendBatchUpdate(result) {
-    console.log('aa')
       this.drawing.base64Temp = this.canvasWhiteboard.generateCanvasDataUrl()
       this.updateSignature()
       // this.updated.emit(this.canvasWhiteboard.generateCanvasDataUrl())

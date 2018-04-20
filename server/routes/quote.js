@@ -303,7 +303,7 @@ router.put('/:id', function(req, res, next) {
         message: req.body.reasonToUpdate,
         user: req.user
       }
-      quote.logs.push(log)
+      quote.logs.unshift(log)
     }
     quote.clients = req.body.clients
     quote.historyClients = req.body.historyClients
@@ -441,7 +441,7 @@ router.put('/:id/signature', function(req, res, next) {
           message: 'Signed',
           user: req.user
         }
-        item.logs.push(log)
+        item.logs.unshift(log)
 
 
 
@@ -483,7 +483,7 @@ router.put('/:id/signature', function(req, res, next) {
 //
 //
 //
-//     item.logs.push(log)
+//     item.logs.unshift(log)
 //
 //     saveQuote(item, req).then(quote => {
 //       res.status(200).json({message: 'Registration Successfull', obj: quote})
@@ -521,7 +521,7 @@ router.post('/', function(req, res, next) {
     message: 'Created',
     user: req.user
   }
-  req.body.logs.push(log)
+  req.body.logs.unshift(log)
 
 
   if(req.body.clients.length) {

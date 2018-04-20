@@ -1,0 +1,14 @@
+<div *ngIf="!fetchedQuote.drawingSignature.isSignedWihtoutSignature">
+  <img
+    *ngIf="fetchedQuote.drawingSignature.namePicture"
+    style="width: 100%;"
+    [src]="'./uploads/signature/' + fetchedQuote.drawingSignature.namePicture"
+  >
+</div>
+
+<div *ngIf="fetchedQuote.drawingSignature.isSignedWihtoutSignature">
+  {{'Accepted without sigature' | translate}}
+  {{'on' | translate}} {{fetchedQuote.drawingSignature.dateSignature | date: 'shortDate'}}
+  <br>
+  {{'Reason:' | translate}} {{fetchedQuote.drawingSignature.comment}}
+</div>

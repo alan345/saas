@@ -8,6 +8,8 @@ export const LANG_FR_TRANS = {
     'Check': 'chèque',
     'Created': 'Crée',
     'by': 'par',
+    'Accepted without sigature': 'Accepté sans signature',
+    'Reason:': 'Raison :',
     'on': 'le',
     'Historic': 'Historique',
     'Status changed to rejected': 'Statut passé à Rejeté',
