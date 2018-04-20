@@ -1,9 +1,9 @@
 
   <div *ngIf="
-  fetchedQuote._id &&
-  fetchedQuote.statusQuote !=='rejected' &&
-  fetchedQuote.statusQuote !=='pending' &&
-  typeQuote === 'invoice'
+    fetchedQuote._id &&
+    fetchedQuote.statusQuote !=='rejected' &&
+    fetchedQuote.statusQuote !=='pending' &&
+    typeQuote === 'invoice'
   ">
     <button mat-button color="primary" (click)="downloadInvoicePDF()">
       <mat-icon aria-label="PDF">picture_as_pdf</mat-icon>
@@ -13,7 +13,7 @@
       <button mat-raised-button color="primary" (click)="sendInvoiceByEmailToClient()">
       <mat-icon aria-label="Email">email</mat-icon>
     </button> {{'Send by Email:' | translate}} {{client.email}}
-    </div>    
+    </div>
   </div>
 
 
