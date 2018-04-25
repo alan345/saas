@@ -14,7 +14,7 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th *ngIf="authService.getCurrentUser().isAdmin" class="centre tdunder">
+            <th *ngIf="search.isAdmin" class="centre tdunder">
               Creation Date
             </th>
             <th class="centre tdunder">
@@ -38,7 +38,7 @@
           <tr *ngFor="let user of fetchedUsers" [routerLink]="['/user/' + user._id]" routerLinkActive="active">
 
             <td
-              *ngIf="authService.getCurrentUser().isAdmin"
+              *ngIf="search.isAdmin"
               class="centre tdunder">{{user.createdAt | date: 'shortDate'}}
             </td>
             <td class="centre tdunder">{{user.profile.name}}</td>
