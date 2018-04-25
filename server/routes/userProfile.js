@@ -12,7 +12,7 @@ var express = require('express'),
   Companie = require('../models/companie.model'),
   crypto = require("crypto"),
   gm = require('gm').subClass({imageMagick: true}),
-  User = require('../models/user.model').User
+  User = require('../models/user.model').User,
   shared = require('./shared.js'),
   emailGenerator = require('./emailGenerator');
   // stripe = require("stripe")("sk_test_cg4vcpE5gV1ApywsErwoWL7u");
@@ -68,10 +68,15 @@ router.get('/page/:page', function(req, res, next) {
   // var limit = (itemsPerPage * pageNumber) + itemsPerPage
 
   //  let parentUserToSearch = ''
-  let roleToSearch = []
+  // let roleToSearch = []
   let searchQuery = {}
 
   if (req.query.isAdmin === 'true' && req.user.isAdmin === true) {
+    if (req.query.isExternalUser === 'true') {
+      searchQuery['isExternalUser'] = true
+    } else {
+      searchQuery['isExternalUser'] = false
+    }
     // admin data
   } else {
     // client
@@ -79,13 +84,14 @@ router.get('/page/:page', function(req, res, next) {
       if (!shared.isCurentUserHasAccess(req.user, 'client', 'seeAll')) {
         searchQuery['createdByUser'] = mongoose.Types.ObjectId(req.user._id)
       }
-      // searchQuery['isExternalUser'] = true
+
+      searchQuery['isExternalUser'] = true
       searchQuery['canBeSeenByCompanies'] = req.user.ownerCompanies
       searchQuery['ownerCompanies'] = {
         $ne: req.user.ownerCompanies
       }
     } else {
-      // searchQuery['isExternalUser'] = false
+      searchQuery['isExternalUser'] = false
       searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
     }

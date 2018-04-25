@@ -14,6 +14,9 @@
       <table class="table table-hover">
         <thead>
           <tr>
+            <th *ngIf="authService.getCurrentUser().isAdmin" class="centre tdunder">
+              Creation Date
+            </th>
             <th class="centre tdunder">
               {{'Firstname' | translate}}
               <app-sort (orderBy)="orderBy($event)" [search]="search" [filedToOrder]="'profile.name'"></app-sort>
@@ -33,6 +36,11 @@
         </thead>
         <tbody class="clienttbl">
           <tr *ngFor="let user of fetchedUsers" [routerLink]="['/user/' + user._id]" routerLinkActive="active">
+
+            <td
+              *ngIf="authService.getCurrentUser().isAdmin"
+              class="centre tdunder">{{user.createdAt | date: 'shortDate'}}
+            </td>
             <td class="centre tdunder">{{user.profile.name}}</td>
             <td class="centre tdunder">{{user.profile.lastName}}</td>
             <td class="centre tdunder hideMobile">
