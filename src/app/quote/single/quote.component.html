@@ -201,7 +201,6 @@
       <app-invoice-action [showSendByEmailButton]="true" [fetchedQuote]="fetchedQuote"></app-invoice-action>
     </mat-expansion-panel>
 
-
     <mat-expansion-panel *ngIf="fetchedQuote._id"
       [expanded]="step === 6" (opened)="setStep(6)">
       <mat-expansion-panel-header>
