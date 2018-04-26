@@ -13,6 +13,8 @@ import {AuthService} from '../../../auth/auth.service';
 export class InvoiceActionComponent {
 
   @Input() fetchedQuote: Quote = new Quote()
+  @Input() showSendByEmailButton = false
+
   loading = false;
 
 

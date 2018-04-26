@@ -15,6 +15,7 @@ export class InvoiceActionButtonComponent {
   @Input() fetchedQuote: Quote = new Quote()
   @Input() typeQuote = '';
   @Input() showLabel = true;
+  @Input() showSendByEmailButton = false;
   loading = false;
 
 
