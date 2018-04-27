@@ -1,7 +1,7 @@
 var express = require('express'),
   router = express.Router(),
   config = require('../config/config'),
-  User = require('../models/user.model').User
+  User = require('../models/user.model').User,
   UserCalendar = require('../models/userCalendar.model'),
   fs = require('fs'),
   jwt = require('jsonwebtoken'),
@@ -49,7 +49,7 @@ router.use('/', function(req, res, next) {
         }
         if (!shared.isCurentUserHasAccess(doc, 'userCalendar', 'read')) {
           return res.status(404).json({
-            title: 'No rights',
+            title: 'No rights init',
             error: {
               message: 'No rights'
             }
