@@ -11,7 +11,7 @@ var express = require('express'),
   path = require('path'),
   crypto = require("crypto"),
   gm = require('gm').subClass({imageMagick: true})
-  User = require('../models/user.model').User
+  User = require('../models/user.model').User,
   UserCross = require('../models/userCross.model');
   // stripe = require("stripe")("sk_test_cg4vcpE5gV1ApywsErwoWL7u");
 

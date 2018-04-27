@@ -1,7 +1,7 @@
 var Notification = require('../models/notification.model'),
-  User = require('../models/user.model').User
+  User = require('../models/user.model').User,
   TypeRights = require('../models/typeRights.const'),
-  User = require('../models/user.model').User
+  User = require('../models/user.model').User,
   Quote = require('../models/quote.model'),
   Companie = require('../models/companie.model'),
   path = require("path"),

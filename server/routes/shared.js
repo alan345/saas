@@ -1,5 +1,5 @@
 var Notification = require('../models/notification.model'),
-  User = require('../models/user.model').User
+  User = require('../models/user.model').User,
   Companie = require('../models/companie.model'),
   TypeRights = require('../models/typeRights.const')
 
