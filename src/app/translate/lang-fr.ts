@@ -369,5 +369,7 @@ export const LANG_FR_TRANS = {
     'Type Companie': 'Activité principale',
     'Search': 'Recherche',
     'This action is not reversible. Are you sure you want to delete?': 'Cette action est irréversible. Confirmez-vous la suppression ?',
+    'New Paiement created': 'Nouveau Paiement enregistré',
+    'Quote accepted without signature': 'Devis accepté sans signature', 
 
 };
