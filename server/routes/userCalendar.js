@@ -34,6 +34,7 @@ router.use('/', function(req, res, next) {
       .populate({ path: 'rights', model: 'Right'})
       .populate({ path: 'ownerCompanies', model: 'Companie'})
       // .populate({ path: 'rights', model: 'Right'})
+      
       .populate({ path: 'ownerCompanies', model: 'Companie'})
       .exec(function(err, doc) {
         if (err) {
