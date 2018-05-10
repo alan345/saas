@@ -2,6 +2,9 @@
   "name": "Mirabelle.io",
   "short_name": "Mirabelle",
   "description": "Your quotes on the field",
+  "display":"standalone",
+  "orientation":"portrait",
+  "start_url":"/",   
   "icons": [{
     "src": "assets/ismages/LogoMirabelle_128x128.png",
       "sizes": "128x128",
