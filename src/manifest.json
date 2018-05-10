@@ -6,19 +6,19 @@
   "orientation":"portrait",
   "start_url":"/",
   "icons": [{
-    "src": "assets/images/LogoMirabelle_128x128.png",
+    "src": "assets/images/Logo-Mirabelle_128x128.png",
       "sizes": "128x128",
       "type": "image/png"
     }, {
-      "src": "assets/images/LogoMirabelle_125x152.png",
+      "src": "assets/images/Logo-Mirabelle_125x152.png",
       "sizes": "152x152",
       "type": "image/png"
     }, {
-      "src": "assets/images/LogoMirabelle_256x256.png",
+      "src": "assets/images/Logo-Mirabelle_256x256.png",
       "sizes": "256x256",
       "type": "image/png"
     }, {
-      "src": "assets/images/LogoMirabelle_512x512.png",
+      "src": "assets/images/Logo-Mirabelle_512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }],
