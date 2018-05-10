@@ -2,12 +2,14 @@
 {
   "index": "/index.html",
   "assetGroups": [{
-    "name": "app",
+    "name": "Mirabelle",
     "installMode": "prefetch",
+    "updateMode": "prefetch",
     "resources": {
       "files": [
         "/favicon.ico",
-        "/index.html"
+        "/index.html",
+        "/manifest.json",
       ],
       "versionedFiles": [
         "/*.bundle.css",
