@@ -11,6 +11,7 @@ import { TranslateModule} from '../translate/translate.module';
 import {MatButtonModule} from '@angular/material';
 import {MatIconModule} from '@angular/material';
 import {LoadingInAppModule} from '../nav/loadingInApp/loadingInApp.module';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import {QuoteService} from '../quote/quote.service';
 import {RightService} from '../right/right.service';
@@ -25,6 +26,7 @@ import {TemplateQuoteService} from '../quote/templateQuote.service';
     MatButtonModule,
     MatIconModule,
     LoadingInAppModule,
+    MatTooltipModule,
     // SharedModule,
     // UserModule,
 
