@@ -512,19 +512,15 @@ module.exports = {
 
     `
 
-
-
-
-
 paiementQuotes.forEach(paiementQuote => {
 html +=`
 <tr>
 <td class="col-8"></td>
 <td class="col-2 alctr ts elem">`
 if(paiementQuote.isCreditNote) {
-html += 'Avoir'
+html += `Avoir <br/>(${paiementQuote.datePaiement.toLocaleDateString("fr-FR")})`
 } else {
-html += 'Paiement'
+html += `Paiement <br/>(${paiementQuote.datePaiement.toLocaleDateString("fr-FR")})`
 }
 
 
@@ -536,21 +532,11 @@ ${paiementQuote.amount}${paiementQuote.currency}
 `
 })
 
-
-
-
-
-
-
 html +=`
-
-
-
-
 <tr>
 <td class="col-8"></td>
 <td class="col-2 alctr ts elem">
-Paiements
+Paiements Total
 </td>
 <td class="col-2 elem">
 ${Math.round(item.priceQuote.totalPaiementAmount)}${item.detail.currency}
