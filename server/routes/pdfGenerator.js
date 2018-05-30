@@ -4,6 +4,7 @@ var Notification = require('../models/notification.model'),
   User = require('../models/user.model').User,
   Quote = require('../models/quote.model'),
   Companie = require('../models/companie.model'),
+  PaiementQuote = require('../models/paiementQuote.model'),
   path = require("path"),
   pdf = require('html-pdf');
 
@@ -194,58 +195,6 @@ module.exports = {
 
   generatePDF (req, res, next, type, typeExtract) {
     return new Promise(function(resolve, reject) {
-      // User
-      // .findOne({_id: req.user._id})
-      // .populate({path: 'forms', model: 'Form'})
-      // .populate({path: 'rights', model: 'Right'}).populate({path: 'salesMan', model: 'User'}).populate({path: 'ownerCompanies', model: 'Companie'}).populate({path: 'profile.profilePicture', model: 'Form'})
-      // .exec(function(err, user) {
-      //   if (err) {
-      //     return res.status(403).json({title: 'There was a problem', error: err})
-      //   }
-      //
-      //   if (!user) {
-      //     return res.status(404).json({
-      //       title: 'No form found',
-      //       error: {
-      //         message: 'Item not found!'
-      //       }
-      //     })
-      //   }
-
-        // Companie.findById(user.ownerCompanies[0]).populate({path: 'forms', model: 'Form'}).populate({path: 'rights', model: 'Right'}).exec(function(err, companie) {
-        //   if (err) {
-        //     return res.status(404).json({message: '', err: err})
-        //   }
-        //   if (!companie) {
-        //     return res.status(404).json({
-        //       title: 'No obj found',
-        //       error: {
-        //         message: 'Obj not found!'
-        //       }
-        //     })
-        //   } else {
-
-            // Quote
-            // .findOne({_id: req.params.quoteId})
-            // .populate({path: 'forms', model: 'Form'})
-            // .populate({path: 'rights', model: 'Right'}).populate({path: 'salesMan', model: 'User'}).populate({path: 'ownerCompanies', model: 'Companie'}).populate({path: 'profile.profilePicture', model: 'Form'})
-            // .exec(function(err, obj) {
-            //
-            // // findById((req.params.quoteId), function(err, obj) {
-            //   if (err) {
-            //     return res.status(500).json({message: 'An error occured', err: err})
-            //   }
-            //   if (!obj) {
-            //     return res.status(404).json({
-            //       title: 'No form found',
-            //       error: {
-            //         message: 'Form not found!'
-            //       }
-            //     })
-            //   }
-
-              // let findQuery = {}
-              // findQuery['_id'] = req.params.id
 
               Quote.findById({_id: req.params.quoteId})
               .populate({
@@ -286,6 +235,13 @@ module.exports = {
                     }
                   })
                 } else {
+
+                  let searchQuery = {}
+                  searchQuery['quotes'] = mongoose.Types.ObjectId(req.params.quoteId)
+                  PaiementQuote
+                  .find(searchQuery)
+                  .exec(function (err, paiementQuotes) {
+
 
                   var quoteNumber = ''
                   var historyClientsName = ''
@@ -553,6 +509,65 @@ module.exports = {
       </b>
     </td>
   </tr>
+
+    `
+
+
+
+
+
+paiementQuotes.forEach(paiementQuote => {
+html +=`
+<tr>
+<td class="col-8"></td>
+<td class="col-2 alctr ts elem">`
+if(paiementQuote.isCreditNote) {
+html += 'Avoir'
+} else {
+html += 'Paiement'
+}
+
+
+html +=`</td>
+<td class="col-2 elem">
+${paiementQuote.amount}${paiementQuote.currency}
+</td>
+</tr>
+`
+})
+
+
+
+
+
+
+
+html +=`
+
+
+
+
+<tr>
+<td class="col-8"></td>
+<td class="col-2 alctr ts elem">
+Paiements
+</td>
+<td class="col-2 elem">
+${Math.round(item.priceQuote.totalPaiementAmount)}${item.detail.currency}
+</td>
+</tr>
+
+<tr>
+<td class="col-8"></td>
+<td class="col-2 alctr ts elem">
+Reste à payer
+</td>
+<td class="col-2 elem">
+${Math.round(item.priceQuote.outstandingBalance)}${item.detail.currency}
+</td>
+</tr>
+
+
 </table>
 
 
@@ -651,8 +666,8 @@ module.exports = {
                       }
                     })
                   }
-                }
-            //   })
+                })
+              }
             // })
           // }
         // })
