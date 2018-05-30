@@ -2,7 +2,7 @@
 
 /*ALAN: Signature*/
 
-.mat-radio-label { 
+.mat-radio-label {
     padding-right: 15px;
 }
 
@@ -682,11 +682,11 @@ table {
 }
 
 Mixin itself @mixin clearfix() {
-  &::after {
+  /* &::after {
     display: block;
     content: "";
     clear: both;
-  }
+  } */
 }
 
 Usage as a mixin .element {

@@ -1,0 +1,36 @@
+{
+  "name": "Mirabelle.io",
+  "short_name": "Mirabelle",
+  "description": "Your quotes on the field",
+  "display":"standalone",
+  "orientation":"portrait",
+  "start_url":"/",
+  "icons": [{
+    "src": "assets/images/Logo-Mirabelle_128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }, {
+      "src": "assets/images/Logo-Mirabelle_152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }, {
+      "src": "assets/images/Logo-Mirabelle_192x192.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }, {
+      "src": "assets/images/Logo-Mirabelle_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "assets/images/Logo-Mirabelle_256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }, {
+      "src": "assets/images/Logo-Mirabelle_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff4351"
+}

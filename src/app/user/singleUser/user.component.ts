@@ -179,7 +179,8 @@ export class UserComponent implements OnInit {
 
     initForm() {
       this.myForm = this._fb.group({
-        email: this.customFormControls.emailFormControl,
+        // email: this.customFormControls.emailFormControl,
+        email: [''],
         language: [''],
         colorCalendar: [''],
         otherData: [''],

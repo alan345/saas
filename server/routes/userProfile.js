@@ -340,13 +340,13 @@ function makeid() {
 //  user Create without email. See register
 router.post('/', function(req, res, next) {
   //  console.log(req.body)
-  // let uniqueString = makeid()
+  let uniqueString = makeid()
   // let email = ''
   // let role = ''
   if (req.body.email) {
-    email = req.body.email
+    // email = req.body.email
   } else {
-    email = 'random_' + uniqueString + '@random.com'
+    req.body.email = 'random_' + uniqueString + '@random.com'
   }
 
   // if (req.body.role) {

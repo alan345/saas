@@ -22,6 +22,8 @@ import { ErrorService } from './errorHandler/error.service';
 import { Error2Service } from './errorHandler/error2.service';
 import { ErrorPageComponent } from './errorPage/errorPage.component';
 import { PaiementGuardService } from './companie/single/paiement/paiementGuard.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 // import { LoadingInAppModule } from './nav/loadingInApp/loadingInApp.module';
 // import 'hammerjs';
 
@@ -55,6 +57,7 @@ import { PaiementGuardService } from './companie/single/paiement/paiementGuard.s
     SidebarModule,
     MatSidenavModule,
     UserModule,
+    environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : []    
     // LoadingInAppModule,
   ],
   exports: [],
