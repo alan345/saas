@@ -129,7 +129,7 @@ router.post('/login', function(req, res, next) {
       return res.status(403).json({
         title: 'Wrong Email or Password',
         error: {
-          message: 'Please check if your password or email are correct'
+          message: 'Please check if your email is correct'
         }
       })
     }
@@ -168,12 +168,7 @@ function returnDataForLogin(user, res) {
       return res.status(403).json({title: 'There was a problem', error: err});
     }
     if (!doc) {
-      return res.status(403).json({
-        title: 'Wrong Email or Password',
-        error: {
-          message: 'Please check if your password or email are correct'
-        }
-      })
+      return res.status(403).json({title: 'There was a problem', error: err});
     }
 
     const newRight = shared.getRight(doc)
