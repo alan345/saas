@@ -623,7 +623,7 @@ ${Math.round(item.priceQuote.outstandingBalance)}${item.detail.currency}
 
                                 html += `<p class="inf2">Le `
                                 if (item.drawingSignature.dateSignature)
-                                  html += idateFr(tem.drawingSignature.dateSignature)
+                                  html += dateFr(tem.drawingSignature.dateSignature)
 
             html += `
                               </p>
