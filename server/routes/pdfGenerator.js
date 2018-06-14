@@ -392,7 +392,7 @@ module.exports = {
                   })
                   html += `
                   <p>Date: ${dateFr(item.detail.dateQuote.issueDate)}</p>
-          
+
 
 
                                </th>
