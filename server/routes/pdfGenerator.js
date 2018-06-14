@@ -9,6 +9,23 @@ var Notification = require('../models/notification.model'),
   pdf = require('html-pdf');
 
 
+  function dateFr(date) {
+    // return date.toLocaleString('fr-FR', { timeZone: 'UTC' })
+    date.setTime(date.getTime() + (2*60*60*1000));
+    // les noms de jours / mois
+    var jours = new Array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
+    var mois = new Array("janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre");
+    // on recupere la date
+    // var date = new Date();
+    // on construit le message
+    var message = ''
+    // var message = jours[date.getDay()] + " ";    nom du jour
+    message += date.getDate() + " "; // numero du jour
+    message += mois[date.getMonth()] + " "; // mois
+    message += date.getFullYear();
+    return message;
+  }
+
 
   let styleCSS = `
 p, a {
@@ -518,9 +535,9 @@ html +=`
 <td class="col-8"></td>
 <td class="col-2 alctr ts elem">`
 if(paiementQuote.isCreditNote) {
-html += `Avoir <br/>(${paiementQuote.datePaiement.toLocaleDateString("fr-FR")})`
+html += `Avoir <br/>(${dateFr(paiementQuote.datePaiement)})`
 } else {
-html += `Paiement <br/>(${paiementQuote.datePaiement.toLocaleDateString("fr-FR")})`
+html += `Paiement <br/>(${dateFr(paiementQuote.datePaiement)})`
 }
 
 
@@ -536,7 +553,7 @@ html +=`
 <tr>
 <td class="col-8"></td>
 <td class="col-2 alctr ts elem">
-Paiements Total
+Total Paiements
 </td>
 <td class="col-2 elem">
 ${Math.round(item.priceQuote.totalPaiementAmount)}${item.detail.currency}
@@ -595,7 +612,7 @@ ${Math.round(item.priceQuote.outstandingBalance)}${item.detail.currency}
 
                                 html += `<p class="inf2">Le `
                                 if (item.drawingSignature.dateSignature)
-                                  html += item.drawingSignature.dateSignature.toLocaleDateString("fr-FR")
+                                  html += idateFr(tem.drawingSignature.dateSignature)
 
             html += `
                               </p>
@@ -664,5 +681,7 @@ ${Math.round(item.priceQuote.outstandingBalance)}${item.detail.currency}
   generatePaiementQuotePDF (req, res, next) {
 
   }
+
+
 
 }
