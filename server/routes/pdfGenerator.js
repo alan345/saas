@@ -391,8 +391,8 @@ module.exports = {
                     html += '</p>'
                   })
                   html += `
-                  <p>Date: ${item.detail.dateQuote.issueDate}</p>
-                  <p>Date: ${item.detail.dateQuote.expiryDate}</p>
+                  <p>Date: ${dateFr(item.detail.dateQuote.issueDate)}</p>
+                  <p>Date: ${dateFr(item.detail.dateQuote.expiryDate)}</p>
 
 
                                </th>
