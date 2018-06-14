@@ -536,7 +536,7 @@ html +=`
 <tr>
 <td class="col-8"></td>
 <td class="col-2 alctr ts elem">
-T.Paiements
+Paiements Total
 </td>
 <td class="col-2 elem">
 ${Math.round(item.priceQuote.totalPaiementAmount)}${item.detail.currency}
