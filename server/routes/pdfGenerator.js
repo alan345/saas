@@ -392,17 +392,15 @@ module.exports = {
                   })
                   html += `
                                </th>
-                               <th>`
-                                html+=`
+                               <th>
                                 Date: ${item.detail.dateQuote.issueDate}
 
 
                                </th>
                                </th>
-                               <th>`
-                                html+=`
+                               <th>
                                 Date: ${item.detail.dateQuote.expiryDate}
-                                
+
 
                                </th>
                              </tr>
