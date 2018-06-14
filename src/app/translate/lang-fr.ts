@@ -11,6 +11,7 @@ export const LANG_FR_TRANS = {
     'Accepted without sigature': 'Accepté sans signature',
     'Reason:': 'Raison :',
     'on': 'le',
+    'Leave a comment': 'Laisser un commentaire',
     'Historic': 'Historique',
     'Status changed to rejected': 'Statut passé à Rejeté',
     'Status changed to pending': 'Statut passé à En Attente',
@@ -370,6 +371,6 @@ export const LANG_FR_TRANS = {
     'Search': 'Recherche',
     'This action is not reversible. Are you sure you want to delete?': 'Cette action est irréversible. Confirmez-vous la suppression ?',
     'New Paiement created': 'Nouveau Paiement enregistré',
-    'Quote accepted without signature': 'Devis accepté sans signature', 
+    'Quote accepted without signature': 'Devis accepté sans signature',
 
 };
